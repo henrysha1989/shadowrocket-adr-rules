@@ -1,12 +1,38 @@
-# updated: 2026-09-19 22:58 +0800
-# 字节跳动实时音视频与直播信令
-# 字节其他常用新业务域名
+# updated: 2026-09-19 23:37 +0800
+# ===== 阿里 / 钉钉生态核心信令与通信 (防工作台打不开与断流) =====
+DOMAIN-SUFFIX,dingtalk.com,DIRECT
+DOMAIN-SUFFIX,dingtalkapps.com,DIRECT
+DOMAIN-SUFFIX,laiwang.com,DIRECT
+DOMAIN-SUFFIX,alicdn.com,DIRECT
+DOMAIN-SUFFIX,tbcdn.cn,DIRECT
+DOMAIN-SUFFIX,acs.m.taobao.com,DIRECT
+DOMAIN-SUFFIX,amdc.m.taobao.com,DIRECT
+DOMAIN-SUFFIX,accs-dispatch.m.taobao.com,DIRECT
+# ===== 字节跳动 / 抖音 / 小说核心信令 (防番茄/七猫加载失败与通信断连) =====
+DOMAIN-SUFFIX,douyin.com,DIRECT
+DOMAIN-SUFFIX,douyincdn.com,DIRECT
+DOMAIN-SUFFIX,douyinpic.com,DIRECT
 DOMAIN-SUFFIX,amemv.com,DIRECT
+DOMAIN-SUFFIX,snssdk.com,DIRECT
+DOMAIN-SUFFIX,zijieapi.com,DIRECT
+DOMAIN-SUFFIX,byteimg.com,DIRECT
+DOMAIN-SUFFIX,ibytedtos.com,DIRECT
+DOMAIN-SUFFIX,rtcxyz.com,DIRECT
+DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
+# ===== 微信 / 腾讯通信核心通道 =====
+DOMAIN-SUFFIX,weixin.com,DIRECT
+DOMAIN-SUFFIX,wechat.com,DIRECT
+DOMAIN-SUFFIX,qq.com,DIRECT
+DOMAIN-SUFFIX,tencent.com,DIRECT
+# ===== 企业自用资产与内网服务 =====
+DOMAIN-SUFFIX,megarobo.com,DIRECT
+DOMAIN-SUFFIX,megarobo.tech,DIRECT
+DOMAIN-SUFFIX,megarobo.info,DIRECT
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,app-analytics-services.com,DIRECT
 DOMAIN-SUFFIX,apple.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
 DOMAIN-SUFFIX,icloud.com,DIRECT
 DOMAIN-SUFFIX,idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rtcxyz.com,DIRECT
 DOMAIN-SUFFIX,volccdn.com,DIRECT
