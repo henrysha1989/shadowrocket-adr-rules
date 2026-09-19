@@ -1,0 +1,42 @@
+# ========== 1. 字节系/番茄/抖音 关键防卡顿与正文白名单 ==========
+DOMAIN,i-lq.snssdk.com,DIRECT
+DOMAIN,mssdk.volces.com,DIRECT
+DOMAIN,novel.snssdk.com,DIRECT
+DOMAIN,novel-api.snssdk.com,DIRECT
+DOMAIN,p-novel.snssdk.com,DIRECT
+DOMAIN-SUFFIX,ecombdimg.com,DIRECT
+
+# ========== 2. 番茄小说广告、穿山甲联盟与推广拦截 ==========
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
+DOMAIN,ad.fqnovel.com,REJECT
+DOMAIN-KEYWORD,mon-,REJECT
+DOMAIN-SUFFIX,dailygn.com,REJECT
+DOMAIN-SUFFIX,luckycat.byteimg.com,REJECT
+DOMAIN-SUFFIX,ugsdk.cn,REJECT
+DOMAIN-SUFFIX,ecombdapi.com,REJECT
+
+# ========== 3. 七猫小说 (wtzw.com / qimao.com) 广告与追踪拦截 ==========
+DOMAIN-KEYWORD,ad,REJECT
+DOMAIN,mkt.wtzw.com,REJECT
+DOMAIN,mkt-cdn.wtzw.com,REJECT
+DOMAIN,spread.wtzw.com,REJECT
+DOMAIN,tjjs.wtzw.com,REJECT
+DOMAIN,api-nps.wtzw.com,REJECT
+DOMAIN,qm-dig.wtzw.com,REJECT
+DOMAIN,dig-cfg.wtzw.com,REJECT
+DOMAIN,qm-data.wtzw.com,REJECT
+DOMAIN,qm-ab.wtzw.com,REJECT
+DOMAIN,drs.wtzw.com,REJECT
+DOMAIN,drs-ipv6.wtzw.com,REJECT
+DOMAIN,abtest.wtzw.com,REJECT
+DOMAIN-SUFFIX,qm989.com,REJECT
+DOMAIN-SUFFIX,dsp.qimao.com,REJECT
+
+# ========== 4. 第三方广告联盟与营销 CDN ==========
+DOMAIN-SUFFIX,vc-brain.ndcpp.com,REJECT
+DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
+DOMAIN-SUFFIX,ydycdn.com,REJECT
+DOMAIN-SUFFIX,zztfly.com,REJECT
