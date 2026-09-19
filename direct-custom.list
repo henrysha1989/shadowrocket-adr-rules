@@ -1,10 +1,6 @@
 # 字节跳动实时音视频与直播信令
 DOMAIN-SUFFIX,rtcxyz.com,DIRECT
+
+# 字节其他常用新业务域名
 DOMAIN-SUFFIX,volccdn.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
-# auto-added 2026-09-19 17:09:46
-DOMAIN-SUFFIX,api5-normal-m-yz.amemv.com,DIRECT
-DOMAIN-SUFFIX,rj2186n6-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rx612n6-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,v26-awememusicpgc.amemv.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb-jltc-a.douyinvod.com,DIRECT
