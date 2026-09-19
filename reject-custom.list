@@ -1,8 +1,28 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-19 22:58 +0800
+# updated: 2026-09-19 23:37 +0800
 # ====================================================
 
+DOMAIN-SUFFIX,httpdns.alicdn.com,REJECT
+DOMAIN-SUFFIX,httpdns-api.aliyuncs.com,REJECT
+DOMAIN-SUFFIX,httpdns.volces.com,REJECT
+DOMAIN-SUFFIX,httpdns.baidubce.com,REJECT
+DOMAIN-SUFFIX,dns.weixin.qq.com,REJECT
+DOMAIN-SUFFIX,dns.wechat.com,REJECT
+DOMAIN-SUFFIX,httpdns.kuaishou.com,REJECT
+DOMAIN-SUFFIX,httpdns.proxima.netease.com,REJECT
+DOMAIN-SUFFIX,mmstat.com,REJECT
+DOMAIN-SUFFIX,alimama.com,REJECT
+DOMAIN-SUFFIX,tanx.com,REJECT
+DOMAIN-SUFFIX,adash.m.taobao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+DOMAIN-SUFFIX,toblog.ctobsnssdk.com,REJECT
+DOMAIN-SUFFIX,log.snssdk.com,REJECT
+DOMAIN-SUFFIX,app-measurement.com,REJECT
+DOMAIN-SUFFIX,crashlytics.com,REJECT
+DOMAIN-SUFFIX,app-analytics-services.com,REJECT
 DOMAIN-SUFFIX,-mgsdk-sign.byteimg.com,REJECT
 DOMAIN-SUFFIX,0kkkkkt.com,REJECT
 DOMAIN-SUFFIX,abtest.wtzw.com,REJECT
@@ -56,8 +76,6 @@ DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
 DOMAIN-SUFFIX,mssdk-bu.bytedance.com,REJECT
 DOMAIN-SUFFIX,ndcpp.com,REJECT
 DOMAIN-SUFFIX,opactivity.umetrip.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
 DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
 DOMAIN-SUFFIX,perf.m.jd.com,REJECT
 DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
