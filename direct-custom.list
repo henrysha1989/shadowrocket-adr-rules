@@ -1,14 +1,6 @@
-# updated: 2026-09-19 22:11 +0800
+# updated: 2026-09-19 22:12 +0800
 # 字节跳动实时音视频与直播信令
 # 字节其他常用新业务域名
-DOMAIN-SUFFIX,amemv.com,DIRECT
-DOMAIN-SUFFIX,bytevcloud.com,DIRECT
-DOMAIN-SUFFIX,douyinvod.com,DIRECT
-DOMAIN-SUFFIX,idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rtcxyz.com,DIRECT
-DOMAIN-SUFFIX,snssdk.com,DIRECT
-DOMAIN-SUFFIX,volccdn.com,DIRECT
-DOMAIN-SUFFIX,zijieapi.com,DIRECT
 DOMAIN-SUFFIX,amemv.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
