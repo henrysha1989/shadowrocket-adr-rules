@@ -1,4 +1,4 @@
-! updated: 2026-09-19 22:58 +0800
+! updated: 2026-09-19 23:37 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -47,6 +47,30 @@
 ! ========== 补漏：拼多多 DSP 广告投放与数据追踪 ==========
 ! ========== 严格收窄：阻断电商 API，仅保留静态图片 ==========
 ! ========== 阻断七猫广告大脑与核心打点 ==========
+! ===== 主流移动端 HttpDNS 阻断 (防止应用绕过本级 DNS 走私有通道解析) =====
+||httpdns.alicdn.com^
+||httpdns-api.aliyuncs.com^
+||httpdns.volces.com^
+||httpdns.baidubce.com^
+||dns.weixin.qq.com^
+||dns.wechat.com^
+||httpdns.kuaishou.com^
+||httpdns.proxima.netease.com^
+! ===== 移动端高频日志分析、开屏与广告跟踪埋点 =====
+||mmstat.com^
+||alimama.com^
+||tanx.com^
+||adash.m.taobao.com^
+||pangolin-sdk-toutiao.com^
+||pangolin-sdk-toutiao-b.com^
+||ad.toutiao.com^
+||toblog.ctobsnssdk.com^
+||log.snssdk.com^
+||app-measurement.com^
+||crashlytics.com^
+! ===== Google 系应用分析上报（2026-09-19 由直连改判为拦截，owner 可要求回退） =====
+||app-analytics-services.com^
+! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||-mgsdk-sign.byteimg.com^
 ||0kkkkkt.com^
 ||abtest.wtzw.com^
@@ -100,8 +124,6 @@
 ||mssdk-bu.bytedance.com^
 ||ndcpp.com^
 ||opactivity.umetrip.com^
-||pangolin-sdk-toutiao-b.com^
-||pangolin-sdk-toutiao.com^
 ||pangolin.snssdk.com^
 ||perf.m.jd.com^
 ||pglstatp-toutiao.com^
