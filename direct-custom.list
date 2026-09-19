@@ -1,4 +1,4 @@
-# updated: 2026-09-19 23:37 +0800
+# updated: 2026-09-19 23:38 +0800
 # ===== 阿里 / 钉钉生态核心信令与通信 (防工作台打不开与断流) =====
 DOMAIN-SUFFIX,dingtalk.com,DIRECT
 DOMAIN-SUFFIX,dingtalkapps.com,DIRECT
@@ -29,8 +29,9 @@ DOMAIN-SUFFIX,megarobo.com,DIRECT
 DOMAIN-SUFFIX,megarobo.tech,DIRECT
 DOMAIN-SUFFIX,megarobo.info,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,app-analytics-services.com,DIRECT
 DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,bytedns1.com,DIRECT
+DOMAIN-SUFFIX,bytedns3.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
 DOMAIN-SUFFIX,icloud.com,DIRECT
