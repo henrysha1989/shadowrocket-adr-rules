@@ -1,0 +1,146 @@
+! ==============================================================================
+! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
+! ==============================================================================
+@@||i-lq.snssdk.com^
+@@||mssdk.volces.com^
+@@||novel.snssdk.com^
+@@||novel-api.snssdk.com^
+@@||p-novel.snssdk.com^
+@@||*.ecombdimg.com^
+! ==============================================================================
+! 2. 阿里系（淘宝、高德地图、优酷）弹窗、HTTPDNS 调度与广告拦截
+! ==============================================================================
+! 阻断阿里 AMDC HTTPDNS 调度中心（杜绝开屏广告 IP 偷跑）
+||amdc.alipay.com^
+||amdc-sibling.alipay.com.cn^
+||amdc.m.taobao.com^
+! 淘宝营销物料、PopLayer 弹窗引擎与动态组件
+||poplayer.template.alibaba.com^
+||modeldownload.taobao.com^
+||zconfig.alibabausercontent.com^
+||tiga-release-dc.m.taobao.com^
+! 高德地图营销商城、动态浮层与开屏视频广告物料
+||store.is.autonavi.com^
+||faas-image.amap.com^
+||awaken.amap.com^
+||*-ykx.amap.com^
+||xpis-xcdn.youku.com^
+! ==============================================================================
+! 3. 京东（JD）广告投放、CPS 全系图床与营销追踪
+! ==============================================================================
+! 核心广告投放引擎与营销配置
+||dsap.jd.com^
+||waapdg.jd.com^
+||ccfjma.m.jd.com^
+||mktm.jd.com^
+! 通配拦截京东所有 CPS 营销推广图床（覆盖 imgcps1/2/3/4 等）
+||imgcps*.jd.com^
+! 设备指纹、性能监控与广告曝光埋点
+||sdkfp.jd.com^
+||anti-sdk-report.m.jd.com^
+||anti-sdk-ccs-pre.m.jd.com^
+||blackhole.m.jd.com^
+||perf.m.jd.com^
+||sgm-m.jd.com^
+||h5speed.m.jd.com^
+||device-security-url.jd.com^
+||jpushsc.m.jd.com^
+! ==============================================================================
+! 4. 字节跳动 / 番茄小说全系广告、激励视频、埋点与电商组件
+! ==============================================================================
+! 穿山甲 / 巨量引擎广告联盟底座
+||pglstatp-toutiao.com^
+||pangolin-sdk-toutiao.com^
+||pangolin-sdk-toutiao-b.com^
+||pangolin.snssdk.com^
+! 番茄小说专属开屏广告图床、商业化 API 与实时曝光埋点（零误伤正文与听书）
+||-mgsdk-sign.byteimg.com^
+||ads*-normal-*.zijieapi.com^
+||ad.fqnovel.com^
+||mon-.fqnovel.com^
+||*log*-applog-*.fqnovel.com^
+||rtlog5-applog-lf.fqnovel.com^
+! 番茄小说正文与翻页插屏/激励视频拉流过滤（保留正常听书）
+||*-reading-ad.*.com^
+||*-reading-ad.qznovelvod.com^
+! 字节电商广告与 SaaS 营销挂件
+||*.ecombdapi.com^
+! 小游戏弹窗、金币激励与拉活推广
+||dailygn.com^
+||luckycat.byteimg.com^
+||ugsdk.cn^
+! 移动分析、云端监控与 AB 分流
+||ma.zijieapi.com^
+||tosv.byted.org^
+||abtest3-misc-hl.zijieapi.com^
+||apmplus.volces.com^
+||mon.toutiaocloud.com^
+||mon.toutiaocloud.net^
+||mssdk-bu.bytedance.com^
+! 壁虎动态广告热更新（精准根域名拦截，覆盖全部多云 CNAME 落地节点）
+||gecko.zijieapi.com^
+||bytegecko.com^
+! 外部引入的抖音直播广告引流
+||webcast-open.douyin.com^
+||webcast-open-lf.douyin.com^
+! ==============================================================================
+! 5. 七猫小说（梧桐 / 奇猫）广告投放、商业化配置与聚合联盟
+! ==============================================================================
+! 七猫自有商业化配置与广告位控制
+||t-cfg.wtzw.com^
+||api-cfg.wtzw.com^
+||ad.wtzw.com^
+||mkt.wtzw.com^
+||mkt-cdn.wtzw.com^
+||spread.wtzw.com^
+||tjjs.wtzw.com^
+||api-nps.wtzw.com^
+||qm-dig.wtzw.com^
+||dig-cfg.wtzw.com^
+||qm-data.wtzw.com^
+||qm-ab.wtzw.com^
+||drs.wtzw.com^
+||drs-ipv6.wtzw.com^
+||abtest.wtzw.com^
+! 七猫广告联盟与 DSP 平台
+||ad.qm989.com^
+||qmad.qimao.com^
+||dsp.qimao.com^
+! ==============================================================================
+! 6. 小红书（RED）广告图床、商业服务与追踪
+! ==============================================================================
+! 开屏与信息流广告专用图床（独立于正常博主配图）
+||ads-*.xhscdn.com^
+||growth-img.xhscdn.com^
+! 商业广告服务与崩溃上报
+||as.xiaohongshu.com^
+||crash.xiaohongshu.com^
+! ==============================================================================
+! 7. 航旅纵横与工具类应用净化
+! ==============================================================================
+! 航旅纵横开屏闪屏、活动弹窗与社交推广
+||umestartup.umetrip.com^
+||opactivity.umetrip.com^
+||bda.umetrip.com^
+||sns.umetrip.com^
+! 美团广告流推荐
+||feedguess.meituan.com^
+! 央视频与学习强国埋点
+||btrace.yangshipin.cn^
+||mediadata.xuexi.cn^
+! ==============================================================================
+! 8. 第三方通用广告联盟、指纹追踪、探针与反作弊
+! ==============================================================================
+||tdid.m.qq.com^
+||ir-sdk.dun.163.com^
+||ir-sdk.dun.163yun.com^
+||www.qchannel01.cn^
+||vc-brain.ndcpp.com^
+||rcv.aiclk.com^
+||ydycdn.com^
+||zztfly.com^
+||0kkkkkt.com^
+||sjxydc.com^
+||qrstuvwxyzab.com^
+||shark-tracer.netease.com^
+||*.smadex.com^
