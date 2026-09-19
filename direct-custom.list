@@ -1,40 +1,12 @@
 # 字节跳动实时音视频与直播信令
-DOMAIN-SUFFIX,rtcxyz.com,DIRECT
-
 # 字节其他常用新业务域名
-DOMAIN-SUFFIX,volccdn.com,DIRECT
-DOMAIN-SUFFIX,bytevcloud.com,DIRECT
 # auto-added 2026-09-19 18:00:03
-DOMAIN-SUFFIX,gecko5-hl.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,ma5-normal-hl.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,rn2178n-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,v11-hcc.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v95-zjjx2tc-wha.douyinvod.com,DIRECT
 # auto-added 2026-09-19 21:41:46
-DOMAIN-SUFFIX,api.amemv.com,DIRECT
-DOMAIN-SUFFIX,api5-normal-m-yz.amemv.com,DIRECT
-DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
-DOMAIN-SUFFIX,is.snssdk.com,DIRECT
-DOMAIN-SUFFIX,rc2374n6-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rn2178n6-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rn2257n6-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,v11.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v27-daily-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-e.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gz-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gz2-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb-gddgtc-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb-wha.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb-ws-wha.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb-zjnbtc-wha.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb2-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-gzb2-bjtc-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-ncdn-80iaas-e.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-ncdn-80iaas.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-ex-mc-e.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-qn-daily-cm.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-sjy-daily.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-traffic-cm-wha.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v95-se-zjwztc-awememusicpgc.amemv.com,DIRECT
-DOMAIN-SUFFIX,v95-se-zjwztc.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,webcast.amemv.com,DIRECT
+DOMAIN-SUFFIX,amemv.com,DIRECT
+DOMAIN-SUFFIX,bytevcloud.com,DIRECT
+DOMAIN-SUFFIX,douyinvod.com,DIRECT
+DOMAIN-SUFFIX,idouyinvod.com,DIRECT
+DOMAIN-SUFFIX,rtcxyz.com,DIRECT
+DOMAIN-SUFFIX,snssdk.com,DIRECT
+DOMAIN-SUFFIX,volccdn.com,DIRECT
+DOMAIN-SUFFIX,zijieapi.com,DIRECT
