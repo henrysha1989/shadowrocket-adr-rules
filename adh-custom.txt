@@ -151,3 +151,5 @@
 
 ! ========== 严格收窄：阻断电商 API，仅保留静态图片 ==========
 ||ecombdapi.com^
+! auto-added 2026-09-19 15:51:55
+||test-foo.dsp.example.com^
