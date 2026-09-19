@@ -103,3 +103,7 @@ DOMAIN-SUFFIX,sjxydc.com,REJECT
 DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
 DOMAIN-SUFFIX,shark-tracer.netease.com,REJECT
 DOMAIN-KEYWORD,.smadex.com,REJECT
+DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,app-analytics-services.com,REJECT
+DOMAIN-SUFFIX,ecombdapi.com,REJECT
