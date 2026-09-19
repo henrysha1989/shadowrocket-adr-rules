@@ -12,6 +12,8 @@ permissions:
 jobs:
   convert:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -33,6 +35,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes detected."
           else
-            git commit -m "Auto-convert ADH rules to Shadowrocket format [skip ci]"
+            git commit -m "Auto-convert ADH rules to Shadowrocket format @ $(date '+%Y-%m-%d %H:%M %z')"
             git push
           fi
