@@ -1,5 +1,6 @@
 import datetime
 import os
+import re
 
 
 def convert_adh_to_sr(input_file, output_file):
@@ -23,6 +24,8 @@ def convert_adh_to_sr(input_file, output_file):
         if not line:
             continue
         # keep section / description comments (AdGuard '!' -> Shadowrocket '#')
+        if re.match(r'^!\s*updated\b', line):
+            continue
         if line.startswith('!'):
             body = line[1:].strip()
             sr_rules.append(f"# {body}" if body else "#")
