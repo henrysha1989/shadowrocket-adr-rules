@@ -1,0 +1,4 @@
+# 字节跳动实时音视频与直播信令
+DOMAIN-SUFFIX,rtcxyz.com,DIRECT
+DOMAIN-SUFFIX,volccdn.com,DIRECT
+DOMAIN-SUFFIX,bytevcloud.com,DIRECT
