@@ -36,5 +36,6 @@ jobs:
             echo "No changes detected."
           else
             git commit -m "Auto-convert ADH rules to Shadowrocket format @ $(date '+%Y-%m-%d %H:%M %z')"
+            git pull --rebase origin main
             git push
           fi
