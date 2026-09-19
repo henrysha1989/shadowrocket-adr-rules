@@ -47,4 +47,4 @@ def convert_adh_to_sr(input_file, output_file):
     print(f"Conversion finished: {output_file}")
 
 if __name__ == '__main__':
-    convert_adh_to_sr('adh-custom.txt', 'reject-custom.list')
+    convert_adh_to_sr('adh-custom.txt', 'shadowrocket-custom.list')
