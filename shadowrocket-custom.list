@@ -107,3 +107,4 @@ DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,dsp.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,app-analytics-services.com,REJECT
 DOMAIN-SUFFIX,ecombdapi.com,REJECT
+DOMAIN-SUFFIX,test-foo.dsp.example.com,REJECT
