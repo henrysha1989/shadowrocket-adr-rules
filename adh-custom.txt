@@ -144,3 +144,10 @@
 ||qrstuvwxyzab.com^
 ||shark-tracer.netease.com^
 ||*.smadex.com^
+! ========== 补漏：拼多多 DSP 广告投放与数据追踪 ==========
+||t-dsp.pinduoduo.com^
+||dsp.pinduoduo.com^
+||app-analytics-services.com^
+
+! ========== 严格收窄：阻断电商 API，仅保留静态图片 ==========
+||ecombdapi.com^
