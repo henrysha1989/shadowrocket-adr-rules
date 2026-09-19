@@ -7,7 +7,7 @@ def convert_adh_to_sr(input_file, output_file):
         print(f"File {input_file} not found.")
         return
 
-    stamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M %z')
+    stamp = datetime.datetime.now().astimezone().strftime('%Y-%m-%d %H:%M %z')
     sr_rules = [
         "# ====================================================",
         "# Auto-generated Shadowrocket Ruleset from AdGuard Home",
