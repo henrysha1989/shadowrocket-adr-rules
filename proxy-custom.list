@@ -1,3 +1,17 @@
-# updated: 2026-09-19 21:54 +0800
-# 需代理域名（自动收集）
+# updated: 2026-09-19 23:37 +0800
+# ===== 海外小众加密工具与社交服务 =====
+DOMAIN-SUFFIX,proton.me,PROXY
+DOMAIN-SUFFIX,protonmail.com,PROXY
+DOMAIN-SUFFIX,protonvpn.com,PROXY
+DOMAIN-SUFFIX,pinterest.com,PROXY
+DOMAIN-SUFFIX,notion.so,PROXY
+DOMAIN-SUFFIX,linear.app,PROXY
+# ===== 境外 DNS 与网络归属测试验证工具 =====
+DOMAIN-SUFFIX,dnsleaktest.com,PROXY
+DOMAIN-SUFFIX,browserleaks.com,PROXY
+DOMAIN-SUFFIX,ipleak.net,PROXY
+DOMAIN-SUFFIX,whoer.net,PROXY
+DOMAIN-SUFFIX,ipinfo.io,PROXY
+DOMAIN-SUFFIX,ip.sb,PROXY
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,gstatic.com,PROXY
