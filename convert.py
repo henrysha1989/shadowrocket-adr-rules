@@ -20,7 +20,15 @@ def convert_adh_to_sr(input_file, output_file):
 
     for line in lines:
         line = line.strip()
-        if not line or line.startswith(('!', '#')):
+        if not line:
+            continue
+        # keep section / description comments (AdGuard '!' -> Shadowrocket '#')
+        if line.startswith('!'):
+            body = line[1:].strip()
+            sr_rules.append(f"# {body}" if body else "#")
+            continue
+        if line.startswith('#'):
+            sr_rules.append(line)
             continue
 
         if line.startswith('@@||'):
