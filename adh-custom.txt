@@ -1,4 +1,4 @@
-! updated: 2026-09-20 14:18 +0800
+! updated: 2026-09-20 14:20 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -209,6 +209,7 @@
 ||isaas5-normal-hl.ecombdapi.com^
 ||isaas5-normal-lq.ecombdapi.com^
 ||jehbdjhjbhjv.jspcdn.cn^
+||jomodns.cn^
 ||jpushsc.m.jd.com^
 ||jupiter.sys.miui.com^
 ||ks.pull.yximgs.com^
@@ -258,6 +259,7 @@
 ||ndcpp.com^
 ||odf.app-ads-services.com^
 ||odm.app-ads-services.com^
+||onethingpcs.com^
 ||opactivity.umetrip.com^
 ||oth.eve.mdt.qq.com^
 ||oth.str.beacon.qq.com^
