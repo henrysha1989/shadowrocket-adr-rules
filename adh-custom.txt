@@ -1,4 +1,4 @@
-! updated: 2026-09-20 11:50 +0800
+! updated: 2026-09-20 11:57 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -90,6 +90,8 @@
 ||bda.umetrip.com^
 ||blackhole.m.jd.com^
 ||btrace.yangshipin.cn^
+||bytedns1.com^
+||bytedns3.com^
 ||bytegecko.com^
 ||ccfjma.m.jd.com^
 ||crash.xiaohongshu.com^
@@ -133,6 +135,7 @@
 ||qm-dig.wtzw.com^
 ||qmad.qimao.com^
 ||qrstuvwxyzab.com^
+||queniuck.com^
 ||rcv.aiclk.com^
 ||rtlog5-applog-lf.fqnovel.com^
 ||sdkfp.jd.com^
