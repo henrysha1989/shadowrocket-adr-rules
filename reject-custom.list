@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-20 11:51 +0800
+# updated: 2026-09-20 11:58 +0800
 # ====================================================
 
 # ==============================================================================
@@ -94,6 +94,8 @@ DOMAIN-SUFFIX,awaken.amap.com,REJECT
 DOMAIN-SUFFIX,bda.umetrip.com,REJECT
 DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
 DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
+DOMAIN-SUFFIX,bytedns1.com,REJECT
+DOMAIN-SUFFIX,bytedns3.com,REJECT
 DOMAIN-SUFFIX,bytegecko.com,REJECT
 DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
 DOMAIN-SUFFIX,crash.xiaohongshu.com,REJECT
@@ -137,6 +139,7 @@ DOMAIN-SUFFIX,qm-data.wtzw.com,REJECT
 DOMAIN-SUFFIX,qm-dig.wtzw.com,REJECT
 DOMAIN-SUFFIX,qmad.qimao.com,REJECT
 DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
+DOMAIN-SUFFIX,queniuck.com,REJECT
 DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
 DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,sdkfp.jd.com,REJECT
