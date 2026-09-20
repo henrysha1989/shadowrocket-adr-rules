@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-20 21:29 +0800
+# updated: 2026-09-20 21:37 +0800
 # ====================================================
 
 # ==============================================================================
@@ -74,6 +74,88 @@ DOMAIN-SUFFIX,app-measurement.com,REJECT
 DOMAIN-SUFFIX,crashlytics.com,REJECT
 # ===== Google 系应用分析上报（2026-09-19 由直连改判为拦截，owner 可要求回退） =====
 DOMAIN-SUFFIX,app-analytics-services.com,REJECT
+# ===== 手工精选广告/追踪规则（09-19 原始手工区·已回填，勿删）=====
+DOMAIN-SUFFIX,0kkkkkt.com,REJECT
+DOMAIN-SUFFIX,abtest.wtzw.com,REJECT
+DOMAIN-SUFFIX,ad.fqnovel.com,REJECT
+DOMAIN-SUFFIX,ad.qm989.com,REJECT
+DOMAIN-SUFFIX,ad.wtzw.com,REJECT
+DOMAIN-SUFFIX,amdc-sibling.alipay.com.cn,REJECT
+DOMAIN-SUFFIX,amdc.alipay.com,REJECT
+DOMAIN-SUFFIX,anti-sdk-ccs-pre.m.jd.com,REJECT
+DOMAIN-SUFFIX,anti-sdk-report.m.jd.com,REJECT
+DOMAIN-SUFFIX,api-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,api-nps.wtzw.com,REJECT
+DOMAIN-SUFFIX,apmplus.volces.com,REJECT
+DOMAIN-SUFFIX,as.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,awaken.amap.com,REJECT
+DOMAIN-SUFFIX,bda.umetrip.com,REJECT
+DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
+DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
+DOMAIN-SUFFIX,bytegecko.com,REJECT
+DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
+DOMAIN-SUFFIX,crash.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,dailygn.com,REJECT
+DOMAIN-SUFFIX,device-security-url.jd.com,REJECT
+DOMAIN-SUFFIX,dig-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,drs-ipv6.wtzw.com,REJECT
+DOMAIN-SUFFIX,drs.wtzw.com,REJECT
+DOMAIN-SUFFIX,dsap.jd.com,REJECT
+DOMAIN-SUFFIX,dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,dsp.qimao.com,REJECT
+DOMAIN-SUFFIX,ecombdapi.com,REJECT
+DOMAIN-SUFFIX,faas-image.amap.com,REJECT
+DOMAIN-SUFFIX,feedguess.meituan.com,REJECT
+DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
+DOMAIN-SUFFIX,growth-img.xhscdn.com,REJECT
+DOMAIN-SUFFIX,h5speed.m.jd.com,REJECT
+DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
+DOMAIN-SUFFIX,ir-sdk.dun.163yun.com,REJECT
+DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
+DOMAIN-SUFFIX,luckycat.byteimg.com,REJECT
+DOMAIN-SUFFIX,ma.zijieapi.com,REJECT
+DOMAIN-SUFFIX,mediadata.xuexi.cn,REJECT
+DOMAIN-SUFFIX,mkt-cdn.wtzw.com,REJECT
+DOMAIN-SUFFIX,mkt.wtzw.com,REJECT
+DOMAIN-SUFFIX,mktm.jd.com,REJECT
+DOMAIN-SUFFIX,modeldownload.taobao.com,REJECT
+DOMAIN-SUFFIX,mon-.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
+DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
+DOMAIN-SUFFIX,mssdk-bu.bytedance.com,REJECT
+DOMAIN-SUFFIX,opactivity.umetrip.com,REJECT
+DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
+DOMAIN-SUFFIX,perf.m.jd.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,poplayer.template.alibaba.com,REJECT
+DOMAIN-SUFFIX,qm-ab.wtzw.com,REJECT
+DOMAIN-SUFFIX,qm-data.wtzw.com,REJECT
+DOMAIN-SUFFIX,qm-dig.wtzw.com,REJECT
+DOMAIN-SUFFIX,qmad.qimao.com,REJECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
+DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,sdkfp.jd.com,REJECT
+DOMAIN-SUFFIX,sgm-m.jd.com,REJECT
+DOMAIN-SUFFIX,shark-tracer.netease.com,REJECT
+DOMAIN-SUFFIX,sjxydc.com,REJECT
+DOMAIN-SUFFIX,sns.umetrip.com,REJECT
+DOMAIN-SUFFIX,spread.wtzw.com,REJECT
+DOMAIN-SUFFIX,store.is.autonavi.com,REJECT
+DOMAIN-SUFFIX,t-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,tdid.m.qq.com,REJECT
+DOMAIN-SUFFIX,tiga-release-dc.m.taobao.com,REJECT
+DOMAIN-SUFFIX,tjjs.wtzw.com,REJECT
+DOMAIN-SUFFIX,tosv.byted.org,REJECT
+DOMAIN-SUFFIX,ugsdk.cn,REJECT
+DOMAIN-SUFFIX,umestartup.umetrip.com,REJECT
+DOMAIN-SUFFIX,vc-brain.ndcpp.com,REJECT
+DOMAIN-SUFFIX,waapdg.jd.com,REJECT
+DOMAIN-SUFFIX,www.qchannel01.cn,REJECT
+DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
+DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
+DOMAIN-SUFFIX,zztfly.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
