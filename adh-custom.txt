@@ -1,4 +1,4 @@
-! updated: 2026-09-20 11:57 +0800
+! updated: 2026-09-20 12:03 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -73,6 +73,10 @@
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||-mgsdk-sign.byteimg.com^
 ||0kkkkkt.com^
+||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
+||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
+||2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click^
+||2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click^
 ||abtest.wtzw.com^
 ||abtest3-misc-hl.zijieapi.com^
 ||ad.fqnovel.com^
@@ -83,7 +87,9 @@
 ||anti-sdk-ccs-pre.m.jd.com^
 ||anti-sdk-report.m.jd.com^
 ||api-cfg.wtzw.com^
+||api-flow.flyme.cn^
 ||api-nps.wtzw.com^
+||api.sec.miui.com^
 ||apmplus.volces.com^
 ||as.xiaohongshu.com^
 ||awaken.amap.com^
@@ -96,6 +102,7 @@
 ||ccfjma.m.jd.com^
 ||crash.xiaohongshu.com^
 ||dailygn.com^
+||data.sec.miui.com^
 ||device-security-url.jd.com^
 ||dig-cfg.wtzw.com^
 ||drs-ipv6.wtzw.com^
@@ -106,27 +113,42 @@
 ||ecombdapi.com^
 ||faas-image.amap.com^
 ||feedguess.meituan.com^
+||flash.sec.miui.com^
+||galileotelemetry.tencent.com^
 ||gecko.zijieapi.com^
 ||growth-img.xhscdn.com^
 ||h5speed.m.jd.com^
+||idm.iot.mi.com^
+||info.3g.qq.com^
 ||ir-sdk.dun.163.com^
 ||ir-sdk.dun.163yun.com^
 ||jpushsc.m.jd.com^
+||jupiter.sys.miui.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
+||log.wechatpay.cn^
+||log.weixin.qq.com^
+||log0-misc-lf.amemv.com^
+||log0-normal-hl.toutiaoapi.com^
 ||luckycat.byteimg.com^
 ||ma.zijieapi.com^
 ||mediadata.xuexi.cn^
+||metrics1-drcn.dt.dbankcloud.cn^
 ||mkt-cdn.wtzw.com^
 ||mkt.wtzw.com^
 ||mktm.jd.com^
+||mm.365dmp.com^
 ||modeldownload.taobao.com^
 ||mon-.fqnovel.com^
+||mon.snssdk.com^
 ||mon.toutiaocloud.com^
 ||mon.toutiaocloud.net^
+||msch.f.360.cn^
 ||mssdk-bu.bytedance.com^
+||mum.alibabachengdun.net^
 ||ndcpp.com^
 ||opactivity.umetrip.com^
 ||pangolin.snssdk.com^
+||pc-mon.snssdk.com^
 ||perf.m.jd.com^
 ||pglstatp-toutiao.com^
 ||poplayer.template.alibaba.com^
@@ -145,11 +167,14 @@
 ||sns.umetrip.com^
 ||spread.wtzw.com^
 ||store.is.autonavi.com^
+||szlong.weixin.qq.com^
 ||t-cfg.wtzw.com^
 ||t-dsp.pinduoduo.com^
+||talk.bz.getui.net^
 ||tdid.m.qq.com^
 ||tiga-release-dc.m.taobao.com^
 ||tjjs.wtzw.com^
+||tnc0-aliec2.zijieapi.com^
 ||tosv.byted.org^
 ||ugsdk.cn^
 ||umestartup.umetrip.com^
@@ -157,6 +182,7 @@
 ||waapdg.jd.com^
 ||webcast-open-lf.douyin.com^
 ||webcast-open.douyin.com^
+||wetelemetry.weixin.qq.com^
 ||www.qchannel01.cn^
 ||xpis-xcdn.youku.com^
 ||ydycdn.com^
