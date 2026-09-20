@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 00:00 +0800
+# updated: 2026-09-21 06:00 +0800
 # ====================================================
 
 # ==============================================================================
@@ -278,6 +278,8 @@ DOMAIN-SUFFIX,talk.bz.gepush.com,REJECT
 DOMAIN-SUFFIX,talk.bz.getui.com,REJECT
 DOMAIN-SUFFIX,talk.bz.getui.net,REJECT
 DOMAIN-SUFFIX,th.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,tianshu.gtimg.cn,REJECT
+DOMAIN-SUFFIX,time.video.ptqy.gitv.tv,REJECT
 DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,REJECT
