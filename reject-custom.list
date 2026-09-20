@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-20 14:18 +0800
+# updated: 2026-09-20 14:20 +0800
 # ====================================================
 
 # ==============================================================================
@@ -213,6 +213,7 @@ DOMAIN-SUFFIX,isaas3-normal-lq.ecombdapi.com,REJECT
 DOMAIN-SUFFIX,isaas5-normal-hl.ecombdapi.com,REJECT
 DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,REJECT
 DOMAIN-SUFFIX,jehbdjhjbhjv.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,jomodns.cn,REJECT
 DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
 DOMAIN-SUFFIX,jupiter.sys.miui.com,REJECT
 DOMAIN-SUFFIX,ks.pull.yximgs.com,REJECT
@@ -262,6 +263,7 @@ DOMAIN-SUFFIX,mum.alibabachengdun.net,REJECT
 DOMAIN-SUFFIX,ndcpp.com,REJECT
 DOMAIN-SUFFIX,odf.app-ads-services.com,REJECT
 DOMAIN-SUFFIX,odm.app-ads-services.com,REJECT
+DOMAIN-SUFFIX,onethingpcs.com,REJECT
 DOMAIN-SUFFIX,opactivity.umetrip.com,REJECT
 DOMAIN-SUFFIX,oth.eve.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,oth.str.beacon.qq.com,REJECT
