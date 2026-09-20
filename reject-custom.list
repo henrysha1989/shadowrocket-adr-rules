@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-20 22:18 +0800
+# updated: 2026-09-21 00:00 +0800
 # ====================================================
 
 # ==============================================================================
@@ -166,19 +166,26 @@ DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click,REJECT
 DOMAIN-SUFFIX,a.fxltsbl.com,REJECT
 DOMAIN-SUFFIX,abtest3-misc-hl.zijieapi.com,REJECT
 DOMAIN-SUFFIX,adashxgc.ut.taobao.com,REJECT
+DOMAIN-SUFFIX,adlog-js.e.kuaishou.com,REJECT
+DOMAIN-SUFFIX,adlog.e.kuaishou.cn,REJECT
+DOMAIN-SUFFIX,adlog.e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,adnxs-simple.com,REJECT
 DOMAIN-SUFFIX,ads3-normal.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT
+DOMAIN-SUFFIX,adx-data-u1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,akamai-apigateway-gio-analytics.tesla.cn,REJECT
 DOMAIN-SUFFIX,altjyqomnnong.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,analytics.map.qq.com,REJECT
 DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT
 DOMAIN-SUFFIX,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,api.e.kuaishou.com,REJECT
+DOMAIN-SUFFIX,api.kwaizt.com,REJECT
 DOMAIN-SUFFIX,api.sec.miui.com,REJECT
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT
 DOMAIN-SUFFIX,aspect-upush.umeng.com,REJECT
 DOMAIN-SUFFIX,audid.umeng.com,REJECT
+DOMAIN-SUFFIX,b.scorecardresearch.com,REJECT
 DOMAIN-SUFFIX,bbvhbbbhjghk.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,beaconcdn.qq.com,REJECT
 DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,REJECT
@@ -216,6 +223,7 @@ DOMAIN-SUFFIX,live-api.immomo.com,REJECT
 DOMAIN-SUFFIX,log.avlyun.com,REJECT
 DOMAIN-SUFFIX,log.wechatpay.cn,REJECT
 DOMAIN-SUFFIX,log.weixin.qq.com,REJECT
+DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,log0-misc-lf.amemv.com,REJECT
 DOMAIN-SUFFIX,log0-normal-hl.toutiaoapi.com,REJECT
 DOMAIN-SUFFIX,log0-normal-lq.toutiaoapi.com,REJECT
@@ -245,7 +253,11 @@ DOMAIN-SUFFIX,oth.eve.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,oth.str.beacon.qq.com,REJECT
 DOMAIN-SUFFIX,oth.str.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,otheve.beacon.qq.com,REJECT
+DOMAIN-SUFFIX,p1-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,p3-ad-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p3-ad.adukwai.com,REJECT
+DOMAIN-SUFFIX,p4-ad.adkwai.com,REJECT
+DOMAIN-SUFFIX,p5-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT
 DOMAIN-SUFFIX,pc-mon.snssdk.com,REJECT
 DOMAIN-SUFFIX,pimlog.baidu.com,REJECT
@@ -257,6 +269,7 @@ DOMAIN-SUFFIX,port.sec.miui.com,REJECT
 DOMAIN-SUFFIX,px.effirst.com,REJECT
 DOMAIN-SUFFIX,queniuck.com,REJECT
 DOMAIN-SUFFIX,resolve.umeng.com,REJECT
+DOMAIN-SUFFIX,sdk.1rtb.net,REJECT
 DOMAIN-SUFFIX,sdk.e.qq.com,REJECT
 DOMAIN-SUFFIX,snowflake.qq.com,REJECT
 DOMAIN-SUFFIX,sofire.baidu.com,REJECT
@@ -274,6 +287,7 @@ DOMAIN-SUFFIX,tnc3-bjlgy.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tobapplog.ctobsnssdk.com,REJECT
 DOMAIN-SUFFIX,tools.3g.qq.com,REJECT
 DOMAIN-SUFFIX,tracking.miui.com,REJECT
+DOMAIN-SUFFIX,ulogjs.ksapisrv.com,REJECT
 DOMAIN-SUFFIX,umengacs.m.taobao.com,REJECT
 DOMAIN-SUFFIX,up-hl.3g.qq.com,REJECT
 DOMAIN-SUFFIX,update.avlyun.sec.miui.com,REJECT
@@ -305,5 +319,6 @@ DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT
 DOMAIN-SUFFIX,xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,xlog.jd.com,REJECT
 DOMAIN-SUFFIX,xycdn.com.gslb.kuiniuca.com,REJECT
+DOMAIN-SUFFIX,yoda.kwd.inkuai.com,REJECT
 DOMAIN-SUFFIX,yumao.puata.info,REJECT
 DOMAIN-SUFFIX,yun-hl.3g.qq.com,REJECT
