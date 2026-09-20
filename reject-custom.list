@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-19 23:40 +0800
+# updated: 2026-09-20 11:51 +0800
 # ====================================================
 
 # ==============================================================================
@@ -114,6 +114,7 @@ DOMAIN-SUFFIX,h5speed.m.jd.com,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163yun.com,REJECT
 DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
+DOMAIN-SUFFIX,kv501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,luckycat.byteimg.com,REJECT
 DOMAIN-SUFFIX,ma.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mediadata.xuexi.cn,REJECT
