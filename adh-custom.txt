@@ -1,4 +1,4 @@
-! updated: 2026-09-20 18:00 +0800
+! updated: 2026-09-20 21:19 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -71,7 +71,6 @@
 ! ===== Google 系应用分析上报（2026-09-19 由直连改判为拦截，owner 可要求回退） =====
 ||app-analytics-services.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
-||-mgsdk-sign.byteimg.com^
 ||0kkkkkt.com^
 ||1864246771.qrstuvwxyzab.com^
 ||1864316976.qrstuvwxyzab.com^
@@ -199,6 +198,8 @@
 ||27985d48.ydycdn.com^
 ||27988b3b.ydycdn.com^
 ||27988b5b.ydycdn.com^
+||279f1e75.ydycdn.com^
+||279f1e83.ydycdn.com^
 ||279f1f8b.ydycdn.com^
 ||279f1f8d.ydycdn.com^
 ||279f1f9b.ydycdn.com^
@@ -277,9 +278,7 @@
 ||api-cfg.wtzw.com^
 ||api-flow.flyme.cn^
 ||api-nps.wtzw.com^
-||api-play.amemv.com^
 ||api-push.meizu.com^
-||api.amemv.com^
 ||api.sec.miui.com^
 ||api.tuisong.baidu.com^
 ||apmplus.volces.com^
@@ -291,9 +290,9 @@
 ||audid-api.taobao.com^
 ||audid.umeng.com^
 ||awaken.amap.com^
-||aweme.snssdk.com^
 ||b75c2f18.ydycdn.com^
 ||b75c2fa3.ydycdn.com^
+||b7d9b91c.ydycdn.com^
 ||b7d9bc9c.ydycdn.com^
 ||bbvhbbbhjghk.jspcdn.cn^
 ||bda.umetrip.com^
@@ -306,8 +305,6 @@
 ||btrace.yangshipin.cn^
 ||bv.lnk0.com^
 ||bvqhvgghkihbjb.jspcdn.cn^
-||bytedns1.com^
-||bytedns3.com^
 ||bytegecko.com^
 ||cal.meizu.com^
 ||cb5a8d0e.ydycdn.com^
@@ -326,6 +323,7 @@
 ||cn.s.50union.com^
 ||cnlogs.umeng.com^
 ||cnlogs.umengcloud.com^
+||cr.adsappier.com^
 ||crash.xiaohongshu.com^
 ||da081d82.ydycdn.com^
 ||da081db2.ydycdn.com^
@@ -385,7 +383,6 @@
 ||faas-image.amap.com^
 ||feedguess.meituan.com^
 ||flash.sec.miui.com^
-||frontier-aweme-zjg-ipainner.amemv.com^
 ||g.cn.miaozhen.com^
 ||galileotelemetry.tencent.com^
 ||gecko.zijieapi.com^
@@ -399,7 +396,6 @@
 ||httpdns.platform.dbankcloud.com^
 ||huichuan-mc.sm.cn^
 ||i.qchannel03.cn^
-||ib.snssdk.com^
 ||id6.me^
 ||idm.iot.mi.com^
 ||info.3g.qq.com^
@@ -407,8 +403,6 @@
 ||ios.bugly.qq.com^
 ||ir-sdk.dun.163.com^
 ||ir-sdk.dun.163yun.com^
-||is.snssdk.com.bytedns1.com^
-||is.snssdk.com^
 ||isaas3-normal-hl.ecombdapi.com^
 ||isaas3-normal-lq.ecombdapi.com^
 ||isaas5-normal-hl.ecombdapi.com^
@@ -421,31 +415,24 @@
 ||ks.pull.yximgs.com^
 ||kuiniuca.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
-||lf-cdn-tos.bytescm.com^
 ||lf-dy-sourcecdn-tos.bytegecko.com^
-||lf-leads-fe-scm.bytecdn.com^
 ||lf-normal-gr-sourcecdn.bytegecko.com^
 ||lf-sourcecdn-tos.bytegecko.com^
 ||lf-webcast-gr-sourcecdn.bytegecko.com^
-||lf1-cdn-tos.bytescm.com^
 ||lf26-cdn-tos.bytegecko.com^
-||lf26-effect-302.byteeffecttos.com^
 ||lf26-mgsdk-sign.dailygn.com^
-||lf3-effectcdn-tos.byteeffecttos.com^
 ||lf3-mgsdk-sign.dailygn.com^
 ||lf3-mgsdk.dailygn.com^
-||lf3-static.bytednsdoc.com^
 ||lf3-vccdn.ndcpp.com^
 ||lf5-se-bs-webcast-cdn-tos-ncdn.bytegecko.com^
 ||lf5-webcast-cdn-tos.bytegecko.com^
 ||lf6-mgsdk-sign.dailygn.com^
 ||lf6-vccdn.ndcpp.com^
+||lf85-webcast-cdn-tos-ncdn.bytegecko.com^
 ||lf9-mgsdk-sign.dailygn.com^
 ||lf9-vccdn.ndcpp.com^
 ||lf9-webcast-cdn-tos-ncdn.bytegecko.com^
-||life-service-open.zijieapi.com^
 ||live-api.immomo.com^
-||log-report.rtc.volcvideo.com^
 ||log.avlyun.com^
 ||log.wechatpay.cn^
 ||log.weixin.qq.com^
@@ -460,7 +447,6 @@
 ||logservice1.dbankcloud.cn^
 ||logupdate.avlyun.sec.miui.com^
 ||luckycat.byteimg.com^
-||m.baike.com^
 ||ma.zijieapi.com^
 ||mazu.m.qq.com^
 ||mcc.inf.miui.com^
@@ -480,9 +466,6 @@
 ||monsetting.toutiao.com^
 ||msch.f.360.cn^
 ||mssdk-bu.bytedance.com^
-||mssdk3-normal-hj.zijieapi.com^
-||mssdk3-normal-hl.zijieapi.com^
-||mssdk3-normal-lf.zijieapi.com^
 ||muf.app-ads-services.com^
 ||mum.alibabachengdun.com^
 ||mum.alibabachengdun.net^
@@ -507,6 +490,7 @@
 ||perf.m.jd.com^
 ||pglstatp-toutiao.com^
 ||pimlog.baidu.com^
+||polaris3-normal-lf.zijieapi.com^
 ||polaris5-normal-lf.zijieapi.com^
 ||polaris5-normal-xh.zijieapi.com^
 ||polaris5-normal-zb.zijieapi.com^
@@ -519,11 +503,9 @@
 ||qrstuvwxyzab.com^
 ||queniuck.com^
 ||rcv.aiclk.com^
-||render.ecombdpage.com^
 ||resolve.umeng.com^
 ||rms-drcn.platform.dbankcloud.cn^
 ||rtlog5-applog-lf.fqnovel.com^
-||scc.bytedance.com^
 ||sd-gl.comfylink.com^
 ||sd-gl.xinqiucc.com^
 ||sdk.e.qq.com^
@@ -531,10 +513,12 @@
 ||sdkfp.jd.com^
 ||sdkoptedge.chinanetcenter.com^
 ||seeds-open.comfylink.com^
+||settings-win.data.microsoft.com^
 ||sf6-fe-tos.pglstatp-toutiao.com^
 ||sgm-m.jd.com^
 ||shark-tracer.netease.com^
 ||sjxydc.com^
+||snowflake.qq.com^
 ||sns.umetrip.com^
 ||sofire.baidu.com^
 ||spread.wtzw.com^
@@ -546,11 +530,11 @@
 ||talk.bz.getui.com^
 ||talk.bz.getui.net^
 ||tdid.m.qq.com^
+||th.pinduoduo.com^
 ||tiga-release-dc.m.taobao.com^
 ||timon.zijieapi.com^
 ||tjjs.wtzw.com^
 ||tnc0-aliec2.zijieapi.com^
-||tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com^
 ||tnc0-alisc1.zijieapi.com^
 ||tnc3-aliec2.zijieapi.com^
 ||tnc3-alisc1.zijieapi.com^
@@ -558,17 +542,19 @@
 ||tobapplog.ctobsnssdk.com^
 ||tools.3g.qq.com^
 ||tosv.byted.org^
-||tr.byteurl.cn^
 ||tracking.miui.com^
 ||tx-kmpaudio.pull.yximgs.com^
+||u.meizu.com^
 ||ugsdk.cn^
 ||umengacs.m.taobao.com^
 ||umestartup.umetrip.com^
 ||up-hl.3g.qq.com^
 ||update.avlyun.sec.miui.com^
+||update.wps.cn^
 ||uxip.meizu.com^
 ||v2.get.sogou.com^
 ||v2.reachmax.cn^
+||v20.events.data.microsoft.com^
 ||vc-brain-http.ndcpp.com^
 ||vc-brain-new-v6.ndcpp.com^
 ||vc-brain-new.ndcpp.com^
@@ -583,7 +569,6 @@
 ||vc-new-hole-v6.ndcpp.com^
 ||vc-new-hole.ndcpp.com^
 ||vcl-brain.ndcpp.com^
-||vcs-hj.zijieapi.com^
 ||vcs.zijieapi.com^
 ||vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn^
 ||vuqenkmjunuuqqneqvnnbqq.jspcdn.cn^
@@ -607,9 +592,6 @@
 ||vuqknkiuenbjqqnvqnnu.jspcdn.cn^
 ||vuqknkiuenbjqqnvqnnv.jspcdn.cn^
 ||waapdg.jd.com^
-||webcast-open-lf.douyin.com^
-||webcast-open.douyin.com^
-||webcast.amemv.com^
 ||wetelemetry.weixin.qq.com^
 ||whoami.akamai.net^
 ||worldwide.sogou.com^
