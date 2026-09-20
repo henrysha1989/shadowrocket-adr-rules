@@ -1,4 +1,4 @@
-# updated: 2026-09-19 23:37 +0800
+# updated: 2026-09-20 11:51 +0800
 # ===== 海外小众加密工具与社交服务 =====
 DOMAIN-SUFFIX,proton.me,PROXY
 DOMAIN-SUFFIX,protonmail.com,PROXY
@@ -14,4 +14,5 @@ DOMAIN-SUFFIX,whoer.net,PROXY
 DOMAIN-SUFFIX,ipinfo.io,PROXY
 DOMAIN-SUFFIX,ip.sb,PROXY
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,googleapis.com,PROXY
 DOMAIN-SUFFIX,gstatic.com,PROXY
