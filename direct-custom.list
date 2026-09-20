@@ -1,4 +1,4 @@
-# updated: 2026-09-20 21:19 +0800
+# updated: 2026-09-20 22:18 +0800
 # ===== 阿里 / 钉钉生态核心信令与通信 (防工作台打不开与断流) =====
 DOMAIN-SUFFIX,dingtalk.com,DIRECT
 DOMAIN-SUFFIX,dingtalkapps.com,DIRECT
@@ -20,11 +20,15 @@ DOMAIN-SUFFIX,megarobo.com,DIRECT
 DOMAIN-SUFFIX,megarobo.tech,DIRECT
 DOMAIN-SUFFIX,megarobo.info,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,api-flow.flyme.cn,DIRECT
 DOMAIN-SUFFIX,api-play-hj.amemv.com,DIRECT
 DOMAIN-SUFFIX,api-play.amemv.com,DIRECT
 DOMAIN-SUFFIX,api.amemv.com,DIRECT
+DOMAIN-SUFFIX,api.tuisong.baidu.com,DIRECT
+DOMAIN-SUFFIX,appcfg.v.qq.com,DIRECT
 DOMAIN-SUFFIX,apple.com,DIRECT
 DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
+DOMAIN-SUFFIX,browsercfg-drcn.cloud.dbankcloud.cn,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
@@ -33,8 +37,10 @@ DOMAIN-SUFFIX,icloud.com,DIRECT
 DOMAIN-SUFFIX,idouyinpic.com,DIRECT
 DOMAIN-SUFFIX,idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,im-open.douyin.com,DIRECT
+DOMAIN-SUFFIX,input.shouji.sogou.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com.bytedns1.com,DIRECT
+DOMAIN-SUFFIX,ks.pull.yximgs.com,DIRECT
 DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com,DIRECT
 DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
 DOMAIN-SUFFIX,lf1-cdn-tos.bytescm.com,DIRECT
@@ -48,14 +54,23 @@ DOMAIN-SUFFIX,m.baike.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-lf.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,mum.alibabachengdun.com,DIRECT
+DOMAIN-SUFFIX,mum.alibabachengdun.net,DIRECT
 DOMAIN-SUFFIX,pitaya.bytedance.com,DIRECT
 DOMAIN-SUFFIX,render.ecombdpage.com,DIRECT
+DOMAIN-SUFFIX,rms-drcn.platform.dbankcloud.cn,DIRECT
 DOMAIN-SUFFIX,scc.bytedance.com,DIRECT
+DOMAIN-SUFFIX,sdkoptedge.chinanetcenter.com,DIRECT
 DOMAIN-SUFFIX,security.snssdk.com,DIRECT
 DOMAIN-SUFFIX,tr.byteurl.cn,DIRECT
+DOMAIN-SUFFIX,tx-kmpaudio.pull.yximgs.com,DIRECT
+DOMAIN-SUFFIX,u.meizu.com,DIRECT
+DOMAIN-SUFFIX,update.wps.cn,DIRECT
 DOMAIN-SUFFIX,vcs-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,volccdn.com,DIRECT
 DOMAIN-SUFFIX,webcast-core-m.amemv.com,DIRECT
 DOMAIN-SUFFIX,webcast-open-lf.douyin.com,DIRECT
 DOMAIN-SUFFIX,webcast-open.douyin.com,DIRECT
 DOMAIN-SUFFIX,webcast.amemv.com,DIRECT
+DOMAIN-SUFFIX,worldwide.sogou.com,DIRECT
+DOMAIN-SUFFIX,ws-keyboard.shouji.sogou.com,DIRECT
