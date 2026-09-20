@@ -1,4 +1,4 @@
-! updated: 2026-09-20 22:11 +0800
+! updated: 2026-09-20 22:18 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -169,13 +169,9 @@
 ||altjyqomnnong.v1d.pkoplink.com^
 ||analytics.map.qq.com^
 ||analytics.oceanengine.com^
-||apd-pcdnwxlogin.teg.tencent-cloud.net^
 ||apd-pcdnwxstat.teg.tencent-cloud.net^
 ||api-access.pangolin-sdk-toutiao1.com^
-||api-flow.flyme.cn^
 ||api.sec.miui.com^
-||api.tuisong.baidu.com^
-||appcfg.v.qq.com^
 ||applog.zijieapi.com^
 ||aspect-upush.umeng.com^
 ||audid.umeng.com^
@@ -184,7 +180,6 @@
 ||bird.cn-hangzhou.log.aliyuncs.com^
 ||bqbhiihdkhjq.jspcdn.cn^
 ||bqbhiihdkhkk.jspcdn.cn^
-||browsercfg-drcn.cloud.dbankcloud.cn^
 ||bv.lnk0.com^
 ||bvqhvgghkihbjb.jspcdn.cn^
 ||ccc.sys.miui.com^
@@ -207,12 +202,10 @@
 ||id6.me^
 ||idm.iot.mi.com^
 ||info.3g.qq.com^
-||input.shouji.sogou.com^
 ||janapi.jd.com^
 ||jehbdjhjbhjv.jspcdn.cn^
 ||jomodns.cn^
 ||jupiter.sys.miui.com^
-||ks.pull.yximgs.com^
 ||kuiniuca.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
 ||live-api.immomo.com^
@@ -241,8 +234,6 @@
 ||monsetting.toutiao.com^
 ||msch.f.360.cn^
 ||muf.app-ads-services.com^
-||mum.alibabachengdun.com^
-||mum.alibabachengdun.net^
 ||odf.app-ads-services.com^
 ||odm.app-ads-services.com^
 ||onethingpcs.com^
@@ -262,9 +253,7 @@
 ||px.effirst.com^
 ||queniuck.com^
 ||resolve.umeng.com^
-||rms-drcn.platform.dbankcloud.cn^
 ||sdk.e.qq.com^
-||sdkoptedge.chinanetcenter.com^
 ||snowflake.qq.com^
 ||sofire.baidu.com^
 ||szlong.weixin.qq.com^
@@ -281,12 +270,9 @@
 ||tobapplog.ctobsnssdk.com^
 ||tools.3g.qq.com^
 ||tracking.miui.com^
-||tx-kmpaudio.pull.yximgs.com^
-||u.meizu.com^
 ||umengacs.m.taobao.com^
 ||up-hl.3g.qq.com^
 ||update.avlyun.sec.miui.com^
-||update.wps.cn^
 ||uxip.meizu.com^
 ||v2.reachmax.cn^
 ||vcs.zijieapi.com^
@@ -312,8 +298,6 @@
 ||vuqknkiuenbjqqnvqnnu.jspcdn.cn^
 ||vuqknkiuenbjqqnvqnnv.jspcdn.cn^
 ||wetelemetry.weixin.qq.com^
-||worldwide.sogou.com^
-||ws-keyboard.shouji.sogou.com^
 ||xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com^
 ||xlog.jd.com^
 ||xycdn.com.gslb.kuiniuca.com^
