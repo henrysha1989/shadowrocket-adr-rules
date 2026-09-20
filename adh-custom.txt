@@ -1,4 +1,4 @@
-! updated: 2026-09-20 21:29 +0800
+! updated: 2026-09-20 21:55 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -245,7 +245,9 @@
 ||loggw-ex.alipay.com^
 ||logs.amap.com^
 ||logs.ironsrc.mobi^
+||logservice.hicloud.com^
 ||logservice1.dbankcloud.cn^
+||logservice1.hicloud.com^
 ||logupdate.avlyun.sec.miui.com^
 ||mazu.m.qq.com^
 ||mcc.inf.miui.com^
@@ -274,6 +276,7 @@
 ||polaris5-normal-lf.zijieapi.com^
 ||polaris5-normal-xh.zijieapi.com^
 ||polaris5-normal-zb.zijieapi.com^
+||port.sec.miui.com^
 ||px.effirst.com^
 ||queniuck.com^
 ||resolve.umeng.com^
