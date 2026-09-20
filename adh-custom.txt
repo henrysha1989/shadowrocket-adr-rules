@@ -1,4 +1,4 @@
-! updated: 2026-09-21 00:00 +0800
+! updated: 2026-09-21 06:00 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -274,6 +274,8 @@
 ||talk.bz.getui.com^
 ||talk.bz.getui.net^
 ||th.pinduoduo.com^
+||tianshu.gtimg.cn^
+||time.video.ptqy.gitv.tv^
 ||timon.zijieapi.com^
 ||tnc0-aliec2.zijieapi.com^
 ||tnc0-alisc1.zijieapi.com^
