@@ -1,4 +1,4 @@
-! updated: 2026-09-20 12:03 +0800
+! updated: 2026-09-20 14:14 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -77,11 +77,13 @@
 ||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click^
+||a.fxltsbl.com^
 ||abtest.wtzw.com^
 ||abtest3-misc-hl.zijieapi.com^
 ||ad.fqnovel.com^
 ||ad.qm989.com^
 ||ad.wtzw.com^
+||akamai-apigateway-gio-analytics.tesla.cn^
 ||amdc-sibling.alipay.com.cn^
 ||amdc.alipay.com^
 ||anti-sdk-ccs-pre.m.jd.com^
@@ -124,6 +126,7 @@
 ||ir-sdk.dun.163yun.com^
 ||jpushsc.m.jd.com^
 ||jupiter.sys.miui.com^
+||kuiniuca.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
 ||log.wechatpay.cn^
 ||log.weixin.qq.com^
