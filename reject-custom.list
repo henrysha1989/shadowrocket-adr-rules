@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-20 21:37 +0800
+# updated: 2026-09-20 21:56 +0800
 # ====================================================
 
 # ==============================================================================
@@ -249,7 +249,9 @@ DOMAIN-SUFFIX,log3-normal-lq.toutiaoapi.com,REJECT
 DOMAIN-SUFFIX,loggw-ex.alipay.com,REJECT
 DOMAIN-SUFFIX,logs.amap.com,REJECT
 DOMAIN-SUFFIX,logs.ironsrc.mobi,REJECT
+DOMAIN-SUFFIX,logservice.hicloud.com,REJECT
 DOMAIN-SUFFIX,logservice1.dbankcloud.cn,REJECT
+DOMAIN-SUFFIX,logservice1.hicloud.com,REJECT
 DOMAIN-SUFFIX,logupdate.avlyun.sec.miui.com,REJECT
 DOMAIN-SUFFIX,mazu.m.qq.com,REJECT
 DOMAIN-SUFFIX,mcc.inf.miui.com,REJECT
@@ -278,6 +280,7 @@ DOMAIN-SUFFIX,polaris3-normal-lf.zijieapi.com,REJECT
 DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,REJECT
 DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,REJECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,REJECT
+DOMAIN-SUFFIX,port.sec.miui.com,REJECT
 DOMAIN-SUFFIX,px.effirst.com,REJECT
 DOMAIN-SUFFIX,queniuck.com,REJECT
 DOMAIN-SUFFIX,resolve.umeng.com,REJECT
