@@ -1,4 +1,4 @@
-! updated: 2026-09-20 22:18 +0800
+! updated: 2026-09-21 00:00 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -162,19 +162,26 @@
 ||a.fxltsbl.com^
 ||abtest3-misc-hl.zijieapi.com^
 ||adashxgc.ut.taobao.com^
+||adlog-js.e.kuaishou.com^
+||adlog.e.kuaishou.cn^
+||adlog.e.kuaishou.com^
 ||adnxs-simple.com^
 ||ads3-normal.zijieapi.com^
 ||ads5-normal.zijieapi.com^
+||adx-data-u1.ubixioe.com^
 ||akamai-apigateway-gio-analytics.tesla.cn^
 ||altjyqomnnong.v1d.pkoplink.com^
 ||analytics.map.qq.com^
 ||analytics.oceanengine.com^
 ||apd-pcdnwxstat.teg.tencent-cloud.net^
 ||api-access.pangolin-sdk-toutiao1.com^
+||api.e.kuaishou.com^
+||api.kwaizt.com^
 ||api.sec.miui.com^
 ||applog.zijieapi.com^
 ||aspect-upush.umeng.com^
 ||audid.umeng.com^
+||b.scorecardresearch.com^
 ||bbvhbbbhjghk.jspcdn.cn^
 ||beaconcdn.qq.com^
 ||bird.cn-hangzhou.log.aliyuncs.com^
@@ -212,6 +219,7 @@
 ||log.avlyun.com^
 ||log.wechatpay.cn^
 ||log.weixin.qq.com^
+||log0-misc-hl.amemv.com^
 ||log0-misc-lf.amemv.com^
 ||log0-normal-hl.toutiaoapi.com^
 ||log0-normal-lq.toutiaoapi.com^
@@ -241,7 +249,11 @@
 ||oth.str.beacon.qq.com^
 ||oth.str.mdt.qq.com^
 ||otheve.beacon.qq.com^
+||p1-ad.adkwai.com^
 ||p3-ad-sign.byteimg.com^
+||p3-ad.adukwai.com^
+||p4-ad.adkwai.com^
+||p5-ad.adkwai.com^
 ||paas-push-api-log.immomo.com^
 ||pc-mon.snssdk.com^
 ||pimlog.baidu.com^
@@ -253,6 +265,7 @@
 ||px.effirst.com^
 ||queniuck.com^
 ||resolve.umeng.com^
+||sdk.1rtb.net^
 ||sdk.e.qq.com^
 ||snowflake.qq.com^
 ||sofire.baidu.com^
@@ -270,6 +283,7 @@
 ||tobapplog.ctobsnssdk.com^
 ||tools.3g.qq.com^
 ||tracking.miui.com^
+||ulogjs.ksapisrv.com^
 ||umengacs.m.taobao.com^
 ||up-hl.3g.qq.com^
 ||update.avlyun.sec.miui.com^
@@ -301,5 +315,6 @@
 ||xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com^
 ||xlog.jd.com^
 ||xycdn.com.gslb.kuiniuca.com^
+||yoda.kwd.inkuai.com^
 ||yumao.puata.info^
 ||yun-hl.3g.qq.com^
