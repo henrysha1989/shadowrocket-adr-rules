@@ -1,4 +1,4 @@
-# updated: 2026-09-20 22:18 +0800
+# updated: 2026-09-20 22:19 +0800
 # ===== 阿里 / 钉钉生态核心信令与通信 (防工作台打不开与断流) =====
 DOMAIN-SUFFIX,dingtalk.com,DIRECT
 DOMAIN-SUFFIX,dingtalkapps.com,DIRECT
@@ -62,6 +62,7 @@ DOMAIN-SUFFIX,rms-drcn.platform.dbankcloud.cn,DIRECT
 DOMAIN-SUFFIX,scc.bytedance.com,DIRECT
 DOMAIN-SUFFIX,sdkoptedge.chinanetcenter.com,DIRECT
 DOMAIN-SUFFIX,security.snssdk.com,DIRECT
+DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com,DIRECT
 DOMAIN-SUFFIX,tr.byteurl.cn,DIRECT
 DOMAIN-SUFFIX,tx-kmpaudio.pull.yximgs.com,DIRECT
 DOMAIN-SUFFIX,u.meizu.com,DIRECT
