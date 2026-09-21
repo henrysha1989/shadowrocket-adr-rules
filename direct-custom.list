@@ -1,4 +1,4 @@
-# updated: 2026-09-21 18:08 +0800
+# updated: 2026-09-21 20:00 +0800
 # 2026-09-21 18:07 owner 指定：全量替换直连白名单
 DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
@@ -90,3 +90,4 @@ DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com,DIRECT
