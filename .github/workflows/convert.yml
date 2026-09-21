@@ -11,6 +11,12 @@ on:
 permissions:
   contents: write
 
+# Serialize runs: concurrent runs used to both rewrite the README rule-count line and
+# then fight over it during `git pull --rebase` (conflict -> push failed -> counts stale).
+concurrency:
+  group: convert-adh-rules
+  cancel-in-progress: false
+
 jobs:
   convert:
     runs-on: ubuntu-latest
@@ -25,23 +31,29 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Run Converter
+      - name: Convert, refresh counts, commit and push
         run: |
-          python convert.py
-
-      - name: Update README rule counts
-        run: |
-          python update_readme_counts.py
-
-      - name: Commit and Push Output
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add reject-custom.list README.md
-          if git diff --staged --quiet; then
-            echo "No changes detected."
-          else
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            # Rebase-free: always regenerate on top of the current main, so a concurrent
+            # push can never produce a merge conflict. Retry until the push lands.
+            git fetch origin main
+            git reset --hard origin/main
+            python convert.py
+            python update_readme_counts.py
+            git add reject-custom.list README.md
+            if git diff --staged --quiet; then
+              echo "No changes detected."
+              exit 0
+            fi
             git commit -m "Auto-convert ADH rules to Shadowrocket format @ $(date '+%Y-%m-%d %H:%M %z')"
-            git pull --rebase origin main
-            git push
-          fi
+            if git push origin HEAD:main; then
+              echo "pushed on attempt $i"
+              exit 0
+            fi
+            echo "push attempt $i failed, retrying against fresh main..."
+            sleep 5
+          done
+          echo "all push attempts failed"
+          exit 1
