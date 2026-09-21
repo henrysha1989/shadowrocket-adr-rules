@@ -8,7 +8,7 @@
 
 ## ✨ 核心特性
 
-- **双通道自净化闭环**：NAS 侧脚本定期轮询 AdGuard Home 的放行记录，自动区分「广告特征」与「国内低延迟直连特征」，规则随使用自增长。
+- **双源自净化闭环**：NAS 侧脚本定期轮询 AdGuard Home 查询日志，**并读取手机偶尔导出的 Shadowrocket 连接日志（`proxy-*.db`）**，自动区分「广告特征」与「国内低延迟直连特征」，规则随使用自增长。
 - **核心业务免打扰**：对 WebRTC / ByteRTC 实时信令、媒体分发 CDN、小说正文接口实施白名单放行，避免误杀造成的**切流卡顿**、直播间握手失败或章节翻页空白。
 - **自动语法转译**：GitHub Actions 监听规则变更，自动将 AdGuard 过滤语法（`||domain^`）编译为 Shadowrocket 标准规则集。
 - **多端免运维同步**：规则以纯文本订阅分发，移动端小火箭定时静默更新即可生效。
@@ -24,7 +24,7 @@
 [AdGuard Home 本地 DNS 过滤]
           │
           ▼ 每 4 小时轮询查询日志
-[NAS 自动化脚本 adh_gist_sync.py]
+[NAS 自动化脚本 adh_gist_sync.py] ◄── 读取手机新上传的连接日志 proxy-*.db
           │
           ├── 命中直连特征 ──► 追加至 direct-custom.list（直连源）
           │
@@ -48,6 +48,7 @@
 | 文件 | 作用 | 维护方式 |
 | --- | --- | --- |
 | `adh-custom.txt` | **拦截规则源**（AdGuard 语法 `||domain^`） | 手工区（标记上方）由人工维护；自动区（标记下方）由脚本管理 |
+| `update_readme_counts.py` | 统计三份列表条数、刷新本 README 的规则量行 | 由 CI 自动调用 |
 | `reject-custom.list` | Shadowrocket **拦截**规则集 | 由 `convert.py` 自动生成，**请勿手改** |
 | `direct-custom.list` | Shadowrocket **直连**规则集 | 脚本 / 人工维护 |
 | `proxy-custom.list` | Shadowrocket **代理**规则集 | 按需维护 |
@@ -96,6 +97,7 @@ https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy
 - **修改拦截规则**：编辑 `adh-custom.txt`，**手工规则必须写在 `! ===== 自动收集 … =====` 标记之上**（脚本的自动收敛只清理标记下方内容）；提交后 Actions 会自动重生成 `reject-custom.list`。
 - **本地转译**：`python3 convert.py`（读取 `adh-custom.txt`，输出 `reject-custom.list`）。
 - **直连 / 白名单**：在 `direct-custom.list` 中以 `DOMAIN-SUFFIX,domain,DIRECT` 形式维护。
+- **Shadowrocket 连接日志（可选数据源）**：把手机导出的 `proxy-*.db` 放进 NAS 的 `/vol01/1001/shadowrocket-db`，脚本会检测新文件并**用同一套分类逻辑**并入规则（已处理文件记录在 `.sr-db-state.json`，不重复读取）。它还能覆盖 ADH 看不到的**代理 / remote-dns** 流量，并顺带报告“手机仍在拦截、但已被放行”的**疑似误杀/未刷新**域名。
 
 ---
 
