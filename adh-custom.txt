@@ -160,6 +160,19 @@
 ! 字节/抖音特定打点与日志备份
 ||logbk.amemv.com^
 ||mon0-misc-lf.amemv.com^
+! ===== 2026-09-21 owner 补充(2)：陌陌/腾讯/阿里打点 =====
+! 陌陌 / 挚文集团广告与打点监控
+||adip-api.immomo.com^
+||api-log.immomo.com^
+||live-log.immomo.com^
+||cosmos-compass-api.immomo.com^
+||hellogroup.com^
+! 腾讯数据与监控
+||data.ab.qq.com^
+||rmonitor.qq.com^
+! 阿里 UT 打点（可选，如需彻底过滤客户端数据上报）
+||adashx.ut.dingtalk.com^
+||h-adashx.ut.dingtalk.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
