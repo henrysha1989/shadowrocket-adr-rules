@@ -89,5 +89,7 @@ DOMAIN-SUFFIX,polaris5-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
+DOMAIN-SUFFIX,ampaeservices.com,DIRECT
+DOMAIN-SUFFIX,aaplimg.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com,DIRECT
