@@ -88,7 +88,6 @@
 ||bda.umetrip.com^
 ||blackhole.m.jd.com^
 ||btrace.yangshipin.cn^
-||bytegecko.com^
 ||ccfjma.m.jd.com^
 ||crash.xiaohongshu.com^
 ||dailygn.com^
@@ -128,7 +127,6 @@
 ||qm-data.wtzw.com^
 ||qm-dig.wtzw.com^
 ||qmad.qimao.com^
-||qrstuvwxyzab.com^
 ||rcv.aiclk.com^
 ||rtlog5-applog-lf.fqnovel.com^
 ||sdkfp.jd.com^
@@ -146,7 +144,6 @@
 ||tosv.byted.org^
 ||ugsdk.cn^
 ||umestartup.umetrip.com^
-||vc-brain.ndcpp.com^
 ||waapdg.jd.com^
 ||www.qchannel01.cn^
 ||xpis-xcdn.youku.com^
