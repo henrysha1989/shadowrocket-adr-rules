@@ -1,217 +1,14 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 18:00 +0800
+# updated: 2026-09-21 18:09 +0800
 # ====================================================
 
-# ==============================================================================
-# 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
-# ==============================================================================
-# ==============================================================================
-# 2. 阿里系（淘宝、高德地图、优酷）弹窗、HTTPDNS 调度与广告拦截
-# ==============================================================================
-# 阻断阿里 AMDC HTTPDNS 调度中心（杜绝开屏广告 IP 偷跑）
-# 淘宝营销物料、PopLayer 弹窗引擎与动态组件
-# 高德地图营销商城、动态浮层与开屏视频广告物料
-# ==============================================================================
-# 3. 京东（JD）广告投放、CPS 全系图床与营销追踪
-# ==============================================================================
-# 核心广告投放引擎与营销配置
-# 通配拦截京东所有 CPS 营销推广图床（覆盖 imgcps1/2/3/4 等）
-# 设备指纹、性能监控与广告曝光埋点
-# ==============================================================================
-# 4. 字节跳动 / 番茄小说全系广告、激励视频、埋点与电商组件
-# ==============================================================================
-# 穿山甲 / 巨量引擎广告联盟底座
-# 番茄小说专属开屏广告图床、商业化 API 与实时曝光埋点（零误伤正文与听书）
-# 番茄小说正文与翻页插屏/激励视频拉流过滤（保留正常听书）
-# 字节电商广告与 SaaS 营销挂件
-# 小游戏弹窗、金币激励与拉活推广
-# 移动分析、云端监控与 AB 分流
-# 壁虎动态广告热更新（精准根域名拦截，覆盖全部多云 CNAME 落地节点）
-# 外部引入的抖音直播广告引流
-# ==============================================================================
-# 5. 七猫小说（梧桐 / 奇猫）广告投放、商业化配置与聚合联盟
-# ==============================================================================
-# 七猫自有商业化配置与广告位控制
-# 七猫广告联盟与 DSP 平台
-# ==============================================================================
-# 6. 小红书（RED）广告图床、商业服务与追踪
-# ==============================================================================
-# 开屏与信息流广告专用图床（独立于正常博主配图）
-# 商业广告服务与崩溃上报
-# ==============================================================================
-# 7. 航旅纵横与工具类应用净化
-# ==============================================================================
-# 航旅纵横开屏闪屏、活动弹窗与社交推广
-# 美团广告流推荐
-# 央视频与学习强国埋点
-# ==============================================================================
-# 8. 第三方通用广告联盟、指纹追踪、探针与反作弊
-# ==============================================================================
-# ========== 补漏：拼多多 DSP 广告投放与数据追踪 ==========
-# ========== 严格收窄：阻断电商 API，仅保留静态图片 ==========
-# ========== 阻断七猫广告大脑与核心打点 ==========
-# ===== 主流移动端 HttpDNS 阻断 (防止应用绕过本级 DNS 走私有通道解析) =====
-DOMAIN-SUFFIX,httpdns.alicdn.com,REJECT
-DOMAIN-SUFFIX,httpdns-api.aliyuncs.com,REJECT
-DOMAIN-SUFFIX,httpdns.volces.com,REJECT
-DOMAIN-SUFFIX,httpdns.baidubce.com,REJECT
-DOMAIN-SUFFIX,dns.weixin.qq.com,REJECT
-DOMAIN-SUFFIX,dns.wechat.com,REJECT
-DOMAIN-SUFFIX,httpdns.kuaishou.com,REJECT
-DOMAIN-SUFFIX,httpdns.proxima.netease.com,REJECT
-# ===== 移动端高频日志分析、开屏与广告跟踪埋点 =====
-DOMAIN-SUFFIX,mmstat.com,REJECT
-DOMAIN-SUFFIX,alimama.com,REJECT
-DOMAIN-SUFFIX,tanx.com,REJECT
-DOMAIN-SUFFIX,adash.m.taobao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,ad.toutiao.com,REJECT
-DOMAIN-SUFFIX,toblog.ctobsnssdk.com,REJECT
-DOMAIN-SUFFIX,log.snssdk.com,REJECT
-DOMAIN-SUFFIX,app-measurement.com,REJECT
-DOMAIN-SUFFIX,crashlytics.com,REJECT
-# ===== Google 系应用分析上报（2026-09-19 由直连改判为拦截，owner 可要求回退） =====
-DOMAIN-SUFFIX,app-analytics-services.com,REJECT
-# ===== 手工精选广告/追踪规则（09-19 原始手工区·已回填，勿删）=====
+# ============================================================
+# 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
+# ============================================================
 DOMAIN-SUFFIX,0kkkkkt.com,REJECT
-DOMAIN-SUFFIX,abtest.wtzw.com,REJECT
-DOMAIN-SUFFIX,ad.fqnovel.com,REJECT
-DOMAIN-SUFFIX,ad.qm989.com,REJECT
-DOMAIN-SUFFIX,ad.wtzw.com,REJECT
-DOMAIN-SUFFIX,amdc-sibling.alipay.com.cn,REJECT
-DOMAIN-SUFFIX,amdc.alipay.com,REJECT
-DOMAIN-SUFFIX,anti-sdk-ccs-pre.m.jd.com,REJECT
-DOMAIN-SUFFIX,anti-sdk-report.m.jd.com,REJECT
-DOMAIN-SUFFIX,api-cfg.wtzw.com,REJECT
-DOMAIN-SUFFIX,api-nps.wtzw.com,REJECT
-DOMAIN-SUFFIX,apmplus.volces.com,REJECT
-DOMAIN-SUFFIX,as.xiaohongshu.com,REJECT
-DOMAIN-SUFFIX,awaken.amap.com,REJECT
-DOMAIN-SUFFIX,bda.umetrip.com,REJECT
-DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
-DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
-DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
-DOMAIN-SUFFIX,crash.xiaohongshu.com,REJECT
-DOMAIN-SUFFIX,dailygn.com,REJECT
-DOMAIN-SUFFIX,device-security-url.jd.com,REJECT
-DOMAIN-SUFFIX,dig-cfg.wtzw.com,REJECT
-DOMAIN-SUFFIX,drs-ipv6.wtzw.com,REJECT
-DOMAIN-SUFFIX,drs.wtzw.com,REJECT
-DOMAIN-SUFFIX,dsap.jd.com,REJECT
-DOMAIN-SUFFIX,dsp.pinduoduo.com,REJECT
-DOMAIN-SUFFIX,dsp.qimao.com,REJECT
-DOMAIN-SUFFIX,ecombdapi.com,REJECT
-DOMAIN-SUFFIX,faas-image.amap.com,REJECT
-DOMAIN-SUFFIX,feedguess.meituan.com,REJECT
-DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
-DOMAIN-SUFFIX,growth-img.xhscdn.com,REJECT
-DOMAIN-SUFFIX,h5speed.m.jd.com,REJECT
-DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
-DOMAIN-SUFFIX,ir-sdk.dun.163yun.com,REJECT
-DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
-DOMAIN-SUFFIX,luckycat.byteimg.com,REJECT
-DOMAIN-SUFFIX,ma.zijieapi.com,REJECT
-DOMAIN-SUFFIX,mediadata.xuexi.cn,REJECT
-DOMAIN-SUFFIX,mkt-cdn.wtzw.com,REJECT
-DOMAIN-SUFFIX,mkt.wtzw.com,REJECT
-DOMAIN-SUFFIX,mktm.jd.com,REJECT
-DOMAIN-SUFFIX,modeldownload.taobao.com,REJECT
-DOMAIN-SUFFIX,mon-.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
-DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
-DOMAIN-SUFFIX,mssdk-bu.bytedance.com,REJECT
-DOMAIN-SUFFIX,opactivity.umetrip.com,REJECT
-DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
-DOMAIN-SUFFIX,perf.m.jd.com,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
-DOMAIN-SUFFIX,poplayer.template.alibaba.com,REJECT
-DOMAIN-SUFFIX,qm-ab.wtzw.com,REJECT
-DOMAIN-SUFFIX,qm-data.wtzw.com,REJECT
-DOMAIN-SUFFIX,qm-dig.wtzw.com,REJECT
-DOMAIN-SUFFIX,qmad.qimao.com,REJECT
-DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
-DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
-DOMAIN-SUFFIX,sdkfp.jd.com,REJECT
-DOMAIN-SUFFIX,sgm-m.jd.com,REJECT
-DOMAIN-SUFFIX,shark-tracer.netease.com,REJECT
-DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,sns.umetrip.com,REJECT
-DOMAIN-SUFFIX,spread.wtzw.com,REJECT
-DOMAIN-SUFFIX,store.is.autonavi.com,REJECT
-DOMAIN-SUFFIX,t-cfg.wtzw.com,REJECT
-DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
-DOMAIN-SUFFIX,tdid.m.qq.com,REJECT
-DOMAIN-SUFFIX,tiga-release-dc.m.taobao.com,REJECT
-DOMAIN-SUFFIX,tjjs.wtzw.com,REJECT
-DOMAIN-SUFFIX,tosv.byted.org,REJECT
-DOMAIN-SUFFIX,ugsdk.cn,REJECT
-DOMAIN-SUFFIX,umestartup.umetrip.com,REJECT
-DOMAIN-SUFFIX,waapdg.jd.com,REJECT
-DOMAIN-SUFFIX,www.qchannel01.cn,REJECT
-DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
-DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
-DOMAIN-SUFFIX,zztfly.com,REJECT
-# ===== 2026-09-21 owner 补充：番茄/穿山甲聚合广告与字节打点 =====
-# 番茄/穿山甲聚合广告与统计
-DOMAIN-SUFFIX,qiezibenpao.com,REJECT
-DOMAIN-SUFFIX,yingt.fun,REJECT
-DOMAIN-SUFFIX,tianwenca.com,REJECT
-# 字节/抖音特定打点与日志备份
-DOMAIN-SUFFIX,logbk.amemv.com,REJECT
-DOMAIN-SUFFIX,mon0-misc-lf.amemv.com,REJECT
-# ===== 2026-09-21 owner 补充(2)：陌陌/腾讯/阿里打点 =====
-# 陌陌 / 挚文集团广告与打点监控
-DOMAIN-SUFFIX,adip-api.immomo.com,REJECT
-DOMAIN-SUFFIX,api-log.immomo.com,REJECT
-DOMAIN-SUFFIX,live-log.immomo.com,REJECT
-DOMAIN-SUFFIX,cosmos-compass-api.immomo.com,REJECT
-DOMAIN-SUFFIX,hellogroup.com,REJECT
-# 腾讯数据与监控
-DOMAIN-SUFFIX,data.ab.qq.com,REJECT
-DOMAIN-SUFFIX,rmonitor.qq.com,REJECT
-# 阿里 UT 打点（可选，如需彻底过滤客户端数据上报）
-DOMAIN-SUFFIX,adashx.ut.dingtalk.com,REJECT
-DOMAIN-SUFFIX,h-adashx.ut.dingtalk.com,REJECT
-# ===== 2026-09-21 owner 补充(3)：苹果归因 + 陌陌 + Soul 埋点 =====
-# 苹果广告归因
-DOMAIN-SUFFIX,iadsdk.apple.com,REJECT
-# 陌陌/HelloGroup 监控域名补充
-DOMAIN-SUFFIX,doki.ren,REJECT
-# Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
-DOMAIN-SUFFIX,data-collector.soulapp.cn,REJECT
-# ===== 2026-09-21 owner 补充(4)：Soul 开屏/埋点 + 穿山甲 + 火山 applog =====
-# Soul 官方开屏、推广与埋点上报（仅具体子域，避开 App 接口域 api.soulapp.cn）
-DOMAIN-SUFFIX,ad.soulapp.cn,REJECT
-DOMAIN-SUFFIX,ad-static.soulapp.cn,REJECT
-DOMAIN-SUFFIX,splash.soulapp.cn,REJECT
-DOMAIN-SUFFIX,tracker.soulapp.cn,REJECT
-DOMAIN-SUFFIX,log.soulapp.cn,REJECT
-DOMAIN-SUFFIX,analytics.soulapp.cn,REJECT
-DOMAIN-SUFFIX,ads.soulapp.cn,REJECT
-# 穿山甲 / 火山引擎补充
-DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
-DOMAIN-SUFFIX,volceapplog.com,REJECT
-# ===== 2026-09-21 owner 补充(5)：Soul 自营广告聚合/商业化分发（必加）=====
-DOMAIN-SUFFIX,ssp.soulapp.cn,REJECT
-DOMAIN-SUFFIX,increase-openapi.soulapp.cn,REJECT
-DOMAIN-SUFFIX,gateway2-tcp-spam.soulapp.cn,REJECT
-# ===== 2026-09-21 owner 补充(6)：关键字规则(通配编码) + 风控整域 =====
-# 注意：||kw*^ 经 convert.py 转成 DOMAIN-KEYWORD,kw,REJECT（Shadowrocket 关键字规则）
-DOMAIN-SUFFIX,fengkongcloud.com,REJECT
-DOMAIN-KEYWORD,pangolin-sdk,REJECT
-DOMAIN-KEYWORD,applog.,REJECT
-# ===== 2026-09-21 owner 补充(7)：广告联盟/追踪 =====
-DOMAIN-SUFFIX,66mobi.com,REJECT
-DOMAIN-SUFFIX,mddlsa.com,REJECT
-# ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-27-ad9bd009.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-28-ad64669a.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-81-adc5aa09.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
@@ -221,68 +18,130 @@ DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-50-adef13ee.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click,REJECT
+DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,a.fxltsbl.com,REJECT
+DOMAIN-SUFFIX,abtest.wtzw.com,REJECT
 DOMAIN-SUFFIX,abtest3-misc-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ad-static.soulapp.cn,REJECT
+DOMAIN-SUFFIX,ad.fqnovel.com,REJECT
+DOMAIN-SUFFIX,ad.qm989.com,REJECT
+DOMAIN-SUFFIX,ad.soulapp.cn,REJECT
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+DOMAIN-SUFFIX,ad.wtzw.com,REJECT
+DOMAIN-SUFFIX,adash.m.taobao.com,REJECT
+DOMAIN-SUFFIX,adashx.ut.dingtalk.com,REJECT
 DOMAIN-SUFFIX,adashxgc.ut.taobao.com,REJECT
+DOMAIN-SUFFIX,adip-api.immomo.com,REJECT
 DOMAIN-SUFFIX,adlog-js.e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,adlog.e.kuaishou.cn,REJECT
 DOMAIN-SUFFIX,adlog.e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,adnxs-simple.com,REJECT
+DOMAIN-SUFFIX,ads.soulapp.cn,REJECT
 DOMAIN-SUFFIX,ads3-normal.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT
 DOMAIN-SUFFIX,adx-data-u1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,akamai-apigateway-gio-analytics.tesla.cn,REJECT
+DOMAIN-SUFFIX,alimama.com,REJECT
 DOMAIN-SUFFIX,altjyqomnnong.v1d.pkoplink.com,REJECT
+DOMAIN-SUFFIX,amdc-sibling.alipay.com.cn,REJECT
+DOMAIN-SUFFIX,amdc.alipay.com,REJECT
 DOMAIN-SUFFIX,analytics.map.qq.com,REJECT
 DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT
+DOMAIN-SUFFIX,analytics.soulapp.cn,REJECT
+DOMAIN-SUFFIX,anti-sdk-ccs-pre.m.jd.com,REJECT
+DOMAIN-SUFFIX,anti-sdk-report.m.jd.com,REJECT
 DOMAIN-SUFFIX,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT
+DOMAIN-SUFFIX,api-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,api-log.immomo.com,REJECT
+DOMAIN-SUFFIX,api-nps.wtzw.com,REJECT
 DOMAIN-SUFFIX,api.e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,api.kwaizt.com,REJECT
 DOMAIN-SUFFIX,api.sec.miui.com,REJECT
+DOMAIN-SUFFIX,apmplus.volces.com,REJECT
+DOMAIN-SUFFIX,app-analytics-services.com,REJECT
+DOMAIN-SUFFIX,app-measurement.com,REJECT
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT
+DOMAIN-SUFFIX,as.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,aspect-upush.umeng.com,REJECT
 DOMAIN-SUFFIX,audid.umeng.com,REJECT
-DOMAIN-SUFFIX,auth.be.sec.miui.com,REJECT
+DOMAIN-SUFFIX,awaken.amap.com,REJECT
 DOMAIN-SUFFIX,b.scorecardresearch.com,REJECT
 DOMAIN-SUFFIX,bbvhbbbhjghk.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,bda.umetrip.com,REJECT
 DOMAIN-SUFFIX,beaconcdn.qq.com,REJECT
 DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,REJECT
+DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
 DOMAIN-SUFFIX,bqbhiihdkhjq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bqbhiihdkhkk.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
 DOMAIN-SUFFIX,bv.lnk0.com,REJECT
 DOMAIN-SUFFIX,bvqhvgghkdhvq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bvqhvgghkihbjb.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bvqhvgghkihvgu.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,ccc.sys.miui.com,REJECT
+DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
 DOMAIN-SUFFIX,chartboosts.com,REJECT
 DOMAIN-SUFFIX,cnlogs.umeng.com,REJECT
 DOMAIN-SUFFIX,cnlogs.umengcloud.com,REJECT
+DOMAIN-SUFFIX,cosmos-compass-api.immomo.com,REJECT
 DOMAIN-SUFFIX,cr.adsappier.com,REJECT
+DOMAIN-SUFFIX,crash.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,crashlytics.com,REJECT
+DOMAIN-SUFFIX,dailygn.com,REJECT
+DOMAIN-SUFFIX,data-collector.soulapp.cn,REJECT
+DOMAIN-SUFFIX,data.ab.qq.com,REJECT
 DOMAIN-SUFFIX,data.kuiniuca.com,REJECT
 DOMAIN-SUFFIX,data.sec.miui.com,REJECT
+DOMAIN-SUFFIX,device-security-url.jd.com,REJECT
+DOMAIN-SUFFIX,dig-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,doki.ren,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
 DOMAIN-SUFFIX,dqeg61gsmczr3.v1d.pkoplink.com,REJECT
+DOMAIN-SUFFIX,drs-ipv6.wtzw.com,REJECT
+DOMAIN-SUFFIX,drs.wtzw.com,REJECT
+DOMAIN-SUFFIX,dsap.jd.com,REJECT
+DOMAIN-SUFFIX,dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,dsp.qimao.com,REJECT
 DOMAIN-SUFFIX,dualstack-logs.amap.com,REJECT
 DOMAIN-SUFFIX,e.cn.miaozhen.com,REJECT
+DOMAIN-SUFFIX,ecombdapi.com,REJECT
+DOMAIN-SUFFIX,faas-image.amap.com,REJECT
+DOMAIN-SUFFIX,feedguess.meituan.com,REJECT
 DOMAIN-SUFFIX,flash.sec.miui.com,REJECT
 DOMAIN-SUFFIX,g.cn.miaozhen.com,REJECT
 DOMAIN-SUFFIX,galileotelemetry.tencent.com,REJECT
+DOMAIN-SUFFIX,gateway2-tcp-spam.soulapp.cn,REJECT
+DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
+DOMAIN-SUFFIX,growth-img.xhscdn.com,REJECT
+DOMAIN-SUFFIX,h-adashx.ut.dingtalk.com,REJECT
 DOMAIN-SUFFIX,h.trace.qq.com,REJECT
+DOMAIN-SUFFIX,h5speed.m.jd.com,REJECT
+DOMAIN-SUFFIX,hellogroup.com,REJECT
 DOMAIN-SUFFIX,hktakphm1k5vl.v1d.pkoplink.com,REJECT
+DOMAIN-SUFFIX,httpdns.baidubce.com,REJECT
+DOMAIN-SUFFIX,httpdns.kuaishou.com,REJECT
+DOMAIN-SUFFIX,httpdns.proxima.netease.com,REJECT
+DOMAIN-SUFFIX,httpdns.volces.com,REJECT
 DOMAIN-SUFFIX,huichuan-mc.sm.cn,REJECT
 DOMAIN-SUFFIX,i.qchannel03.cn,REJECT
+DOMAIN-SUFFIX,iadsdk.apple.com,REJECT
 DOMAIN-SUFFIX,id6.me,REJECT
 DOMAIN-SUFFIX,idm.iot.mi.com,REJECT
+DOMAIN-SUFFIX,increase-openapi.soulapp.cn,REJECT
 DOMAIN-SUFFIX,info.3g.qq.com,REJECT
 DOMAIN-SUFFIX,janapi.jd.com,REJECT
 DOMAIN-SUFFIX,jehbdjhjbhjv.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,jomodns.cn,REJECT
+DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
 DOMAIN-SUFFIX,jupiter.sys.miui.com,REJECT
 DOMAIN-SUFFIX,kuiniuca.com,REJECT
 DOMAIN-SUFFIX,kv501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,live-api.immomo.com,REJECT
+DOMAIN-SUFFIX,live-log.immomo.com,REJECT
 DOMAIN-SUFFIX,log-klink.zijieapi.com,REJECT
 DOMAIN-SUFFIX,log.avlyun.com,REJECT
+DOMAIN-SUFFIX,log.snssdk.com,REJECT
+DOMAIN-SUFFIX,log.soulapp.cn,REJECT
 DOMAIN-SUFFIX,log.wechatpay.cn,REJECT
 DOMAIN-SUFFIX,log.weixin.qq.com,REJECT
 DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT
@@ -291,6 +150,7 @@ DOMAIN-SUFFIX,log0-normal-hl.toutiaoapi.com,REJECT
 DOMAIN-SUFFIX,log0-normal-lq.toutiaoapi.com,REJECT
 DOMAIN-SUFFIX,log3-normal-hl.toutiaoapi.com,REJECT
 DOMAIN-SUFFIX,log3-normal-lq.toutiaoapi.com,REJECT
+DOMAIN-SUFFIX,logbk.amemv.com,REJECT
 DOMAIN-SUFFIX,loggw-ex.alipay.com,REJECT
 DOMAIN-SUFFIX,logs.amap.com,REJECT
 DOMAIN-SUFFIX,logs.ironsrc.mobi,REJECT
@@ -298,19 +158,34 @@ DOMAIN-SUFFIX,logservice.hicloud.com,REJECT
 DOMAIN-SUFFIX,logservice1.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,logservice1.hicloud.com,REJECT
 DOMAIN-SUFFIX,logupdate.avlyun.sec.miui.com,REJECT
+DOMAIN-SUFFIX,luckycat.byteimg.com,REJECT
+DOMAIN-SUFFIX,ma.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mazu.m.qq.com,REJECT
 DOMAIN-SUFFIX,mcc.inf.miui.com,REJECT
+DOMAIN-SUFFIX,mddlsa.com,REJECT
+DOMAIN-SUFFIX,mediadata.xuexi.cn,REJECT
 DOMAIN-SUFFIX,metrics1-drcn.dt.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,mi.gdt.qq.com,REJECT
+DOMAIN-SUFFIX,mkt-cdn.wtzw.com,REJECT
+DOMAIN-SUFFIX,mkt.wtzw.com,REJECT
+DOMAIN-SUFFIX,mktm.jd.com,REJECT
 DOMAIN-SUFFIX,mm.365dmp.com,REJECT
+DOMAIN-SUFFIX,mmstat.com,REJECT
+DOMAIN-SUFFIX,modeldownload.taobao.com,REJECT
+DOMAIN-SUFFIX,mon-.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon.snssdk.com,REJECT
+DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
+DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
 DOMAIN-SUFFIX,mon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,mon0-misc-lf.amemv.com,REJECT
 DOMAIN-SUFFIX,monsetting.toutiao.com,REJECT
 DOMAIN-SUFFIX,msch.f.360.cn,REJECT
+DOMAIN-SUFFIX,mssdk-bu.bytedance.com,REJECT
 DOMAIN-SUFFIX,muf.app-ads-services.com,REJECT
 DOMAIN-SUFFIX,odf.app-ads-services.com,REJECT
 DOMAIN-SUFFIX,odm.app-ads-services.com,REJECT
 DOMAIN-SUFFIX,onethingpcs.com,REJECT
+DOMAIN-SUFFIX,opactivity.umetrip.com,REJECT
 DOMAIN-SUFFIX,oth.eve.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,oth.str.beacon.qq.com,REJECT
 DOMAIN-SUFFIX,oth.str.mdt.qq.com,REJECT
@@ -321,39 +196,73 @@ DOMAIN-SUFFIX,p3-ad.adukwai.com,REJECT
 DOMAIN-SUFFIX,p4-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,p5-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
 DOMAIN-SUFFIX,pc-mon.snssdk.com,REJECT
+DOMAIN-SUFFIX,perf.m.jd.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,pimlog.baidu.com,REJECT
+DOMAIN-SUFFIX,poplayer.template.alibaba.com,REJECT
 DOMAIN-SUFFIX,port.sec.miui.com,REJECT
 DOMAIN-SUFFIX,px.effirst.com,REJECT
+DOMAIN-SUFFIX,qiezibenpao.com,REJECT
+DOMAIN-SUFFIX,qm-ab.wtzw.com,REJECT
+DOMAIN-SUFFIX,qm-data.wtzw.com,REJECT
+DOMAIN-SUFFIX,qm-dig.wtzw.com,REJECT
+DOMAIN-SUFFIX,qmad.qimao.com,REJECT
 DOMAIN-SUFFIX,queniuck.com,REJECT
+DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
 DOMAIN-SUFFIX,resolve.umeng.com,REJECT
+DOMAIN-SUFFIX,rmonitor.qq.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,sdk.1rtb.net,REJECT
 DOMAIN-SUFFIX,sdk.e.qq.com,REJECT
+DOMAIN-SUFFIX,sdkfp.jd.com,REJECT
+DOMAIN-SUFFIX,sgm-m.jd.com,REJECT
+DOMAIN-SUFFIX,shark-tracer.netease.com,REJECT
+DOMAIN-SUFFIX,sjxydc.com,REJECT
 DOMAIN-SUFFIX,snowflake.qq.com,REJECT
 DOMAIN-SUFFIX,sofire.baidu.com,REJECT
+DOMAIN-SUFFIX,splash.soulapp.cn,REJECT
+DOMAIN-SUFFIX,spread.wtzw.com,REJECT
+DOMAIN-SUFFIX,ssp.soulapp.cn,REJECT
+DOMAIN-SUFFIX,store.is.autonavi.com,REJECT
 DOMAIN-SUFFIX,szlong.weixin.qq.com,REJECT
-DOMAIN-SUFFIX,talk.bz.gepush.com,REJECT
-DOMAIN-SUFFIX,talk.bz.getui.com,REJECT
-DOMAIN-SUFFIX,talk.bz.getui.net,REJECT
+DOMAIN-SUFFIX,t-cfg.wtzw.com,REJECT
+DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,tanx.com,REJECT
+DOMAIN-SUFFIX,tdid.m.qq.com,REJECT
 DOMAIN-SUFFIX,th.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,tianshu.gtimg.cn,REJECT
+DOMAIN-SUFFIX,tianwenca.com,REJECT
+DOMAIN-SUFFIX,tiga-release-dc.m.taobao.com,REJECT
 DOMAIN-SUFFIX,time.video.ptqy.gitv.tv,REJECT
 DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tjjs.wtzw.com,REJECT
 DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc3-aliec2.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc3-alisc1.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tnc3-bjlgy.zijieapi.com,REJECT
 DOMAIN-SUFFIX,tobapplog.ctobsnssdk.com,REJECT
+DOMAIN-SUFFIX,toblog.ctobsnssdk.com,REJECT
 DOMAIN-SUFFIX,tools.3g.qq.com,REJECT
+DOMAIN-SUFFIX,tosv.byted.org,REJECT
+DOMAIN-SUFFIX,tracker.soulapp.cn,REJECT
 DOMAIN-SUFFIX,tracking.miui.com,REJECT
+DOMAIN-SUFFIX,ugsdk.cn,REJECT
 DOMAIN-SUFFIX,ulogjs.ksapisrv.com,REJECT
 DOMAIN-SUFFIX,umengacs.m.taobao.com,REJECT
+DOMAIN-SUFFIX,umestartup.umetrip.com,REJECT
 DOMAIN-SUFFIX,up-hl.3g.qq.com,REJECT
 DOMAIN-SUFFIX,update.avlyun.sec.miui.com,REJECT
 DOMAIN-SUFFIX,uxip.meizu.com,REJECT
 DOMAIN-SUFFIX,v2.reachmax.cn,REJECT
+DOMAIN-SUFFIX,vcs-hj.zijieapi.com,REJECT
 DOMAIN-SUFFIX,vcs.zijieapi.com,REJECT
+DOMAIN-SUFFIX,volceapplog.com,REJECT
 DOMAIN-SUFFIX,vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,vuqenkmjunuuqqneqvnnbqq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,vuqenkmvknkktbndqqnnbqq.jspcdn.cn,REJECT
@@ -375,10 +284,17 @@ DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnni.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnj.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnu.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnv.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,waapdg.jd.com,REJECT
 DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT
+DOMAIN-SUFFIX,www.qchannel01.cn,REJECT
 DOMAIN-SUFFIX,xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,xlog.jd.com,REJECT
+DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
 DOMAIN-SUFFIX,xycdn.com.gslb.kuiniuca.com,REJECT
+DOMAIN-SUFFIX,yingt.fun,REJECT
 DOMAIN-SUFFIX,yoda.kwd.inkuai.com,REJECT
 DOMAIN-SUFFIX,yumao.puata.info,REJECT
 DOMAIN-SUFFIX,yun-hl.3g.qq.com,REJECT
+DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
+DOMAIN-SUFFIX,zztfly.com,REJECT
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
