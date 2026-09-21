@@ -1,4 +1,4 @@
-! updated: 2026-09-21 18:08 +0800
+! updated: 2026-09-21 20:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -294,3 +294,22 @@
 ||zconfig.alibabausercontent.com^
 ||zztfly.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
+||120-223-160-27-ad9bd009.ldhy.click^
+||120-223-160-28-ad64669a.ldhy.click^
+||120-223-160-4-ad4da289.ldhy.click^
+||120-223-160-86-ad7626dc.ldhy.click^
+||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
+||adashx.m.taobao.com^
+||auth.be.sec.miui.com^
+||d6j3wjeaqld7s.v1d.pkoplink.com^
+||d8emqsr5mz931.v1d.pkoplink.com^
+||fp-it.fengkongcloud.com^
+||h-adashx.ut.taobao.com^
+||h2tcbox.baidu.com^
+||log-hl.snssdk.com^
+||paas-push-api.immomo.com^
+||rtlog3-applog-hl.amemv.com^
+||talk.bz.gepush.com^
+||talk.bz.getui.com^
+||talk.bz.getui.net^
+||v3.gdt.qq.com^
