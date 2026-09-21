@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 14:30 +0800
+# updated: 2026-09-21 14:34 +0800
 # ====================================================
 
 # ==============================================================================
@@ -177,6 +177,13 @@ DOMAIN-SUFFIX,rmonitor.qq.com,REJECT
 # 阿里 UT 打点（可选，如需彻底过滤客户端数据上报）
 DOMAIN-SUFFIX,adashx.ut.dingtalk.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.dingtalk.com,REJECT
+# ===== 2026-09-21 owner 补充(3)：苹果归因 + 陌陌 + Soul 埋点 =====
+# 苹果广告归因
+DOMAIN-SUFFIX,iadsdk.apple.com,REJECT
+# 陌陌/HelloGroup 监控域名补充
+DOMAIN-SUFFIX,doki.ren,REJECT
+# Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
+DOMAIN-SUFFIX,data-collector.soulapp.cn,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
