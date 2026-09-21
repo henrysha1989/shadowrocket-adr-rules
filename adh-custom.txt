@@ -180,6 +180,18 @@
 ||doki.ren^
 ! Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
 ||data-collector.soulapp.cn^
+! ===== 2026-09-21 owner 补充(4)：Soul 开屏/埋点 + 穿山甲 + 火山 applog =====
+! Soul 官方开屏、推广与埋点上报（仅具体子域，避开 App 接口域 api.soulapp.cn）
+||ad.soulapp.cn^
+||ad-static.soulapp.cn^
+||splash.soulapp.cn^
+||tracker.soulapp.cn^
+||log.soulapp.cn^
+||analytics.soulapp.cn^
+||ads.soulapp.cn^
+! 穿山甲 / 火山引擎补充
+||pangolin-sdk-toutiao1.com^
+||volceapplog.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
