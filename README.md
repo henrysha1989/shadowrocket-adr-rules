@@ -23,7 +23,7 @@
           ▼ 发起 DNS 请求
 [AdGuard Home 本地 DNS 过滤]
           │
-          ▼ 每 6 小时轮询查询日志
+          ▼ 每 4 小时轮询查询日志
 [NAS 自动化脚本 adh_gist_sync.py]
           │
           ├── 命中直连特征 ──► 追加至 direct-custom.list（直连源）
