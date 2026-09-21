@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 14:47 +0800
+# updated: 2026-09-21 14:55 +0800
 # ====================================================
 
 # ==============================================================================
@@ -205,6 +205,9 @@ DOMAIN-SUFFIX,gateway2-tcp-spam.soulapp.cn,REJECT
 DOMAIN-SUFFIX,fengkongcloud.com,REJECT
 DOMAIN-KEYWORD,pangolin-sdk,REJECT
 DOMAIN-KEYWORD,applog.,REJECT
+# ===== 2026-09-21 owner 补充(7)：广告联盟/追踪 =====
+DOMAIN-SUFFIX,66mobi.com,REJECT
+DOMAIN-SUFFIX,mddlsa.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
