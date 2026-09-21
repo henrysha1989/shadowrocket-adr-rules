@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 14:34 +0800
+# updated: 2026-09-21 14:37 +0800
 # ====================================================
 
 # ==============================================================================
@@ -184,6 +184,18 @@ DOMAIN-SUFFIX,iadsdk.apple.com,REJECT
 DOMAIN-SUFFIX,doki.ren,REJECT
 # Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
 DOMAIN-SUFFIX,data-collector.soulapp.cn,REJECT
+# ===== 2026-09-21 owner 补充(4)：Soul 开屏/埋点 + 穿山甲 + 火山 applog =====
+# Soul 官方开屏、推广与埋点上报（仅具体子域，避开 App 接口域 api.soulapp.cn）
+DOMAIN-SUFFIX,ad.soulapp.cn,REJECT
+DOMAIN-SUFFIX,ad-static.soulapp.cn,REJECT
+DOMAIN-SUFFIX,splash.soulapp.cn,REJECT
+DOMAIN-SUFFIX,tracker.soulapp.cn,REJECT
+DOMAIN-SUFFIX,log.soulapp.cn,REJECT
+DOMAIN-SUFFIX,analytics.soulapp.cn,REJECT
+DOMAIN-SUFFIX,ads.soulapp.cn,REJECT
+# 穿山甲 / 火山引擎补充
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,volceapplog.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
