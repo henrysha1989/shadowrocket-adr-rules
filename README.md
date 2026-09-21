@@ -55,7 +55,7 @@
 | `convert.py` | AdGuard → Shadowrocket 语法转译引擎 | 核心脚本 |
 | `.github/workflows/convert.yml` | CI：监听 `adh-custom.txt` 变更并自动重生成拦截规则集 | 自动化 |
 
-> 当前规则量：拦截 **291** 条 / 直连 **89** 条 / 代理 **15** 条。
+> 当前规则量：拦截 **310** 条 / 直连 **89** 条 / 代理 **15** 条。
 
 ---
 
