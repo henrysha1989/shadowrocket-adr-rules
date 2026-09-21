@@ -1,4 +1,4 @@
-# updated: 2026-09-20 22:20 +0800
+# updated: 2026-09-21 16:14 +0800
 # ===== 阿里 / 钉钉生态核心信令与通信 (防工作台打不开与断流) =====
 DOMAIN-SUFFIX,dingtalk.com,DIRECT
 DOMAIN-SUFFIX,dingtalkapps.com,DIRECT
@@ -28,12 +28,14 @@ DOMAIN-SUFFIX,api-play.amemv.com,DIRECT
 DOMAIN-SUFFIX,api.amemv.com,DIRECT
 DOMAIN-SUFFIX,api.tuisong.baidu.com,DIRECT
 DOMAIN-SUFFIX,appcfg.v.qq.com,DIRECT
-DOMAIN-SUFFIX,apple.com,DIRECT
 DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
 DOMAIN-SUFFIX,browsercfg-drcn.cloud.dbankcloud.cn,DIRECT
 DOMAIN-SUFFIX,bytedns1.com,DIRECT
 DOMAIN-SUFFIX,bytedns3.com,DIRECT
+DOMAIN-SUFFIX,bytednsdoc.com,DIRECT
+DOMAIN-SUFFIX,bytegecko.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
+DOMAIN-SUFFIX,douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
 DOMAIN-SUFFIX,ib.snssdk.com,DIRECT
@@ -60,7 +62,21 @@ DOMAIN-SUFFIX,mssdk3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-lf.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mum.alibabachengdun.com,DIRECT
 DOMAIN-SUFFIX,mum.alibabachengdun.net,DIRECT
+DOMAIN-SUFFIX,ndcpp.com,DIRECT
 DOMAIN-SUFFIX,pitaya.bytedance.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-gl2.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-hl.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-lf.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-lq.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-xh.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris3-normal-zb.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-gl2.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-hl.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-lq.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
 DOMAIN-SUFFIX,render.ecombdpage.com,DIRECT
 DOMAIN-SUFFIX,rms-drcn.platform.dbankcloud.cn,DIRECT
 DOMAIN-SUFFIX,scc.bytedance.com,DIRECT
