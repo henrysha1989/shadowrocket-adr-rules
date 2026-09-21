@@ -192,6 +192,10 @@
 ! 穿山甲 / 火山引擎补充
 ||pangolin-sdk-toutiao1.com^
 ||volceapplog.com^
+! ===== 2026-09-21 owner 补充(5)：Soul 自营广告聚合/商业化分发（必加）=====
+||ssp.soulapp.cn^
+||increase-openapi.soulapp.cn^
+||gateway2-tcp-spam.soulapp.cn^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
