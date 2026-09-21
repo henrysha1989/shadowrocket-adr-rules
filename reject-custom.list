@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 14:55 +0800
+# updated: 2026-09-21 16:13 +0800
 # ====================================================
 
 # ==============================================================================
@@ -92,7 +92,6 @@ DOMAIN-SUFFIX,awaken.amap.com,REJECT
 DOMAIN-SUFFIX,bda.umetrip.com,REJECT
 DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
 DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
-DOMAIN-SUFFIX,bytegecko.com,REJECT
 DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
 DOMAIN-SUFFIX,crash.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,dailygn.com,REJECT
@@ -132,7 +131,6 @@ DOMAIN-SUFFIX,qm-ab.wtzw.com,REJECT
 DOMAIN-SUFFIX,qm-data.wtzw.com,REJECT
 DOMAIN-SUFFIX,qm-dig.wtzw.com,REJECT
 DOMAIN-SUFFIX,qmad.qimao.com,REJECT
-DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
 DOMAIN-SUFFIX,rcv.aiclk.com,REJECT
 DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,sdkfp.jd.com,REJECT
@@ -150,7 +148,6 @@ DOMAIN-SUFFIX,tjjs.wtzw.com,REJECT
 DOMAIN-SUFFIX,tosv.byted.org,REJECT
 DOMAIN-SUFFIX,ugsdk.cn,REJECT
 DOMAIN-SUFFIX,umestartup.umetrip.com,REJECT
-DOMAIN-SUFFIX,vc-brain.ndcpp.com,REJECT
 DOMAIN-SUFFIX,waapdg.jd.com,REJECT
 DOMAIN-SUFFIX,www.qchannel01.cn,REJECT
 DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
