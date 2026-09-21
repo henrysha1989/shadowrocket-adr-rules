@@ -1,213 +1,10 @@
-! updated: 2026-09-21 18:00 +0800
-! ==============================================================================
-! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
-! ==============================================================================
-! ==============================================================================
-! 2. 阿里系（淘宝、高德地图、优酷）弹窗、HTTPDNS 调度与广告拦截
-! ==============================================================================
-! 阻断阿里 AMDC HTTPDNS 调度中心（杜绝开屏广告 IP 偷跑）
-! 淘宝营销物料、PopLayer 弹窗引擎与动态组件
-! 高德地图营销商城、动态浮层与开屏视频广告物料
-! ==============================================================================
-! 3. 京东（JD）广告投放、CPS 全系图床与营销追踪
-! ==============================================================================
-! 核心广告投放引擎与营销配置
-! 通配拦截京东所有 CPS 营销推广图床（覆盖 imgcps1/2/3/4 等）
-! 设备指纹、性能监控与广告曝光埋点
-! ==============================================================================
-! 4. 字节跳动 / 番茄小说全系广告、激励视频、埋点与电商组件
-! ==============================================================================
-! 穿山甲 / 巨量引擎广告联盟底座
-! 番茄小说专属开屏广告图床、商业化 API 与实时曝光埋点（零误伤正文与听书）
-! 番茄小说正文与翻页插屏/激励视频拉流过滤（保留正常听书）
-! 字节电商广告与 SaaS 营销挂件
-! 小游戏弹窗、金币激励与拉活推广
-! 移动分析、云端监控与 AB 分流
-! 壁虎动态广告热更新（精准根域名拦截，覆盖全部多云 CNAME 落地节点）
-! 外部引入的抖音直播广告引流
-! ==============================================================================
-! 5. 七猫小说（梧桐 / 奇猫）广告投放、商业化配置与聚合联盟
-! ==============================================================================
-! 七猫自有商业化配置与广告位控制
-! 七猫广告联盟与 DSP 平台
-! ==============================================================================
-! 6. 小红书（RED）广告图床、商业服务与追踪
-! ==============================================================================
-! 开屏与信息流广告专用图床（独立于正常博主配图）
-! 商业广告服务与崩溃上报
-! ==============================================================================
-! 7. 航旅纵横与工具类应用净化
-! ==============================================================================
-! 航旅纵横开屏闪屏、活动弹窗与社交推广
-! 美团广告流推荐
-! 央视频与学习强国埋点
-! ==============================================================================
-! 8. 第三方通用广告联盟、指纹追踪、探针与反作弊
-! ==============================================================================
-! ========== 补漏：拼多多 DSP 广告投放与数据追踪 ==========
-! ========== 严格收窄：阻断电商 API，仅保留静态图片 ==========
-! ========== 阻断七猫广告大脑与核心打点 ==========
-! ===== 主流移动端 HttpDNS 阻断 (防止应用绕过本级 DNS 走私有通道解析) =====
-||httpdns.alicdn.com^
-||httpdns-api.aliyuncs.com^
-||httpdns.volces.com^
-||httpdns.baidubce.com^
-||dns.weixin.qq.com^
-||dns.wechat.com^
-||httpdns.kuaishou.com^
-||httpdns.proxima.netease.com^
-! ===== 移动端高频日志分析、开屏与广告跟踪埋点 =====
-||mmstat.com^
-||alimama.com^
-||tanx.com^
-||adash.m.taobao.com^
-||pangolin-sdk-toutiao.com^
-||pangolin-sdk-toutiao-b.com^
-||ad.toutiao.com^
-||toblog.ctobsnssdk.com^
-||log.snssdk.com^
-||app-measurement.com^
-||crashlytics.com^
-! ===== Google 系应用分析上报（2026-09-19 由直连改判为拦截，owner 可要求回退） =====
-||app-analytics-services.com^
-! ===== 手工精选广告/追踪规则（09-19 原始手工区·已回填，勿删）=====
+! updated: 2026-09-21 18:08 +0800
+! ============================================================
+! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
+! ============================================================
 ||0kkkkkt.com^
-||abtest.wtzw.com^
-||ad.fqnovel.com^
-||ad.qm989.com^
-||ad.wtzw.com^
-||amdc-sibling.alipay.com.cn^
-||amdc.alipay.com^
-||anti-sdk-ccs-pre.m.jd.com^
-||anti-sdk-report.m.jd.com^
-||api-cfg.wtzw.com^
-||api-nps.wtzw.com^
-||apmplus.volces.com^
-||as.xiaohongshu.com^
-||awaken.amap.com^
-||bda.umetrip.com^
-||blackhole.m.jd.com^
-||btrace.yangshipin.cn^
-||ccfjma.m.jd.com^
-||crash.xiaohongshu.com^
-||dailygn.com^
-||device-security-url.jd.com^
-||dig-cfg.wtzw.com^
-||drs-ipv6.wtzw.com^
-||drs.wtzw.com^
-||dsap.jd.com^
-||dsp.pinduoduo.com^
-||dsp.qimao.com^
-||ecombdapi.com^
-||faas-image.amap.com^
-||feedguess.meituan.com^
-||gecko.zijieapi.com^
-||growth-img.xhscdn.com^
-||h5speed.m.jd.com^
-||ir-sdk.dun.163.com^
-||ir-sdk.dun.163yun.com^
-||jpushsc.m.jd.com^
-||luckycat.byteimg.com^
-||ma.zijieapi.com^
-||mediadata.xuexi.cn^
-||mkt-cdn.wtzw.com^
-||mkt.wtzw.com^
-||mktm.jd.com^
-||modeldownload.taobao.com^
-||mon-.fqnovel.com^
-||mon.toutiaocloud.com^
-||mon.toutiaocloud.net^
-||mssdk-bu.bytedance.com^
-||opactivity.umetrip.com^
-||pangolin.snssdk.com^
-||perf.m.jd.com^
-||pglstatp-toutiao.com^
-||poplayer.template.alibaba.com^
-||qm-ab.wtzw.com^
-||qm-data.wtzw.com^
-||qm-dig.wtzw.com^
-||qmad.qimao.com^
-||rcv.aiclk.com^
-||rtlog5-applog-lf.fqnovel.com^
-||sdkfp.jd.com^
-||sgm-m.jd.com^
-||shark-tracer.netease.com^
-||sjxydc.com^
-||sns.umetrip.com^
-||spread.wtzw.com^
-||store.is.autonavi.com^
-||t-cfg.wtzw.com^
-||t-dsp.pinduoduo.com^
-||tdid.m.qq.com^
-||tiga-release-dc.m.taobao.com^
-||tjjs.wtzw.com^
-||tosv.byted.org^
-||ugsdk.cn^
-||umestartup.umetrip.com^
-||waapdg.jd.com^
-||www.qchannel01.cn^
-||xpis-xcdn.youku.com^
-||zconfig.alibabausercontent.com^
-||zztfly.com^
-! ===== 2026-09-21 owner 补充：番茄/穿山甲聚合广告与字节打点 =====
-! 番茄/穿山甲聚合广告与统计
-||qiezibenpao.com^
-||yingt.fun^
-||tianwenca.com^
-! 字节/抖音特定打点与日志备份
-||logbk.amemv.com^
-||mon0-misc-lf.amemv.com^
-! ===== 2026-09-21 owner 补充(2)：陌陌/腾讯/阿里打点 =====
-! 陌陌 / 挚文集团广告与打点监控
-||adip-api.immomo.com^
-||api-log.immomo.com^
-||live-log.immomo.com^
-||cosmos-compass-api.immomo.com^
-||hellogroup.com^
-! 腾讯数据与监控
-||data.ab.qq.com^
-||rmonitor.qq.com^
-! 阿里 UT 打点（可选，如需彻底过滤客户端数据上报）
-||adashx.ut.dingtalk.com^
-||h-adashx.ut.dingtalk.com^
-! ===== 2026-09-21 owner 补充(3)：苹果归因 + 陌陌 + Soul 埋点 =====
-! 苹果广告归因
-||iadsdk.apple.com^
-! 陌陌/HelloGroup 监控域名补充
-||doki.ren^
-! Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
-||data-collector.soulapp.cn^
-! ===== 2026-09-21 owner 补充(4)：Soul 开屏/埋点 + 穿山甲 + 火山 applog =====
-! Soul 官方开屏、推广与埋点上报（仅具体子域，避开 App 接口域 api.soulapp.cn）
-||ad.soulapp.cn^
-||ad-static.soulapp.cn^
-||splash.soulapp.cn^
-||tracker.soulapp.cn^
-||log.soulapp.cn^
-||analytics.soulapp.cn^
-||ads.soulapp.cn^
-! 穿山甲 / 火山引擎补充
-||pangolin-sdk-toutiao1.com^
-||volceapplog.com^
-! ===== 2026-09-21 owner 补充(5)：Soul 自营广告聚合/商业化分发（必加）=====
-||ssp.soulapp.cn^
-||increase-openapi.soulapp.cn^
-||gateway2-tcp-spam.soulapp.cn^
-! ===== 2026-09-21 owner 补充(6)：关键字规则(通配编码) + 风控整域 =====
-! 注意：||kw*^ 经 convert.py 转成 DOMAIN-KEYWORD,kw,REJECT（Shadowrocket 关键字规则）
-||fengkongcloud.com^
-||pangolin-sdk*^
-||applog.*^
-! ===== 2026-09-21 owner 补充(7)：广告联盟/追踪 =====
-||66mobi.com^
-||mddlsa.com^
-! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
-||120-223-160-27-ad9bd009.ldhy.click^
-||120-223-160-28-ad64669a.ldhy.click^
-||120-223-160-4-ad4da289.ldhy.click^
 ||120-223-160-81-adc5aa09.ldhy.click^
-||120-223-160-86-ad7626dc.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
@@ -217,68 +14,130 @@
 ||2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click^
+||66mobi.com^
 ||a.fxltsbl.com^
+||abtest.wtzw.com^
 ||abtest3-misc-hl.zijieapi.com^
+||ad-static.soulapp.cn^
+||ad.fqnovel.com^
+||ad.qm989.com^
+||ad.soulapp.cn^
+||ad.toutiao.com^
+||ad.wtzw.com^
+||adash.m.taobao.com^
+||adashx.ut.dingtalk.com^
 ||adashxgc.ut.taobao.com^
+||adip-api.immomo.com^
 ||adlog-js.e.kuaishou.com^
 ||adlog.e.kuaishou.cn^
 ||adlog.e.kuaishou.com^
 ||adnxs-simple.com^
+||ads.soulapp.cn^
 ||ads3-normal.zijieapi.com^
 ||ads5-normal.zijieapi.com^
 ||adx-data-u1.ubixioe.com^
 ||akamai-apigateway-gio-analytics.tesla.cn^
+||alimama.com^
 ||altjyqomnnong.v1d.pkoplink.com^
+||amdc-sibling.alipay.com.cn^
+||amdc.alipay.com^
 ||analytics.map.qq.com^
 ||analytics.oceanengine.com^
+||analytics.soulapp.cn^
+||anti-sdk-ccs-pre.m.jd.com^
+||anti-sdk-report.m.jd.com^
 ||apd-pcdnwxstat.teg.tencent-cloud.net^
+||api-cfg.wtzw.com^
+||api-log.immomo.com^
+||api-nps.wtzw.com^
 ||api.e.kuaishou.com^
 ||api.kwaizt.com^
 ||api.sec.miui.com^
+||apmplus.volces.com^
+||app-analytics-services.com^
+||app-measurement.com^
 ||applog.zijieapi.com^
+||as.xiaohongshu.com^
 ||aspect-upush.umeng.com^
 ||audid.umeng.com^
-||auth.be.sec.miui.com^
+||awaken.amap.com^
 ||b.scorecardresearch.com^
 ||bbvhbbbhjghk.jspcdn.cn^
+||bda.umetrip.com^
 ||beaconcdn.qq.com^
 ||bird.cn-hangzhou.log.aliyuncs.com^
+||blackhole.m.jd.com^
 ||bqbhiihdkhjq.jspcdn.cn^
 ||bqbhiihdkhkk.jspcdn.cn^
+||btrace.yangshipin.cn^
 ||bv.lnk0.com^
 ||bvqhvgghkdhvq.jspcdn.cn^
 ||bvqhvgghkihbjb.jspcdn.cn^
 ||bvqhvgghkihvgu.jspcdn.cn^
 ||ccc.sys.miui.com^
+||ccfjma.m.jd.com^
 ||chartboosts.com^
 ||cnlogs.umeng.com^
 ||cnlogs.umengcloud.com^
+||cosmos-compass-api.immomo.com^
 ||cr.adsappier.com^
+||crash.xiaohongshu.com^
+||crashlytics.com^
+||dailygn.com^
+||data-collector.soulapp.cn^
+||data.ab.qq.com^
 ||data.kuiniuca.com^
 ||data.sec.miui.com^
+||device-security-url.jd.com^
+||dig-cfg.wtzw.com^
+||doki.ren^
 ||doubleclick-cn.net^
 ||dqeg61gsmczr3.v1d.pkoplink.com^
+||drs-ipv6.wtzw.com^
+||drs.wtzw.com^
+||dsap.jd.com^
+||dsp.pinduoduo.com^
+||dsp.qimao.com^
 ||dualstack-logs.amap.com^
 ||e.cn.miaozhen.com^
+||ecombdapi.com^
+||faas-image.amap.com^
+||feedguess.meituan.com^
 ||flash.sec.miui.com^
 ||g.cn.miaozhen.com^
 ||galileotelemetry.tencent.com^
+||gateway2-tcp-spam.soulapp.cn^
+||gecko.zijieapi.com^
+||growth-img.xhscdn.com^
+||h-adashx.ut.dingtalk.com^
 ||h.trace.qq.com^
+||h5speed.m.jd.com^
+||hellogroup.com^
 ||hktakphm1k5vl.v1d.pkoplink.com^
+||httpdns.baidubce.com^
+||httpdns.kuaishou.com^
+||httpdns.proxima.netease.com^
+||httpdns.volces.com^
 ||huichuan-mc.sm.cn^
 ||i.qchannel03.cn^
+||iadsdk.apple.com^
 ||id6.me^
 ||idm.iot.mi.com^
+||increase-openapi.soulapp.cn^
 ||info.3g.qq.com^
 ||janapi.jd.com^
 ||jehbdjhjbhjv.jspcdn.cn^
 ||jomodns.cn^
+||jpushsc.m.jd.com^
 ||jupiter.sys.miui.com^
 ||kuiniuca.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
 ||live-api.immomo.com^
+||live-log.immomo.com^
 ||log-klink.zijieapi.com^
 ||log.avlyun.com^
+||log.snssdk.com^
+||log.soulapp.cn^
 ||log.wechatpay.cn^
 ||log.weixin.qq.com^
 ||log0-misc-hl.amemv.com^
@@ -287,6 +146,7 @@
 ||log0-normal-lq.toutiaoapi.com^
 ||log3-normal-hl.toutiaoapi.com^
 ||log3-normal-lq.toutiaoapi.com^
+||logbk.amemv.com^
 ||loggw-ex.alipay.com^
 ||logs.amap.com^
 ||logs.ironsrc.mobi^
@@ -294,19 +154,34 @@
 ||logservice1.dbankcloud.cn^
 ||logservice1.hicloud.com^
 ||logupdate.avlyun.sec.miui.com^
+||luckycat.byteimg.com^
+||ma.zijieapi.com^
 ||mazu.m.qq.com^
 ||mcc.inf.miui.com^
+||mddlsa.com^
+||mediadata.xuexi.cn^
 ||metrics1-drcn.dt.dbankcloud.cn^
 ||mi.gdt.qq.com^
+||mkt-cdn.wtzw.com^
+||mkt.wtzw.com^
+||mktm.jd.com^
 ||mm.365dmp.com^
+||mmstat.com^
+||modeldownload.taobao.com^
+||mon-.fqnovel.com^
 ||mon.snssdk.com^
+||mon.toutiaocloud.com^
+||mon.toutiaocloud.net^
 ||mon.zijieapi.com^
+||mon0-misc-lf.amemv.com^
 ||monsetting.toutiao.com^
 ||msch.f.360.cn^
+||mssdk-bu.bytedance.com^
 ||muf.app-ads-services.com^
 ||odf.app-ads-services.com^
 ||odm.app-ads-services.com^
 ||onethingpcs.com^
+||opactivity.umetrip.com^
 ||oth.eve.mdt.qq.com^
 ||oth.str.beacon.qq.com^
 ||oth.str.mdt.qq.com^
@@ -317,39 +192,73 @@
 ||p4-ad.adkwai.com^
 ||p5-ad.adkwai.com^
 ||paas-push-api-log.immomo.com^
+||pangolin-sdk-toutiao.com^
+||pangolin-sdk-toutiao-b.com^
+||pangolin-sdk-toutiao1.com^
+||pangolin.snssdk.com^
 ||pc-mon.snssdk.com^
+||perf.m.jd.com^
+||pglstatp-toutiao.com^
 ||pimlog.baidu.com^
+||poplayer.template.alibaba.com^
 ||port.sec.miui.com^
 ||px.effirst.com^
+||qiezibenpao.com^
+||qm-ab.wtzw.com^
+||qm-data.wtzw.com^
+||qm-dig.wtzw.com^
+||qmad.qimao.com^
 ||queniuck.com^
+||rcv.aiclk.com^
 ||resolve.umeng.com^
+||rmonitor.qq.com^
+||rtlog5-applog-lf.fqnovel.com^
 ||sdk.1rtb.net^
 ||sdk.e.qq.com^
+||sdkfp.jd.com^
+||sgm-m.jd.com^
+||shark-tracer.netease.com^
+||sjxydc.com^
 ||snowflake.qq.com^
 ||sofire.baidu.com^
+||splash.soulapp.cn^
+||spread.wtzw.com^
+||ssp.soulapp.cn^
+||store.is.autonavi.com^
 ||szlong.weixin.qq.com^
-||talk.bz.gepush.com^
-||talk.bz.getui.com^
-||talk.bz.getui.net^
+||t-cfg.wtzw.com^
+||t-dsp.pinduoduo.com^
+||tanx.com^
+||tdid.m.qq.com^
 ||th.pinduoduo.com^
 ||tianshu.gtimg.cn^
+||tianwenca.com^
+||tiga-release-dc.m.taobao.com^
 ||time.video.ptqy.gitv.tv^
 ||timon.zijieapi.com^
+||tjjs.wtzw.com^
 ||tnc0-aliec2.zijieapi.com^
 ||tnc0-alisc1.zijieapi.com^
 ||tnc3-aliec2.zijieapi.com^
 ||tnc3-alisc1.zijieapi.com^
 ||tnc3-bjlgy.zijieapi.com^
 ||tobapplog.ctobsnssdk.com^
+||toblog.ctobsnssdk.com^
 ||tools.3g.qq.com^
+||tosv.byted.org^
+||tracker.soulapp.cn^
 ||tracking.miui.com^
+||ugsdk.cn^
 ||ulogjs.ksapisrv.com^
 ||umengacs.m.taobao.com^
+||umestartup.umetrip.com^
 ||up-hl.3g.qq.com^
 ||update.avlyun.sec.miui.com^
 ||uxip.meizu.com^
 ||v2.reachmax.cn^
+||vcs-hj.zijieapi.com^
 ||vcs.zijieapi.com^
+||volceapplog.com^
 ||vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn^
 ||vuqenkmjunuuqqneqvnnbqq.jspcdn.cn^
 ||vuqenkmvknkktbndqqnnbqq.jspcdn.cn^
@@ -371,10 +280,17 @@
 ||vuqknkiuenbjqqnvqnnj.jspcdn.cn^
 ||vuqknkiuenbjqqnvqnnu.jspcdn.cn^
 ||vuqknkiuenbjqqnvqnnv.jspcdn.cn^
+||waapdg.jd.com^
 ||wetelemetry.weixin.qq.com^
+||www.qchannel01.cn^
 ||xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com^
 ||xlog.jd.com^
+||xpis-xcdn.youku.com^
 ||xycdn.com.gslb.kuiniuca.com^
+||yingt.fun^
 ||yoda.kwd.inkuai.com^
 ||yumao.puata.info^
 ||yun-hl.3g.qq.com^
+||zconfig.alibabausercontent.com^
+||zztfly.com^
+! ===== 自动收集（以下内容由脚本管理，勿手改）=====
