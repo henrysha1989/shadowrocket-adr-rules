@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 06:00 +0800
+# updated: 2026-09-21 12:00 +0800
 # ====================================================
 
 # ==============================================================================
@@ -157,11 +157,14 @@ DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
 DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
 DOMAIN-SUFFIX,zztfly.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-50-adef13ee.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click,REJECT
 DOMAIN-SUFFIX,a.fxltsbl.com,REJECT
 DOMAIN-SUFFIX,abtest3-misc-hl.zijieapi.com,REJECT
@@ -185,6 +188,7 @@ DOMAIN-SUFFIX,api.sec.miui.com,REJECT
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT
 DOMAIN-SUFFIX,aspect-upush.umeng.com,REJECT
 DOMAIN-SUFFIX,audid.umeng.com,REJECT
+DOMAIN-SUFFIX,auth.be.sec.miui.com,REJECT
 DOMAIN-SUFFIX,b.scorecardresearch.com,REJECT
 DOMAIN-SUFFIX,bbvhbbbhjghk.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,beaconcdn.qq.com,REJECT
@@ -192,7 +196,9 @@ DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,bqbhiihdkhjq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bqbhiihdkhkk.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bv.lnk0.com,REJECT
+DOMAIN-SUFFIX,bvqhvgghkdhvq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bvqhvgghkihbjb.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,bvqhvgghkihvgu.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,ccc.sys.miui.com,REJECT
 DOMAIN-SUFFIX,chartboosts.com,REJECT
 DOMAIN-SUFFIX,cnlogs.umeng.com,REJECT
@@ -203,6 +209,7 @@ DOMAIN-SUFFIX,data.sec.miui.com,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
 DOMAIN-SUFFIX,dqeg61gsmczr3.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,dualstack-logs.amap.com,REJECT
+DOMAIN-SUFFIX,e.cn.miaozhen.com,REJECT
 DOMAIN-SUFFIX,flash.sec.miui.com,REJECT
 DOMAIN-SUFFIX,g.cn.miaozhen.com,REJECT
 DOMAIN-SUFFIX,galileotelemetry.tencent.com,REJECT
