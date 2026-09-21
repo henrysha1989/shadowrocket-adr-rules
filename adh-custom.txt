@@ -196,6 +196,11 @@
 ||ssp.soulapp.cn^
 ||increase-openapi.soulapp.cn^
 ||gateway2-tcp-spam.soulapp.cn^
+! ===== 2026-09-21 owner 补充(6)：关键字规则(通配编码) + 风控整域 =====
+! 注意：||kw*^ 经 convert.py 转成 DOMAIN-KEYWORD,kw,REJECT（Shadowrocket 关键字规则）
+||fengkongcloud.com^
+||pangolin-sdk*^
+||applog.*^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
