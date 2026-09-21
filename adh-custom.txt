@@ -201,6 +201,9 @@
 ||fengkongcloud.com^
 ||pangolin-sdk*^
 ||applog.*^
+! ===== 2026-09-21 owner 补充(7)：广告联盟/追踪 =====
+||66mobi.com^
+||mddlsa.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
