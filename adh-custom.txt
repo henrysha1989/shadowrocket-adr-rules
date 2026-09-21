@@ -1,4 +1,4 @@
-! updated: 2026-09-21 12:00 +0800
+! updated: 2026-09-21 16:14 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -203,7 +203,9 @@
 ||mddlsa.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
+||120-223-160-81-adc5aa09.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
+||2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click^
@@ -226,7 +228,6 @@
 ||analytics.map.qq.com^
 ||analytics.oceanengine.com^
 ||apd-pcdnwxstat.teg.tencent-cloud.net^
-||api-access.pangolin-sdk-toutiao1.com^
 ||api.e.kuaishou.com^
 ||api.kwaizt.com^
 ||api.sec.miui.com^
@@ -272,6 +273,7 @@
 ||kuiniuca.com^
 ||kv501.prod.do.dsp.mp.microsoft.com^
 ||live-api.immomo.com^
+||log-klink.zijieapi.com^
 ||log.avlyun.com^
 ||log.wechatpay.cn^
 ||log.weixin.qq.com^
@@ -313,10 +315,6 @@
 ||paas-push-api-log.immomo.com^
 ||pc-mon.snssdk.com^
 ||pimlog.baidu.com^
-||polaris3-normal-lf.zijieapi.com^
-||polaris5-normal-lf.zijieapi.com^
-||polaris5-normal-xh.zijieapi.com^
-||polaris5-normal-zb.zijieapi.com^
 ||port.sec.miui.com^
 ||px.effirst.com^
 ||queniuck.com^
