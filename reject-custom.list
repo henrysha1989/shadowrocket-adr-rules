@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 16:14 +0800
+# updated: 2026-09-21 18:00 +0800
 # ====================================================
 
 # ==============================================================================
@@ -207,7 +207,11 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,mddlsa.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
+DOMAIN-SUFFIX,120-223-160-27-ad9bd009.ldhy.click,REJECT
+DOMAIN-SUFFIX,120-223-160-28-ad64669a.ldhy.click,REJECT
+DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-81-adc5aa09.ldhy.click,REJECT
+DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
