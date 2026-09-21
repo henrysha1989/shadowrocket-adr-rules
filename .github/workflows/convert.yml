@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'adh-custom.txt'
+      - 'direct-custom.list'
+      - 'proxy-custom.list'
   workflow_dispatch:
 
 permissions:
@@ -27,11 +29,15 @@ jobs:
         run: |
           python convert.py
 
+      - name: Update README rule counts
+        run: |
+          python update_readme_counts.py
+
       - name: Commit and Push Output
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add reject-custom.list
+          git add reject-custom.list README.md
           if git diff --staged --quiet; then
             echo "No changes detected."
           else
