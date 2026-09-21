@@ -173,6 +173,13 @@
 ! 阿里 UT 打点（可选，如需彻底过滤客户端数据上报）
 ||adashx.ut.dingtalk.com^
 ||h-adashx.ut.dingtalk.com^
+! ===== 2026-09-21 owner 补充(3)：苹果归因 + 陌陌 + Soul 埋点 =====
+! 苹果广告归因
+||iadsdk.apple.com^
+! 陌陌/HelloGroup 监控域名补充
+||doki.ren^
+! Soul 数据收集（仅埋点前缀；soulapp.cn 整域会误伤 App，暂不加）
+||data-collector.soulapp.cn^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
