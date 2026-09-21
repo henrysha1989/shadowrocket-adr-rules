@@ -1,4 +1,4 @@
-! updated: 2026-09-21 06:00 +0800
+! updated: 2026-09-21 12:00 +0800
 ! ==============================================================================
 ! 1. 核心白名单：保障基础鉴权、抖音刷视频与各 App 核心业务
 ! ==============================================================================
@@ -153,11 +153,14 @@
 ||zconfig.alibabausercontent.com^
 ||zztfly.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
+||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click^
+||2409-8c3c-906-2-0-0-0-50-adef13ee.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click^
+||2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click^
 ||a.fxltsbl.com^
 ||abtest3-misc-hl.zijieapi.com^
@@ -181,6 +184,7 @@
 ||applog.zijieapi.com^
 ||aspect-upush.umeng.com^
 ||audid.umeng.com^
+||auth.be.sec.miui.com^
 ||b.scorecardresearch.com^
 ||bbvhbbbhjghk.jspcdn.cn^
 ||beaconcdn.qq.com^
@@ -188,7 +192,9 @@
 ||bqbhiihdkhjq.jspcdn.cn^
 ||bqbhiihdkhkk.jspcdn.cn^
 ||bv.lnk0.com^
+||bvqhvgghkdhvq.jspcdn.cn^
 ||bvqhvgghkihbjb.jspcdn.cn^
+||bvqhvgghkihvgu.jspcdn.cn^
 ||ccc.sys.miui.com^
 ||chartboosts.com^
 ||cnlogs.umeng.com^
@@ -199,6 +205,7 @@
 ||doubleclick-cn.net^
 ||dqeg61gsmczr3.v1d.pkoplink.com^
 ||dualstack-logs.amap.com^
+||e.cn.miaozhen.com^
 ||flash.sec.miui.com^
 ||g.cn.miaozhen.com^
 ||galileotelemetry.tencent.com^
