@@ -1,4 +1,4 @@
-! updated: 2026-09-21 20:00 +0800
+! updated: 2026-09-21 20:52 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -299,17 +299,30 @@
 ||120-223-160-4-ad4da289.ldhy.click^
 ||120-223-160-86-ad7626dc.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
+||adashbc.ut.taobao.com^
 ||adashx.m.taobao.com^
+||adashx.ut.amap.com^
+||ads-i2.xhscdn.com^
+||ads-i3.xhscdn.com^
+||ads-img-al.xhscdn.com^
+||ads-vp5.xhscdn.com^
+||amap-aos-info-nogw.amap.com^
+||apm-native.xiaohongshu.com^
+||applog.lc.quark.cn^
 ||auth.be.sec.miui.com^
 ||d6j3wjeaqld7s.v1d.pkoplink.com^
 ||d8emqsr5mz931.v1d.pkoplink.com^
 ||fp-it.fengkongcloud.com^
 ||h-adashx.ut.taobao.com^
 ||h2tcbox.baidu.com^
+||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||paas-push-api.immomo.com^
 ||rtlog3-applog-hl.amemv.com^
+||spider-tracker.xiaohongshu.com^
+||t2.xiaohongshu.com^
 ||talk.bz.gepush.com^
 ||talk.bz.getui.com^
 ||talk.bz.getui.net^
 ||v3.gdt.qq.com^
+||wxa.wxs.qq.com^
