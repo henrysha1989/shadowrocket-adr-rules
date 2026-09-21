@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-21 16:13 +0800
+# updated: 2026-09-21 16:14 +0800
 # ====================================================
 
 # ==============================================================================
@@ -207,7 +207,9 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,mddlsa.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
+DOMAIN-SUFFIX,120-223-160-81-adc5aa09.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click,REJECT
@@ -230,7 +232,6 @@ DOMAIN-SUFFIX,altjyqomnnong.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,analytics.map.qq.com,REJECT
 DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT
 DOMAIN-SUFFIX,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT
-DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT
 DOMAIN-SUFFIX,api.e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,api.kwaizt.com,REJECT
 DOMAIN-SUFFIX,api.sec.miui.com,REJECT
@@ -276,6 +277,7 @@ DOMAIN-SUFFIX,jupiter.sys.miui.com,REJECT
 DOMAIN-SUFFIX,kuiniuca.com,REJECT
 DOMAIN-SUFFIX,kv501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,live-api.immomo.com,REJECT
+DOMAIN-SUFFIX,log-klink.zijieapi.com,REJECT
 DOMAIN-SUFFIX,log.avlyun.com,REJECT
 DOMAIN-SUFFIX,log.wechatpay.cn,REJECT
 DOMAIN-SUFFIX,log.weixin.qq.com,REJECT
@@ -317,10 +319,6 @@ DOMAIN-SUFFIX,p5-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT
 DOMAIN-SUFFIX,pc-mon.snssdk.com,REJECT
 DOMAIN-SUFFIX,pimlog.baidu.com,REJECT
-DOMAIN-SUFFIX,polaris3-normal-lf.zijieapi.com,REJECT
-DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,REJECT
-DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,REJECT
-DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,REJECT
 DOMAIN-SUFFIX,port.sec.miui.com,REJECT
 DOMAIN-SUFFIX,px.effirst.com,REJECT
 DOMAIN-SUFFIX,queniuck.com,REJECT
