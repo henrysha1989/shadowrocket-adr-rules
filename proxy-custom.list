@@ -13,6 +13,8 @@ DOMAIN-SUFFIX,ipleak.net,PROXY
 DOMAIN-SUFFIX,whoer.net,PROXY
 DOMAIN-SUFFIX,ipinfo.io,PROXY
 DOMAIN-SUFFIX,ip.sb,PROXY
+DOMAIN-SUFFIX,google.cn,PROXY
+DOMAIN-SUFFIX,g.cn,PROXY
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,google.com,PROXY
 DOMAIN-SUFFIX,googleapis.com,PROXY
