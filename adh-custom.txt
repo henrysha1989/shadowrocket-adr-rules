@@ -152,6 +152,14 @@
 ||xpis-xcdn.youku.com^
 ||zconfig.alibabausercontent.com^
 ||zztfly.com^
+! ===== 2026-09-21 owner 补充：番茄/穿山甲聚合广告与字节打点 =====
+! 番茄/穿山甲聚合广告与统计
+||qiezibenpao.com^
+||yingt.fun^
+||tianwenca.com^
+! 字节/抖音特定打点与日志备份
+||logbk.amemv.com^
+||mon0-misc-lf.amemv.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||120-223-160-18-ad62996f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
