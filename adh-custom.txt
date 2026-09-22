@@ -1,4 +1,4 @@
-! updated: 2026-09-22 04:01 +0800
+! updated: 2026-09-22 08:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -353,6 +353,7 @@
 ||p66-ad.adkwai.com^
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
+||pgdt.ugdtimg.com^
 ||qsb.browser.miui.com^
 ||qzs.gdtimg.com^
 ||rtlog3-applog-hl.amemv.com^
