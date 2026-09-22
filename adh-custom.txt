@@ -1,4 +1,4 @@
-! updated: 2026-09-22 20:01 +0800
+! updated: 2026-09-23 00:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -300,11 +300,15 @@
 ||120-223-160-4-ad4da289.ldhy.click^
 ||120-223-160-86-ad7626dc.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click^
+||2409-8c3c-906-0-1-0-0-17-add1d026.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click^
+||2409-8c3c-906-0-1-0-0-21-ad6dc21d.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click^
+||2409-8c3c-906-2-0-0-0-56-adeb6ee2.ldhy.click^
 ||abtest-ch.snssdk.com^
+||ad-api.adn-plus.com.cn^
 ||adashbc.ut.taobao.com^
 ||adashx.m.taobao.com^
 ||adashx.ut.amap.com^
@@ -333,7 +337,9 @@
 ||bjimp.voiceads.cn^
 ||cbsipv4.shuzilm.cn^
 ||cdn-api-verify.mob.com^
+||cdn.ynuf.aliapp.org^
 ||cm.g.doubleclick.net^
+||cp501.prod.do.dsp.mp.microsoft.com^
 ||d6j3wcr3qldey.v1d.pkoplink.com^
 ||d6j3wjeaqld7s.v1d.pkoplink.com^
 ||d6j3wjeaqldey.v1d.pkoplink.com^
@@ -341,15 +347,20 @@
 ||d8emqsr5mz931.v1d.pkoplink.com^
 ||dfe.mic.mob.com^
 ||dm.toutiao.com^
+||entry-su1.ubixioe.com^
 ||errnewlog.umeng.com^
 ||feedback-c.zijieapi.com^
 ||fp-it.fengkongcloud.com^
+||geo.prod.do.dsp.mp.microsoft.com^
 ||h-adashx.ut.taobao.com^
 ||h2tcbox.baidu.com^
+||huichuan.sm.cn^
 ||im-x.jd.com^
 ||images.pinduoduo.com^
+||ipv4.gdt.qq.com^
 ||ipv6.shuzilm.cn^
 ||ir-sdk.dun.163.com^
+||jihbgihvihkv.jspcdn.cn^
 ||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||log-verify.mob.com^
@@ -369,12 +380,15 @@
 ||qrteyjyj1swfx.v1d.pkoplink.com^
 ||qsb.browser.miui.com^
 ||qzs.gdtimg.com^
+||report.trade.weixin.qq.com^
 ||rtlog3-applog-hl.amemv.com^
 ||rumt-zh.com^
 ||saveu5-normal-lq.zijieapi.com^
+||sdk.beizi.biz^
 ||sdkconf.avlyun.com^
 ||sdkquic.e.qq.com^
 ||spider-tracker.xiaohongshu.com^
+||ssp.1rtb.com^
 ||stat.moji.com^
 ||t2.xiaohongshu.com^
 ||talk.bz.gepush.com^
@@ -390,8 +404,15 @@
 ||v2mi.gdt.qq.com^
 ||v3.gdt.qq.com^
 ||vi.l.qq.com^
+||vuqenkdqvneqcmnnbqq.jspcdn.cn^
+||vuqenkdqvneqmknuqnnbqq.jspcdn.cn^
+||vuqenkdvknpvttndnnbqq.jspcdn.cn^
+||vuqenkmvqnppgbngvenqnjsknqnbqq.jspcdn.cn^
+||vuqenkqqvnktqninnbqq.jspcdn.cn^
+||vuqknkduqndbttnknnbqq.jspcdn.cn^
 ||win.gdt.qq.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
+||wxsmw.wxs.qq.com^
 ||xf11t999yf11111raz31w9ytdj1fxmo1.v1d.pkoplink.com^
 ||xf1st9f2cf11111r9zn1reftdffp9t6f.v1d.pkoplink.com^
