@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-22 12:00 +0800
+# updated: 2026-09-22 16:00 +0800
 # ====================================================
 
 # ============================================================
@@ -305,6 +305,7 @@ DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
@@ -337,6 +338,7 @@ DOMAIN-SUFFIX,cbsipv4.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,cdn-api-verify.mob.com,REJECT
 DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
 DOMAIN-SUFFIX,d6j3wjeaqld7s.v1d.pkoplink.com,REJECT
+DOMAIN-SUFFIX,d6j3wjenqldey.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,d8emqsr5mz931.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
