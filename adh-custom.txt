@@ -1,4 +1,4 @@
-! updated: 2026-09-22 08:00 +0800
+! updated: 2026-09-22 12:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -294,11 +294,15 @@
 ||zconfig.alibabausercontent.com^
 ||zztfly.com^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
+||120-223-160-15-adad36ad.ldhy.click^
 ||120-223-160-27-ad9bd009.ldhy.click^
 ||120-223-160-28-ad64669a.ldhy.click^
 ||120-223-160-4-ad4da289.ldhy.click^
 ||120-223-160-86-ad7626dc.ldhy.click^
+||2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
+||2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click^
+||2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click^
 ||abtest-ch.snssdk.com^
 ||adashbc.ut.taobao.com^
 ||adashx.m.taobao.com^
@@ -337,6 +341,7 @@
 ||fp-it.fengkongcloud.com^
 ||h-adashx.ut.taobao.com^
 ||h2tcbox.baidu.com^
+||im-x.jd.com^
 ||images.pinduoduo.com^
 ||ipv6.shuzilm.cn^
 ||ir-sdk.dun.163.com^
@@ -359,6 +364,7 @@
 ||rtlog3-applog-hl.amemv.com^
 ||rumt-zh.com^
 ||saveu5-normal-lq.zijieapi.com^
+||sdkconf.avlyun.com^
 ||sdkquic.e.qq.com^
 ||spider-tracker.xiaohongshu.com^
 ||stat.moji.com^
