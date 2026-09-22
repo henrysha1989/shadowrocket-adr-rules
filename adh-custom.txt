@@ -1,4 +1,4 @@
-! updated: 2026-09-22 12:00 +0800
+! updated: 2026-09-22 16:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -301,6 +301,7 @@
 ||120-223-160-86-ad7626dc.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
+||2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click^
 ||2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click^
 ||2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click^
 ||abtest-ch.snssdk.com^
@@ -333,6 +334,7 @@
 ||cdn-api-verify.mob.com^
 ||cm.g.doubleclick.net^
 ||d6j3wjeaqld7s.v1d.pkoplink.com^
+||d6j3wjenqldey.v1d.pkoplink.com^
 ||d8emqsr5mz931.v1d.pkoplink.com^
 ||dfe.mic.mob.com^
 ||dm.toutiao.com^
