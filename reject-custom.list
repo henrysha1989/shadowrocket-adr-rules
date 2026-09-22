@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-22 20:01 +0800
+# updated: 2026-09-23 00:00 +0800
 # ====================================================
 
 # ============================================================
@@ -304,11 +304,15 @@ DOMAIN-SUFFIX,120-223-160-28-ad64669a.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-17-add1d026.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-21-ad6dc21d.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-56-adeb6ee2.ldhy.click,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
+DOMAIN-SUFFIX,ad-api.adn-plus.com.cn,REJECT
 DOMAIN-SUFFIX,adashbc.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,adashx.m.taobao.com,REJECT
 DOMAIN-SUFFIX,adashx.ut.amap.com,REJECT
@@ -337,7 +341,9 @@ DOMAIN-SUFFIX,bj-td-03-callback.advlion.com,REJECT
 DOMAIN-SUFFIX,bjimp.voiceads.cn,REJECT
 DOMAIN-SUFFIX,cbsipv4.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,cdn-api-verify.mob.com,REJECT
+DOMAIN-SUFFIX,cdn.ynuf.aliapp.org,REJECT
 DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
+DOMAIN-SUFFIX,cp501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,d6j3wcr3qldey.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,d6j3wjeaqld7s.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,d6j3wjeaqldey.v1d.pkoplink.com,REJECT
@@ -345,15 +351,20 @@ DOMAIN-SUFFIX,d6j3wjenqldey.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,d8emqsr5mz931.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
+DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,errnewlog.umeng.com,REJECT
 DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
 DOMAIN-SUFFIX,fp-it.fengkongcloud.com,REJECT
+DOMAIN-SUFFIX,geo.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,h2tcbox.baidu.com,REJECT
+DOMAIN-SUFFIX,huichuan.sm.cn,REJECT
 DOMAIN-SUFFIX,im-x.jd.com,REJECT
 DOMAIN-SUFFIX,images.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,ipv4.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,ipv6.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
+DOMAIN-SUFFIX,jihbgihvihkv.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,lng.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,log-verify.mob.com,REJECT
@@ -373,12 +384,15 @@ DOMAIN-SUFFIX,pgdt.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,qrteyjyj1swfx.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,qsb.browser.miui.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
+DOMAIN-SUFFIX,report.trade.weixin.qq.com,REJECT
 DOMAIN-SUFFIX,rtlog3-applog-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,rumt-zh.com,REJECT
 DOMAIN-SUFFIX,saveu5-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,sdk.beizi.biz,REJECT
 DOMAIN-SUFFIX,sdkconf.avlyun.com,REJECT
 DOMAIN-SUFFIX,sdkquic.e.qq.com,REJECT
 DOMAIN-SUFFIX,spider-tracker.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,ssp.1rtb.com,REJECT
 DOMAIN-SUFFIX,stat.moji.com,REJECT
 DOMAIN-SUFFIX,t2.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,talk.bz.gepush.com,REJECT
@@ -394,8 +408,15 @@ DOMAIN-SUFFIX,v2.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v2mi.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v3.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,vi.l.qq.com,REJECT
+DOMAIN-SUFFIX,vuqenkdqvneqcmnnbqq.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,vuqenkdqvneqmknuqnnbqq.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,vuqenkdvknpvttndnnbqq.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,vuqenkmvqnppgbngvenqnjsknqnbqq.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,vuqenkqqvnktqninnbqq.jspcdn.cn,REJECT
+DOMAIN-SUFFIX,vuqknkduqndbttnknnbqq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,wxa.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wximg.wxs.qq.com,REJECT
+DOMAIN-SUFFIX,wxsmw.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,xf11t999yf11111raz31w9ytdj1fxmo1.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,xf1st9f2cf11111r9zn1reftdffp9t6f.v1d.pkoplink.com,REJECT
