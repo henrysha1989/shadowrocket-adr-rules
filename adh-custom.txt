@@ -256,7 +256,6 @@
 ||update.avlyun.sec.miui.com^
 ||uxip.meizu.com^
 ||v2.reachmax.cn^
-||vcs-hj.zijieapi.com^
 ||vcs.zijieapi.com^
 ||volceapplog.com^
 ||vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn^
