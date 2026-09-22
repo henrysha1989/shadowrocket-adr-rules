@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-22 08:00 +0800
+# updated: 2026-09-22 12:00 +0800
 # ====================================================
 
 # ============================================================
@@ -298,11 +298,15 @@ DOMAIN-SUFFIX,yun-hl.3g.qq.com,REJECT
 DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
 DOMAIN-SUFFIX,zztfly.com,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,120-223-160-15-adad36ad.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-27-ad9bd009.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-28-ad64669a.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
 DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click,REJECT
 DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click,REJECT
+DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
 DOMAIN-SUFFIX,adashbc.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,adashx.m.taobao.com,REJECT
@@ -341,6 +345,7 @@ DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
 DOMAIN-SUFFIX,fp-it.fengkongcloud.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,h2tcbox.baidu.com,REJECT
+DOMAIN-SUFFIX,im-x.jd.com,REJECT
 DOMAIN-SUFFIX,images.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,ipv6.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
@@ -363,6 +368,7 @@ DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,rtlog3-applog-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,rumt-zh.com,REJECT
 DOMAIN-SUFFIX,saveu5-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,sdkconf.avlyun.com,REJECT
 DOMAIN-SUFFIX,sdkquic.e.qq.com,REJECT
 DOMAIN-SUFFIX,spider-tracker.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,stat.moji.com,REJECT
