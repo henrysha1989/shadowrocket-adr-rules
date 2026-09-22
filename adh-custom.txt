@@ -3,17 +3,6 @@
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
 ||0kkkkkt.com^
-||120-223-160-18-ad62996f.ldhy.click^
-||120-223-160-81-adc5aa09.ldhy.click^
-||2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click^
-||2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click^
-||2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click^
-||2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click^
-||2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click^
-||2409-8c3c-906-2-0-0-0-50-adef13ee.ldhy.click^
-||2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click^
-||2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click^
-||2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click^
 ||66mobi.com^
 ||a.fxltsbl.com^
 ||abtest.wtzw.com^
@@ -38,7 +27,6 @@
 ||adx-data-u1.ubixioe.com^
 ||akamai-apigateway-gio-analytics.tesla.cn^
 ||alimama.com^
-||altjyqomnnong.v1d.pkoplink.com^
 ||amdc-sibling.alipay.com.cn^
 ||amdc.alipay.com^
 ||analytics.map.qq.com^
@@ -62,18 +50,12 @@
 ||audid.umeng.com^
 ||awaken.amap.com^
 ||b.scorecardresearch.com^
-||bbvhbbbhjghk.jspcdn.cn^
 ||bda.umetrip.com^
 ||beaconcdn.qq.com^
 ||bird.cn-hangzhou.log.aliyuncs.com^
 ||blackhole.m.jd.com^
-||bqbhiihdkhjq.jspcdn.cn^
-||bqbhiihdkhkk.jspcdn.cn^
 ||btrace.yangshipin.cn^
 ||bv.lnk0.com^
-||bvqhvgghkdhvq.jspcdn.cn^
-||bvqhvgghkihbjb.jspcdn.cn^
-||bvqhvgghkihvgu.jspcdn.cn^
 ||ccc.sys.miui.com^
 ||ccfjma.m.jd.com^
 ||chartboosts.com^
@@ -92,7 +74,6 @@
 ||dig-cfg.wtzw.com^
 ||doki.ren^
 ||doubleclick-cn.net^
-||dqeg61gsmczr3.v1d.pkoplink.com^
 ||drs-ipv6.wtzw.com^
 ||drs.wtzw.com^
 ||dsap.jd.com^
@@ -113,7 +94,6 @@
 ||h.trace.qq.com^
 ||h5speed.m.jd.com^
 ||hellogroup.com^
-||hktakphm1k5vl.v1d.pkoplink.com^
 ||httpdns.baidubce.com^
 ||httpdns.kuaishou.com^
 ||httpdns.proxima.netease.com^
@@ -126,7 +106,6 @@
 ||increase-openapi.soulapp.cn^
 ||info.3g.qq.com^
 ||janapi.jd.com^
-||jehbdjhjbhjv.jspcdn.cn^
 ||jomodns.cn^
 ||jpushsc.m.jd.com^
 ||jupiter.sys.miui.com^
@@ -258,31 +237,9 @@
 ||v2.reachmax.cn^
 ||vcs.zijieapi.com^
 ||volceapplog.com^
-||vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn^
-||vuqenkmjunuuqqneqvnnbqq.jspcdn.cn^
-||vuqenkmvknkktbndqqnnbqq.jspcdn.cn^
-||vuqenkmvknvqjnbeqqnnbqq.jspcdn.cn^
-||vuqenkqqvnktqnjnnbg.jspcdn.cn^
-||vuqenkqqvnktqnjnnbv.jspcdn.cn^
-||vuqenkqqvnktqnjnne.jspcdn.cn^
-||vuqenkqqvnktqnjnni.jspcdn.cn^
-||vuqknkduqngbttnvnnbqq.jspcdn.cn^
-||vuqknkduqngbttnvnqnbnqnbqq.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbb.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbg.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbi.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbj.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbq.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnbv.jspcdn.cn^
-||vuqknkiuenbjqqnvqnne.jspcdn.cn^
-||vuqknkiuenbjqqnvqnni.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnj.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnu.jspcdn.cn^
-||vuqknkiuenbjqqnvqnnv.jspcdn.cn^
 ||waapdg.jd.com^
 ||wetelemetry.weixin.qq.com^
 ||www.qchannel01.cn^
-||xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com^
 ||xlog.jd.com^
 ||xpis-xcdn.youku.com^
 ||xycdn.com.gslb.kuiniuca.com^
@@ -292,20 +249,34 @@
 ||yun-hl.3g.qq.com^
 ||zconfig.alibabausercontent.com^
 ||zztfly.com^
+! ------------------------------------------------------------
+! 2026-09-22 owner 批准：随机串追踪域塌缩为根域（自动覆盖新生成子域）
+!   原 71 条 *.jspcdn.cn / *.ldhy.click / *.pkoplink.com → 3 条根域
+! 2026-09-22 owner 批准：以下追踪子域原被宽父域 PROXY 抢先放行，改为显式拦截
+! ------------------------------------------------------------
+||jspcdn.cn^
+||ldhy.click^
+||pkoplink.com^
+||firebaselogging.googleapis.com^
+||firebaselogging-pa.googleapis.com^
+||safebrowsing.googleapis.com^
+||footprints-pa.googleapis.com^
+||imasdk.googleapis.com^
+||w3-reporting.reddit.com^
+||alb.reddit.com^
+||events.reddit.com^
+||pixel.reddit.com^
+||buttons.reddit.com^
+||ct.pinterest.com^
+||log.pinterest.com^
+||analytics.pgncs.notion.so^
+||exp.notion.so^
+||csi.gstatic.com^
+||t.e.x.com^
+||fcmatch.youtube.com^
+||intake-analytics.wikimedia.org^
+||telemetry.proton.me^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
-||120-223-160-15-adad36ad.ldhy.click^
-||120-223-160-27-ad9bd009.ldhy.click^
-||120-223-160-28-ad64669a.ldhy.click^
-||120-223-160-4-ad4da289.ldhy.click^
-||120-223-160-86-ad7626dc.ldhy.click^
-||2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click^
-||2409-8c3c-906-0-1-0-0-17-add1d026.ldhy.click^
-||2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click^
-||2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click^
-||2409-8c3c-906-0-1-0-0-21-ad6dc21d.ldhy.click^
-||2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click^
-||2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click^
-||2409-8c3c-906-2-0-0-0-56-adeb6ee2.ldhy.click^
 ||abtest-ch.snssdk.com^
 ||ad-api.adn-plus.com.cn^
 ||adashbc.ut.taobao.com^
@@ -339,11 +310,6 @@
 ||cdn.ynuf.aliapp.org^
 ||cm.g.doubleclick.net^
 ||cp501.prod.do.dsp.mp.microsoft.com^
-||d6j3wcr3qldey.v1d.pkoplink.com^
-||d6j3wjeaqld7s.v1d.pkoplink.com^
-||d6j3wjeaqldey.v1d.pkoplink.com^
-||d6j3wjenqldey.v1d.pkoplink.com^
-||d8emqsr5mz931.v1d.pkoplink.com^
 ||dfe.mic.mob.com^
 ||dm.toutiao.com^
 ||entry-su1.ubixioe.com^
@@ -359,7 +325,6 @@
 ||ipv4.gdt.qq.com^
 ||ipv6.shuzilm.cn^
 ||ir-sdk.dun.163.com^
-||jihbgihvihkv.jspcdn.cn^
 ||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||log-verify.mob.com^
@@ -376,7 +341,6 @@
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
-||qrteyjyj1swfx.v1d.pkoplink.com^
 ||qsb.browser.miui.com^
 ||qzs.gdtimg.com^
 ||report.trade.weixin.qq.com^
@@ -403,15 +367,7 @@
 ||v2mi.gdt.qq.com^
 ||v3.gdt.qq.com^
 ||vi.l.qq.com^
-||vuqenkdqvneqcmnnbqq.jspcdn.cn^
-||vuqenkdqvneqmknuqnnbqq.jspcdn.cn^
-||vuqenkdvknpvttndnnbqq.jspcdn.cn^
-||vuqenkmvqnppgbngvenqnjsknqnbqq.jspcdn.cn^
-||vuqenkqqvnktqninnbqq.jspcdn.cn^
-||vuqknkduqndbttnknnbqq.jspcdn.cn^
 ||win.gdt.qq.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
 ||wxsmw.wxs.qq.com^
-||xf11t999yf11111raz31w9ytdj1fxmo1.v1d.pkoplink.com^
-||xf1st9f2cf11111r9zn1reftdffp9t6f.v1d.pkoplink.com^
