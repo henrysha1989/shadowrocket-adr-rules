@@ -1,4 +1,4 @@
-! updated: 2026-09-22 16:00 +0800
+! updated: 2026-09-22 20:01 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -309,6 +309,7 @@
 ||adashx.m.taobao.com^
 ||adashx.ut.amap.com^
 ||adlaunch.moji.com^
+||adm-smc-cn.heytapmobi.com^
 ||ads-api.twitter.com^
 ||ads-i2.xhscdn.com^
 ||ads-i3.xhscdn.com^
@@ -333,7 +334,9 @@
 ||cbsipv4.shuzilm.cn^
 ||cdn-api-verify.mob.com^
 ||cm.g.doubleclick.net^
+||d6j3wcr3qldey.v1d.pkoplink.com^
 ||d6j3wjeaqld7s.v1d.pkoplink.com^
+||d6j3wjeaqldey.v1d.pkoplink.com^
 ||d6j3wjenqldey.v1d.pkoplink.com^
 ||d8emqsr5mz931.v1d.pkoplink.com^
 ||dfe.mic.mob.com^
@@ -350,6 +353,8 @@
 ||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||log-verify.mob.com^
+||log5-misc-lf.amemv.com^
+||madx.flyme.cn^
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
 ||mobile.shuzilm.cn^
@@ -361,6 +366,7 @@
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
+||qrteyjyj1swfx.v1d.pkoplink.com^
 ||qsb.browser.miui.com^
 ||qzs.gdtimg.com^
 ||rtlog3-applog-hl.amemv.com^
@@ -380,8 +386,12 @@
 ||unicom.shuzilm.cn^
 ||utoken.umeng.com^
 ||v1.log.moji.com^
+||v2.gdt.qq.com^
 ||v2mi.gdt.qq.com^
 ||v3.gdt.qq.com^
 ||vi.l.qq.com^
+||win.gdt.qq.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
+||xf11t999yf11111raz31w9ytdj1fxmo1.v1d.pkoplink.com^
+||xf1st9f2cf11111r9zn1reftdffp9t6f.v1d.pkoplink.com^
