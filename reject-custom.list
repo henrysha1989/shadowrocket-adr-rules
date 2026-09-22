@@ -1,23 +1,12 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-23 00:44 +0800
+# updated: 2026-09-23 01:04 +0800
 # ====================================================
 
 # ============================================================
 # 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 # ============================================================
 DOMAIN-SUFFIX,0kkkkkt.com,REJECT
-DOMAIN-SUFFIX,120-223-160-18-ad62996f.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-81-adc5aa09.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad414542.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-12-ad67d213.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1c-ad85e67a.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1f-ad27c3b4.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-ad499854.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-50-adef13ee.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-53-ad49b9ac.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-57-adfa9fe8.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-5b-ad8e28ef.ldhy.click,REJECT
 DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,a.fxltsbl.com,REJECT
 DOMAIN-SUFFIX,abtest.wtzw.com,REJECT
@@ -42,7 +31,6 @@ DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT
 DOMAIN-SUFFIX,adx-data-u1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,akamai-apigateway-gio-analytics.tesla.cn,REJECT
 DOMAIN-SUFFIX,alimama.com,REJECT
-DOMAIN-SUFFIX,altjyqomnnong.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,amdc-sibling.alipay.com.cn,REJECT
 DOMAIN-SUFFIX,amdc.alipay.com,REJECT
 DOMAIN-SUFFIX,analytics.map.qq.com,REJECT
@@ -66,18 +54,12 @@ DOMAIN-SUFFIX,aspect-upush.umeng.com,REJECT
 DOMAIN-SUFFIX,audid.umeng.com,REJECT
 DOMAIN-SUFFIX,awaken.amap.com,REJECT
 DOMAIN-SUFFIX,b.scorecardresearch.com,REJECT
-DOMAIN-SUFFIX,bbvhbbbhjghk.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,bda.umetrip.com,REJECT
 DOMAIN-SUFFIX,beaconcdn.qq.com,REJECT
 DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,blackhole.m.jd.com,REJECT
-DOMAIN-SUFFIX,bqbhiihdkhjq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,bqbhiihdkhkk.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,btrace.yangshipin.cn,REJECT
 DOMAIN-SUFFIX,bv.lnk0.com,REJECT
-DOMAIN-SUFFIX,bvqhvgghkdhvq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,bvqhvgghkihbjb.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,bvqhvgghkihvgu.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,ccc.sys.miui.com,REJECT
 DOMAIN-SUFFIX,ccfjma.m.jd.com,REJECT
 DOMAIN-SUFFIX,chartboosts.com,REJECT
@@ -96,7 +78,6 @@ DOMAIN-SUFFIX,device-security-url.jd.com,REJECT
 DOMAIN-SUFFIX,dig-cfg.wtzw.com,REJECT
 DOMAIN-SUFFIX,doki.ren,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
-DOMAIN-SUFFIX,dqeg61gsmczr3.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,drs-ipv6.wtzw.com,REJECT
 DOMAIN-SUFFIX,drs.wtzw.com,REJECT
 DOMAIN-SUFFIX,dsap.jd.com,REJECT
@@ -117,7 +98,6 @@ DOMAIN-SUFFIX,h-adashx.ut.dingtalk.com,REJECT
 DOMAIN-SUFFIX,h.trace.qq.com,REJECT
 DOMAIN-SUFFIX,h5speed.m.jd.com,REJECT
 DOMAIN-SUFFIX,hellogroup.com,REJECT
-DOMAIN-SUFFIX,hktakphm1k5vl.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,httpdns.baidubce.com,REJECT
 DOMAIN-SUFFIX,httpdns.kuaishou.com,REJECT
 DOMAIN-SUFFIX,httpdns.proxima.netease.com,REJECT
@@ -130,7 +110,6 @@ DOMAIN-SUFFIX,idm.iot.mi.com,REJECT
 DOMAIN-SUFFIX,increase-openapi.soulapp.cn,REJECT
 DOMAIN-SUFFIX,info.3g.qq.com,REJECT
 DOMAIN-SUFFIX,janapi.jd.com,REJECT
-DOMAIN-SUFFIX,jehbdjhjbhjv.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,jomodns.cn,REJECT
 DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
 DOMAIN-SUFFIX,jupiter.sys.miui.com,REJECT
@@ -262,31 +241,9 @@ DOMAIN-SUFFIX,uxip.meizu.com,REJECT
 DOMAIN-SUFFIX,v2.reachmax.cn,REJECT
 DOMAIN-SUFFIX,vcs.zijieapi.com,REJECT
 DOMAIN-SUFFIX,volceapplog.com,REJECT
-DOMAIN-SUFFIX,vuqenkmbuntbpnbeqqngiqnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkmjunuuqqneqvnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkmvknkktbndqqnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkmvknvqjnbeqqnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkqqvnktqnjnnbg.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkqqvnktqnjnnbv.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkqqvnktqnjnne.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkqqvnktqnjnni.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkduqngbttnvnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkduqngbttnvnqnbnqnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbb.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbg.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbi.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbj.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnbv.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnne.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnni.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnj.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnu.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkiuenbjqqnvqnnv.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,waapdg.jd.com,REJECT
 DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT
 DOMAIN-SUFFIX,www.qchannel01.cn,REJECT
-DOMAIN-SUFFIX,xfw1t9f2df11111r9zn1rejtdl36q6vj.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,xlog.jd.com,REJECT
 DOMAIN-SUFFIX,xpis-xcdn.youku.com,REJECT
 DOMAIN-SUFFIX,xycdn.com.gslb.kuiniuca.com,REJECT
@@ -296,20 +253,34 @@ DOMAIN-SUFFIX,yumao.puata.info,REJECT
 DOMAIN-SUFFIX,yun-hl.3g.qq.com,REJECT
 DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
 DOMAIN-SUFFIX,zztfly.com,REJECT
+# ------------------------------------------------------------
+# 2026-09-22 owner 批准：随机串追踪域塌缩为根域（自动覆盖新生成子域）
+# 原 71 条 *.jspcdn.cn / *.ldhy.click / *.pkoplink.com → 3 条根域
+# 2026-09-22 owner 批准：以下追踪子域原被宽父域 PROXY 抢先放行，改为显式拦截
+# ------------------------------------------------------------
+DOMAIN-SUFFIX,jspcdn.cn,REJECT
+DOMAIN-SUFFIX,ldhy.click,REJECT
+DOMAIN-SUFFIX,pkoplink.com,REJECT
+DOMAIN-SUFFIX,firebaselogging.googleapis.com,REJECT
+DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,REJECT
+DOMAIN-SUFFIX,safebrowsing.googleapis.com,REJECT
+DOMAIN-SUFFIX,footprints-pa.googleapis.com,REJECT
+DOMAIN-SUFFIX,imasdk.googleapis.com,REJECT
+DOMAIN-SUFFIX,w3-reporting.reddit.com,REJECT
+DOMAIN-SUFFIX,alb.reddit.com,REJECT
+DOMAIN-SUFFIX,events.reddit.com,REJECT
+DOMAIN-SUFFIX,pixel.reddit.com,REJECT
+DOMAIN-SUFFIX,buttons.reddit.com,REJECT
+DOMAIN-SUFFIX,ct.pinterest.com,REJECT
+DOMAIN-SUFFIX,log.pinterest.com,REJECT
+DOMAIN-SUFFIX,analytics.pgncs.notion.so,REJECT
+DOMAIN-SUFFIX,exp.notion.so,REJECT
+DOMAIN-SUFFIX,csi.gstatic.com,REJECT
+DOMAIN-SUFFIX,t.e.x.com,REJECT
+DOMAIN-SUFFIX,fcmatch.youtube.com,REJECT
+DOMAIN-SUFFIX,intake-analytics.wikimedia.org,REJECT
+DOMAIN-SUFFIX,telemetry.proton.me,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,120-223-160-15-adad36ad.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-27-ad9bd009.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-28-ad64669a.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-4-ad4da289.ldhy.click,REJECT
-DOMAIN-SUFFIX,120-223-160-86-ad7626dc.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-13-ad520a9f.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-17-add1d026.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-1e-ad2daee8.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-20-adde5153.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-21-ad6dc21d.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-0-1-0-0-d-adf47826.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-52-adf3d748.ldhy.click,REJECT
-DOMAIN-SUFFIX,2409-8c3c-906-2-0-0-0-56-adeb6ee2.ldhy.click,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
 DOMAIN-SUFFIX,ad-api.adn-plus.com.cn,REJECT
 DOMAIN-SUFFIX,adashbc.ut.taobao.com,REJECT
@@ -343,11 +314,6 @@ DOMAIN-SUFFIX,cdn-api-verify.mob.com,REJECT
 DOMAIN-SUFFIX,cdn.ynuf.aliapp.org,REJECT
 DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
 DOMAIN-SUFFIX,cp501.prod.do.dsp.mp.microsoft.com,REJECT
-DOMAIN-SUFFIX,d6j3wcr3qldey.v1d.pkoplink.com,REJECT
-DOMAIN-SUFFIX,d6j3wjeaqld7s.v1d.pkoplink.com,REJECT
-DOMAIN-SUFFIX,d6j3wjeaqldey.v1d.pkoplink.com,REJECT
-DOMAIN-SUFFIX,d6j3wjenqldey.v1d.pkoplink.com,REJECT
-DOMAIN-SUFFIX,d8emqsr5mz931.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
 DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
@@ -363,7 +329,6 @@ DOMAIN-SUFFIX,images.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,ipv4.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,ipv6.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
-DOMAIN-SUFFIX,jihbgihvihkv.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,lng.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,log-verify.mob.com,REJECT
@@ -380,7 +345,6 @@ DOMAIN-SUFFIX,p66-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api.immomo.com,REJECT
 DOMAIN-SUFFIX,pgdt.gtimg.cn,REJECT
 DOMAIN-SUFFIX,pgdt.ugdtimg.com,REJECT
-DOMAIN-SUFFIX,qrteyjyj1swfx.v1d.pkoplink.com,REJECT
 DOMAIN-SUFFIX,qsb.browser.miui.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,report.trade.weixin.qq.com,REJECT
@@ -407,15 +371,7 @@ DOMAIN-SUFFIX,v2.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v2mi.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v3.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,vi.l.qq.com,REJECT
-DOMAIN-SUFFIX,vuqenkdqvneqcmnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkdqvneqmknuqnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkdvknpvttndnnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkmvqnppgbngvenqnjsknqnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqenkqqvnktqninnbqq.jspcdn.cn,REJECT
-DOMAIN-SUFFIX,vuqknkduqndbttnknnbqq.jspcdn.cn,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,wxa.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wximg.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wxsmw.wxs.qq.com,REJECT
-DOMAIN-SUFFIX,xf11t999yf11111raz31w9ytdj1fxmo1.v1d.pkoplink.com,REJECT
-DOMAIN-SUFFIX,xf1st9f2cf11111r9zn1reftdffp9t6f.v1d.pkoplink.com,REJECT
