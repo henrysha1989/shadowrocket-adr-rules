@@ -13,12 +13,18 @@ DOMAIN-SUFFIX,ipleak.net,PROXY
 DOMAIN-SUFFIX,whoer.net,PROXY
 DOMAIN-SUFFIX,ipinfo.io,PROXY
 DOMAIN-SUFFIX,ip.sb,PROXY
-# ===== 自动收集（以下内容由脚本管理，勿手改）=====
+# ------------------------------------------------------------
+# 2026-09-22 owner 批准：以下宽父域从自动区移入手工区。
+# 原因：其下追踪子域（firebaselogging/safebrowsing/reddit 埋点等）已改为 REJECT，
+#   脚本的 resolve_conflicts 会把与拦截冲突的代理父域丢弃；移入手工区后不受影响，
+#   父域本身（googleapis/gstatic/youtube/reddit/x/wikimedia）依旧保持代理。
+# ------------------------------------------------------------
 DOMAIN-SUFFIX,googleapis.com,PROXY
-DOMAIN-SUFFIX,googlevideo.com,PROXY
 DOMAIN-SUFFIX,gstatic.com,PROXY
 DOMAIN-SUFFIX,reddit.com,PROXY
 DOMAIN-SUFFIX,wikimedia.org,PROXY
-DOMAIN-SUFFIX,wikipedia.org,PROXY
 DOMAIN-SUFFIX,x.com,PROXY
 DOMAIN-SUFFIX,youtube.com,PROXY
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,googlevideo.com,PROXY
+DOMAIN-SUFFIX,wikipedia.org,PROXY
