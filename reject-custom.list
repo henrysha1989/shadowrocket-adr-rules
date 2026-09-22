@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-23 01:04 +0800
+# updated: 2026-09-23 01:58 +0800
 # ====================================================
 
 # ============================================================
@@ -320,6 +320,7 @@ DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,errnewlog.umeng.com,REJECT
 DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
 DOMAIN-SUFFIX,fp-it.fengkongcloud.com,REJECT
+DOMAIN-SUFFIX,gator.volces.com,REJECT
 DOMAIN-SUFFIX,geo.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,h2tcbox.baidu.com,REJECT
@@ -358,6 +359,7 @@ DOMAIN-SUFFIX,spider-tracker.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,ssp.1rtb.com,REJECT
 DOMAIN-SUFFIX,stat.moji.com,REJECT
 DOMAIN-SUFFIX,t2.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,tab.volces.com,REJECT
 DOMAIN-SUFFIX,talk.bz.gepush.com,REJECT
 DOMAIN-SUFFIX,talk.bz.getui.com,REJECT
 DOMAIN-SUFFIX,talk.bz.getui.net,REJECT
