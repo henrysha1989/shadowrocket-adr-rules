@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-22 04:01 +0800
+# updated: 2026-09-22 08:00 +0800
 # ====================================================
 
 # ============================================================
@@ -357,6 +357,7 @@ DOMAIN-SUFFIX,ogads-pa.clients6.google.com,REJECT
 DOMAIN-SUFFIX,p66-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api.immomo.com,REJECT
 DOMAIN-SUFFIX,pgdt.gtimg.cn,REJECT
+DOMAIN-SUFFIX,pgdt.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,qsb.browser.miui.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,rtlog3-applog-hl.amemv.com,REJECT
