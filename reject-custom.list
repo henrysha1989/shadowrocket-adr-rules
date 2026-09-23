@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-24 00:25 +0800
+# updated: 2026-09-24 04:00 +0800
 # ====================================================
 
 # ============================================================
@@ -281,6 +281,9 @@ DOMAIN-SUFFIX,fcmatch.youtube.com,REJECT
 DOMAIN-SUFFIX,intake-analytics.wikimedia.org,REJECT
 DOMAIN-SUFFIX,telemetry.proton.me,REJECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,120-223-160-80-ad84f7cd.bvmlt.top,REJECT
+DOMAIN-SUFFIX,120-223-160-84-ad1f1de9.bvmlt.top,REJECT
+DOMAIN-SUFFIX,120-223-160-91-ad35f787.bvmlt.top,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
 DOMAIN-SUFFIX,ad-api.adn-plus.com.cn,REJECT
 DOMAIN-SUFFIX,adashbc.ut.taobao.com,REJECT
@@ -379,9 +382,11 @@ DOMAIN-SUFFIX,ulogjs.gifshow.com,REJECT
 DOMAIN-SUFFIX,unicom.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,utoken.umeng.com,REJECT
 DOMAIN-SUFFIX,v1.log.moji.com,REJECT
+DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT
 DOMAIN-SUFFIX,v2.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v2mi.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v3.gdt.qq.com,REJECT
+DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT
 DOMAIN-SUFFIX,vi.l.qq.com,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,www.shouyou.xy.com,REJECT
