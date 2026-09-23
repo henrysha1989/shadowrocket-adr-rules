@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-23 01:58 +0800
+# updated: 2026-09-23 12:00 +0800
 # ====================================================
 
 # ============================================================
@@ -295,6 +295,8 @@ DOMAIN-SUFFIX,ads-img-al.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-img-bak.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-video-al.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-vp5.xhscdn.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
 DOMAIN-SUFFIX,amap-aos-info-nogw.amap.com,REJECT
@@ -318,6 +320,7 @@ DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
 DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,errnewlog.umeng.com,REJECT
+DOMAIN-SUFFIX,events-drcn.op.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
 DOMAIN-SUFFIX,fp-it.fengkongcloud.com,REJECT
 DOMAIN-SUFFIX,gator.volces.com,REJECT
@@ -333,8 +336,10 @@ DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
 DOMAIN-SUFFIX,lng.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,log-verify.mob.com,REJECT
+DOMAIN-SUFFIX,log5-misc-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,log5-misc-lf.amemv.com,REJECT
 DOMAIN-SUFFIX,madx.flyme.cn,REJECT
+DOMAIN-SUFFIX,minigame5-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
 DOMAIN-SUFFIX,mobads.baidu.com,REJECT
 DOMAIN-SUFFIX,mobile.shuzilm.cn,REJECT
@@ -374,6 +379,7 @@ DOMAIN-SUFFIX,v2mi.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v3.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,vi.l.qq.com,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
+DOMAIN-SUFFIX,www.shouyou.xy.com,REJECT
 DOMAIN-SUFFIX,wxa.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wximg.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wxsmw.wxs.qq.com,REJECT
