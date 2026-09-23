@@ -1,4 +1,4 @@
-! updated: 2026-09-22 17:58 +0000
+! updated: 2026-09-23 04:00 +0000
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -291,6 +291,8 @@
 ||ads-img-bak.xhscdn.com^
 ||ads-video-al.xhscdn.com^
 ||ads-vp5.xhscdn.com^
+||ads3-normal-lq.zijieapi.com^
+||ads5-normal-hl.zijieapi.com^
 ||ads5-normal-lq.zijieapi.com^
 ||adsmind.gdtimg.com^
 ||amap-aos-info-nogw.amap.com^
@@ -314,6 +316,7 @@
 ||dm.toutiao.com^
 ||entry-su1.ubixioe.com^
 ||errnewlog.umeng.com^
+||events-drcn.op.dbankcloud.cn^
 ||feedback-c.zijieapi.com^
 ||fp-it.fengkongcloud.com^
 ||gator.volces.com^
@@ -329,8 +332,10 @@
 ||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||log-verify.mob.com^
+||log5-misc-hl.amemv.com^
 ||log5-misc-lf.amemv.com^
 ||madx.flyme.cn^
+||minigame5-normal-lq.zijieapi.com^
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
 ||mobile.shuzilm.cn^
@@ -370,6 +375,7 @@
 ||v3.gdt.qq.com^
 ||vi.l.qq.com^
 ||win.gdt.qq.com^
+||www.shouyou.xy.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
 ||wxsmw.wxs.qq.com^
