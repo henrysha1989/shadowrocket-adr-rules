@@ -1,4 +1,4 @@
-! updated: 2026-09-24 00:25 +0800
+! updated: 2026-09-24 04:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -277,6 +277,9 @@
 ||intake-analytics.wikimedia.org^
 ||telemetry.proton.me^
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
+||120-223-160-80-ad84f7cd.bvmlt.top^
+||120-223-160-84-ad1f1de9.bvmlt.top^
+||120-223-160-91-ad35f787.bvmlt.top^
 ||abtest-ch.snssdk.com^
 ||ad-api.adn-plus.com.cn^
 ||adashbc.ut.taobao.com^
@@ -375,9 +378,11 @@
 ||unicom.shuzilm.cn^
 ||utoken.umeng.com^
 ||v1.log.moji.com^
+||v11-reading-ad.qznovelvod.com^
 ||v2.gdt.qq.com^
 ||v2mi.gdt.qq.com^
 ||v3.gdt.qq.com^
+||v5-se-sjy-daily-reading-ad.qznovelvod.com^
 ||vi.l.qq.com^
 ||win.gdt.qq.com^
 ||www.shouyou.xy.com^
