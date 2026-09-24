@@ -1,4 +1,4 @@
-! updated: 2026-09-24 04:00 +0800
+! updated: 2026-09-24 08:01 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -329,6 +329,7 @@
 ||h-adashx.ut.taobao.com^
 ||h2tcbox.baidu.com^
 ||huichuan.sm.cn^
+||i.gridsumdissector.com^
 ||i.snssdk.com^
 ||im-x.jd.com^
 ||images.pinduoduo.com^
