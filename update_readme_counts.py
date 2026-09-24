@@ -7,9 +7,13 @@ and rewrites the README summary line in place. Idempotent.
 2026-09-24（owner 需求）：每个分类后面可以带一个由**同步脚本**写的「（+a/-b）」标记，
 表示本次同步的增删。本脚本**原样保留**它 —— 计数归 CI、增删归脚本，两边各管一段，
 不会互相当成噪声擦掉。标记缺失时行为与旧版完全一致（不生成括号）。
+
+同时在计数行下面维护一行「更新时间」（CI 跑一次 = 规则真的变了一次，所以这就是
+最近一次规则变更时间；时区取 runner 的本地时区，workflow 里已固定 TZ=Asia/Shanghai）。
 """
 import os
 import re
+from datetime import datetime
 
 TARGETS = [
     ("拦截", "reject-custom.list"),
@@ -18,7 +22,13 @@ TARGETS = [
 ]
 README = "README.md"
 PATTERN = r"^> 当前规则量：.*$"
+TS_PATTERN = r"^> 更新时间：.*$"
 DELTA = r"（\+\d+/-\d+）"
+
+
+def stamp():
+    now = datetime.now().astimezone()
+    return "> 更新时间：" + now.strftime("%Y-%m-%d %H:%M:%S（UTC%z）")
 
 
 def count(path):
@@ -50,11 +60,21 @@ def main():
     if n == 0:
         print("count line not found in README; nothing to do.")
         return
+
+    # 更新时间行：有就改写，没有就插在计数行下面。
+    ts = stamp()
+    if re.search(TS_PATTERN, new, flags=re.M):
+        new, _ = re.subn(TS_PATTERN, lambda _m: ts, new, flags=re.M)
+    else:
+        m2 = re.search(PATTERN, new, flags=re.M)
+        new = new[:m2.end()] + "\n" + ts + new[m2.end():]
+
     if new == text:
         print("rule counts unchanged:", line)
         return
     open(README, "w", encoding="utf-8").write(new)
     print("rule counts updated:", line)
+    print("updated at:", ts)
 
 
 if __name__ == "__main__":
