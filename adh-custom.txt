@@ -1,4 +1,4 @@
-! updated: 2026-09-24 20:00 +0800
+! updated: 2026-09-25 00:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -298,6 +298,7 @@
 ||ads5-normal-hl.zijieapi.com^
 ||ads5-normal-lq.zijieapi.com^
 ||adsmind.gdtimg.com^
+||adsmind.ugdtimg.com^
 ||amap-aos-info-nogw.amap.com^
 ||api.ad.xiaomi.com^
 ||api.df.mob.com^
@@ -349,6 +350,7 @@
 ||log5-misc-lf.amemv.com^
 ||logv2.ireader.com^
 ||madx.flyme.cn^
+||metrics1.data.hicloud.com^
 ||minigame5-normal-lq.zijieapi.com^
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
