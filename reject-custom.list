@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-24 04:00 +0800
+# updated: 2026-09-24 08:01 +0800
 # ====================================================
 
 # ============================================================
@@ -333,6 +333,7 @@ DOMAIN-SUFFIX,geo.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,h2tcbox.baidu.com,REJECT
 DOMAIN-SUFFIX,huichuan.sm.cn,REJECT
+DOMAIN-SUFFIX,i.gridsumdissector.com,REJECT
 DOMAIN-SUFFIX,i.snssdk.com,REJECT
 DOMAIN-SUFFIX,im-x.jd.com,REJECT
 DOMAIN-SUFFIX,images.pinduoduo.com,REJECT
