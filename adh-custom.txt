@@ -1,4 +1,4 @@
-! updated: 2026-09-25 00:00 +0800
+! updated: 2026-09-25 08:00 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -280,6 +280,10 @@
 ||120-223-160-80-ad84f7cd.bvmlt.top^
 ||120-223-160-84-ad1f1de9.bvmlt.top^
 ||120-223-160-91-ad35f787.bvmlt.top^
+||8mnhn5-dnsotls-ds.metric.gstatic.com^
+||8wmfvf-dnsotls-ds.metric.gstatic.com^
+||9avsve-dnsotls-ds.metric.gstatic.com^
+||\00089nxp-dnsotls-ds.metric.gstatic.com^
 ||abtest-ch.snssdk.com^
 ||ad-api.adn-plus.com.cn^
 ||adashbc.ut.taobao.com^
@@ -323,10 +327,16 @@
 ||dm.toutiao.com^
 ||entry-su1.ubixioe.com^
 ||errnewlog.umeng.com^
+||etl-xlmc-ssl.sandai.net^
 ||events-drcn.op.dbankcloud.cn^
 ||fclick.baidu.com^
 ||feedback-c.zijieapi.com^
+||ffvl\000w-dnsotls-ds.metric.gstatic.com^
+||finderdsp.video.qq.com^
+||fourier.taobao.com^
 ||fp-it.fengkongcloud.com^
+||fp.tongdun.net^
+||frwm9l-dnsotls-ds.metric.gstatic.com^
 ||gator.volces.com^
 ||gdfp.gifshow.com^
 ||geo.prod.do.dsp.mp.microsoft.com^
@@ -334,14 +344,17 @@
 ||h2tcbox.baidu.com^
 ||hectorstatic.baidu.com^
 ||hm.baidu.com^
+||hub5pn.wap.sandai.net^
 ||huichuan.sm.cn^
 ||i.gridsumdissector.com^
 ||i.snssdk.com^
+||idlwlo-dnsotls-ds.metric.gstatic.com^
 ||im-x.jd.com^
 ||images.pinduoduo.com^
 ||ipv4.gdt.qq.com^
 ||ipv6.shuzilm.cn^
 ||ir-sdk.dun.163.com^
+||jvmsvn-dnsotls-ds.metric.gstatic.com^
 ||lng.xiaohongshu.com^
 ||log-hl.snssdk.com^
 ||log-verify.mob.com^
@@ -350,23 +363,35 @@
 ||log5-misc-lf.amemv.com^
 ||logv2.ireader.com^
 ||madx.flyme.cn^
+||master.wap.dphub.sandai.net^
+||md95xc-dnsotls-ds.metric.gstatic.com^
 ||metrics1.data.hicloud.com^
 ||minigame5-normal-lq.zijieapi.com^
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
+||mobile.events.data.microsoft.com^
 ||mobile.shuzilm.cn^
 ||mon11-misc-lq.fqnovel.com^
 ||msg.qy.net^
 ||msg.umengcloud.com^
 ||mssdk3-normal-lq.zijieapi.com^
+||mynaxe-dnsotls-ds.metric.gstatic.com^
+||np7yof-dnsotls-ds.metric.gstatic.com^
 ||nsclick.baidu.com^
+||o4qnm\000-dnsotls-ds.metric.gstatic.com^
+||o7mq5q-dnsotls-ds.metric.gstatic.com^
+||oacyxe-dnsotls-ds.metric.gstatic.com^
 ||ogads-pa.clients6.google.com^
 ||p66-ad.adkwai.com^
+||p9iii6-dnsotls-ds.metric.gstatic.com^
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
 ||policy.video.iqiyi.com^
+||pqbjwb-dnsotls-ds.metric.gstatic.com^
+||q8semv-dnsotls-ds.metric.gstatic.com^
 ||qsb.browser.miui.com^
+||qtfjwi-dnsotls-ds.metric.gstatic.com^
 ||qzs.gdtimg.com^
 ||report.trade.weixin.qq.com^
 ||rtlog3-applog-hl.amemv.com^
@@ -379,6 +404,7 @@
 ||sdkconf.avlyun.com^
 ||sdkquic.e.qq.com^
 ||servicecut.meizu.com^
+||sis-ipv6.jpush.cn^
 ||sp0.baidu.com^
 ||sp1.baidu.com^
 ||spider-tracker.xiaohongshu.com^
@@ -392,6 +418,7 @@
 ||talk.bz.getui.net^
 ||telecom.shuzilm.cn^
 ||tnc3-bjlgy.snssdk.com^
+||uczlhe-dnsotls-ds.metric.gstatic.com^
 ||ulogjs.gifshow.com^
 ||ulogs1.ksapisrv.com^
 ||ulogs2.gifshow.com^
@@ -400,12 +427,21 @@
 ||v1.log.moji.com^
 ||v11-reading-ad.qznovelvod.com^
 ||v2.gdt.qq.com^
+||v20.events.data.microsoft.com^
+||v26-reading-ad.qznovelvod.com^
 ||v2mi.gdt.qq.com^
 ||v3.gdt.qq.com^
+||v5-bd-daily-reading-ad.qznovelvod.com^
 ||v5-se-sjy-daily-reading-ad.qznovelvod.com^
+||v95-zjjx2tc-reading-ad.qznovelvod.com^
+||vabf7c-dnsotls-ds.metric.gstatic.com^
 ||vi.l.qq.com^
+||wdaa.shuzilm.cn^
 ||win.gdt.qq.com^
+||wrxxqt-dnsotls-ds.metric.gstatic.com^
 ||www.shouyou.xy.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
 ||wxsmw.wxs.qq.com^
+||wyklst-dnsotls-ds.metric.gstatic.com^
+||ztmqbm-dnsotls-ds.metric.gstatic.com^
