@@ -82,7 +82,6 @@
 ||dualstack-logs.amap.com^
 ||e.cn.miaozhen.com^
 ||ecombdapi.com^
-||faas-image.amap.com^
 ||feedguess.meituan.com^
 ||flash.sec.miui.com^
 ||g.cn.miaozhen.com^
