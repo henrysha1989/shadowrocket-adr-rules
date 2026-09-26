@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 01:37 +0800
+# updated: 2026-09-27 02:07 +0800
 # ====================================================
 
 # ============================================================
@@ -86,7 +86,6 @@ DOMAIN-SUFFIX,dsp.qimao.com,REJECT
 DOMAIN-SUFFIX,dualstack-logs.amap.com,REJECT
 DOMAIN-SUFFIX,e.cn.miaozhen.com,REJECT
 DOMAIN-SUFFIX,ecombdapi.com,REJECT
-DOMAIN-SUFFIX,faas-image.amap.com,REJECT
 DOMAIN-SUFFIX,feedguess.meituan.com,REJECT
 DOMAIN-SUFFIX,flash.sec.miui.com,REJECT
 DOMAIN-SUFFIX,g.cn.miaozhen.com,REJECT
