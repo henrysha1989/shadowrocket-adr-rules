@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 02:07 +0800
+# updated: 2026-09-27 02:08 +0800
 # ====================================================
 
 # ============================================================
@@ -375,6 +375,7 @@ DOMAIN-SUFFIX,i.snssdk.com,REJECT
 DOMAIN-SUFFIX,ibe5bb-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,idlwlo-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,idx.m.hub.sandai.net,REJECT
+DOMAIN-SUFFIX,ilce.alicdn.com,REJECT
 DOMAIN-SUFFIX,im-x.jd.com,REJECT
 DOMAIN-SUFFIX,images.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,ipv4.gdt.qq.com,REJECT
@@ -382,6 +383,7 @@ DOMAIN-SUFFIX,ipv6.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,ir-sdk.dun.163.com,REJECT
 DOMAIN-SUFFIX,jvmsvn-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,l2zqbj-dnsotls-ds.metric.gstatic.com,REJECT
+DOMAIN-SUFFIX,lftxali.fancyapi.com,REJECT
 DOMAIN-SUFFIX,lng.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,location.ximalaya.com,REJECT
 DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
@@ -393,17 +395,20 @@ DOMAIN-SUFFIX,log5-misc-lf.amemv.com,REJECT
 DOMAIN-SUFFIX,logger.qmai.cn,REJECT
 DOMAIN-SUFFIX,logv2.ireader.com,REJECT
 DOMAIN-SUFFIX,madx.flyme.cn,REJECT
+DOMAIN-SUFFIX,mars.jd.com,REJECT
 DOMAIN-SUFFIX,master.wap.dphub.sandai.net,REJECT
 DOMAIN-SUFFIX,md95xc-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,metrics1.data.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,metrics1.data.hicloud.com,REJECT
 DOMAIN-SUFFIX,minigame5-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,mllog.jd.com,REJECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
 DOMAIN-SUFFIX,mobads.baidu.com,REJECT
 DOMAIN-SUFFIX,mobile.events.data.microsoft.com,REJECT
 DOMAIN-SUFFIX,mobile.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,msg.qy.net,REJECT
 DOMAIN-SUFFIX,msg.umengcloud.com,REJECT
 DOMAIN-SUFFIX,mssdk3-normal-lq.zijieapi.com,REJECT
@@ -415,6 +420,7 @@ DOMAIN-SUFFIX,nv5twe-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,o7mq5q-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,oacyxe-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,ogads-pa.clients6.google.com,REJECT
+DOMAIN-SUFFIX,optimus-ads.amap.com,REJECT
 DOMAIN-SUFFIX,p66-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,p9iii6-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,paas-push-api.immomo.com,REJECT
@@ -427,6 +433,7 @@ DOMAIN-SUFFIX,qsb.browser.miui.com,REJECT
 DOMAIN-SUFFIX,qtfjwi-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,report.trade.weixin.qq.com,REJECT
+DOMAIN-SUFFIX,resolver.dingtalk.com,REJECT
 DOMAIN-SUFFIX,rli3h7-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,rtlog3-applog-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,rumt-zh.com,REJECT
