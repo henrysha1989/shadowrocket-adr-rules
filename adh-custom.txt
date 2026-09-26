@@ -1,4 +1,4 @@
-! updated: 2026-09-26 17:37 +0000
+! updated: 2026-09-26 18:08 +0000
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -371,6 +371,7 @@
 ||ibe5bb-dnsotls-ds.metric.gstatic.com^
 ||idlwlo-dnsotls-ds.metric.gstatic.com^
 ||idx.m.hub.sandai.net^
+||ilce.alicdn.com^
 ||im-x.jd.com^
 ||images.pinduoduo.com^
 ||ipv4.gdt.qq.com^
@@ -378,6 +379,7 @@
 ||ir-sdk.dun.163.com^
 ||jvmsvn-dnsotls-ds.metric.gstatic.com^
 ||l2zqbj-dnsotls-ds.metric.gstatic.com^
+||lftxali.fancyapi.com^
 ||lng.xiaohongshu.com^
 ||location.ximalaya.com^
 ||log-hl.snssdk.com^
@@ -389,17 +391,20 @@
 ||logger.qmai.cn^
 ||logv2.ireader.com^
 ||madx.flyme.cn^
+||mars.jd.com^
 ||master.wap.dphub.sandai.net^
 ||md95xc-dnsotls-ds.metric.gstatic.com^
 ||metrics1.data.dbankcloud.cn^
 ||metrics1.data.hicloud.com^
 ||minigame5-normal-lq.zijieapi.com^
+||mllog.jd.com^
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
 ||mobile.events.data.microsoft.com^
 ||mobile.shuzilm.cn^
 ||mon11-misc-lf.fqnovel.com^
 ||mon11-misc-lq.fqnovel.com^
+||mon3-misc-lf.fqnovel.com^
 ||msg.qy.net^
 ||msg.umengcloud.com^
 ||mssdk3-normal-lq.zijieapi.com^
@@ -411,6 +416,7 @@
 ||o7mq5q-dnsotls-ds.metric.gstatic.com^
 ||oacyxe-dnsotls-ds.metric.gstatic.com^
 ||ogads-pa.clients6.google.com^
+||optimus-ads.amap.com^
 ||p66-ad.adkwai.com^
 ||p9iii6-dnsotls-ds.metric.gstatic.com^
 ||paas-push-api.immomo.com^
@@ -423,6 +429,7 @@
 ||qtfjwi-dnsotls-ds.metric.gstatic.com^
 ||qzs.gdtimg.com^
 ||report.trade.weixin.qq.com^
+||resolver.dingtalk.com^
 ||rli3h7-dnsotls-ds.metric.gstatic.com^
 ||rtlog3-applog-hl.amemv.com^
 ||rumt-zh.com^
