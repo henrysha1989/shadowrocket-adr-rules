@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 08:01 +0800
+# updated: 2026-09-27 12:39 +0800
 # ====================================================
 
 # ============================================================
@@ -311,6 +311,7 @@ DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,adse.ximalaya.com,REJECT
 DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
 DOMAIN-SUFFIX,adsmind.ugdtimg.com,REJECT
+DOMAIN-SUFFIX,aj-bizlog.cn-qingdao.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,amap-aos-info-nogw.amap.com,REJECT
 DOMAIN-SUFFIX,analytics.twitter.com,REJECT
 DOMAIN-SUFFIX,api-adservices.apple.com,REJECT
@@ -372,7 +373,6 @@ DOMAIN-SUFFIX,hm.baidu.com,REJECT
 DOMAIN-SUFFIX,hub5pn.wap.sandai.net,REJECT
 DOMAIN-SUFFIX,huichuan.sm.cn,REJECT
 DOMAIN-SUFFIX,i.gridsumdissector.com,REJECT
-DOMAIN-SUFFIX,i.snssdk.com,REJECT
 DOMAIN-SUFFIX,ibe5bb-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,idlwlo-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,idx.m.hub.sandai.net,REJECT
