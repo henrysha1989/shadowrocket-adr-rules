@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 12:40 +0800
+# updated: 2026-09-27 14:12 +0800
 # ====================================================
 
 # ============================================================
@@ -279,6 +279,22 @@ DOMAIN-SUFFIX,t.e.x.com,REJECT
 DOMAIN-SUFFIX,fcmatch.youtube.com,REJECT
 DOMAIN-SUFFIX,intake-analytics.wikimedia.org,REJECT
 DOMAIN-SUFFIX,telemetry.proton.me,REJECT
+# ===== 原样规则（RAW 区）—— 本区按 Shadowrocket 语法原样写入 reject-custom.list =====
+# 这些规则 AdGuard 语法表达不了（REJECT-DROP 丢包策略、关键字族匹配），
+# 由 convert.py 的 RAW-BEGIN/RAW-END 开关透传；维护时只改这里。
+# 顺序：本区在自动区之前，因此先于所有订阅规则生效。
+# ==== 原样规则（RAW 区，Shadowrocket 语法）====
+# 广告/埋点族：丢包（REJECT-DROP 让 App 等超时，比普通拒绝温和；实测普通拒绝会引发重试风暴）
+DOMAIN-KEYWORD,reading-ad,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
+DOMAIN,i.snssdk.com,REJECT-DROP
+DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
+DOMAIN-KEYWORD,ads-normal,REJECT-DROP
+# HTTPDNS 放行：这两个被 AdvertisingLite / BlockHttpDNS 订阅拦着，
+# 必须在订阅之前声明 DIRECT（否则豆包打不开网页、微信内 DNS 受阻）
+DOMAIN,dig.bdurl.net,DIRECT,no-resolve
+DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,120-223-160-80-ad84f7cd.bvmlt.top,REJECT
 DOMAIN-SUFFIX,120-223-160-84-ad1f1de9.bvmlt.top,REJECT
