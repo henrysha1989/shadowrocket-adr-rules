@@ -1,4 +1,4 @@
-# updated: 2026-09-26 18:08 +0000
+# updated: 2026-09-27 19:24 +0800
 # ===== 海外小众加密工具与社交服务 =====
 DOMAIN-SUFFIX,proton.me,PROXY
 DOMAIN-SUFFIX,protonmail.com,PROXY
@@ -26,12 +26,54 @@ DOMAIN-SUFFIX,wikimedia.org,PROXY
 DOMAIN-SUFFIX,x.com,PROXY
 DOMAIN-SUFFIX,youtube.com,PROXY
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,1wrv21-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,8mnhn5-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,8wmfvf-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,9avsve-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,alb.reddit.com,PROXY
+DOMAIN-SUFFIX,be1azk-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,buttons.reddit.com,PROXY
+DOMAIN-SUFFIX,ct.pinterest.com,PROXY
+DOMAIN-SUFFIX,events.reddit.com,PROXY
+DOMAIN-SUFFIX,fcmatch.youtube.com,PROXY
+DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,firebaselogging.googleapis.com,PROXY
+DOMAIN-SUFFIX,footprints-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,frwm9l-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,ggpht.com,PROXY
 DOMAIN-SUFFIX,google.com,PROXY
 DOMAIN-SUFFIX,google.com.hk,PROXY
 DOMAIN-SUFFIX,googlevideo.com,PROXY
+DOMAIN-SUFFIX,hlhbap-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,ibe5bb-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,idlwlo-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,jvmsvn-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,l2zqbj-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,log.pinterest.com,PROXY
+DOMAIN-SUFFIX,md95xc-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,mynaxe-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,n3aoal-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,np7yof-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,nv5twe-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,o7mq5q-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,oacyxe-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,p9iii6-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,pixel.reddit.com,PROXY
+DOMAIN-SUFFIX,pqbjwb-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,q8semv-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,qtfjwi-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,rli3h7-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,telegram.org,PROXY
+DOMAIN-SUFFIX,telemetry.proton.me,PROXY
 DOMAIN-SUFFIX,twimg.com,PROXY
 DOMAIN-SUFFIX,twitter.com,PROXY
+DOMAIN-SUFFIX,uczlhe-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,vabf7c-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,w3-reporting.reddit.com,PROXY
+DOMAIN-SUFFIX,wc5evu-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,wikipedia.org,PROXY
+DOMAIN-SUFFIX,wrxxqt-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,wtmyac-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,wyklst-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,ytimg.com,PROXY
+DOMAIN-SUFFIX,ztmqbm-dnsotls-ds.metric.gstatic.com,PROXY
