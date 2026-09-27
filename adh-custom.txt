@@ -262,7 +262,6 @@
 DOMAIN-KEYWORD,reading-ad,REJECT-DROP
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
 DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
-DOMAIN,i.snssdk.com,REJECT-DROP
 DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
 DOMAIN-KEYWORD,ads-normal,REJECT-DROP
 ! HTTPDNS 放行：这两个被 AdvertisingLite / BlockHttpDNS 订阅拦着，
