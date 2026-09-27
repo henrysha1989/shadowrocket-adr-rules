@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 14:18 +0800
+# updated: 2026-09-27 18:29 +0800
 # ====================================================
 
 # ============================================================
@@ -319,6 +319,7 @@ DOMAIN-SUFFIX,ads-img-al.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-img-bak.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-video-al.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-vp5.xhscdn.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
@@ -360,7 +361,6 @@ DOMAIN-SUFFIX,cdn.ynuf.aliapp.org,REJECT
 DOMAIN-SUFFIX,cm-10-172.getui.com,REJECT
 DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
 DOMAIN-SUFFIX,config2.cmpassport.com,REJECT
-DOMAIN-SUFFIX,cp501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
 DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
@@ -379,7 +379,6 @@ DOMAIN-SUFFIX,game.eve.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,game.str.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,gator.volces.com,REJECT
 DOMAIN-SUFFIX,gdfp.gifshow.com,REJECT
-DOMAIN-SUFFIX,geo.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,guid.tpns.tencent.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,h2tcbox.baidu.com,REJECT
@@ -414,6 +413,7 @@ DOMAIN-SUFFIX,logv2.ireader.com,REJECT
 DOMAIN-SUFFIX,madx.flyme.cn,REJECT
 DOMAIN-SUFFIX,mars.jd.com,REJECT
 DOMAIN-SUFFIX,master.wap.dphub.sandai.net,REJECT
+DOMAIN-SUFFIX,material-client.cn-wulanchabu.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,md95xc-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,metrics1.data.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,metrics1.data.hicloud.com,REJECT
@@ -421,7 +421,6 @@ DOMAIN-SUFFIX,minigame5-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mllog.jd.com,REJECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
 DOMAIN-SUFFIX,mobads.baidu.com,REJECT
-DOMAIN-SUFFIX,mobile.events.data.microsoft.com,REJECT
 DOMAIN-SUFFIX,mobile.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT
@@ -495,7 +494,6 @@ DOMAIN-SUFFIX,v1.log.moji.com,REJECT
 DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT
 DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT
 DOMAIN-SUFFIX,v2.gdt.qq.com,REJECT
-DOMAIN-SUFFIX,v20.events.data.microsoft.com,REJECT
 DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT
 DOMAIN-SUFFIX,v2mi.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,v3.gdt.qq.com,REJECT
@@ -515,6 +513,7 @@ DOMAIN-SUFFIX,vmat.gtimg.com,REJECT
 DOMAIN-SUFFIX,vv.video.qq.com,REJECT
 DOMAIN-SUFFIX,wc5evu-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,wdaa.shuzilm.cn,REJECT
+DOMAIN-SUFFIX,we-material.cn-wulanchabu.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,wrxxqt-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,wtmyac-dnsotls-ds.metric.gstatic.com,REJECT
