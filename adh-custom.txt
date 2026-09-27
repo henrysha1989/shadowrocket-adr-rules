@@ -100,7 +100,6 @@
 ||huichuan-mc.sm.cn^
 ||i.qchannel03.cn^
 ||iadsdk.apple.com^
-||id6.me^
 ||idm.iot.mi.com^
 ||increase-openapi.soulapp.cn^
 ||info.3g.qq.com^
@@ -202,7 +201,6 @@
 ||spread.wtzw.com^
 ||ssp.soulapp.cn^
 ||store.is.autonavi.com^
-||szlong.weixin.qq.com^
 ||t-cfg.wtzw.com^
 ||t-dsp.pinduoduo.com^
 ||tanx.com^
@@ -255,25 +253,6 @@
 ||jspcdn.cn^
 ||ldhy.click^
 ||pkoplink.com^
-||firebaselogging.googleapis.com^
-||firebaselogging-pa.googleapis.com^
-||safebrowsing.googleapis.com^
-||footprints-pa.googleapis.com^
-||imasdk.googleapis.com^
-||w3-reporting.reddit.com^
-||alb.reddit.com^
-||events.reddit.com^
-||pixel.reddit.com^
-||buttons.reddit.com^
-||ct.pinterest.com^
-||log.pinterest.com^
-||analytics.pgncs.notion.so^
-||exp.notion.so^
-||csi.gstatic.com^
-||t.e.x.com^
-||fcmatch.youtube.com^
-||intake-analytics.wikimedia.org^
-||telemetry.proton.me^
 ! ===== 原样规则（RAW 区）—— 本区按 Shadowrocket 语法原样写入 reject-custom.list =====
 ! 这些规则 AdGuard 语法表达不了（REJECT-DROP 丢包策略、关键字族匹配），
 ! 由 convert.py 的 RAW-BEGIN/RAW-END 开关透传；维护时只改这里。
