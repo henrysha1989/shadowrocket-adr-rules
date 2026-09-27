@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 02:08 +0800
+# updated: 2026-09-27 08:01 +0800
 # ====================================================
 
 # ============================================================
@@ -283,6 +283,7 @@ DOMAIN-SUFFIX,telemetry.proton.me,REJECT
 DOMAIN-SUFFIX,120-223-160-80-ad84f7cd.bvmlt.top,REJECT
 DOMAIN-SUFFIX,120-223-160-84-ad1f1de9.bvmlt.top,REJECT
 DOMAIN-SUFFIX,120-223-160-91-ad35f787.bvmlt.top,REJECT
+DOMAIN-SUFFIX,1wrv21-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,8mnhn5-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,8wmfvf-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,9avsve-dnsotls-ds.metric.gstatic.com,REJECT
@@ -414,6 +415,7 @@ DOMAIN-SUFFIX,msg.umengcloud.com,REJECT
 DOMAIN-SUFFIX,mssdk3-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mtrace.ysp.cctv.cn,REJECT
 DOMAIN-SUFFIX,mynaxe-dnsotls-ds.metric.gstatic.com,REJECT
+DOMAIN-SUFFIX,n3aoal-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,np7yof-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,nsclick.baidu.com,REJECT
 DOMAIN-SUFFIX,nv5twe-dnsotls-ds.metric.gstatic.com,REJECT
