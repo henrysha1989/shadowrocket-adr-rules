@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 18:47 +0800
+# updated: 2026-09-27 18:55 +0800
 # ====================================================
 
 # ============================================================
@@ -413,6 +413,7 @@ DOMAIN-SUFFIX,madx.flyme.cn,REJECT
 DOMAIN-SUFFIX,mars.jd.com,REJECT
 DOMAIN-SUFFIX,master.wap.dphub.sandai.net,REJECT
 DOMAIN-SUFFIX,material-client.cn-wulanchabu.log.aliyuncs.com,REJECT
+DOMAIN-SUFFIX,mcs.zijieapi.com,REJECT
 DOMAIN-SUFFIX,md95xc-dnsotls-ds.metric.gstatic.com,REJECT
 DOMAIN-SUFFIX,metrics1.data.dbankcloud.cn,REJECT
 DOMAIN-SUFFIX,metrics1.data.hicloud.com,REJECT
