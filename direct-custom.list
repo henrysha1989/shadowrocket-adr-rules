@@ -1,4 +1,4 @@
-# updated: 2026-09-27 18:29 +0800
+# updated: 2026-09-27 18:55 +0800
 # 2026-09-21 18:07 owner 指定：全量替换直连白名单
 DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
 DOMAIN-SUFFIX,bytevcloud.com,DIRECT
@@ -99,8 +99,11 @@ DOMAIN-SUFFIX,dsp.mp.microsoft.com,DIRECT
 DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT
 DOMAIN-SUFFIX,geo.prod.do.dsp.mp.microsoft.com,DIRECT
 DOMAIN-SUFFIX,i.snssdk.com,DIRECT
+DOMAIN-SUFFIX,id6.me,DIRECT
 DOMAIN-SUFFIX,kv501.prod.do.dsp.mp.microsoft.com,DIRECT
+DOMAIN-SUFFIX,mmgame.qpic.cn,DIRECT
 DOMAIN-SUFFIX,mobile.events.data.microsoft.com,DIRECT
 DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com,DIRECT
 DOMAIN-SUFFIX,v10.events.data.microsoft.com,DIRECT
 DOMAIN-SUFFIX,v20.events.data.microsoft.com,DIRECT
+DOMAIN-SUFFIX,whoami.akamai.net,DIRECT
