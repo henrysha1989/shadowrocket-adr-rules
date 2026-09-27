@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 18:29 +0800
+# updated: 2026-09-27 18:47 +0800
 # ====================================================
 
 # ============================================================
@@ -113,7 +113,6 @@ DOMAIN-SUFFIX,jomodns.cn,REJECT
 DOMAIN-SUFFIX,jpushsc.m.jd.com,REJECT
 DOMAIN-SUFFIX,jupiter.sys.miui.com,REJECT
 DOMAIN-SUFFIX,kuiniuca.com,REJECT
-DOMAIN-SUFFIX,kv501.prod.do.dsp.mp.microsoft.com,REJECT
 DOMAIN-SUFFIX,live-api.immomo.com,REJECT
 DOMAIN-SUFFIX,live-log.immomo.com,REJECT
 DOMAIN-SUFFIX,log-klink.zijieapi.com,REJECT
