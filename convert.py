@@ -19,9 +19,25 @@ def convert_adh_to_sr(input_file, output_file):
     with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
+    # 原样透传开关：AdGuard 注释 '! RAW-BEGIN' / '! RAW-END' 之间的行按 Shadowrocket
+    # 语法**原样**写入输出（用于 REJECT-DROP、DOMAIN-KEYWORD 等 AdGuard 语法表达不了的规则）。
+    # 2026-09-27：没有这个开关时，这类行会被下面的分支静默丢弃。
+    raw_mode = False
+    raw_pat = re.compile(r'^[A-Z][A-Z0-9-]*,')
     for line in lines:
         line = line.strip()
         if not line:
+            continue
+        upper = line.lstrip('!').strip().upper()
+        if upper == 'RAW-BEGIN':
+            raw_mode = True
+            sr_rules.append('# ==== 原样规则（RAW 区，Shadowrocket 语法）====')
+            continue
+        if upper == 'RAW-END':
+            raw_mode = False
+            continue
+        if raw_mode and raw_pat.match(line):
+            sr_rules.append(line)
             continue
         # keep section / description comments (AdGuard '!' -> Shadowrocket '#')
         if re.match(r'^!\s*updated\b', line):
