@@ -1,4 +1,4 @@
-! updated: 2026-09-27 08:01 +0800
+! updated: 2026-09-27 04:39 +0000
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -307,6 +307,7 @@
 ||adse.ximalaya.com^
 ||adsmind.gdtimg.com^
 ||adsmind.ugdtimg.com^
+||aj-bizlog.cn-qingdao.log.aliyuncs.com^
 ||amap-aos-info-nogw.amap.com^
 ||analytics.twitter.com^
 ||api-adservices.apple.com^
@@ -368,7 +369,6 @@
 ||hub5pn.wap.sandai.net^
 ||huichuan.sm.cn^
 ||i.gridsumdissector.com^
-||i.snssdk.com^
 ||ibe5bb-dnsotls-ds.metric.gstatic.com^
 ||idlwlo-dnsotls-ds.metric.gstatic.com^
 ||idx.m.hub.sandai.net^
