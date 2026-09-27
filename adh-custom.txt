@@ -1,4 +1,4 @@
-! updated: 2026-09-27 19:24 +0800
+! updated: 2026-09-27 22:01 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -282,7 +282,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||adashx.ut.amap.com^
 ||adlaunch.moji.com^
 ||adm-smc-cn.heytapmobi.com^
-||ads-api.twitter.com^
 ||ads-i2.xhscdn.com^
 ||ads-i3.xhscdn.com^
 ||ads-img-al.xhscdn.com^
@@ -300,9 +299,9 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||adsmind.ugdtimg.com^
 ||aj-bizlog.cn-qingdao.log.aliyuncs.com^
 ||amap-aos-info-nogw.amap.com^
-||analytics.twitter.com^
 ||api-adservices.apple.com^
 ||api.ad.xiaomi.com^
+||api.afdback.ppsimg.com^
 ||api.df.mob.com^
 ||api.ocpx.ydmob.com^
 ||api.tw06.xlmc.sec.miui.com^
@@ -332,6 +331,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||config2.cmpassport.com^
 ||dfe.mic.mob.com^
 ||dm.toutiao.com^
+||emoticon-sns.iqiyi.com^
 ||entry-su1.ubixioe.com^
 ||errnewlog.umeng.com^
 ||etl-xlmc-ssl.sandai.net^
@@ -385,7 +385,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
 ||mobile.shuzilm.cn^
-||mon11-misc-lf.fqnovel.com^
 ||mon11-misc-lq.fqnovel.com^
 ||mon3-misc-lf.fqnovel.com^
 ||msg.qy.net^
@@ -393,13 +392,13 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||mssdk3-normal-lq.zijieapi.com^
 ||mtrace.ysp.cctv.cn^
 ||nsclick.baidu.com^
-||ogads-pa.clients6.google.com^
 ||optimus-ads.amap.com^
 ||p66-ad.adkwai.com^
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
 ||policy.video.iqiyi.com^
+||punch.p2p.qq.com^
 ||qsb.browser.miui.com^
 ||qzs.gdtimg.com^
 ||report.trade.weixin.qq.com^
@@ -425,6 +424,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||stat.moji.com^
 ||static-s.iqiyi.com^
 ||t2.xiaohongshu.com^
+||t7z.cupid.iqiyi.com^
 ||tab.volces.com^
 ||talk.bz.gepush.com^
 ||talk.bz.getui.com^
