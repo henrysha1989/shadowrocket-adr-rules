@@ -263,6 +263,7 @@ DOMAIN-KEYWORD,reading-ad,REJECT-DROP
 DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
 DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
 DOMAIN-KEYWORD,ads-normal,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
 ! HTTPDNS 放行：这两个被 AdvertisingLite / BlockHttpDNS 订阅拦着，
 ! 必须在订阅之前声明 DIRECT（否则豆包打不开网页、微信内 DNS 受阻）
 DOMAIN,dig.bdurl.net,DIRECT,no-resolve
