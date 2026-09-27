@@ -26,7 +26,6 @@ DOMAIN-SUFFIX,api.amemv.com,DIRECT
 DOMAIN-SUFFIX,api-play.amemv.com,DIRECT
 DOMAIN-SUFFIX,webcast.amemv.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com,DIRECT
-DOMAIN-SUFFIX,is.snssdk.com.bytedns1.com,DIRECT
 DOMAIN-SUFFIX,ib.snssdk.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
 DOMAIN-SUFFIX,life-service-open.zijieapi.com,DIRECT
@@ -42,7 +41,6 @@ DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
 DOMAIN-SUFFIX,lf1-cdn-tos.bytescm.com,DIRECT
 DOMAIN-SUFFIX,lf26-effect-302.byteeffecttos.com,DIRECT
 DOMAIN-SUFFIX,lf3-effectcdn-tos.byteeffecttos.com,DIRECT
-DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,DIRECT
 DOMAIN-SUFFIX,lf3-ttcdn-tos.pstatp.com,DIRECT
 DOMAIN-SUFFIX,log-report.rtc.volcvideo.com,DIRECT
 DOMAIN-SUFFIX,m.baike.com,DIRECT
