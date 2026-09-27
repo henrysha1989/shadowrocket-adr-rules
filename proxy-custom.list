@@ -1,4 +1,4 @@
-# updated: 2026-09-27 19:24 +0800
+# updated: 2026-09-27 19:52 +0800
 # ===== 海外小众加密工具与社交服务 =====
 DOMAIN-SUFFIX,proton.me,PROXY
 DOMAIN-SUFFIX,protonmail.com,PROXY
@@ -30,12 +30,14 @@ DOMAIN-SUFFIX,1wrv21-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,8mnhn5-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,8wmfvf-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,9avsve-dnsotls-ds.metric.gstatic.com,PROXY
+DOMAIN-SUFFIX,9f8ekz-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,alb.reddit.com,PROXY
 DOMAIN-SUFFIX,be1azk-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,buttons.reddit.com,PROXY
 DOMAIN-SUFFIX,ct.pinterest.com,PROXY
 DOMAIN-SUFFIX,events.reddit.com,PROXY
 DOMAIN-SUFFIX,fcmatch.youtube.com,PROXY
+DOMAIN-SUFFIX,fiezmd-dnsotls-ds.metric.gstatic.com,PROXY
 DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,PROXY
 DOMAIN-SUFFIX,firebaselogging.googleapis.com,PROXY
 DOMAIN-SUFFIX,footprints-pa.googleapis.com,PROXY
