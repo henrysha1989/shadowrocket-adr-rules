@@ -1,4 +1,4 @@
-! updated: 2026-09-27 18:55 +0800
+! updated: 2026-09-27 19:24 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -295,10 +295,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||120-223-160-80-ad84f7cd.bvmlt.top^
 ||120-223-160-84-ad1f1de9.bvmlt.top^
 ||120-223-160-91-ad35f787.bvmlt.top^
-||1wrv21-dnsotls-ds.metric.gstatic.com^
-||8mnhn5-dnsotls-ds.metric.gstatic.com^
-||8wmfvf-dnsotls-ds.metric.gstatic.com^
-||9avsve-dnsotls-ds.metric.gstatic.com^
 ||abtest-ch.snssdk.com^
 ||ad-api.adn-plus.com.cn^
 ||ad-drcn.media.dbankcloud.cn^
@@ -342,7 +338,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||auni.telecome.cn^
 ||auth.be.sec.miui.com^
 ||badjs.weixinbridge.com^
-||be1azk-dnsotls-ds.metric.gstatic.com^
 ||beacon.cdn.qq.com^
 ||bgg.baidu.com^
 ||bj-td-03-callback.advlion.com^
@@ -370,7 +365,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||fourier.taobao.com^
 ||fp-it.fengkongcloud.com^
 ||fp.tongdun.net^
-||frwm9l-dnsotls-ds.metric.gstatic.com^
 ||game.eve.mdt.qq.com^
 ||game.str.mdt.qq.com^
 ||gator.volces.com^
@@ -379,13 +373,10 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||h-adashx.ut.taobao.com^
 ||h2tcbox.baidu.com^
 ||hectorstatic.baidu.com^
-||hlhbap-dnsotls-ds.metric.gstatic.com^
 ||hm.baidu.com^
 ||hub5pn.wap.sandai.net^
 ||huichuan.sm.cn^
 ||i.gridsumdissector.com^
-||ibe5bb-dnsotls-ds.metric.gstatic.com^
-||idlwlo-dnsotls-ds.metric.gstatic.com^
 ||idx.m.hub.sandai.net^
 ||ilce.alicdn.com^
 ||im-x.jd.com^
@@ -393,8 +384,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||ipv4.gdt.qq.com^
 ||ipv6.shuzilm.cn^
 ||ir-sdk.dun.163.com^
-||jvmsvn-dnsotls-ds.metric.gstatic.com^
-||l2zqbj-dnsotls-ds.metric.gstatic.com^
 ||lftxali.fancyapi.com^
 ||lng.xiaohongshu.com^
 ||location.ximalaya.com^
@@ -411,7 +400,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||master.wap.dphub.sandai.net^
 ||material-client.cn-wulanchabu.log.aliyuncs.com^
 ||mcs.zijieapi.com^
-||md95xc-dnsotls-ds.metric.gstatic.com^
 ||metrics1.data.dbankcloud.cn^
 ||metrics1.data.hicloud.com^
 ||minigame5-normal-lq.zijieapi.com^
@@ -426,29 +414,18 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||msg.umengcloud.com^
 ||mssdk3-normal-lq.zijieapi.com^
 ||mtrace.ysp.cctv.cn^
-||mynaxe-dnsotls-ds.metric.gstatic.com^
-||n3aoal-dnsotls-ds.metric.gstatic.com^
-||np7yof-dnsotls-ds.metric.gstatic.com^
 ||nsclick.baidu.com^
-||nv5twe-dnsotls-ds.metric.gstatic.com^
-||o7mq5q-dnsotls-ds.metric.gstatic.com^
-||oacyxe-dnsotls-ds.metric.gstatic.com^
 ||ogads-pa.clients6.google.com^
 ||optimus-ads.amap.com^
 ||p66-ad.adkwai.com^
-||p9iii6-dnsotls-ds.metric.gstatic.com^
 ||paas-push-api.immomo.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
 ||policy.video.iqiyi.com^
-||pqbjwb-dnsotls-ds.metric.gstatic.com^
-||q8semv-dnsotls-ds.metric.gstatic.com^
 ||qsb.browser.miui.com^
-||qtfjwi-dnsotls-ds.metric.gstatic.com^
 ||qzs.gdtimg.com^
 ||report.trade.weixin.qq.com^
 ||resolver.dingtalk.com^
-||rli3h7-dnsotls-ds.metric.gstatic.com^
 ||rtlog3-applog-hl.amemv.com^
 ||rumt-zh.com^
 ||s.bdstatic.com^
@@ -480,7 +457,6 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||tmead.y.qq.com^
 ||tnc3-bjlgy.snssdk.com^
 ||tpstelemetry.tencent.com^
-||uczlhe-dnsotls-ds.metric.gstatic.com^
 ||ulogjs.gifshow.com^
 ||ulogs.umeng.com^
 ||ulogs1.ksapisrv.com^
@@ -504,20 +480,14 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||v95-se-zjwztc-reading-ad.qznovelvod.com^
 ||v95-zjjx2tc-reading-ad.qznovelvod.com^
 ||v96-sz-daily-reading-ad.qznovelvod.com^
-||vabf7c-dnsotls-ds.metric.gstatic.com^
 ||vi.l.qq.com^
 ||vmat.gtimg.com^
 ||vv.video.qq.com^
-||wc5evu-dnsotls-ds.metric.gstatic.com^
 ||wdaa.shuzilm.cn^
 ||we-material.cn-wulanchabu.log.aliyuncs.com^
 ||win.gdt.qq.com^
-||wrxxqt-dnsotls-ds.metric.gstatic.com^
-||wtmyac-dnsotls-ds.metric.gstatic.com^
 ||wup.imtt.qq.com^
 ||www.shouyou.xy.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
 ||wxsmw.wxs.qq.com^
-||wyklst-dnsotls-ds.metric.gstatic.com^
-||ztmqbm-dnsotls-ds.metric.gstatic.com^
