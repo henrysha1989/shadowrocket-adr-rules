@@ -260,7 +260,6 @@
 ! RAW-BEGIN
 ! 广告/埋点族：丢包（REJECT-DROP 让 App 等超时，比普通拒绝温和；实测普通拒绝会引发重试风暴）
 DOMAIN-KEYWORD,reading-ad,REJECT-DROP
-DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
 DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
 DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
 DOMAIN-KEYWORD,ads-normal,REJECT-DROP
