@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 21:39 +0800
+# updated: 2026-09-27 22:02 +0800
 # ====================================================
 
 # ============================================================
@@ -285,7 +285,6 @@ DOMAIN-SUFFIX,adashx.m.taobao.com,REJECT
 DOMAIN-SUFFIX,adashx.ut.amap.com,REJECT
 DOMAIN-SUFFIX,adlaunch.moji.com,REJECT
 DOMAIN-SUFFIX,adm-smc-cn.heytapmobi.com,REJECT
-DOMAIN-SUFFIX,ads-api.twitter.com,REJECT
 DOMAIN-SUFFIX,ads-i2.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-i3.xhscdn.com,REJECT
 DOMAIN-SUFFIX,ads-img-al.xhscdn.com,REJECT
@@ -303,9 +302,9 @@ DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
 DOMAIN-SUFFIX,adsmind.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,aj-bizlog.cn-qingdao.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,amap-aos-info-nogw.amap.com,REJECT
-DOMAIN-SUFFIX,analytics.twitter.com,REJECT
 DOMAIN-SUFFIX,api-adservices.apple.com,REJECT
 DOMAIN-SUFFIX,api.ad.xiaomi.com,REJECT
+DOMAIN-SUFFIX,api.afdback.ppsimg.com,REJECT
 DOMAIN-SUFFIX,api.df.mob.com,REJECT
 DOMAIN-SUFFIX,api.ocpx.ydmob.com,REJECT
 DOMAIN-SUFFIX,api.tw06.xlmc.sec.miui.com,REJECT
@@ -335,6 +334,7 @@ DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
 DOMAIN-SUFFIX,config2.cmpassport.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
+DOMAIN-SUFFIX,emoticon-sns.iqiyi.com,REJECT
 DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,errnewlog.umeng.com,REJECT
 DOMAIN-SUFFIX,etl-xlmc-ssl.sandai.net,REJECT
@@ -388,7 +388,6 @@ DOMAIN-SUFFIX,mllog.jd.com,REJECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
 DOMAIN-SUFFIX,mobads.baidu.com,REJECT
 DOMAIN-SUFFIX,mobile.shuzilm.cn,REJECT
-DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,msg.qy.net,REJECT
@@ -396,13 +395,13 @@ DOMAIN-SUFFIX,msg.umengcloud.com,REJECT
 DOMAIN-SUFFIX,mssdk3-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mtrace.ysp.cctv.cn,REJECT
 DOMAIN-SUFFIX,nsclick.baidu.com,REJECT
-DOMAIN-SUFFIX,ogads-pa.clients6.google.com,REJECT
 DOMAIN-SUFFIX,optimus-ads.amap.com,REJECT
 DOMAIN-SUFFIX,p66-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api.immomo.com,REJECT
 DOMAIN-SUFFIX,pgdt.gtimg.cn,REJECT
 DOMAIN-SUFFIX,pgdt.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,policy.video.iqiyi.com,REJECT
+DOMAIN-SUFFIX,punch.p2p.qq.com,REJECT
 DOMAIN-SUFFIX,qsb.browser.miui.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,report.trade.weixin.qq.com,REJECT
@@ -428,6 +427,7 @@ DOMAIN-SUFFIX,ssp.1rtb.com,REJECT
 DOMAIN-SUFFIX,stat.moji.com,REJECT
 DOMAIN-SUFFIX,static-s.iqiyi.com,REJECT
 DOMAIN-SUFFIX,t2.xiaohongshu.com,REJECT
+DOMAIN-SUFFIX,t7z.cupid.iqiyi.com,REJECT
 DOMAIN-SUFFIX,tab.volces.com,REJECT
 DOMAIN-SUFFIX,talk.bz.gepush.com,REJECT
 DOMAIN-SUFFIX,talk.bz.getui.com,REJECT
