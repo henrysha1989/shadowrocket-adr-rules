@@ -1,4 +1,4 @@
-! updated: 2026-09-26 18:08 +0000
+! updated: 2026-09-27 08:01 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -279,6 +279,7 @@
 ||120-223-160-80-ad84f7cd.bvmlt.top^
 ||120-223-160-84-ad1f1de9.bvmlt.top^
 ||120-223-160-91-ad35f787.bvmlt.top^
+||1wrv21-dnsotls-ds.metric.gstatic.com^
 ||8mnhn5-dnsotls-ds.metric.gstatic.com^
 ||8wmfvf-dnsotls-ds.metric.gstatic.com^
 ||9avsve-dnsotls-ds.metric.gstatic.com^
@@ -410,6 +411,7 @@
 ||mssdk3-normal-lq.zijieapi.com^
 ||mtrace.ysp.cctv.cn^
 ||mynaxe-dnsotls-ds.metric.gstatic.com^
+||n3aoal-dnsotls-ds.metric.gstatic.com^
 ||np7yof-dnsotls-ds.metric.gstatic.com^
 ||nsclick.baidu.com^
 ||nv5twe-dnsotls-ds.metric.gstatic.com^
