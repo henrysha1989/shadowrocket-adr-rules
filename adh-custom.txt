@@ -109,7 +109,6 @@
 ||jpushsc.m.jd.com^
 ||jupiter.sys.miui.com^
 ||kuiniuca.com^
-||kv501.prod.do.dsp.mp.microsoft.com^
 ||live-api.immomo.com^
 ||live-log.immomo.com^
 ||log-klink.zijieapi.com^
