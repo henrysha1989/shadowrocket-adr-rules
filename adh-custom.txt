@@ -1,4 +1,4 @@
-! updated: 2026-09-27 18:29 +0800
+! updated: 2026-09-27 18:55 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -410,6 +410,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||mars.jd.com^
 ||master.wap.dphub.sandai.net^
 ||material-client.cn-wulanchabu.log.aliyuncs.com^
+||mcs.zijieapi.com^
 ||md95xc-dnsotls-ds.metric.gstatic.com^
 ||metrics1.data.dbankcloud.cn^
 ||metrics1.data.hicloud.com^
