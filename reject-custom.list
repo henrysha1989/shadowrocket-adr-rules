@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-27 22:07 +0800
+# updated: 2026-09-28 20:11 +0800
 # ====================================================
 
 # ============================================================
@@ -302,6 +302,7 @@ DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
 DOMAIN-SUFFIX,adsmind.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,aj-bizlog.cn-qingdao.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,amap-aos-info-nogw.amap.com,REJECT
+DOMAIN-SUFFIX,analytics.immersivetranslate.com,REJECT
 DOMAIN-SUFFIX,api-adservices.apple.com,REJECT
 DOMAIN-SUFFIX,api.ad.xiaomi.com,REJECT
 DOMAIN-SUFFIX,api.afdback.ppsimg.com,REJECT
@@ -329,11 +330,14 @@ DOMAIN-SUFFIX,cbsipv4.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,ccs.umeng.com,REJECT
 DOMAIN-SUFFIX,cdn-api-verify.mob.com,REJECT
 DOMAIN-SUFFIX,cdn.ynuf.aliapp.org,REJECT
+DOMAIN-SUFFIX,cgicol.amap.com,REJECT
+DOMAIN-SUFFIX,client-upload.cn-shanghai.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,cm-10-172.getui.com,REJECT
 DOMAIN-SUFFIX,cm.g.doubleclick.net,REJECT
 DOMAIN-SUFFIX,config2.cmpassport.com,REJECT
 DOMAIN-SUFFIX,dfe.mic.mob.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
+DOMAIN-SUFFIX,dorangesource.alicdn.com,REJECT
 DOMAIN-SUFFIX,emoticon-sns.iqiyi.com,REJECT
 DOMAIN-SUFFIX,entry-su1.ubixioe.com,REJECT
 DOMAIN-SUFFIX,errnewlog.umeng.com,REJECT
@@ -369,6 +373,7 @@ DOMAIN-SUFFIX,lftxali.fancyapi.com,REJECT
 DOMAIN-SUFFIX,lng.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,location.ximalaya.com,REJECT
 DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
+DOMAIN-SUFFIX,log-sdk.ksapisrv.com,REJECT
 DOMAIN-SUFFIX,log-verify.mob.com,REJECT
 DOMAIN-SUFFIX,log.tbs.qq.com,REJECT
 DOMAIN-SUFFIX,log2.cmpassport.com,REJECT
@@ -395,6 +400,7 @@ DOMAIN-SUFFIX,msg.umengcloud.com,REJECT
 DOMAIN-SUFFIX,mssdk3-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,mtrace.ysp.cctv.cn,REJECT
 DOMAIN-SUFFIX,nsclick.baidu.com,REJECT
+DOMAIN-SUFFIX,nsp-logservice-hiview-p43-drcn.obs.cn-north-2.myhuaweicloud.com,REJECT
 DOMAIN-SUFFIX,optimus-ads.amap.com,REJECT
 DOMAIN-SUFFIX,p66-ad.adkwai.com,REJECT
 DOMAIN-SUFFIX,paas-push-api.immomo.com,REJECT
@@ -468,6 +474,7 @@ DOMAIN-SUFFIX,wdaa.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,we-material.cn-wulanchabu.log.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,win.gdt.qq.com,REJECT
 DOMAIN-SUFFIX,wup.imtt.qq.com,REJECT
+DOMAIN-SUFFIX,www.google-analytics.com,REJECT
 DOMAIN-SUFFIX,www.shouyou.xy.com,REJECT
 DOMAIN-SUFFIX,wxa.wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wximg.wxs.qq.com,REJECT
