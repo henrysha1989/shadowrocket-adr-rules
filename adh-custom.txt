@@ -1,4 +1,4 @@
-! updated: 2026-09-27 22:01 +0800
+! updated: 2026-09-28 20:10 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -299,6 +299,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||adsmind.ugdtimg.com^
 ||aj-bizlog.cn-qingdao.log.aliyuncs.com^
 ||amap-aos-info-nogw.amap.com^
+||analytics.immersivetranslate.com^
 ||api-adservices.apple.com^
 ||api.ad.xiaomi.com^
 ||api.afdback.ppsimg.com^
@@ -326,11 +327,14 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||ccs.umeng.com^
 ||cdn-api-verify.mob.com^
 ||cdn.ynuf.aliapp.org^
+||cgicol.amap.com^
+||client-upload.cn-shanghai.log.aliyuncs.com^
 ||cm-10-172.getui.com^
 ||cm.g.doubleclick.net^
 ||config2.cmpassport.com^
 ||dfe.mic.mob.com^
 ||dm.toutiao.com^
+||dorangesource.alicdn.com^
 ||emoticon-sns.iqiyi.com^
 ||entry-su1.ubixioe.com^
 ||errnewlog.umeng.com^
@@ -366,6 +370,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||lng.xiaohongshu.com^
 ||location.ximalaya.com^
 ||log-hl.snssdk.com^
+||log-sdk.ksapisrv.com^
 ||log-verify.mob.com^
 ||log.tbs.qq.com^
 ||log2.cmpassport.com^
@@ -392,6 +397,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||mssdk3-normal-lq.zijieapi.com^
 ||mtrace.ysp.cctv.cn^
 ||nsclick.baidu.com^
+||nsp-logservice-hiview-p43-drcn.obs.cn-north-2.myhuaweicloud.com^
 ||optimus-ads.amap.com^
 ||p66-ad.adkwai.com^
 ||paas-push-api.immomo.com^
@@ -465,6 +471,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||we-material.cn-wulanchabu.log.aliyuncs.com^
 ||win.gdt.qq.com^
 ||wup.imtt.qq.com^
+||www.google-analytics.com^
 ||www.shouyou.xy.com^
 ||wxa.wxs.qq.com^
 ||wximg.wxs.qq.com^
