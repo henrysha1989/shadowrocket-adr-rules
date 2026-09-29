@@ -67,7 +67,7 @@
 | `reject-custom.list` | Shadowrocket **拦截**集（生成物） | `convert.py` 自动生成，**勿手改** |
 | `direct-custom.list` | Shadowrocket **直连**集 | 脚本 / 人工 |
 | `proxy-custom.list` | Shadowrocket **代理**集 | 按需维护 |
-| `hongguo-ad.list` | 红果短剧 / 番茄小说**广告专表**（26 条，动作全 `REJECT-DROP`，**不含内容 CDN**） | **手工**筛选（口径与维护方式写在文件头） |
+| `hongguo-ad.list` | 红果短剧 / 番茄小说**广告专表**（27 条，动作全 `REJECT-DROP`，**不含内容 CDN**） | **手工**筛选（口径与维护方式写在文件头） |
 | `update_readme_counts.py` | 刷新本 README 的「当前规则量」行 | CI 调用 |
 | `.github/workflows/convert.yml` | CI：规则变更即转译 + 刷计数 | 自动化 |
 
