@@ -27,6 +27,8 @@
 | **直连** | 国内低延迟服务 / 核心 CDN / 信令 | `direct-custom.list` |
 | **代理** | 需经代理的境外服务 | `proxy-custom.list` |
 
+另有一张**专项表** `hongguo-ad.list`：只收**红果短剧 / 番茄小说**的广告与埋点（按族关键字 + 具体域名，动作一律 `REJECT-DROP`），可选订阅。它**必须排在拦截段最前**，并注意**不要收录 `*-reading-video*` / `fqnovelpic` / `byteimg` / `douyinpic` 这些内容域**（收了会直接搞坏播放）。
+
 ## 工作原理
 
 ```text
@@ -65,6 +67,7 @@
 | `reject-custom.list` | Shadowrocket **拦截**集（生成物） | `convert.py` 自动生成，**勿手改** |
 | `direct-custom.list` | Shadowrocket **直连**集 | 脚本 / 人工 |
 | `proxy-custom.list` | Shadowrocket **代理**集 | 按需维护 |
+| `hongguo-ad.list` | 红果短剧 / 番茄小说**广告专表**（26 条，动作全 `REJECT-DROP`，**不含内容 CDN**） | **手工**筛选（口径与维护方式写在文件头） |
 | `update_readme_counts.py` | 刷新本 README 的「当前规则量」行 | CI 调用 |
 | `.github/workflows/convert.yml` | CI：规则变更即转译 + 刷计数 | 自动化 |
 
@@ -88,6 +91,7 @@
 拦截   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/reject-custom.list
 直连   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
 代理   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
+红果专表 https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/hongguo-ad.list
 ```
 
 **规则顺序建议**：`拦截` → `直连` → `代理` → `GEOIP` / `FINAL`。子域规则优先于父域，确保宽泛直连不会「吞掉」精确拦截。
