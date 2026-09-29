@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-29 20:11 +0800
+# updated: 2026-09-29 23:23 +0800
 # ====================================================
 
 # ============================================================
@@ -268,6 +268,9 @@ DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
 DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
 DOMAIN-KEYWORD,ads-normal,REJECT-DROP
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
+# 字节 SDK 域：只在客户端丢包，ADH 侧不拦（已列入脚本 CLIENT_DROP_ONLY）
+# 2026-09-29 加入：此前只写在手机配置的内联区，与本仓库 direct-custom 的 DIRECT 互相矛盾
+DOMAIN,i.snssdk.com,REJECT-DROP
 # HTTPDNS 放行：这两个被 AdvertisingLite / BlockHttpDNS 订阅拦着，
 # 必须在订阅之前声明 DIRECT（否则豆包打不开网页、微信内 DNS 受阻）
 DOMAIN,dig.bdurl.net,DIRECT,no-resolve
