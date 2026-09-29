@@ -1,0 +1,52 @@
+# 红果短剧 / 番茄小说 —— 广告与埋点专表（Shadowrocket RULE-SET）
+#
+# 订阅（自建加速，国内可用）：
+#   https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/hongguo-ad.list
+# 用法：放进 [Rule] 的拦截段，且排在其他规则集之前 ——
+#   RULE-SET,https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/hongguo-ad.list,REJECT-DROP
+#
+# 动作一律 REJECT-DROP（丢包）：普通 REJECT 会让 SDK 反复重连，DROP 让 App 等超时、不重试，
+#   实测重试量少约两个数量级（红果弹广告时曾达 6.5 万次/分钟）。
+# 为什么用关键字：这族的编号会轮换（v5/v6/v11/v95…、mon11/mon12…），逐条穷举必漏。
+#
+# ⚠️ 不要收录内容 CDN：qznovelvod 的 *-reading-video*、fqnovelpic.com、byteimg.com、douyinpic.com
+#    都是内容域，必须保持直连（收进来会直接搞坏播放）。
+#
+# 维护（手工，两个来源）：
+#   ① 从 reject-custom.list 里筛本族的广告条目（口径：host 命中 reading-ad / reading-sign /
+#      ad-sign / ads-normal，或 fqnovel 下的 ad. / mon*-misc / applog 子域；排除上面那些内容域）
+#   ② 上传新 db 后，从本族新出现的主机里筛（同样排除内容域）
+# updated: 2026-09-30
+
+# ── 族级关键字（覆盖轮换编号）──
+DOMAIN-KEYWORD,reading-ad,REJECT-DROP
+DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
+DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
+DOMAIN-KEYWORD,ads-normal,REJECT-DROP
+DOMAIN-KEYWORD,-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-KEYWORD,-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-KEYWORD,-applog-lf.fqnovel.com,REJECT-DROP
+
+# ── 具体域名（取自 reject-custom.list 的现网条目，动作统一改为 DROP）──
+DOMAIN-SUFFIX,ad.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-bd-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-ex-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v9-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-aw-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-se-zjwztc-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-zjjx2tc-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v96-sz-daily-reading-ad.qznovelvod.com,REJECT-DROP
+
+# ── 字节 SDK 域（红果广告预取/埋点会打它，实测是重试风暴的主要来源之一）──
+#    如果你觉得不该进红果专表，删掉这一行即可。
+DOMAIN,i.snssdk.com,REJECT-DROP
