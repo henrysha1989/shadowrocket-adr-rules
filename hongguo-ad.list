@@ -50,3 +50,10 @@ DOMAIN-SUFFIX,v96-sz-daily-reading-ad.qznovelvod.com,REJECT-DROP
 # ── 字节 SDK 域（红果广告预取/埋点会打它，实测是重试风暴的主要来源之一）──
 #    如果你觉得不该进红果专表，删掉这一行即可。
 DOMAIN,i.snssdk.com,REJECT-DROP
+
+# ── 字节埋点（2026-09-30 依新 db 实测补入）──
+#   applog.zijieapi.com：红果播放时打出的埋点。它同时被上游 Privacy.list 的
+#   `DOMAIN-KEYWORD,applog.`（**普通 REJECT**）命中 ⇒ SDK 收到失败信号反复重连：
+#   实测 108 次 / 13 分钟 = 8.2 次/分，是该窗口唯一的重试热点（同窗口 DROP 域的均值只有 1.6 次/分）。
+#   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
+DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
