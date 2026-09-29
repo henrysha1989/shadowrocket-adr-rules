@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-29 23:23 +0800
+# updated: 2026-09-30 02:02 +0800
 # ====================================================
 
 # ============================================================
@@ -48,7 +48,6 @@ DOMAIN-SUFFIX,api.sec.miui.com,REJECT
 DOMAIN-SUFFIX,apmplus.volces.com,REJECT
 DOMAIN-SUFFIX,app-analytics-services.com,REJECT
 DOMAIN-SUFFIX,app-measurement.com,REJECT
-DOMAIN-SUFFIX,applog.zijieapi.com,REJECT
 DOMAIN-SUFFIX,as.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,aspect-upush.umeng.com,REJECT
 DOMAIN-SUFFIX,audid.umeng.com,REJECT
@@ -271,6 +270,11 @@ DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
 # 字节 SDK 域：只在客户端丢包，ADH 侧不拦（已列入脚本 CLIENT_DROP_ONLY）
 # 2026-09-29 加入：此前只写在手机配置的内联区，与本仓库 direct-custom 的 DIRECT 互相矛盾
 DOMAIN,i.snssdk.com,REJECT-DROP
+# 2026-09-30 加入 applog.zijieapi.com：实测库 proxy-2026-09-30-005251（13.2 分）里，它是唯一
+# 还在吃普通 REJECT 的重试热点（108 次 = 8.2 次/分；同库已改 DROP 的 13 个域名中位仅 1.36）。
+# 此前只被上游 Privacy.list 的 DOMAIN-KEYWORD,applog.,REJECT 命中 ⇒ 在此声明 DROP，并配
+# 脚本 CLIENT_DROP_ONLY（ADH 侧放行，重试压到连接层由丢包承担）。
+DOMAIN,applog.zijieapi.com,REJECT-DROP
 # HTTPDNS 放行：这两个被 AdvertisingLite / BlockHttpDNS 订阅拦着，
 # 必须在订阅之前声明 DIRECT（否则豆包打不开网页、微信内 DNS 受阻）
 DOMAIN,dig.bdurl.net,DIRECT,no-resolve
