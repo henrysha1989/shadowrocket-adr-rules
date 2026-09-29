@@ -1,4 +1,4 @@
-! updated: 2026-09-28 20:10 +0800
+! updated: 2026-09-29 20:11 +0800
 ! ============================================================
 ! 2026-09-21 18:07 owner 指定：全量替换 ADH 自定义拦截规则
 ! ============================================================
@@ -307,6 +307,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||api.ocpx.ydmob.com^
 ||api.tw06.xlmc.sec.miui.com^
 ||api.verify.mob.com^
+||api.yunxish.com^
 ||apm-native.xiaohongshu.com^
 ||applog.lc.quark.cn^
 ||applog.snssdk.com^
@@ -377,6 +378,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||log5-misc-hl.amemv.com^
 ||log5-misc-lf.amemv.com^
 ||logger.qmai.cn^
+||logrcv.yunxish.com^
 ||logv2.ireader.com^
 ||madx.flyme.cn^
 ||mars.jd.com^
@@ -390,6 +392,7 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||mobads-logs.baidu.com^
 ||mobads.baidu.com^
 ||mobile.shuzilm.cn^
+||mobwsa.ximalaya.com^
 ||mon11-misc-lq.fqnovel.com^
 ||mon3-misc-lf.fqnovel.com^
 ||msg.qy.net^
@@ -441,8 +444,10 @@ DOMAIN,dns.weixin.qq.com.cn,DIRECT,no-resolve
 ||tmead.y.qq.com^
 ||tnc3-bjlgy.snssdk.com^
 ||tpstelemetry.tencent.com^
+||tracelog-debug.yunxish.com^
 ||ulogjs.gifshow.com^
 ||ulogs.umeng.com^
+||ulogs1.gifshow.com^
 ||ulogs1.ksapisrv.com^
 ||ulogs2.gifshow.com^
 ||unicom.shuzilm.cn^
