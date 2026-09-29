@@ -1,6 +1,6 @@
 # ====================================================
 # Auto-generated Shadowrocket Ruleset from AdGuard Home
-# updated: 2026-09-28 20:11 +0800
+# updated: 2026-09-29 20:11 +0800
 # ====================================================
 
 # ============================================================
@@ -310,6 +310,7 @@ DOMAIN-SUFFIX,api.df.mob.com,REJECT
 DOMAIN-SUFFIX,api.ocpx.ydmob.com,REJECT
 DOMAIN-SUFFIX,api.tw06.xlmc.sec.miui.com,REJECT
 DOMAIN-SUFFIX,api.verify.mob.com,REJECT
+DOMAIN-SUFFIX,api.yunxish.com,REJECT
 DOMAIN-SUFFIX,apm-native.xiaohongshu.com,REJECT
 DOMAIN-SUFFIX,applog.lc.quark.cn,REJECT
 DOMAIN-SUFFIX,applog.snssdk.com,REJECT
@@ -380,6 +381,7 @@ DOMAIN-SUFFIX,log2.cmpassport.com,REJECT
 DOMAIN-SUFFIX,log5-misc-hl.amemv.com,REJECT
 DOMAIN-SUFFIX,log5-misc-lf.amemv.com,REJECT
 DOMAIN-SUFFIX,logger.qmai.cn,REJECT
+DOMAIN-SUFFIX,logrcv.yunxish.com,REJECT
 DOMAIN-SUFFIX,logv2.ireader.com,REJECT
 DOMAIN-SUFFIX,madx.flyme.cn,REJECT
 DOMAIN-SUFFIX,mars.jd.com,REJECT
@@ -393,6 +395,7 @@ DOMAIN-SUFFIX,mllog.jd.com,REJECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
 DOMAIN-SUFFIX,mobads.baidu.com,REJECT
 DOMAIN-SUFFIX,mobile.shuzilm.cn,REJECT
+DOMAIN-SUFFIX,mobwsa.ximalaya.com,REJECT
 DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,msg.qy.net,REJECT
@@ -444,8 +447,10 @@ DOMAIN-SUFFIX,telecom.shuzilm.cn,REJECT
 DOMAIN-SUFFIX,tmead.y.qq.com,REJECT
 DOMAIN-SUFFIX,tnc3-bjlgy.snssdk.com,REJECT
 DOMAIN-SUFFIX,tpstelemetry.tencent.com,REJECT
+DOMAIN-SUFFIX,tracelog-debug.yunxish.com,REJECT
 DOMAIN-SUFFIX,ulogjs.gifshow.com,REJECT
 DOMAIN-SUFFIX,ulogs.umeng.com,REJECT
+DOMAIN-SUFFIX,ulogs1.gifshow.com,REJECT
 DOMAIN-SUFFIX,ulogs1.ksapisrv.com,REJECT
 DOMAIN-SUFFIX,ulogs2.gifshow.com,REJECT
 DOMAIN-SUFFIX,unicom.shuzilm.cn,REJECT
