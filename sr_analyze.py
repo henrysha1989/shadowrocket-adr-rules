@@ -1075,6 +1075,16 @@ def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, con
     return "\n".join(L)
 
 
+def heartbeat(msg):
+    """每轮都留一行痕迹 —— 否则"没有新库就什么都不做"会让定时任务完全无痕、无法验证。"""
+    try:
+        os.makedirs(os.path.join(HERE, "reports"), exist_ok=True)
+        with open(os.path.join(HERE, "reports", "heartbeat.log"), "a", encoding="utf-8") as fh:
+            fh.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}  {msg}\n")
+    except OSError:
+        pass
+
+
 def _lock(path):
     """单实例锁：定时任务重叠时直接退出，别两个进程一起改仓库。"""
     try:
@@ -1126,8 +1136,10 @@ def run_once(opts):
 
     if not todo:
         print(f"[{time.strftime('%H:%M:%S')}] 无新库（{cfg('SR_DB_DIR')}）—— 什么都不做")
+        heartbeat(f"无新库（{cfg('SR_DB_DIR')}）· 池 {len(state)} 条")
         return 0
     print(f"[{time.strftime('%H:%M:%S')}] 发现 {len(todo)} 个新/变化库，开始分析 ...")
+    heartbeat(f"处理 {len(todo)} 个库：{', '.join(os.path.basename(p) for p in todo)}")
 
     min_hits = int(float(cfg("SR_MIN_HITS") or 3))
     span_by_db, stats = {}, {"events": 0, "act": Counter(), "rej_hosts": set(), "rej_total": 0}
@@ -1304,6 +1316,19 @@ def main():
     argv = sys.argv[1:]
     if "--selftest" in argv:
         return selftest()
+    if "--status" in argv:
+        hb = os.path.join(HERE, "reports", "heartbeat.log")
+        print("最近心跳（cron 只要跑过就会有）：")
+        try:
+            lines = open(hb, encoding="utf-8").read().splitlines()[-10:]
+            print("\n".join("  " + l for l in lines) or "  （心跳日志为空 —— cron 还没跑过或没跑起来）")
+        except OSError:
+            print("  （还没有 sr/reports/heartbeat.log —— cron 还没跑过或没跑起来）")
+        rd = os.path.join(HERE, "reports")
+        n = len([f for f in os.listdir(rd) if f.startswith("sr-report-")]) if os.path.isdir(rd) else 0
+        print(f"\n落档报告 {n} 份（最新在 sr/last-report.md）")
+        print(f"已消费库 {len(sr_db_state_load(os.path.join(HERE, '.sr-files.json')))} 个")
+        return 0
     if "--check-config" in argv:
         rows, probs = config_rows()
         print("配置里的规则集动作：")
