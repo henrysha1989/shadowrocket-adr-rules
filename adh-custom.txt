@@ -2,13 +2,39 @@
 ! ADH 自定义拦截规则（AdGuard 语法）—— 由 adh_gist_sync.py 自动维护
 ! ==========================================================
 !
-! 📌 用法（2026-09-30 起）：在 AdGuard Home「过滤器 → DNS 过滤器」里把本文件当**过滤清单**订阅，
+! 📌 用法：在 AdGuard Home「过滤器 → DNS 过滤器」里把本文件当**过滤清单**订阅，
 !    ADH 会按自己的周期自动拉取更新；脚本**不再**通过 API 直接改 user_rules。
 !      https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/adh-custom.txt
 !
-! 内容：ADH querylog 里被判为广告/追踪的漏网之鱼（`||域名^`，AdGuard 语法）。
-! 维护：标记之上可随手加；标记之下由脚本收敛，勿手改。
+! 内容：
+!   手工区（本标记之上）＝ owner 指定要拦的域（下面这批起底规则）；
+!   自动区（本标记之下）＝ 脚本从 ADH querylog 抓的漏网之鱼（`||域名^`）。
+! ⚠️ 自动区由脚本收敛，勿手改；手工区随便加。
 !
 ! ⚠️ 2026-09-30：本文件原先还会被 CI 转成 reject-custom.list —— 那条链路已切断。
 !    三个 custom.list 改由 `adh_gist_sync.py --sr-analyze` 从手机 db 生成。
+!
+! ── 起底规则（原 CLIENT_DROP_ONLY，2026-09-30：手机已不走 ADH，恢复在 ADH 拦）──
+||v11-reading-ad.qznovelvod.com^
+||v26-reading-ad.qznovelvod.com^
+||v5-bd-daily-reading-ad.qznovelvod.com^
+||v5-se-sjy-daily-reading-ad.qznovelvod.com^
+||v5-ex-reading-ad.qznovelvod.com^
+||v6-daily-reading-ad.qznovelvod.com^
+||v6-reading-ad.qznovelvod.com^
+||v9-reading-ad.qznovelvod.com^
+||v13-reading-ad.qznovelvod.com^
+||v95-zjjx2tc-reading-ad.qznovelvod.com^
+||v95-aw-reading-ad.qznovelvod.com^
+||v95-se-zjwztc-reading-ad.qznovelvod.com^
+||v96-sz-daily-reading-ad.qznovelvod.com^
+||ad.fqnovel.com^
+||mon-.fqnovel.com^
+||mon11-misc-lf.fqnovel.com^
+||mon11-misc-lq.fqnovel.com^
+||mon3-misc-lf.fqnovel.com^
+||rtlog5-applog-lf.fqnovel.com^
+||i.snssdk.com^
+||applog.zijieapi.com^
+!
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
