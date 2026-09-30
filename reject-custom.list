@@ -54,5 +54,3 @@ DOMAIN,i.snssdk.com,REJECT-DROP
 #   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,('REJECT', '低频（38 次 < 门槛 50）')
-DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,('REJECT', '低频（4 次 < 门槛 50）')
