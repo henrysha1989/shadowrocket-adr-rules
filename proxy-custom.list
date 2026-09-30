@@ -1,3 +1,4 @@
+# updated: 2026-09-30 05:13 +0000
 # 代理清单（Shadowrocket RULE-SET）—— proxy-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
@@ -6,3 +7,59 @@
 # ⚠️ 2026-09-30 起：手工区（标记之上）由你维护；自动区（标记之下）由
 #   `adh_gist_sync.py --sr-analyze` 从手机 db 生成。
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,connectivitycheck.gstatic.com,PROXY
+DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,csi.gstatic.com,PROXY
+DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,gateway.facebook.com,PROXY
+DOMAIN-SUFFIX,graph.facebook.com,PROXY
+DOMAIN-SUFFIX,i.ytimg.com,PROXY
+DOMAIN-SUFFIX,imasdk.googleapis.com,PROXY
+DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com,PROXY
+DOMAIN-SUFFIX,pbs.twimg.com,PROXY
+DOMAIN-SUFFIX,play.google.com,PROXY
+DOMAIN-SUFFIX,play.googleapis.com,PROXY
+DOMAIN-SUFFIX,push.clients6.google.com,PROXY
+DOMAIN-SUFFIX,redirector.googlevideo.com,PROXY
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,rr1---sn-i3co-i3ber.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr1---sn-i3co-i3bez.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr1---sn-ipoxu-un5e7.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-a5m7lnlr.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-a5msenes.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-ajun55-54.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-n4v7snls.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-n4v7snse.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-o097znzk.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-ojn4v5-55.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr3---sn-i3co-i3bez.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr3---sn-ipoxu-un5ez.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr3---sn-n4v7snlr.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr3---sn-n4v7snls.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr3---sn-o097znzk.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-2on4v5-5a.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-i3co-i3bed.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-i3co-i3bez.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-ojun55-5i.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-2on4v5-5b.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-a5mekndd.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-i3co-i3bel.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-n4v7snls.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-qja5m5-5v.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr6---sn-i3co-i3bee.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr8---sn-i3co-i3bel.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rupload.facebook.com,PROXY
+DOMAIN-SUFFIX,s.youtube.com,PROXY
+DOMAIN-SUFFIX,scontent.fhkg1-1.fna.fbcdn.net,PROXY
+DOMAIN-SUFFIX,scontent.fhkg1-2.fna.fbcdn.net,PROXY
+DOMAIN-SUFFIX,suggestqueries.google.com,PROXY
+DOMAIN-SUFFIX,twitter.com,PROXY
+DOMAIN-SUFFIX,video-s.twimg.com,PROXY
+DOMAIN-SUFFIX,video.twimg.com,PROXY
+DOMAIN-SUFFIX,www.facebook.com,PROXY
+DOMAIN-SUFFIX,www.google.com,PROXY
+DOMAIN-SUFFIX,www.google.com.hk,PROXY
+DOMAIN-SUFFIX,www.gstatic.com,PROXY
+DOMAIN-SUFFIX,www.youtube.com,PROXY
+DOMAIN-SUFFIX,youtubei.googleapis.com,PROXY
+DOMAIN-SUFFIX,yt3.ggpht.com,PROXY
