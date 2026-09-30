@@ -41,6 +41,7 @@ python3 sr_analyze.py --all                # 忽略签名，全部重扫
 python3 sr_analyze.py --dry-run            # 算增删但不推仓库
 python3 sr_analyze.py --force              # 越过"删太多"的安全阀（>30% 默认中止）
 python3 sr_analyze.py --no-reject          # 不动拦截表（只写 direct/proxy）
+python3 sr_analyze.py --auto-all           # 激进：所有"漏网之鱼"都自动写（默认只写高置信：信号族/命中≥50）
 python3 sr_analyze.py --report-dir <目录>   # 报告落档位置（默认 sr/reports/）
 python3 sr_analyze.py --selftest
 ```
@@ -114,7 +115,7 @@ DEFAULTS = {
     "SR_REJECT_WRITE": "1",                # 无人值守默认把**漏网之鱼**写进拦截表（带冲突护栏）
     # 信号/埋点**族名**优先于域名族（否则同族在不同域名下一边 DROP 一边直连）
     "SR_SIGNAL_PATTERNS": "-misc-lf,-misc-lq,-applog,live-player-log,-ad-sign,reading-ad,ads-normal,telemetry",
-    "SR_DROP_PATTERNS": "-ad-sign,ads-normal,reading-ad,reading-sign,applog,telemetry,-log,mon11-misc,mon12-misc,mon3-misc",
+    "SR_DROP_PATTERNS": "-ad-sign,ads-normal,reading-ad,reading-sign,applog,telemetry,-log,-misc-,live-player-log,logbk",
     # 小火箭侧「强制直连」登记表（后缀匹配）：命中的域跳过广告判定、并写进直连表。
     # 这里是 owner 明确批准过的"别拦/直连"意图；**只属于本项目**，与 ADH 无关。
     "SR_FORCE_DIRECT": (
@@ -1046,10 +1047,27 @@ def run_once(opts):
                 state[h] = [time.time(), kind, act]
             if kind == "ad" and not o["reject"]:
                 reject_cand.append((h, o))
-            elif (kind == "direct" or kind is None) and o["proxy"] > o["direct"]:
+            elif kind == "direct" and o["proxy"] > o["direct"]:
+                # ⚠️ 只认"分类器判直连"或"已在直连表"的；`kind is None` + 走代理 = FINAL,PROXY 的正常结果，
+                #    不是滑落（那类域名本来就没规则，走代理是设计行为）
                 in_list = in_domset(h, forced) or in_domset(h, dir_manual)
                 (slipped_rule if in_list else slipped_new).append((h, o))
                 direct_cand.append((h, o))
+
+    # ★ 族一致性：统计每个基础域下的主机判定。整个族**全是广告** ⇒ 无歧义，可自动写；
+    #   族里混着正常服务（如 zijieapi.com 下既有广告埋点也有 gecko/ma 这类接口）⇒ 只报等你定。
+    fam = {}
+    for _p, _span in span_by_db.items():
+        try:
+            _per, _ = shadowrocket_evidence(_p)
+        except Exception:
+            continue
+        for _h, _e in _per.items():
+            if _e["hits"] < min_hits or in_domset(_h, rej_manual):
+                continue
+            _k = "direct" if in_domset(_h, forced) else classify(_h)
+            fam.setdefault(base_domain(_h), []).append(_k)
+    pure_ad = {b for b, ks in fam.items() if ks and all(k == "ad" for k in ks)}
 
     kept = {h: v for h, v in state.items() if isinstance(v, list) and len(v) >= 2}
     conflicts, reject_ok = [], []
@@ -1063,8 +1081,19 @@ def run_once(opts):
 
     # 自动写拦截的门槛：命中信号族（明确无疑）或库内命中足够多 ⇒ 自动写；其余只进报告等 owner 定
     floor = int(float(cfg("SR_AUTO_REJECT_MIN_HITS") or cfg("SR_DROP_MIN_HITS") or 50))
-    auto_rej = [(h, o) for h, o in reject_ok if o["n"] >= floor or o["act"] == "REJECT-DROP"]
-    lowconf = [(h, o) for h, o in reject_ok if not (o["n"] >= floor or o["act"] == "REJECT-DROP")]
+    aggressive = "--auto-all" in sys.argv        # 激进模式：所有候选都自动写（默认只写高置信的）
+
+    def _confident(h, o):
+        if aggressive:
+            return True
+        return o["n"] >= floor or o["act"] == "REJECT-DROP"
+    auto_rej = [(h, o) for h, o in reject_ok if _confident(h, o)]
+    lowconf = [(h, o) for h, o in reject_ok if not _confident(h, o)]
+    for h, o in auto_rej:
+        o["auto"] = True
+    if pure_ad:
+        print(f"（纯广告族 {len(pure_ad)} 个：{', '.join(sorted(pure_ad)[:6])}…；"
+              f"默认仍按门槛写，加 --auto-all 才全写）")
     wrote = []
     cons = check_config(state=state)
     if cons:
