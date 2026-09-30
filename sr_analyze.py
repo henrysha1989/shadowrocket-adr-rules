@@ -83,7 +83,7 @@ import time
 import urllib.parse
 import urllib.request
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -1024,7 +1024,7 @@ def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, con
         print(s)
         L.append(s)
 
-    p(f"# 小火箭 db 体检 —— {time.strftime('%Y-%m-%d %H:%M:%S')}")
+    p(f"# 小火箭 db 体检 —— {_now().strftime('%Y-%m-%d %H:%M:%S')} CST")
     p()
     p(f"- 数据源目录：`{cfg('SR_DB_DIR')}`（glob `{cfg('SR_DB_GLOB')}`）")
     p(f"- 本轮处理的库：{('、'.join(processed) if processed else '无新库')}")
@@ -1075,12 +1075,20 @@ def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, con
     return "\n".join(L)
 
 
+CST = timezone(timedelta(hours=8))
+
+
+def _now():
+    """统一用**北京时间** —— 容器是 UTC、宿主机是 CST，混着写日志会看不懂。"""
+    return datetime.now(CST)
+
+
 def heartbeat(msg):
     """每轮都留一行痕迹 —— 否则"没有新库就什么都不做"会让定时任务完全无痕、无法验证。"""
     try:
         os.makedirs(os.path.join(HERE, "reports"), exist_ok=True)
         with open(os.path.join(HERE, "reports", "heartbeat.log"), "a", encoding="utf-8") as fh:
-            fh.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}  {msg}\n")
+            fh.write(f"{_now().strftime('%Y-%m-%d %H:%M:%S')} CST  {msg}\n")
     except OSError:
         pass
 
@@ -1301,7 +1309,7 @@ def run_once(opts):
     # ── 落档 ──
     rdir = opts["report_dir"]
     os.makedirs(rdir, exist_ok=True)
-    stamp = time.strftime("%Y-%m-%d-%H%M%S")
+    stamp = _now().strftime("%Y-%m-%d-%H%M%S")
     with open(os.path.join(rdir, f"sr-report-{stamp}.md"), "w", encoding="utf-8") as fh:
         fh.write(md + "\n")
     with open(os.path.join(HERE, "last-report.md"), "w", encoding="utf-8") as fh:
