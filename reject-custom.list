@@ -25,6 +25,10 @@ DOMAIN-KEYWORD,live-player-log,REJECT-DROP
 # `-reading-sign` 保留（万一还有别的域名上的信号端点）；但**图片 CDN 已被 direct-custom.list 盖过** ——
 # 实测它只命中过 `p3/p9-reading-sign.fqnovelpic.com`，而那族是图片 URL 签名（内容），见直连表手工区。
 DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
+# Google 广告族（2026-10-01 体检发现：`doubleclick.net` / `googlesyndication.com` **不在任何在用订阅表里**，
+# 配置里落到 FINAL,PROXY ⇒ 广告经代理发出去了。整族都是广告，用关键字覆盖（含未来新子域）：
+DOMAIN-KEYWORD,doubleclick,REJECT-DROP
+DOMAIN-KEYWORD,googlesyndication,REJECT-DROP
 # ── 具体域名（取自 reject-custom.list 的现网条目，动作统一改为 DROP）──
 DOMAIN-SUFFIX,ad.fqnovel.com,REJECT-DROP
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
