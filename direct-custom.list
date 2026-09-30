@@ -13,11 +13,21 @@
 #   （webapp-dd / console-dd）—— 不吃 dingtalk.com，钉钉自家域已在上游 China_Domain.list 里。
 #   这几族既不在 geosite:CN、IP 也未必判成 CN，不显式直连就掉进 FINAL,PROXY。
 #   写 4 条后缀、**不用** DOMAIN-KEYWORD：关键字会被 parse_domains() 当成域名 "megarobo"。
-#   已核验（2026-09-30）全部在用上游表 0 收录 ⇒ 本表在拦截段之后也不会被抢。
+#   已核验（2026-09-30）全部在用上游表 0 收录。
 DOMAIN-SUFFIX,megarobo.com,DIRECT
 DOMAIN-SUFFIX,megarobo.tech,DIRECT
 DOMAIN-SUFFIX,megarobo.info,DIRECT
 DOMAIN-SUFFIX,yunmart.com,DIRECT
+
+# 抢占型直连（2026-09-30 方案 B：本表已提到**拦截段之前**，这几条才搬得进来）——
+# 它们跟订阅表抢，位置输了就变成"被拦截"：
+#   DOMAIN-KEYWORD,tesla        ← Privacy 的 `DOMAIN-KEYWORD,analytics.` 会抢 analytics.tesla.cn
+#   dns.weixin.qq.com.cn        ← BlockHttpDNS 有同名精确规则 DOMAIN,dns.weixin.qq.com.cn
+#   dig.bdurl.net               ← 上游 China_Domain 也收了，这里是显式兜底
+# 注：RULE-SET 里放 DOMAIN-KEYWORD 是可行的 —— reject-custom.list 的 4 条族关键字就是同一用法。
+DOMAIN-KEYWORD,tesla,DIRECT
+DOMAIN-SUFFIX,dig.bdurl.net,DIRECT
+DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
 
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
