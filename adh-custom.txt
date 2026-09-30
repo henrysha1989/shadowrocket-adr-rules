@@ -7,7 +7,7 @@
 !      https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/adh-custom.txt
 !
 ! 内容：
-!   手工区（本标记之上）＝ owner 指定要拦的域（下面这批起底规则）；
+!   手工区（本标记之上）＝ owner 指定要拦的域（起底规则）+ 要放行的域（@@ 段）；
 !   自动区（本标记之下）＝ 脚本从 ADH querylog 抓的漏网之鱼（`||域名^`）。
 ! ⚠️ 自动区由脚本收敛，勿手改；手工区随便加。
 !
@@ -36,5 +36,104 @@
 ||rtlog5-applog-lf.fqnovel.com^
 ||i.snssdk.com^
 ||applog.zijieapi.com^
+!
+!
+! ── 放行规则（原 ADH user_rules 里的 95 条 @@，2026-09-30 搬来这里）──
+!    必须写成 `$important`：实测普通 @@ 压不住订阅大表（Cats-Team 19 万 / Ads 28 万条）。
+!    i.snssdk.com 不在此列（它同时在起底拦截里，按「拦截优先」处理）。
+@@||-mgsdk-sign.byteimg.com^$important
+@@||aaplimg.com^$important
+@@||accs-dispatch.m.taobao.com^$important
+@@||acs.m.taobao.com^$important
+@@||amdc.m.taobao.com^$important
+@@||ampaeservices.com^$important
+@@||apd-pcdnwxlogin.teg.tencent-cloud.net^$important
+@@||api-flow.flyme.cn^$important
+@@||api-play-hj.amemv.com^$important
+@@||api-play.amemv.com^$important
+@@||api.amemv.com^$important
+@@||api.tuisong.baidu.com^$important
+@@||appcfg.v.qq.com^$important
+@@||aweme.snssdk.com^$important
+@@||browsercfg-drcn.cloud.dbankcloud.cn^$important
+@@||bytedns1.com^$important
+@@||bytedns3.com^$important
+@@||bytednsdoc.com^$important
+@@||bytegecko.com^$important
+@@||bytevcloud.com^$important
+@@||dig.bdurl.net^$important
+@@||dingtalkapps.com^$important
+@@||dns.weixin.qq.com.cn^$important
+@@||douyincdn.com^$important
+@@||douyinpic.com^$important
+@@||douyinstatic.com^$important
+@@||douyinvod.com^$important
+@@||frontier-aweme-zjg-ipainner.amemv.com^$important
+@@||ib.snssdk.com^$important
+@@||ibytedtos.com^$important
+@@||icloud.com^$important
+@@||idouyinpic.com^$important
+@@||idouyinvod.com^$important
+@@||im-open.douyin.com^$important
+@@||input.shouji.sogou.com^$important
+@@||is.snssdk.com^$important
+@@||is.snssdk.com.bytedns1.com^$important
+@@||ks.pull.yximgs.com^$important
+@@||laiwang.com^$important
+@@||lf-cdn-tos.bytescm.com^$important
+@@||lf-leads-fe-scm.bytecdn.com^$important
+@@||lf1-cdn-tos.bytescm.com^$important
+@@||lf26-effect-302.byteeffecttos.com^$important
+@@||lf3-effectcdn-tos.byteeffecttos.com^$important
+@@||lf3-static.bytednsdoc.com^$important
+@@||lf3-ttcdn-tos.pstatp.com^$important
+@@||life-service-open.zijieapi.com^$important
+@@||log-report.rtc.volcvideo.com^$important
+@@||m.baike.com^$important
+@@||megarobo.com^$important
+@@||megarobo.info^$important
+@@||megarobo.tech^$important
+@@||mssdk.volces.com^$important
+@@||mssdk3-normal-hj.zijieapi.com^$important
+@@||mssdk3-normal-hl.zijieapi.com^$important
+@@||mssdk3-normal-lf.zijieapi.com^$important
+@@||mum.alibabachengdun.com^$important
+@@||mum.alibabachengdun.net^$important
+@@||ndcpp.com^$important
+@@||pitaya.bytedance.com^$important
+@@||polaris3-normal-gl2.zijieapi.com^$important
+@@||polaris3-normal-hl.zijieapi.com^$important
+@@||polaris3-normal-lf.zijieapi.com^$important
+@@||polaris3-normal-lq.zijieapi.com^$important
+@@||polaris3-normal-xh.zijieapi.com^$important
+@@||polaris3-normal-zb.zijieapi.com^$important
+@@||polaris5-normal-gl2.zijieapi.com^$important
+@@||polaris5-normal-hl.zijieapi.com^$important
+@@||polaris5-normal-lf.zijieapi.com^$important
+@@||polaris5-normal-lq.zijieapi.com^$important
+@@||polaris5-normal-xh.zijieapi.com^$important
+@@||polaris5-normal-zb.zijieapi.com^$important
+@@||qrstuvwxyzab.com^$important
+@@||render.ecombdpage.com^$important
+@@||rms-drcn.platform.dbankcloud.cn^$important
+@@||rtcxyz.com^$important
+@@||scc.bytedance.com^$important
+@@||sdkoptedge.chinanetcenter.com^$important
+@@||security.snssdk.com^$important
+@@||tbcdn.cn^$important
+@@||tnc0-alisc1.zijieapi.com.230b2a2545cfa773.queniuck.com^$important
+@@||tr.byteurl.cn^$important
+@@||tx-kmpaudio.pull.yximgs.com^$important
+@@||u.meizu.com^$important
+@@||update.wps.cn^$important
+@@||vcs-hj.zijieapi.com^$important
+@@||volccdn.com^$important
+@@||webcast-core-m.amemv.com^$important
+@@||webcast-open-lf.douyin.com^$important
+@@||webcast-open.douyin.com^$important
+@@||webcast.amemv.com^$important
+@@||weixin.com^$important
+@@||worldwide.sogou.com^$important
+@@||ws-keyboard.shouji.sogou.com^$important
 !
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
