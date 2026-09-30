@@ -92,3 +92,34 @@ root 跑才能读 000 权限的手机 db 与 `workspace/.env`（取 `REPO_TOKEN`
   被收敛删掉、而手机上没有任何父域规则 ⇒ 那一族掉回 `FINAL,PROXY`。**两边必须各管各的表。**
 - 需要"两边都放行"的域，**分别登记**：ADH 侧 `adh_gist_sync.py` 的 `FORCE_DIRECT`；
   小火箭侧本项目的 `SR_FORCE_DIRECT`。这是一次性的意图搬迁，不是运行时耦合。
+
+## 与 `shadowrocket-config` 的联动（**必须**，否则会再出风暴）
+
+小火箭的 `RULE-SET,url,ACTION` 行会用 **ACTION 覆盖列表里每一条的动作**
+（2026-09-30 的重试风暴就是这么来的：列表里写 `REJECT-DROP`、配置行写成 `REJECT` ⇒ 全部退化成 RST）。
+
+所以两个仓库有一条硬不变式：
+
+> **每张表里用到的动作 = 配置里那一行的集合动作**
+
+本项目把这条不变式做成机器检查（每次跑都会做，也会写进落档报告）：
+
+```sh
+python3 sr_analyze.py --check-config      # 通过 exit 0 / 不通过 exit 1（可挂 CI）
+```
+
+检查内容：
+
+| 检查 | 说明 |
+|---|---|
+| 动作一致 | 读**线上文件**里每条动作的集合，跟配置里那一行的动作对比 |
+| 危险退化 | 配置行是普通 `REJECT` 而列表里有 `REJECT-DROP` ⇒ **判失败**（DROP 退化成 RST = 风暴风险） |
+| 必备动作 | 拦截表必须是 `REJECT-DROP`；直连表必须是 `DIRECT` |
+| 顺序（方案 B） | `direct-custom.list` 必须排在拦截段**之前**（自建放行要压过订阅广告表） |
+| 覆盖 | 配置必须引用拦截表/直连表（`proxy-custom.list` 未被引用属设计：`FINAL,PROXY` 兜底） |
+
+**写入时以配置为准**：脚本写拦截表时先读配置里那一行的动作，把条目就写成那个动作 ——
+这样文件永远不会跟配置打架（报告里"建议动作"只作参考，并会提示两者不一致）。
+
+已知的一个"设计如此"：`proxy-custom.list` 没被配置引用（代理侧靠配置末尾的 `FINAL,PROXY` 兜底）；
+要显式控制就在配置里加一行 `RULE-SET,…,proxy-custom.list,PROXY`。
