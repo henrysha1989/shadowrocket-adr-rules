@@ -1087,8 +1087,9 @@ def heartbeat(msg):
     """每轮都留一行痕迹 —— 否则"没有新库就什么都不做"会让定时任务完全无痕、无法验证。"""
     try:
         os.makedirs(os.path.join(HERE, "reports"), exist_ok=True)
+        who = "cron/root" if os.geteuid() == 0 else f"uid{os.geteuid()}"
         with open(os.path.join(HERE, "reports", "heartbeat.log"), "a", encoding="utf-8") as fh:
-            fh.write(f"{_now().strftime('%Y-%m-%d %H:%M:%S')} CST  {msg}\n")
+            fh.write(f"{_now().strftime('%Y-%m-%d %H:%M:%S')} CST  [{who}]  {msg}\n")
     except OSError:
         pass
 
