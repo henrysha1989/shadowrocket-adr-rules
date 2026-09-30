@@ -1,117 +1,68 @@
-# shadowrocket-adr-rules
+# shadowrocket-adr-rules —— 小火箭侧（独立项目）
 
-面向 **AdGuard Home + Shadowrocket** 的个人 DNS / 代理规则仓库，配套一个**规则 review（审核 / 归类）脚本**。
+> 2026-10-01 与 ADH 侧**彻底拆成两个仓库**：
+> ADH（DNS 层、`adh-custom.txt`）在 [`henrysha1989/adh-rules`](https://github.com/henrysha1989/adh-rules)；
+> 本仓库只服务手机 **Shadowrocket**（客户端分流）。两边**互不引用、不共享状态**。
 
-脚本从**真实流量**中筛出候选域名，自动归类为 **拦截 / 直连 / 代理**，再生成订阅下发到客户端；规则随使用自生长，AdGuard Home 与 GitHub 两边自动同步。
+> 当前规则量：拦截 **28** 条 / 直连 **116** 条 / 代理 **57** 条。
 
-> 当前规则量：拦截 **27** 条（+49/-0） / 直连 **116** 条（+0/-0） / 代理 **57** 条（+4/-0）。
-> 更新时间：2026-09-30 23:27:45（UTC+0800）
+## 三张表（订阅给 Shadowrocket）
 
----
+| 文件 | 动作 | 放在配置的哪一段 |
+|---|---|---|
+| `reject-custom.list` | `REJECT-DROP`（丢包） | **拦截段最前**（集合动作必须是 `REJECT-DROP`，写成 `REJECT` 会引发 SDK 秒级重连 → 重试风暴，实测 29,700 次/分） |
+| `direct-custom.list` | `DIRECT` | **拦截段之前**（自建放行要压过订阅广告表） |
+| `proxy-custom.list` | `PROXY` | 代理段（兜底 `FINAL,PROXY` 其实已覆盖，留着便于显式控制） |
 
-## 设计目标
+每张表都分两段，以 `# ===== 自动收集（以下内容由脚本管理，勿手改）=====` 为界：
 
-把流量按用途分成三档，各走各路：
+- **手工区**（标记之上）：**owner 维护**，脚本只读不写。公司自建系统、Tesla、图片 CDN 这类"必须直连"的就写在这里。
+- **自动区**（标记之下）：由 `sr_analyze.py` 从手机 `proxy-*.db` 的证据生成。
 
-- **拦截**：广告 / 追踪 / 隐私域；
-- **直连**：国内低延迟服务、核心 CDN、实时通信信令；
-- **代理**：需要经代理访问的境外服务。
+订阅地址（前加速站前缀即可直接给手机）：
 
-难点在于：**「广告」与「核心业务」常常挂在同一批域名根下**。整域一刀切地拦或放，都会误伤业务（典型表现是卡顿、加载失败、请求重试）。所以采用 **白名单保护业务 + 黑名单拦截广告**，并拆成不同优先级的规则集下发。
-
-## 三大通道
-
-| 通道 | 含义 | 落地位置 |
-| --- | --- | --- |
-| **拦截** | 广告 / 追踪 / 隐私域 | AdGuard Home `user_rules` + `adh-custom.txt` →（CI）`reject-custom.list` |
-| **直连** | 国内低延迟服务 / 核心 CDN / 信令 | `direct-custom.list` |
-| **代理** | 需经代理的境外服务 | `proxy-custom.list` |
-
-另有一张**专项表** `hongguo-ad.list`：只收**红果短剧 / 番茄小说**的广告与埋点（按族关键字 + 具体域名，动作一律 `REJECT-DROP`），可选订阅。它**必须排在拦截段最前**，并注意**不要收录 `*-reading-video*` / `fqnovelpic` / `byteimg` / `douyinpic` 这些内容域**（收了会直接搞坏播放）。
-
-## 工作原理
-
-```text
-      ┌───────────────┐        ┌────────────────────────┐
-      │ AdGuard Home  │        │ Shadowrocket 连接日志   │
-      │   查询日志     │        │  proxy-*.db（偶尔导出） │
-      └──────┬────────┘        └───────────┬────────────┘
-             │ 直连 / 本机解析流量           │ 代理 / remote-dns 流量
-             └───────────────┬─────────────┘
-                             ▼
-                 [ 规则 review 脚本：分类 ]
-                 （拦截 / 直连 / 代理，交叉参考公开清单）
-                             │
-        ┌────────────────────┴─────────────────────┐
-        ▼                                           ▼
-  AdGuard Home user_rules                    GitHub 仓库（本仓库）
-  （`||d^` / `@@||d^`，即时生效）               ├─ adh-custom.txt   （拦截源）
-                                              ├─ direct-custom.list
-                                              ├─ proxy-custom.list
-                                              └─ GitHub Actions
-                                                   └─ convert.py → reject-custom.list
-                                                         │
-                                                         ▼  订阅
-                                                    客户端（Shadowrocket）
+```
+https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/reject-custom.list
+https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
+https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
 ```
 
-- **双源互补**：ADH 覆盖本机 DNS 能看到的一切；Shadowrocket 连接日志补上 ADH **看不到**的代理 / remote-dns 流量。
-- **全自动**：无需逐条人工维护，规则随流量自增长；AdGuard Home 与 GitHub 两边自动同步。
+## 脚本
 
-## 仓库文件
+`sr_analyze.py`（纯标准库，独立运行）—— 读手机导出的 `proxy-*.db`，出体检报告 + 更新三张表的自动区：
 
-| 文件 | 作用 | 谁维护 |
-| --- | --- | --- |
-| `adh-custom.txt` | **拦截规则源**（AdGuard 语法 `\|\|domain^`） | 手工区（标记上方）人工；自动区（标记下方）脚本 |
-| `convert.py` | AdGuard → Shadowrocket 语法转译引擎 | 核心脚本 |
-| `reject-custom.list` | Shadowrocket **拦截**集（生成物） | `convert.py` 自动生成，**勿手改** |
-| `direct-custom.list` | Shadowrocket **直连**集 | 脚本 / 人工 |
-| `proxy-custom.list` | Shadowrocket **代理**集 | 按需维护 |
-| `hongguo-ad.list` | 红果短剧 / 番茄小说**广告专表**（27 条，动作全 `REJECT-DROP`，**不含内容 CDN**） | **手工**筛选（口径与维护方式写在文件头） |
-| `update_readme_counts.py` | 刷新本 README 的「当前规则量」行 | CI 调用 |
-| `.github/workflows/convert.yml` | CI：规则变更即转译 + 刷计数 | 自动化 |
-
-## 规则语法
-
-| AdGuard Home（源） | Shadowrocket（生成） | 含义 |
-| --- | --- | --- |
-| `\|\|example.com^` | `DOMAIN-SUFFIX,example.com,REJECT` | 拦截该域及其子域 |
-| `@@\|\|example.com^` | `DOMAIN-SUFFIX,example.com,DIRECT` | 白名单放行 |
-| `\|\|keyword*^` | `DOMAIN-KEYWORD,keyword,REJECT` | 按关键字拦截 |
-| `@@\|\|keyword*^` | `DOMAIN-KEYWORD,keyword,DIRECT` | 按关键字放行 |
-| `! 注释` | `# 注释` | 注释透传 |
-
-> `convert.py` 会自动跳过客户端不支持的 `IP-CIDR,` 等语法，并对 `! updated:` 头部做去重。
-
-## 使用方式
-
-在 Shadowrocket（或兼容客户端）中添加以下订阅：
-
-```text
-拦截   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/reject-custom.list
-直连   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
-代理   https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
-红果专表 https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/hongguo-ad.list
+```sh
+python3 sr_analyze.py                          # 只看报告（不写任何东西）
+python3 sr_analyze.py --write                  # 写 direct/proxy 自动区
+python3 sr_analyze.py --write --write-reject    # 连拦截表也写（带冲突护栏）
 ```
 
-**规则顺序建议**：`拦截` → `直连` → `代理` → `GEOIP` / `FINAL`。子域规则优先于父域，确保宽泛直连不会「吞掉」精确拦截。
+报告三件事：
 
-> 国内网络可搭配任意 GitHub Raw 加速前缀以提升拉取成功率。
-> 规则更新后，需在客户端**刷新订阅**才会生效。
+1. **漏网之鱼**：判广告、但手机实际没拦的主机（带次数与次/分）
+2. **直连域名滑落到代理**：① 已在直连表却走了代理（规则没生效）② 判直连但不在表里（需新增）
+3. **冲突护栏**：要写进拦截表的域先跟直连表（含手工区）对撞，冲突的**一律不写**并列出 ——
+   绝不让"拦广告"把正常上网的直连域给拦了
 
-## 维护说明
+判定口径、状态文件、与 ADH 的边界：见仓库里的 `sr_analyze.说明.md`。
 
-- **修改拦截规则**：编辑 `adh-custom.txt`。手工规则**必须写在 `! ===== 自动收集（以下内容由脚本管理，勿手改）=====` 标记之上** —— 脚本的自动收敛只清理标记下方。
-- **自动区**：由 review 脚本按真实流量增删；每轮结果会**同时写回 AdGuard Home 与 GitHub**，两边自动同步。
-- **本地转译**：`python3 convert.py`（读 `adh-custom.txt` → 写 `reject-custom.list`）。
-- **直连 / 白名单**：在 `direct-custom.list` 中以 `DOMAIN-SUFFIX,domain,DIRECT` 形式维护。
-- **Shadowrocket 连接日志（数据源）**：把客户端导出的 `proxy-*.db` 放入指定目录，脚本检测到新文件后会**用与 ADH 相同的分类逻辑**并入规则，并顺带报告「客户端仍在拦截、但已被放行」的疑似未刷新 / 误杀域名。
+## 规则顺序（配置里必须遵守）
 
-## ⚠️ 注意事项
+```
+[Rule]
+DOMAIN-SUFFIX,521989.xyz,DIRECT
+RULE-SET,…,direct-custom.list,DIRECT        ← 自建直连表放在**拦截段之前**
+RULE-SET,…,reject-custom.list,REJECT-DROP   ← 拦截段最前
+RULE-SET,…,AdvertisingLite.list,REJECT
+RULE-SET,…,Privacy.list,REJECT-DROP
+RULE-SET,…,GlobalMedia.list,PROXY
+RULE-SET,…,ChinaMedia/Download/China_Domain,DIRECT
+GEOIP,CN,DIRECT
+FINAL,PROXY
+```
 
-- `reject-custom.list` 是**生成物**，请勿手改（下次 CI 运行会覆盖）。
-- 拦截结果由参考清单 + 本地观测共同判定；已用白名单尽量保护业务。若发现误拦，请提 issue。
+## 维护
 
-## 免责声明
-
-本项目仅用于个人网络环境的广告治理与流量优化，规则来自公开清单与本地观测，请自行评估使用风险。
+- 自动区：跑 `sr_analyze.py`（脚本按手机证据收敛，TTL 90 天）。
+- 手工区：直接改文件（owner 说了算，脚本永不删）。
+- README 里的规则量：`.github/workflows` 之外由 `update_readme_counts.py` 刷新。
