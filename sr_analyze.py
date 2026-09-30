@@ -15,18 +15,61 @@
      `SR_FORCE_DIRECT` 对撞；冲突的**一律不写**并在报告里列出来 ——
      绝不能让"拦广告"把正常上网的直连域给拦了。
 
+## 数据源（唯一）
+
+**手机导出的 `proxy-*.db`，落在固定目录里**（默认 `/vol1/1001/shadowrocket-db/`，glob `*.db`）：
+
+- 脚本每轮**扫这个目录**，按「文件名 → size:mtime」签名（`sr/.sr-files.json`）判断哪些是**新库/变化过的库**；
+- 只有一个新库时：只分析它；有一批：一起分析（跨库按主机合并，速率用各库自己的窗口分别算）；
+- **没有新库就什么都不做**（不写仓库、不发通知、不落档）。
+
 ## 用法
-    python3 sr/sr_analyze.py                    # 只看报告（不写任何文件/仓库）
-    python3 sr/sr_analyze.py --write             # 分析 + 写三张表（带冲突护栏）
-    python3 sr/sr_analyze.py --db <某个.db>      # 只分析指定库
-    python3 sr/sr_analyze.py --all               # 忽略"已消费"记录，全部重扫
-    python3 sr/sr_analyze.py --selftest
+
+```sh
+# ① 无人值守（定时任务用这个）：扫新库 → 分析 → 落档 → 写三张表 → 推 GitHub
+python3 sr_analyze.py
+
+# ② 只看报告，绝不写仓库（人工核对用）
+python3 sr_analyze.py --report-only
+
+# ③ 常驻轮询（不想配 cron 时用；--interval 秒）
+python3 sr_analyze.py --watch --interval 300
+
+# 其它
+python3 sr_analyze.py --db <某个.db>        # 只分析指定库（调试）
+python3 sr_analyze.py --all                # 忽略签名，全部重扫
+python3 sr_analyze.py --dry-run            # 算增删但不推仓库
+python3 sr_analyze.py --force              # 越过"删太多"的安全阀（>30% 默认中止）
+python3 sr_analyze.py --no-reject          # 不动拦截表（只写 direct/proxy）
+python3 sr_analyze.py --report-dir <目录>   # 报告落档位置（默认 sr/reports/）
+python3 sr_analyze.py --selftest
+```
+
+**落档**：每轮写 `sr/reports/sr-report-<时间戳>.md`，并同步一份最新到 `sr/last-report.md`；
+无人值守跑在 cron 里时，stdout 就是日志（cron 会邮寄/丢弃，建议重定向到文件）。
+
+## 定时（三选一，推荐第一种）
+
+```sh
+# ① 宿主 cron（与 ADH 那套同一个套路；root 跑，好读 .env 与 000 权限的 db）
+#    /etc/cron.d/sr-analyze  ← 内容一行：
+*/30 * * * * root /usr/local/sbin/sr-analyze.sh >> /var/log/sr-analyze.log 2>&1
+#    wrapper /usr/local/sbin/sr-analyze.sh：
+#!/bin/sh
+cd /vol1/1000/Docker/deepseek-harness/workspace && exec /usr/bin/python3 sr/sr_analyze.py
+
+# ② systemd timer（等价，略）
+# ③ 常驻：python3 sr/sr_analyze.py --watch --interval 300（放 supervisor/docker 里）
+```
+
+脚本内有**单实例锁**（`sr/.sr-lock`）：定时任务重叠时后一个直接退出，不会两个进程一起改仓库。
 
 状态文件（都在 `sr/` 下）：`.sr-files.json`（已消费的 db 签名）、`.sr-state.json`（主机证据池）。
 凭据只从环境变量 / `sr/sr.env` 读（`REPO_TOKEN`），**不读** ADH 的 `.env`。
 """
 
 import base64
+import glob
 import glob as _glob
 import json
 import os
@@ -52,13 +95,16 @@ DEFAULTS = {
     "REPO_DIRECT_PATH": "direct-custom.list",
     "REPO_PROXY_PATH": "proxy-custom.list",
     # ── 数据源 ─────────────────────────────────────────────────────────
-    "SR_DB_DIR": "/vol1/1001/shadowrocket-db",
+    "SR_DB_DIR": "/vol1/1001/shadowrocket-db",   # ★ 数据源目录（手机导出的 proxy-*.db 落这里）
     "SR_DB_GLOB": "*.db",
+    "SR_INTERVAL": "300",                        # --watch 的轮询间隔（秒）
     # ── 判据 ───────────────────────────────────────────────────────────
     "SR_MIN_HITS": "3",                    # 低于这次数的域名不参与（噪声）
     "SR_TTL_DAYS": "90",                   # 证据池保留期
     "SR_DROP_MIN_HITS": "50",              # 库内命中 ≥ 此数 ⇒ 用 REJECT-DROP
-    "SR_REJECT_WRITE": "0",                # 默认只**报**漏网之鱼；要落盘加 --write-reject（带冲突护栏）
+    "SR_AUTO_REJECT_MIN_HITS": "50",        # ★ 自动写拦截表的门槛：命中 ≥ 此数、或命中信号族名，才**自动写**；
+                                            #   低频/存疑的只进报告（"候选，等你定"），不写死 —— 避免误伤 CDN
+    "SR_REJECT_WRITE": "1",                # 无人值守默认把**漏网之鱼**写进拦截表（带冲突护栏）
     # 信号/埋点**族名**优先于域名族（否则同族在不同域名下一边 DROP 一边直连）
     "SR_SIGNAL_PATTERNS": "-misc-lf,-misc-lq,-applog,live-player-log,-ad-sign,reading-ad,ads-normal,telemetry",
     "SR_DROP_PATTERNS": "-ad-sign,ads-normal,reading-ad,reading-sign,applog,telemetry,-log,mon11-misc,mon12-misc,mon3-misc",
@@ -721,87 +767,119 @@ def _rate(n, span):
     return f"{n / span:.2f}/分" if span else f"{n} 次"
 
 
-def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, conflicts, extra):
-    print(f"\n=== 小火箭 db 体检 ===")
-    print(f"窗口 {mins:.1f} 分 · 域名事件 {extra['events']} · 主机 {len(hosts)} · 被拒主机 {len(extra['rej_hosts'])} 个")
-    print(f"动作分布：DIRECT {extra['act']['DIRECT']} / REJECT {extra['act']['REJECT']} / PROXY {extra['act'].get('PROXY', 0)}")
-    print(f"重试速率：被拒 {extra['rej_total'] / mins:.2f}/分（判据 ≤5/分/主机）")
+def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, conflicts, extra,
+           processed=(), wrote=(), finished=None):
+    """打印 + 返回 markdown（调用方负责落档）。"""
+    L = []
 
-    print(f"\n① 漏网之鱼（判广告 + 手机没拦）：{len(reject_cand)} 条")
-    for h, o in sorted(reject_cand, key=lambda x: -x[1]["n"])[:15]:
-        print(f"   {o['n']:>5} 次 ({_rate(o['n'], mins)})  {h}")
+    def p(s=""):
+        print(s)
+        L.append(s)
 
-    print(f"\n② 直连域名滑落到代理：")
-    print(f"   ① 已在直连表、手机却走代理（规则没生效）：{len(slipped_rule)} 条")
-    for h, o in sorted(slipped_rule, key=lambda x: -x[1]["proxy"])[:15]:
-        print(f"      {o['n']:>5} 次  代理 {o['proxy']} : 直连 {o['direct']}  {h}")
-    print(f"   ② 判直连但不在直连表（需新增，否则一直走代理）：{len(direct_cand)} 条")
-    for h, o in sorted(direct_cand, key=lambda x: -x[1]["n"])[:15]:
-        print(f"      {o['n']:>5} 次  代理 {o['proxy']} : 直连 {o['direct']}  {h}")
-
-    print(f"\n③ 冲突护栏：与直连表/放行表冲突、**拒绝写入 reject** 的域：{len(conflicts)} 条")
-    for d, why in conflicts[:15]:
-        print(f"   {d}  ← {why}")
+    p(f"# 小火箭 db 体检 —— {time.strftime('%Y-%m-%d %H:%M:%S')}")
+    p()
+    p(f"- 数据源目录：`{cfg('SR_DB_DIR')}`（glob `{cfg('SR_DB_GLOB')}`）")
+    p(f"- 本轮处理的库：{('、'.join(processed) if processed else '无新库')}")
+    p(f"- 窗口 {mins:.1f} 分 · 域名事件 {extra['events']} · 主机 {len(hosts)} · 被拒主机 {len(extra['rej_hosts'])} 个")
+    p(f"- 动作分布：DIRECT {extra['act']['DIRECT']} / REJECT {extra['act']['REJECT']} / PROXY {extra['act'].get('PROXY', 0)}")
+    p(f"- 重试速率：被拒 {extra['rej_total'] / mins:.2f}/分（判据 ≤5/分/主机）")
+    p()
+    p(f"## ① 漏网之鱼（判广告 + 手机没拦）：{len(reject_cand)} 条")
+    p()
+    for h, o in sorted(reject_cand, key=lambda x: -x[1]["n"])[:40]:
+        p(f"- `{h}` {o['n']} 次（{_rate(o['n'], mins)}）→ {o['act']}"
+          + ("  ← 自动写" if o.get("auto") else "  ← 低频，只报不写"))
+    p()
+    p(f"## ② 直连域名滑落到代理")
+    p()
+    p(f"### ① 已在直连表、手机却走代理（规则没生效）：{len(slipped_rule)} 条")
+    p()
+    for h, o in sorted(slipped_rule, key=lambda x: -x[1]["proxy"])[:40]:
+        p(f"- `{h}` {o['n']} 次（代理 {o['proxy']} : 直连 {o['direct']}）")
+    p()
+    p(f"### ② 判直连但不在直连表（需新增，否则一直走代理）：{len(direct_cand)} 条")
+    p()
+    for h, o in sorted(direct_cand, key=lambda x: -x[1]["n"])[:40]:
+        p(f"- `{h}` {o['n']} 次（代理 {o['proxy']} : 直连 {o['direct']}）")
+    p()
+    p(f"## ③ 冲突护栏：与直连表/放行表冲突、**拒绝写入 reject** 的域：{len(conflicts)} 条")
+    p()
+    for d, why in conflicts[:40]:
+        p(f"- `{d}` ← {why}")
     if not conflicts:
-        print("   无冲突 ✓")
-    return None
+        p("- 无冲突 ✓")
+    if wrote:
+        p()
+        p("## 落盘 / 推送")
+        p()
+        for line in wrote:
+            p(f"- {line}")
+    if finished is not None:
+        p()
+        p(f"（本轮耗时 {finished:.1f}s）")
+    return "\n".join(L)
 
 
-def main():
-    load_env()
-    argv = sys.argv[1:]
-    do_write = "--write" in argv
-    if "--write-reject" in argv:
-        os.environ["SR_REJECT_WRITE"] = "1"
-    dry_run = "--dry-run" in argv          # 配合 --write：算出增删但不推仓库
-    force = "--force" in argv              # 越过"删太多"的安全阀
-    rescan_all = "--all" in argv
-    only_db = None
-    if "--db" in argv:
-        only_db = argv[argv.index("--db") + 1]
-    if "--selftest" in argv:
-        return selftest()
+def _lock(path):
+    """单实例锁：定时任务重叠时直接退出，别两个进程一起改仓库。"""
+    try:
+        import fcntl
+        fh = open(path, "w")
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        fh.write(str(os.getpid()))
+        fh.flush()
+        return fh
+    except OSError:
+        return None
+    except ImportError:
+        return open(os.devnull, "w")
 
+
+def run_once(opts):
+    """跑一轮：扫新库 → 分析 → 落档 → 写表 → 推 GitHub。返回处理的库数。"""
+    t0 = time.time()
+    do_write = opts["write"]
+    dry_run = opts["dry_run"]
     owner, name = cfg("REPO").split("/", 1)
     tok, br = cfg("REPO_TOKEN"), cfg("REPO_BRANCH")
-    if do_write and not tok:
-        sys.exit("REPO_TOKEN 缺失（写仓库需要）—— 设环境变量或 sr/sr.env")
+    # ⚠️ 没有 token 就是"半盲"跑：读不到三张表的手工区 ⇒ 冲突护栏、滑落判断都会失真。
+    #    所以除非显式 --offline，一律要求 token（cron 以 root 跑时能从 .env 读到）。
+    if not tok and not opts.get("offline"):
+        sys.exit("REPO_TOKEN 缺失：读不到三张表的手工区，冲突护栏会失真。"
+                 "\n  设环境变量 REPO_TOKEN、或写 sr/sr.env、或以 root 运行（可读 workspace/.env）。"
+                 "\n  只想离线看看分类结果：加 --offline")
 
-    print("[..] 载入参考黑名单 ...", flush=True)
     global ADLIST, EXEMPT
     ADLIST = load_adlist()
-
-    # ── 三张表的手工区（owner 权威，脚本不碰）────────────────────────────
     allow_direct = repo_manual_allow_domains(owner, name, tok, br) if tok else set()
     dir_manual = repo_manual_domains_of(owner, name, tok, br, cfg("REPO_DIRECT_PATH"), "#") if tok else set()
     rej_manual = repo_manual_domains_of(owner, name, tok, br, cfg("REPO_REJECT_PATH"), "#") if tok else set()
     forced = cfg_csv("SR_FORCE_DIRECT") | dir_manual
     EXEMPT = set(allow_direct) | set(forced)
-    print(f"[..] 手工区：直连 {len(dir_manual)} / 拦截 {len(rej_manual)}；SR_FORCE_DIRECT {len(cfg_csv('SR_FORCE_DIRECT'))}")
 
-    # ── 证据 ────────────────────────────────────────────────────────────
     state_path = os.path.join(HERE, ".sr-state.json")
     files_path = os.path.join(HERE, ".sr-files.json")
-    files_state = sr_db_state_load(files_path)
-    if rescan_all:
-        files_state = {}
+    files_state = {} if opts["all"] else sr_db_state_load(files_path)
     state = _state_load(state_path)
-    if only_db:
-        todo = [only_db]
+    if opts["db"]:
+        todo, sigs = [opts["db"]], {}
     else:
         todo, sigs = shadowrocket_scan(cfg("SR_DB_DIR"), cfg("SR_DB_GLOB"), files_state)
 
+    if not todo:
+        print(f"[{time.strftime('%H:%M:%S')}] 无新库（{cfg('SR_DB_DIR')}）—— 什么都不做")
+        return 0
+    print(f"[{time.strftime('%H:%M:%S')}] 发现 {len(todo)} 个新/变化库，开始分析 ...")
+
     min_hits = int(float(cfg("SR_MIN_HITS") or 3))
-    span_by_db = {}
-    stats = {"events": 0, "act": Counter(), "rej_hosts": set(), "rej_total": 0}
+    span_by_db, stats = {}, {"events": 0, "act": Counter(), "rej_hosts": set(), "rej_total": 0}
     for path in todo:
         try:
             per, span = shadowrocket_evidence(path)
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:  # noqa: BLE001 - 半拷贝/被占用的库跳过，下轮重试
             print(f"   skip {os.path.basename(path)} ({e})")
             continue
         span_by_db[path] = span
-        # 统计（聚合口径 = 动作；只统计域名，IP 主机被 _SR_HOST_RE 挡掉）
         for h, e in per.items():
             stats["events"] += e["hits"]
             for k, v in e["verdicts"].items():
@@ -809,90 +887,147 @@ def main():
             if e["verdicts"].get("REJECT"):
                 stats["rej_hosts"].add(h)
                 stats["rej_total"] += e["verdicts"]["REJECT"]
-        print(f"   {os.path.basename(path)}（{span:.1f} 分）主机 {len(per)}")
 
-    # 证据池 → 逐主机判定（用**当前**分类器；老判定一律重算，避免"同族不同命"）
     reject_cand, direct_cand, slipped_rule, slipped_new = [], [], [], []
     act_by_host = {}
     total_min = sum(span_by_db.values()) or 1.0
     old_kind = {h: (v[1] if isinstance(v, list) and len(v) >= 2 else "") for h, v in state.items()}
-    # 逐个库重算：把最近一次证据里出现的主机**用当前分类器重判一遍**
-    # （不做增量保留 —— 那是"同族不同命"和旧判定残留的来源）
     for path, span in span_by_db.items():
         try:
             per, _ = shadowrocket_evidence(path)
         except Exception:
             continue
         for h, e in per.items():
-            if e["hits"] < min_hits:
+            if e["hits"] < min_hits or in_domset(h, rej_manual):
                 continue
-            if in_domset(h, rej_manual):
-                continue                      # owner 手工管辖（权威拦截）
             ver = e["verdicts"]
-            forced_hit = in_domset(h, forced)
-            kind = "direct" if forced_hit else classify(h)
-            act = sr_pick_action(h, e["hits"], span)
+            kind = "direct" if in_domset(h, forced) else classify(h)
+            act, why = sr_pick_action(h, e["hits"], span)   # ⚠️ 返回 (动作, 依据) —— 别把元组当动作写进规则
             act_by_host[h] = act
             o = {"n": e["hits"], "direct": ver.get("DIRECT", 0), "proxy": ver.get("PROXY", 0),
-                 "reject": ver.get("REJECT", 0), "kind": kind, "act": act}
-            state[h] = [time.time(), kind or "", act]
+                 "reject": ver.get("REJECT", 0), "kind": kind, "act": act, "why": why}
             if kind is None:
-                # ⚠️ **"分类器没意见" 不是删除理由**：老判定若是 direct（例如 owner 批准过的
-                # 字节 CNAME 落地域），继续留着 —— 否则它会掉回 FINAL,PROXY（正是"直连滑落到代理"）。
+                # "分类器没意见" 不是删除理由（可能只是参考清单没收录）
                 state[h] = [time.time(), old_kind.get(h, ""), act]
+            else:
+                state[h] = [time.time(), kind, act]
             if kind == "ad" and not o["reject"]:
-                reject_cand.append((h, o))            # ① 漏网之鱼
-            elif kind == "direct" or kind is None:
-                if o["proxy"] > o["direct"]:          # ② 直连滑落到代理
-                    in_list = in_domset(h, forced) or in_domset(h, dir_manual)
-                    (slipped_rule if in_list else slipped_new).append((h, o))
-                    direct_cand.append((h, o))
+                reject_cand.append((h, o))
+            elif (kind == "direct" or kind is None) and o["proxy"] > o["direct"]:
+                in_list = in_domset(h, forced) or in_domset(h, dir_manual)
+                (slipped_rule if in_list else slipped_new).append((h, o))
+                direct_cand.append((h, o))
 
-    # 写入用的证据池 = **重判之后**的 state（kept 必须在重判后重建，否则写的是旧判定）
     kept = {h: v for h, v in state.items() if isinstance(v, list) and len(v) >= 2}
-
-    # ── ③ 冲突护栏：要写 reject 的域，先跟直连表/放行表对撞 ────────────────
-    conflicts = []
-    reject_ok = []
+    conflicts, reject_ok = [], []
     direct_dom = set(dir_manual) | set(forced)
     for h, o in reject_cand:
         hit = next((d for d in direct_dom if h == d or h.endswith("." + d)), None)
         if hit:
-            conflicts.append((h, f"与直连/放行域 {hit} 冲突（拦截会打断正常上网）"))
+            conflicts.append((h, f"与直连/放行域 `{hit}` 冲突（拦了会打断正常上网）"))
         else:
             reject_ok.append((h, o))
 
-    report(total_min, kept, reject_ok, direct_cand, slipped_rule, slipped_new, conflicts, stats)
+    # 自动写拦截的门槛：命中信号族（明确无疑）或库内命中足够多 ⇒ 自动写；其余只进报告等 owner 定
+    floor = int(float(cfg("SR_AUTO_REJECT_MIN_HITS") or cfg("SR_DROP_MIN_HITS") or 50))
+    auto_rej = [(h, o) for h, o in reject_ok if o["n"] >= floor or o["act"] == "REJECT-DROP"]
+    lowconf = [(h, o) for h, o in reject_ok if not (o["n"] >= floor or o["act"] == "REJECT-DROP")]
+    wrote = []
+    wrote.append(f"漏网候选 {len(reject_ok)} 条 = 高置信 {len(auto_rej)}（自动写） + 低频/存疑 {len(lowconf)}（只报等你定）")
 
-    if not do_write:
-        print("\n（未写任何文件；要落盘加 --write）")
-        return
-    if not tok:
-        sys.exit("REPO_TOKEN 缺失")
-    # 写入：三张表自动区收敛（reject 走护栏后的集合）
-    sets = {"reject": {h for h, _ in reject_ok}, "direct": set(), "proxy": set()}
-    for h, v in kept.items():
-        if len(v) >= 2 and v[1] in sets and not in_domset(h, EXEMPT) and not in_domset(h, rej_manual):
-            sets[v[1]].add(h)
-    sets["direct"] |= {d for d in cfg_csv("SR_FORCE_DIRECT") if not in_domset(d, rej_manual)}
-    wrote = False
-    for path, fmt in ((cfg("REPO_REJECT_PATH"), lambda d: f"DOMAIN-SUFFIX,{d},{act_by_host.get(d, 'REJECT')}"),
-                      (cfg("REPO_DIRECT_PATH"), "DOMAIN-SUFFIX,{d},DIRECT"),
-                      (cfg("REPO_PROXY_PATH"), "DOMAIN-SUFFIX,{d},PROXY")):
-        key = "reject" if "reject" in path else ("direct" if "direct" in path else "proxy")
-        if key == "reject" and not cfg_bool("SR_REJECT_WRITE", True):
-            print(f"   {path}: 跳过（SR_REJECT_WRITE=0）")
-            continue
-        a, r = repo_sync_set(owner, name, path, tok, prune_subsumed(sets[key], label=key), fmt, "#", br, dry_run)
-        print(f"   {path}: +{len(a)} / -{len(r)}" + ("  [dry-run]" if dry_run else ""))
-        wrote = wrote or bool(a or r)
-    if wrote and not dry_run:
+    if lowconf:
+        print(f"\n（低频/存疑候选 {len(lowconf)} 条，未写；要写就手动加进 reject-custom.list 手工区）")
+        for h, o in sorted(lowconf, key=lambda x: -x[1]["n"])[:10]:
+            print(f"   {o['n']:>4} 次  {h}→{o['act']}")
+    if do_write:
+        # 拦截表自动区 = **只收本轮分析出的"漏网之鱼"**（判广告 + 手机没拦 + 与直连不冲突）。
+        #   为什么不是"池子里所有判广告的域"：那些大多已被上游 AdvertisingLite/Privacy 覆盖，
+        #   重复写一遍既不准也不精简。direct/proxy 仍按池子收敛（它们没有上游表兜底）。
+        sets = {"reject": {h for h, _ in auto_rej}, "direct": set(), "proxy": set()}
+        for h, v in kept.items():
+            if len(v) >= 2 and v[1] in ("direct", "proxy") \
+                    and not in_domset(h, EXEMPT) and not in_domset(h, rej_manual):
+                sets[v[1]].add(h)
+        sets["direct"] |= {d for d in cfg_csv("SR_FORCE_DIRECT") if not in_domset(d, rej_manual)}
+        for path, fmt in ((cfg("REPO_REJECT_PATH"),
+                           lambda d: f"DOMAIN-SUFFIX,{d},{act_by_host.get(d, 'REJECT')}"),
+                          (cfg("REPO_DIRECT_PATH"), "DOMAIN-SUFFIX,{d},DIRECT"),
+                          (cfg("REPO_PROXY_PATH"), "DOMAIN-SUFFIX,{d},PROXY")):
+            key = "reject" if "reject" in path else ("direct" if "direct" in path else "proxy")
+            if key == "reject" and not cfg_bool("SR_REJECT_WRITE", False):
+                wrote.append(f"{path}: 跳过（SR_REJECT_WRITE=0；要开加 --write-reject）")
+                continue
+            a, r = repo_sync_set(owner, name, path, tok, prune_subsumed(sets[key], label=key),
+                                 fmt, "#", br, dry_run)
+            wrote.append(f"{path}: +{len(a)} / -{len(r)}" + ("  [dry-run]" if dry_run else ""))
+    else:
+        wrote.append("未写仓库（--report-only）")
+
+    md = report(total_min, kept, reject_ok, direct_cand, slipped_rule, slipped_new, conflicts, stats,
+                processed=[os.path.basename(p) for p in span_by_db], wrote=wrote,
+                finished=time.time() - t0)
+    # ── 落档 ──
+    rdir = opts["report_dir"]
+    os.makedirs(rdir, exist_ok=True)
+    stamp = time.strftime("%Y-%m-%d-%H%M%S")
+    with open(os.path.join(rdir, f"sr-report-{stamp}.md"), "w", encoding="utf-8") as fh:
+        fh.write(md + "\n")
+    with open(os.path.join(HERE, "last-report.md"), "w", encoding="utf-8") as fh:
+        fh.write(md + "\n")
+    print(f"报告已落档：{rdir}/sr-report-{stamp}.md（同时更新 {HERE}/last-report.md）")
+
+    if do_write and not dry_run:
         _state_save(state_path, state)
-        if todo and not only_db:
+        if todo and not opts["db"]:
             for p in todo:
                 files_state[os.path.basename(p)] = sigs[p]
             sr_db_state_save(files_path, files_state)
-    print("\n完成 ✓")
+    return len(span_by_db)
+
+
+def main():
+    load_env()
+    argv = sys.argv[1:]
+    if "--selftest" in argv:
+        return selftest()
+    if "--help" in argv or "-h" in argv:
+        print(__doc__)
+        return 0
+
+    report_only = "--report-only" in argv
+    opts = {
+        "write": not report_only,
+        "dry_run": "--dry-run" in argv,
+        "force": "--force" in argv,
+        "all": "--all" in argv,
+        "db": argv[argv.index("--db") + 1] if "--db" in argv else None,
+        "offline": "--offline" in argv,
+        "report_dir": (argv[argv.index("--report-dir") + 1] if "--report-dir" in argv
+                       else os.path.join(HERE, "reports")),
+    }
+    # 拦截表：无人值守默认**开**（带冲突护栏）；要关就 --no-reject
+    if report_only or "--no-reject" in argv:
+        os.environ["SR_REJECT_WRITE"] = "0"
+    else:
+        os.environ.setdefault("SR_REJECT_WRITE", "1")   # 无人值守默认写（脏数据由冲突护栏挡住）
+
+    lock = _lock(os.path.join(HERE, ".sr-lock"))
+    if lock is None:
+        print("另一个实例在跑（sr/.sr-lock 被占用）—— 退出")
+        return 0
+
+    watch = "--watch" in argv
+    interval = int(argv[argv.index("--interval") + 1]) if "--interval" in argv else int(cfg("SR_INTERVAL") or 300)
+    if not watch:
+        run_once(opts)
+        return 0
+    print(f"[watch] 每 {interval}s 扫一次 {cfg('SR_DB_DIR')}（Ctrl-C 退出）")
+    while True:
+        try:
+            run_once(opts)
+        except Exception as e:  # noqa: BLE001 - 守护进程不能被单轮异常打死
+            print(f"!! 本轮失败：{e!r}")
+        time.sleep(interval)
 
 
 def selftest():
