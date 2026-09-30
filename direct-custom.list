@@ -29,6 +29,12 @@ DOMAIN-KEYWORD,tesla,DIRECT
 DOMAIN-SUFFIX,dig.bdurl.net,DIRECT
 DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
 
+# 抖音电商整域直连（2026-09-30）—— 用**父域**替掉自动区里那 20 条 `*.ecombdapi.com`。
+# 为什么必须手写：脚本把 `ecombdapi.com` 记在 FORCE_DIRECT/SR_FORCE_DIRECT 里（= owner 批准直连），
+# 而写入口会**跳掉"已被 owner 放行父域覆盖"的子域** ⇒ 自动区那 20 条会在下一轮被删、父域又没人写
+# ⇒ 手机上这族会掉回 FINAL,PROXY（抖音电商走代理）。手写父域后：1 条顶 20 条，且新子域自动覆盖。
+DOMAIN-SUFFIX,ecombdapi.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,180-101-165-6-ty428331.free-lbv6.idouyinvod.com,DIRECT
