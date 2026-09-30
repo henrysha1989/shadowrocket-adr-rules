@@ -79,6 +79,7 @@ import sqlite3
 import sys
 import tempfile
 import time
+import urllib.parse
 import urllib.request
 from collections import Counter
 from datetime import datetime, timezone
@@ -92,6 +93,12 @@ DEFAULTS = {
     "REPO_BRANCH": "main",
     "REPO_TOKEN": "",                      # 从环境 / sr.env 读；不写进仓库
     "REPO_REJECT_PATH": "reject-custom.list",
+    # ── 联动：配置仓库（shadowrocket-config）。列表里每条动作**必须**与配置里那一行的
+    #    集合动作一致 —— 因为小火箭的 `RULE-SET,url,ACTION` 会用 ACTION 覆盖列表内每条动作
+    #    （2026-09-30 的重试风暴就是这么来的：列表里写 DROP、配置行写成 REJECT ⇒ 全部变普通 REJECT）。
+    "CONFIG_REPO": "henrysha1989/shadowrocket-config",
+    "CONFIG_FILES": "shadowrocket-白名单.通用版.conf,shadowrocket-白名单.测试版.conf",
+    "RAW_PREFIX": "https://git.521989.xyz/https://raw.githubusercontent.com/",
     "REPO_DIRECT_PATH": "direct-custom.list",
     "REPO_PROXY_PATH": "proxy-custom.list",
     # ── 数据源 ─────────────────────────────────────────────────────────
@@ -428,6 +435,8 @@ def cfg_bool(key, default=False):
 
 def http(method, url, headers=None, body=None, timeout=30):
     headers = dict(headers or {})
+    # ⚠️ 必须带 UA：加速站（Cloudflare）对 urllib 默认 UA(`Python-urllib/3.x`) 直接 403
+    headers.setdefault("User-Agent", "dsh-rules-sync/1.0")
     data = None
     if body is not None:
         data = json.dumps(body).encode()
@@ -767,6 +776,130 @@ def _rate(n, span):
     return f"{n / span:.2f}/分" if span else f"{n} 次"
 
 
+_CONFIG_ORDERS = {}
+
+
+def file_actions(path):
+    """线上某张表里用到的动作集合（None = 读不到）。"""
+    repo = cfg("REPO")
+    url = f"{cfg('RAW_PREFIX')}{repo}/main/" + urllib.parse.quote(path)
+    try:
+        st, tx = http("GET", url)
+    except Exception:  # noqa: BLE001
+        return None
+    if st != 200:
+        return None
+    acts = set()
+    for line in tx.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split(",")
+        if len(parts) >= 3 and parts[0].startswith("DOMAIN"):
+            acts.add(parts[-1].strip().upper())
+    return acts
+
+
+def config_rows():
+    """从 shadowrocket-config 的两个配置里读出 `[Rule]` 的规则集动作。
+
+    返回 (rows, problems)：
+      rows     = {列表文件名: 动作}（两个配置若不一致，会记进 problems 并以**通用版**为准）
+      problems = 人类可读的问题列表
+    """
+    repo, files = cfg("CONFIG_REPO"), [f.strip() for f in cfg("CONFIG_FILES").split(",") if f.strip()]
+    per_file, seen = {}, {}
+    for fn in files:
+        # RAW_PREFIX 已含 `https://raw.githubusercontent.com/`，别再拼一遍
+        url = f"{cfg('RAW_PREFIX')}{repo}/main/" + urllib.parse.quote(fn)
+        try:
+            st, tx = http("GET", url)
+        except Exception as e:  # noqa: BLE001
+            return {}, [f"配置读取失败 {fn}: {e}"]
+        if st != 200:
+            return {}, [f"配置读取失败 {fn}: HTTP {st}"]
+        rows, order, idx, in_rule = {}, [], 0, False
+        for line in tx.splitlines():
+            line = line.split("#")[0].strip()
+            if line.startswith("["):
+                in_rule = line == "[Rule]"
+                continue
+            if not in_rule or not line:
+                continue
+            parts = [x.strip() for x in line.split(",")]
+            if parts[0] in ("RULE-SET", "DOMAIN-SET") and len(parts) >= 3:
+                nm = parts[1].split("/")[-1].split("?")[0]
+                rows[nm] = parts[2].upper()
+                idx += 1
+                order.append((idx, nm, parts[2].upper()))
+        per_file[fn] = rows
+        _CONFIG_ORDERS[fn] = order
+        for k, v in rows.items():
+            seen.setdefault(k, {})[fn] = v
+    problems = []
+    for k, d in seen.items():
+        vals = set(d.values())
+        if len(vals) > 1:
+            problems.append(f"两个配置对 `{k}` 的动作不一致：{d}")
+    base = per_file.get(files[0], {})
+    for k, d in seen.items():
+        if k not in base:
+            base[k] = list(d.values())[0]
+    return base, problems
+
+
+def check_config(rows=None, problems=None, state=None):
+    """跨仓库一致性检查：列表内动作 = 配置里的集合动作；顺序安全；覆盖完整。"""
+    rows, problems = (rows, list(problems or [])) if rows is not None else config_rows()
+    notes = []
+    if not rows:
+        return problems or ["读不到配置，跳过一致性检查"]
+    # ★ 真正要校验的不变式：**文件里每条的动作 = 配置里那一行的集合动作**。
+    #   为什么：小火箭用集合动作覆盖列表内每条动作（2026-09-30 重试风暴就是这么来的）。
+    #   所以这里直接读线上文件，把每条动作取出来对比 —— 而不是看状态池里"手机观测到什么"。
+    for path in (cfg("REPO_REJECT_PATH"), cfg("REPO_DIRECT_PATH"), cfg("REPO_PROXY_PATH")):
+        want = rows.get(path)
+        if not want:
+            if path == cfg("REPO_PROXY_PATH"):
+                notes.append(f"`{path}` 未被配置引用 —— 属设计（FINAL,PROXY 兜底）；"
+                             f"想显式控制就在配置里加一行")
+            else:
+                problems.append(f"配置里没有引用 `{path}`（规则写了却没人订阅）")
+            continue
+        acts = file_actions(path)
+        if acts is None:
+            notes.append(f"`{path}` 读不到，跳过动作校验")
+        elif acts and acts != {want}:
+            if want == "REJECT-DROP":
+                notes.append(f"`{path}` 里有 {sorted(acts)}，配置行是 REJECT-DROP ⇒ "
+                             f"实际全部按 DROP 执行（安全，但文件自身不自洽）")
+            else:
+                problems.append(f"`{path}` 里有 {sorted(acts)}，而配置行是普通 {want} ⇒ "
+                                f"DROP 类条目会退化成 RST（重试风暴风险）")
+        else:
+            notes.append(f"`{path}` 动作一致 ✓（{want}）")
+    if rows.get(cfg("REPO_REJECT_PATH")) != "REJECT-DROP":
+        problems.append(f"拦截表的集合动作是 `{rows.get(cfg('REPO_REJECT_PATH'))}`——"
+                        f"普通 REJECT 会让 SDK 秒级重连（实测 29,700 次/分），应为 REJECT-DROP")
+    if rows.get(cfg("REPO_DIRECT_PATH")) != "DIRECT":
+        problems.append(f"直连表的集合动作是 `{rows.get(cfg('REPO_DIRECT_PATH'))}`，应为 DIRECT")
+    # 顺序：自建直连表必须排在拦截段（第一张 reject 表）之前，否则"自建放行"压不过订阅广告表
+    for fn in [f.strip() for f in cfg("CONFIG_FILES").split(",") if f.strip()]:
+        order = _CONFIG_ORDERS.get(fn) or []
+        if not order:
+            continue
+        pos = {nm: i for i, nm, _ in order}
+        d, r = pos.get(cfg("REPO_DIRECT_PATH")), pos.get(cfg("REPO_REJECT_PATH"))
+        if d is None or r is None:
+            continue
+        if d > r:
+            problems.append(f"{fn}：`direct-custom.list` 排在第 {d} 行、拦截表在第 {r} 行"
+                            f"—— 顺序反了（自建放行必须排在拦截段之前）")
+    for n in notes:
+        print("   ℹ️ " + n)
+    return problems
+
+
 def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, conflicts, extra,
            processed=(), wrote=(), finished=None):
     """打印 + 返回 markdown（调用方负责落档）。"""
@@ -933,6 +1066,12 @@ def run_once(opts):
     auto_rej = [(h, o) for h, o in reject_ok if o["n"] >= floor or o["act"] == "REJECT-DROP"]
     lowconf = [(h, o) for h, o in reject_ok if not (o["n"] >= floor or o["act"] == "REJECT-DROP")]
     wrote = []
+    cons = check_config(state=state)
+    if cons:
+        for prob in cons:
+            wrote.append(f"⚠️ **配置一致性**：{prob}")
+    else:
+        wrote.append("配置一致性检查：全部通过 ✓（列表动作 = 配置里那一行的集合动作；直连表在拦截段之前）")
     wrote.append(f"漏网候选 {len(reject_ok)} 条 = 高置信 {len(auto_rej)}（自动写） + 低频/存疑 {len(lowconf)}（只报等你定）")
 
     if lowconf:
@@ -943,6 +1082,14 @@ def run_once(opts):
         # 拦截表自动区 = **只收本轮分析出的"漏网之鱼"**（判广告 + 手机没拦 + 与直连不冲突）。
         #   为什么不是"池子里所有判广告的域"：那些大多已被上游 AdvertisingLite/Privacy 覆盖，
         #   重复写一遍既不准也不精简。direct/proxy 仍按池子收敛（它们没有上游表兜底）。
+        rows, row_problems = config_rows()
+        forced_act = {"reject": rows.get(cfg("REPO_REJECT_PATH"), "REJECT-DROP")}
+        if row_problems:
+            print("⚠️ 配置不一致：" + "；".join(row_problems))
+        diff = {o["act"] for _, o in auto_rej} - {forced_act["reject"]}
+        if diff:
+            print(f"⚠️ 报告建议 {sorted(diff)}，但配置里 `{cfg('REPO_REJECT_PATH')}` 的集合动作是 "
+                  f"{forced_act['reject']} ⇒ **以配置为准**（列表里写成别的也没用，会被覆盖）")
         sets = {"reject": {h for h, _ in auto_rej}, "direct": set(), "proxy": set()}
         for h, v in kept.items():
             if len(v) >= 2 and v[1] in ("direct", "proxy") \
@@ -950,7 +1097,7 @@ def run_once(opts):
                 sets[v[1]].add(h)
         sets["direct"] |= {d for d in cfg_csv("SR_FORCE_DIRECT") if not in_domset(d, rej_manual)}
         for path, fmt in ((cfg("REPO_REJECT_PATH"),
-                           lambda d: f"DOMAIN-SUFFIX,{d},{act_by_host.get(d, 'REJECT')}"),
+                           lambda d: f"DOMAIN-SUFFIX,{d},{forced_act['reject']}"),
                           (cfg("REPO_DIRECT_PATH"), "DOMAIN-SUFFIX,{d},DIRECT"),
                           (cfg("REPO_PROXY_PATH"), "DOMAIN-SUFFIX,{d},PROXY")):
             key = "reject" if "reject" in path else ("direct" if "direct" in path else "proxy")
@@ -990,6 +1137,17 @@ def main():
     argv = sys.argv[1:]
     if "--selftest" in argv:
         return selftest()
+    if "--check-config" in argv:
+        rows, probs = config_rows()
+        print("配置里的规则集动作：")
+        for k, v in sorted(rows.items()):
+            if "custom" in k or "adh" in k:
+                print(f"   {k:22s} → {v}")
+        errs = check_config(rows, probs)
+        print("\n一致性检查：" + ("全部通过 ✓" if not errs else ""))
+        for e in errs:
+            print("  ⚠️ " + e)
+        return 0 if not errs else 1
     if "--help" in argv or "-h" in argv:
         print(__doc__)
         return 0
