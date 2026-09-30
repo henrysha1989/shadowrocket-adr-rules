@@ -76,4 +76,11 @@ def convert_adh_to_sr(input_file, output_file):
 
 
 if __name__ == '__main__':
-    convert_adh_to_sr('adh-custom.txt', 'reject-custom.list')
+    # ⚠️ 2026-09-30 起**停用**：reject-custom.list 改由 `adh_gist_sync.py --sr-analyze`
+    #   从手机 db 直接生成（手工区 = 原 hongguo-ad.list 的红果/番茄专表内容；
+    #   自动区 = 漏网之鱼，动作自动判定 REJECT / REJECT-DROP）。
+    #   本脚本若继续转换，每次推 adh-custom.txt 都会把那边写的内容整体冲掉。
+    #   convert_adh_to_sr() 原样保留（要恢复只需把下面这行换成调用），README 计数不受影响。
+    convert_adh_to_sr  # noqa: B018 - 保留引用，避免 linter 误报未使用
+    print("convert.py: reject-custom.list 的生成已于 2026-09-30 停用"
+          "（改由 adh_gist_sync.py --sr-analyze 写）")
