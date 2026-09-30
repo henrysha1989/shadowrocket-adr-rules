@@ -14,7 +14,7 @@
 ! ⚠️ 2026-09-30：本文件原先还会被 CI 转成 reject-custom.list —— 那条链路已切断。
 !    三个 custom.list 改由 `adh_gist_sync.py --sr-analyze` 从手机 db 生成。
 !
-! ── 起底规则（原 CLIENT_DROP_ONLY，2026-09-30：手机已不走 ADH，恢复在 ADH 拦）──
+! ── 起底规则（原 CLIENT_DROP_ONLY；手机已不走 ADH，恢复在 ADH 拦）──
 ||v11-reading-ad.qznovelvod.com^
 ||v26-reading-ad.qznovelvod.com^
 ||v5-bd-daily-reading-ad.qznovelvod.com^
@@ -37,14 +37,14 @@
 ||i.snssdk.com^
 ||applog.zijieapi.com^
 !
-!
-! ── 放行规则（原 ADH user_rules 里的 95 条 @@，2026-09-30 搬来这里）──
-!    必须写成 `$important`：实测普通 @@ 压不住订阅大表（Cats-Team 19 万 / Ads 28 万条）。
-!    i.snssdk.com 不在此列（它同时在起底拦截里，按「拦截优先」处理）。
+! ── 放行规则（2026-09-30 从 ADH user_rules 整体搬来，共 152 条）──
+!    必须 `$important`：实测普通 @@ 压不住订阅大表（Cats-Team 19 万 / Advertising 28 万条）。
+!    与起底拦截重叠的域名不在此列（拦截优先）。
 @@||-mgsdk-sign.byteimg.com^$important
 @@||aaplimg.com^$important
 @@||accs-dispatch.m.taobao.com^$important
 @@||acs.m.taobao.com^$important
+@@||ad.fqnovel.com^$important
 @@||amdc.m.taobao.com^$important
 @@||ampaeservices.com^$important
 @@||apd-pcdnwxlogin.teg.tencent-cloud.net^$important
@@ -61,6 +61,7 @@
 @@||bytednsdoc.com^$important
 @@||bytegecko.com^$important
 @@||bytevcloud.com^$important
+@@||cp501.prod.do.dsp.mp.microsoft.com^$important
 @@||dig.bdurl.net^$important
 @@||dingtalkapps.com^$important
 @@||dns.weixin.qq.com.cn^$important
@@ -68,10 +69,15 @@
 @@||douyinpic.com^$important
 @@||douyinstatic.com^$important
 @@||douyinvod.com^$important
+@@||dsp.mp.microsoft.com^$important
+@@||events.data.microsoft.com^$important
 @@||frontier-aweme-zjg-ipainner.amemv.com^$important
+@@||geo.prod.do.dsp.mp.microsoft.com^$important
+@@||i.snssdk.com^$important
 @@||ib.snssdk.com^$important
 @@||ibytedtos.com^$important
 @@||icloud.com^$important
+@@||id6.me^$important
 @@||idouyinpic.com^$important
 @@||idouyinvod.com^$important
 @@||im-open.douyin.com^$important
@@ -79,6 +85,7 @@
 @@||is.snssdk.com^$important
 @@||is.snssdk.com.bytedns1.com^$important
 @@||ks.pull.yximgs.com^$important
+@@||kv501.prod.do.dsp.mp.microsoft.com^$important
 @@||laiwang.com^$important
 @@||lf-cdn-tos.bytescm.com^$important
 @@||lf-leads-fe-scm.bytecdn.com^$important
@@ -93,6 +100,12 @@
 @@||megarobo.com^$important
 @@||megarobo.info^$important
 @@||megarobo.tech^$important
+@@||mmgame.qpic.cn^$important
+@@||mobile.events.data.microsoft.com^$important
+@@||mon-.fqnovel.com^$important
+@@||mon11-misc-lf.fqnovel.com^$important
+@@||mon11-misc-lq.fqnovel.com^$important
+@@||mon3-misc-lf.fqnovel.com^$important
 @@||mssdk.volces.com^$important
 @@||mssdk3-normal-hj.zijieapi.com^$important
 @@||mssdk3-normal-hl.zijieapi.com^$important
@@ -117,6 +130,7 @@
 @@||render.ecombdpage.com^$important
 @@||rms-drcn.platform.dbankcloud.cn^$important
 @@||rtcxyz.com^$important
+@@||rtlog5-applog-lf.fqnovel.com^$important
 @@||scc.bytedance.com^$important
 @@||sdkoptedge.chinanetcenter.com^$important
 @@||security.snssdk.com^$important
@@ -126,6 +140,20 @@
 @@||tx-kmpaudio.pull.yximgs.com^$important
 @@||u.meizu.com^$important
 @@||update.wps.cn^$important
+@@||v11-reading-ad.qznovelvod.com^$important
+@@||v13-reading-ad.qznovelvod.com^$important
+@@||v20.events.data.microsoft.com^$important
+@@||v26-reading-ad.qznovelvod.com^$important
+@@||v5-bd-daily-reading-ad.qznovelvod.com^$important
+@@||v5-ex-reading-ad.qznovelvod.com^$important
+@@||v5-se-sjy-daily-reading-ad.qznovelvod.com^$important
+@@||v6-daily-reading-ad.qznovelvod.com^$important
+@@||v6-reading-ad.qznovelvod.com^$important
+@@||v9-reading-ad.qznovelvod.com^$important
+@@||v95-aw-reading-ad.qznovelvod.com^$important
+@@||v95-se-zjwztc-reading-ad.qznovelvod.com^$important
+@@||v95-zjjx2tc-reading-ad.qznovelvod.com^$important
+@@||v96-sz-daily-reading-ad.qznovelvod.com^$important
 @@||vcs-hj.zijieapi.com^$important
 @@||volccdn.com^$important
 @@||webcast-core-m.amemv.com^$important
@@ -133,7 +161,36 @@
 @@||webcast-open.douyin.com^$important
 @@||webcast.amemv.com^$important
 @@||weixin.com^$important
+@@||whoami.akamai.net^$important
 @@||worldwide.sogou.com^$important
 @@||ws-keyboard.shouji.sogou.com^$important
+@@||analytics.pgncs.notion.so^$important
+@@||csi.gstatic.com^$important
+@@||exp.notion.so^$important
+@@||imasdk.googleapis.com^$important
+@@||intake-analytics.wikimedia.org^$important
+@@||safebrowsing.googleapis.com^$important
+@@||szlong.weixin.qq.com^$important
+@@||t.e.x.com^$important
+@@||applog.zijieapi.com^$important
+@@||v10.events.data.microsoft.com^$important
+@@||browserleaks.com^$important
+@@||dnsleaktest.com^$important
+@@||googleapis.com^$important
+@@||gstatic.com^$important
+@@||ip.sb^$important
+@@||ipinfo.io^$important
+@@||ipleak.net^$important
+@@||linear.app^$important
+@@||notion.so^$important
+@@||pinterest.com^$important
+@@||proton.me^$important
+@@||protonmail.com^$important
+@@||protonvpn.com^$important
+@@||reddit.com^$important
+@@||whoer.net^$important
+@@||wikimedia.org^$important
+@@||x.com^$important
+@@||youtube.com^$important
 !
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
