@@ -1,4 +1,4 @@
-# updated: 2026-09-30 15:27 +0000
+# updated: 2026-09-30 16:41 +0000
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -74,6 +74,7 @@ DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bytelink100-ws-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,ecomuser.snssdk.com,DIRECT
+DOMAIN-SUFFIX,effect.snssdk.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme.snssdk.com,DIRECT
 DOMAIN-SUFFIX,gecko.zijieapi.com,DIRECT
