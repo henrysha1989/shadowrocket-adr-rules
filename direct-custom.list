@@ -32,6 +32,17 @@ DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
 # 而**不写进本表**时，手机上那一族会掉回 FINAL,PROXY。脚本现已改成会自动写入 SR_FORCE_DIRECT 父域，
 # 这里手写一条是**owner 可见的权威记录**（唯一来源仍是脚本里的 SR_FORCE_DIRECT）。
 DOMAIN-SUFFIX,ecombdapi.com,DIRECT
+
+# 番茄小说**图片 CDN** 整族直连（2026-09-30 深夜体检发现；owner 追问"耗电"时挖出来的）
+# 证据（跨最近 10 个库复核）：`DOMAIN-KEYWORD,-reading-sign` 只命中过两个主机，全是图片 CDN 上的：
+#   `p3-reading-sign.fqnovelpic.com` 2,845 次 / `p9-reading-sign.fqnovelpic.com` 11 次，**100% 被 DROP**；
+#   而同族内容主机 `lf3-reading.fqnovelpic.com` 全放行、byteimg 上同形命名的 `p3/p9-novel-sign` 也全放行
+#   ⇒ 这族的 "sign" = **图片 URL 签名**，不是埋点信号。
+# 代价：单条 7.38 次/分（≈1.06 万次/天"丢包→等超时→重试"），是当时最大的耗电嫌疑。
+# 09-29 定的口径本来就写着「**不收**：`fqnovelpic.com` / `byteimg.com` / `douyinpic.com` 等内容 CDN」，
+# 这条等于把口径补上 —— 族关键字盖过口径的地方，用本表把它盖回来（本表在拦截段**之前**）。
+# 注：`byteimg.com` **不**照此办理：它上面的 `p3-ad-sign.byteimg.com` 在参考黑名单里、是**真追踪域**，继续 DROP。
+DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,180-101-165-6-ty428331.free-lbv6.idouyinvod.com,DIRECT
