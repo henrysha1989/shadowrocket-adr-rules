@@ -1269,7 +1269,13 @@ def run_once(opts):
         if diff:
             print(f"⚠️ 报告建议 {sorted(diff)}，但配置里 `{cfg('REPO_REJECT_PATH')}` 的集合动作是 "
                   f"{forced_act['reject']} ⇒ **以配置为准**（列表里写成别的也没用，会被覆盖）")
-        sets = {"reject": {h for h, _ in auto_rej}, "direct": set(), "proxy": set()}
+        # ★ 拦截表自动区 = 本轮候选 ∪ 既有条目中"仍然成立"的。
+        #   踩过的坑：只按"本轮候选"重建 ⇒ 已写的条目因为被自己判成"已覆盖"而**被删掉**（+0/-3）。
+        #   规则：既有条目在池里仍判 ad、且没被族关键字覆盖 ⇒ 保留；被关键字覆盖 / 判定变了 ⇒ 移除。
+        keep_existing = {h for h in rej_auto
+                         if not any(k in h for k in rej_kw)
+                         and (state.get(h) or ["", ""])[1] == "ad"}
+        sets = {"reject": {h for h, _ in auto_rej} | keep_existing, "direct": set(), "proxy": set()}
         for h, v in kept.items():
             if len(v) >= 2 and v[1] in ("direct", "proxy") \
                     and not in_domset(h, EXEMPT) and not in_domset(h, rej_manual):
