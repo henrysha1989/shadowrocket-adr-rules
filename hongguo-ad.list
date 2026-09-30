@@ -57,3 +57,4 @@ DOMAIN,i.snssdk.com,REJECT-DROP
 #   实测 108 次 / 13 分钟 = 8.2 次/分，是该窗口唯一的重试热点（同窗口 DROP 域的均值只有 1.6 次/分）。
 #   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
