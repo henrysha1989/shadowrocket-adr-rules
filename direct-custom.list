@@ -43,6 +43,20 @@ DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 # 这条等于把口径补上 —— 族关键字盖过口径的地方，用本表把它盖回来（本表在拦截段**之前**）。
 # 注：`byteimg.com` **不**照此办理：它上面的 `p3-ad-sign.byteimg.com` 在参考黑名单里、是**真追踪域**，继续 DROP。
 DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
+
+# ── 内容型 CDN 族收敛（2026-09-30 owner「准确」）：6 个族 76 条子域 → 6 条父域 ──
+# 为什么收敛**更准确**：① 同一族的轮换编号/新子域自动覆盖（不用等下轮分析重新发现）；
+#   ② 少写 70 条；③ 核验过这些族的**父域与四张拦截表 0 冲突**，且族内**没有任何埋点/信号主机**
+#   （逐族扫过 `-misc`/`-applog`/`live-player-log`/`ad-sign` 等特征：0 命中）。
+# ⚠️ 反面：`zijieapi.com` / `amemv.com` / `snssdk.com` **不收敛** —— 这些父域里混着埋点/广告主机
+#   （如 `mon*-misc-lf.amemv.com`、`i.snssdk.com`），收敛等于把埋点放直连 = 不准确。
+# 下面 6 条同时也是给脚本的"放行意图"：脚本写自动区时会跳过被这些父域覆盖的子域。
+DOMAIN-SUFFIX,douyinvod.com,DIRECT
+DOMAIN-SUFFIX,idouyinvod.com,DIRECT
+DOMAIN-SUFFIX,bytegecko.com,DIRECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
+DOMAIN-SUFFIX,douyinstatic.com,DIRECT
+DOMAIN-SUFFIX,ndcpp.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,180-101-165-6-ty428331.free-lbv6.idouyinvod.com,DIRECT
