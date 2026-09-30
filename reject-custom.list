@@ -1,4 +1,4 @@
-# updated: 2026-09-30 16:48 +0000
+# updated: 2026-09-30 16:53 +0000
 # 拦截清单（Shadowrocket RULE-SET）—— reject-custom.list
 #
 # 订阅（自建加速，国内可用）：
@@ -58,6 +58,3 @@ DOMAIN,i.snssdk.com,REJECT-DROP
 #   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT-DROP
-DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT-DROP
-DOMAIN-SUFFIX,logbk.amemv.com,REJECT-DROP
