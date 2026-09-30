@@ -9,22 +9,49 @@
 >
 > 本项目**不读** ADH 的 querylog / user_rules / adh-custom.txt / FORCE_DIRECT，不需要 ADH 的地址与口令。
 
+## 数据源（唯一）
+
+**手机导出的 `proxy-*.db`，落在固定目录里**（默认 `/vol1/1001/shadowrocket-db/`，glob `*.db`）：
+
+- 每轮**扫这个目录**，按「文件名 → size:mtime」签名（`sr/.sr-files.json`）判断哪些是**新库/变化过的库**；
+- 只处理新库；**没有新库就什么都不做**（不写仓库、不落档）；
+- 首次运行会消费目录里的全部库。
+
 ## 用法
 
 ```sh
-cd /vol1/1000/Docker/deepseek-harness/workspace
-
-python3 sr/sr_analyze.py                  # ① 只看报告（不写任何东西）
-python3 sr/sr_analyze.py --write          # ② 分析 + 写 direct/proxy 两张表的自动区
-python3 sr/sr_analyze.py --write --write-reject   # ③ 连 intercept 表也写（带冲突护栏）
-python3 sr/sr_analyze.py --write --dry-run        # 只算增删、不推仓库
-python3 sr/sr_analyze.py --db <某个.db>   # 只分析指定库（调试）
-python3 sr/sr_analyze.py --all            # 忽略"已消费"记录，全部重扫
-python3 sr/sr_analyze.py --force          # 越过"删太多"的安全阀（>30% 时默认中止）
-python3 sr/sr_analyze.py --selftest
+python3 sr/sr_analyze.py                  # ① 无人值守：扫新库 → 分析 → 落档 → 写表 → 推 GitHub
+python3 sr/sr_analyze.py --report-only     # ② 只看报告，绝不写仓库（人工核对）
+python3 sr/sr_analyze.py --watch --interval 300   # ③ 常驻轮询
+python3 sr/sr_analyze.py --db <某个.db>     # 调试：只分析指定库
+python3 sr/sr_analyze.py --all             # 忽略签名，全部重扫
+python3 sr/sr_analyze.py --dry-run         # 算增删但不推仓库
+python3 sr/sr_analyze.py --no-reject       # 不动拦截表
+python3 sr/sr_analyze.py --force           # 越过"删太多"的安全阀
+python3 sr/sr_analyze.py --offline         # 没 token 时离线看分类（护栏会失真，仅调试）
 ```
 
-凭据：环境变量 `REPO_TOKEN` > `sr/sr.env` > 兜底读 `$ROOT/.env`（**只取 REPO_TOKEN**，不碰 ADH 的键）。
+**落档**：每轮写 `sr/reports/sr-report-<时间戳>.md`，同步一份最新到 `sr/last-report.md`。
+**单实例锁** `sr/.sr-lock`：定时任务重叠时后一个直接退出。
+
+## 定时（推荐宿主 cron，和 ADH 那套同一套路）
+
+```sh
+install -m 755 sr/run-sr-analyze.sh /usr/local/sbin/sr-analyze.sh
+printf '*/30 * * * * root /usr/local/sbin/sr-analyze.sh >> /var/log/sr-analyze.log 2>&1\n' > /etc/cron.d/sr-analyze
+chmod 644 /etc/cron.d/sr-analyze
+```
+
+root 跑才能读 000 权限的手机 db 与 `workspace/.env`（取 `REPO_TOKEN`）。
+不想用 cron 就 `--watch` 常驻（supervisor/docker 托管）。
+
+## 写什么、不写什么（门槛）
+
+- **direct / proxy 自动区**：按证据池收敛（TTL 90 天）。
+- **reject 自动区**：**只收本轮分析出的"漏网之鱼"**（判广告 + 手机没拦 + 与直连不冲突）。
+  不把"池子里所有判广告的域"都写进去 —— 那些大多已被上游 AdvertisingLite/Privacy 覆盖，重复写既不准也不精简。
+- **自动写的门槛**：命中信号族名（明确无疑）或库内命中 ≥ `SR_AUTO_REJECT_MIN_HITS`（默认 50）才**自动写**；
+  低频/存疑的**只进报告**（"候选，等你定"），不写死 —— 避免把偶发域名或疑似误伤写成规则。
 
 ## 报告给什么（owner 2026-10-01 定的三件事）
 
