@@ -192,6 +192,7 @@
 @@||ws-keyboard.shouji.sogou.com^$important
 @@||x.com^$important
 @@||youtube.com^$important
+@@||yunmart.com^$important
 !
 ! ===== 自动收集（以下内容由脚本管理，勿手改）=====
 ||0kkkkkt.com^
