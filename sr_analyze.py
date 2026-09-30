@@ -1116,6 +1116,20 @@ def run_once(opts):
     dry_run = opts["dry_run"]
     owner, name = cfg("REPO").split("/", 1)
     tok, br = cfg("REPO_TOKEN"), cfg("REPO_BRANCH")
+    # 启动自检：即使这轮因配置不对而退出，心跳里也留下原因（cron 排障用）
+    _chk = []
+    if not os.path.isdir(cfg("SR_DB_DIR")):
+        _chk.append(f"数据源目录不存在：{cfg('SR_DB_DIR')}")
+    else:
+        try:
+            os.listdir(cfg("SR_DB_DIR"))
+        except OSError as e:
+            _chk.append(f"数据源目录打不开：{e}")
+    if not tok:
+        _chk.append("REPO_TOKEN 缺失（读不到三张表手工区，护栏会失真）")
+    heartbeat("启动自检：" + ("全部通过" if not _chk else "；".join(_chk)))
+    if _chk:
+        print("⚠️ 自检问题：" + "；".join(_chk))
     # ⚠️ 没有 token 就是"半盲"跑：读不到三张表的手工区 ⇒ 冲突护栏、滑落判断都会失真。
     #    所以除非显式 --offline，一律要求 token（cron 以 root 跑时能从 .env 读到）。
     if not tok and not opts.get("offline"):
