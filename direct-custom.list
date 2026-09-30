@@ -1,4 +1,4 @@
-# updated: 2026-09-30 14:50 +0000
+# updated: 2026-09-30 15:14 +0000
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -32,7 +32,6 @@ DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
 # 而**不写进本表**时，手机上那一族会掉回 FINAL,PROXY。脚本现已改成会自动写入 SR_FORCE_DIRECT 父域，
 # 这里手写一条是**owner 可见的权威记录**（唯一来源仍是脚本里的 SR_FORCE_DIRECT）。
 DOMAIN-SUFFIX,ecombdapi.com,DIRECT
-
 # 番茄小说**图片 CDN** 整族直连（2026-09-30 深夜体检发现；owner 追问"耗电"时挖出来的）
 # 证据（跨最近 10 个库复核）：`DOMAIN-KEYWORD,-reading-sign` 只命中过两个主机，全是图片 CDN 上的：
 #   `p3-reading-sign.fqnovelpic.com` 2,845 次 / `p9-reading-sign.fqnovelpic.com` 11 次，**100% 被 DROP**；
@@ -43,7 +42,6 @@ DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 # 这条等于把口径补上 —— 族关键字盖过口径的地方，用本表把它盖回来（本表在拦截段**之前**）。
 # 注：`byteimg.com` **不**照此办理：它上面的 `p3-ad-sign.byteimg.com` 在参考黑名单里、是**真追踪域**，继续 DROP。
 DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
-
 # ── 内容型 CDN 族收敛（2026-09-30 owner「准确」）：6 个族 76 条子域 → 6 条父域 ──
 # 为什么收敛**更准确**：① 同一族的轮换编号/新子域自动覆盖（不用等下轮分析重新发现）；
 #   ② 少写 70 条；③ 核验过这些族的**父域与四张拦截表 0 冲突**，且族内**没有任何埋点/信号主机**
@@ -58,29 +56,6 @@ DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
 DOMAIN-SUFFIX,douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,ndcpp.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,180-101-165-6-ty428331.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,1865500267.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651210.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651226.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651231.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651242.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651264.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651269.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865651314.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1865658783.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,1957386997.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,2027701833.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,2027855638.qrstuvwxyzab.com,DIRECT
-DOMAIN-SUFFIX,218-2-83-6-ne2d8033.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,218-2-83-6-neaf8107.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,218-2-83-6-tyed0e6d.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,222-186-132-108-ne3e5216.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,222-186-132-108-ty9ea742.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,222-186-132-108-tyaaa154.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,223-109-127-198-ne88959d.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,36-156-28-239-nef7c9ef.free-lbv6.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,58-144-119-114-ne7b124d.free-lbv6.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,abtest3-misc-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,amdc.m.taobao.com,DIRECT
@@ -116,20 +91,9 @@ DOMAIN-SUFFIX,is-lq.snssdk.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com,DIRECT
 DOMAIN-SUFFIX,klink5-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com,DIRECT
-DOMAIN-SUFFIX,lf-dy-sourcecdn-tos.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf-ecom-gr-sourcecdn.bytegecko.com,DIRECT
 DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
-DOMAIN-SUFFIX,lf-normal-gr-sourcecdn.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf-sourcecdn-tos.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf-webcast-gr-sourcecdn.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf-webcast-sourcecdn-tos.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf26-cdn-tos.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf26-dy-cdn-tos.bytegecko.com,DIRECT
 DOMAIN-SUFFIX,lf26-effect-302.byteeffecttos.com,DIRECT
 DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,DIRECT
-DOMAIN-SUFFIX,lf5-se-bs-webcast-cdn-tos-ncdn.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf5-webcast-cdn-tos.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,lf9-webcast-cdn-tos-ncdn.bytegecko.com,DIRECT
 DOMAIN-SUFFIX,live-player-log.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,log-report.rtc.volcvideo.com,DIRECT
 DOMAIN-SUFFIX,m.baike.com,DIRECT
@@ -140,11 +104,6 @@ DOMAIN-SUFFIX,mon11-misc-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mssdk3-normal-lf.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mum.alibabachengdun.com,DIRECT
-DOMAIN-SUFFIX,n98-lf-cdn-tos-ncdn.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,n98-lf-webcast-cdn-tos-ncdn.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,n98-lf9-dy-ncdn-tos-sub.bytegecko.com,DIRECT
-DOMAIN-SUFFIX,n98-v-ncdnon.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,n98-v-onios-ncdn.douyinvod.com,DIRECT
 DOMAIN-SUFFIX,p11-sign.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,p11-webcast-sign.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,p11-webcast.douyinpic.com,DIRECT
@@ -169,15 +128,9 @@ DOMAIN-SUFFIX,polaris3-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,rc2374n-41.free-lbv13.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,reading.snssdk.com,DIRECT
 DOMAIN-SUFFIX,render.ecombdpage.com,DIRECT
-DOMAIN-SUFFIX,rn2178n-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rq2084n-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rt1438n-41.free-lbv13.idouyinvod.com,DIRECT
-DOMAIN-SUFFIX,rt2016n-41.free-lbv13.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,saveu5-normal-hl.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,sf26-sign.douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,signal-t1-v4-az1-02.rtcxyz.com,DIRECT
 DOMAIN-SUFFIX,signal-t1-v4-az1.rtcxyz.com,DIRECT
 DOMAIN-SUFFIX,signal-t1-v4-az2-01.rtcxyz.com,DIRECT
@@ -188,39 +141,8 @@ DOMAIN-SUFFIX,tesla.cn,DIRECT
 DOMAIN-SUFFIX,tesla.com,DIRECT
 DOMAIN-SUFFIX,teslamotors.cn,DIRECT
 DOMAIN-SUFFIX,teslamotors.com,DIRECT
-DOMAIN-SUFFIX,v11-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v11-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v13-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v18-onios-ncdn.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v26-dyseries.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v26-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v26-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v5-bd-daily-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v5-ex-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v5-gz2-a.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v5-se-gddgtc-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-jltc-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-qn-daily-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-sjy-daily-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-ws-daily-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v5-se-zjnbtc-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v6-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v6-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v9-hcd.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v9-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v9.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v95-aw-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v95-hzyy-thr-daily-c.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v95-hzyy-thr-daily-dyseries.douyinvod.com,DIRECT
-DOMAIN-SUFFIX,v95-se-zjwztc-music.douyinstatic.com,DIRECT
-DOMAIN-SUFFIX,v96-dyseries.douyinvod.com,DIRECT
 DOMAIN-SUFFIX,vas-lf-x.snssdk.com,DIRECT
 DOMAIN-SUFFIX,vas.snssdk.com,DIRECT
-DOMAIN-SUFFIX,vc-brain-http.ndcpp.com,DIRECT
-DOMAIN-SUFFIX,vc-brain.ndcpp.com,DIRECT
-DOMAIN-SUFFIX,vc-hj-new-brain.ndcpp.com,DIRECT
-DOMAIN-SUFFIX,vc-hole.ndcpp.com,DIRECT
 DOMAIN-SUFFIX,vcs-lf.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,vod-license-m.volccdn.com,DIRECT
 DOMAIN-SUFFIX,webcast-core-m.amemv.com,DIRECT
