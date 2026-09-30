@@ -367,6 +367,26 @@ def prune_shadowed(domset, higher, label=""):
     return out
 
 
+def repo_manual_keywords(owner, name, token, branch, path):
+    """read `DOMAIN-KEYWORD,x,ACTION` lines from a list file's manual region."""
+    st, tx = http("GET", f"https://api.github.com/repos/{owner}/{name}/contents/{urllib.parse.quote(path)}"
+                         + (f"?ref={branch}" if branch else ""),
+                  {"Authorization": f"token {token}", "Accept": "application/vnd.github+json"})
+    if st != 200:
+        return set()
+    try:
+        content = base64.b64decode(json.loads(tx)["content"]).decode()
+    except Exception:  # noqa: BLE001
+        return set()
+    man, _ = split_manual(content, "#")
+    out = set()
+    for line in man:
+        parts = [x.strip() for x in line.split(",")]
+        if len(parts) >= 3 and parts[0] == "DOMAIN-KEYWORD":
+            out.add(parts[1].lower())
+    return out
+
+
 def repo_manual_domains_of(owner, name, token, branch, path, comment="#"):
     """指定仓库文件「手工区」（标记之上）里的域名集合。
 
@@ -780,6 +800,19 @@ def _rate(n, span):
 _CONFIG_ORDERS = {}
 
 
+def file_auto_domains(path):
+    """线上某张表**自动区**里的域名集合（用来判断"规则已存在但手机没拦"）。"""
+    url = f"{cfg('RAW_PREFIX')}{cfg('REPO')}/main/" + urllib.parse.quote(path)
+    try:
+        st, tx = http("GET", url)
+    except Exception:  # noqa: BLE001
+        return set()
+    if st != 200:
+        return set()
+    man, auto = split_manual(tx, "#")
+    return parse_domains("\n".join(auto))
+
+
 def file_actions(path):
     """线上某张表里用到的动作集合（None = 读不到）。"""
     repo = cfg("REPO")
@@ -901,8 +934,89 @@ def check_config(rows=None, problems=None, state=None):
     return problems
 
 
+_OBVIOUS_AD = re.compile(
+    r"^(ads?\d*|advert\w*|adx\d*|adsystem\w*|adservice\w*|adnxs\w*|adcolony\w*|admob\w*)[-.0-9]",
+    re.I)
+_OBVIOUS_AD_FAMILY = ("doubleclick", "googlesyndication", "adservice", "adsystem", "adnxs",
+                      "applovin", "moloco", "bytedance.com/ads", "pangle", "unityads", "vungle",
+                      "supersonicads", "ironsrc", "tapjoy", "chartboost", "mintegral", "adcolony",
+                      "unity3d.com/ads", "criteo", "taboola", "outbrain")
+
+
+def obvious_ad(h):
+    """主机名一看就是广告（owner 2026-10-01：「明显的 ads 就写」）。"""
+    if _OBVIOUS_AD.match(h):      # 对整串匹配：`ads3-normal-lf…` / `ads.example.com` 都算
+        return True
+    return any(f in h for f in _OBVIOUS_AD_FAMILY)
+
+
+_LIST_CACHE = {}
+
+
+def _load_list(url):
+    if url not in _LIST_CACHE:
+        try:
+            st, tx = http("GET", url)
+            _LIST_CACHE[url] = [l.split("#")[0].strip() for l in tx.splitlines()] if st == 200 else []
+        except Exception:  # noqa: BLE001
+            _LIST_CACHE[url] = []
+    return _LIST_CACHE[url]
+
+
+def chain_direct_matches(hosts):
+    """把配置的规则链跑一遍（**跳过我们自己的 reject 表**），找出"会被判直连"的候选。
+
+    owner 要求「新增 reject 时注意不能出现直连冲突导致无法正常上网」——上游直连表
+    （China_Domain / ChinaMedia / Apple / Lan / STUN / Download…）都排在拦截段**之后**，
+    所以我们的 reject 一进去就把它们压掉了。这里按配置顺序逐条匹配，命中 DIRECT 的记下来。
+    """
+    repo, fn = cfg("CONFIG_REPO"), [f.strip() for f in cfg("CONFIG_FILES").split(",") if f.strip()][0]
+    url = f"{cfg('RAW_PREFIX')}{repo}/main/" + urllib.parse.quote(fn)
+    try:
+        st, tx = http("GET", url)
+    except Exception:  # noqa: BLE001
+        return {}
+    if st != 200:
+        return {}
+    rules, in_rule = [], False
+    for line in tx.splitlines():
+        line = line.split("#")[0].strip()
+        if line.startswith("["):
+            in_rule = line == "[Rule]"
+            continue
+        if not in_rule or not line:
+            continue
+        p = [x.strip() for x in line.split(",")]
+        if p[0] in ("RULE-SET", "DOMAIN-SET"):
+            if cfg("REPO_REJECT_PATH") in p[1]:
+                continue                      # 纯看"没有我们的拦截表时"会怎样
+            act = p[2].upper() if len(p) >= 3 else ""
+            for l in _load_list(p[1]):
+                q = [x.strip() for x in l.split(",")]
+                if p[0] == "DOMAIN-SET":
+                    if q[0]:
+                        rules.append(("DOMAIN-SUFFIX", q[0].lstrip(".").lower(), act))
+                elif len(q) >= 2 and q[0] in ("DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"):
+                    rules.append((q[0], q[1].lstrip(".").lower(), act))
+        elif p[0] in ("DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD") and len(p) >= 3:
+            rules.append((p[0], p[1].lstrip(".").lower(), p[2].upper()))
+        elif p[0] == "FINAL" and len(p) >= 2:
+            rules.append(("FINAL", "", p[1].upper()))
+    out = {}
+    for h in hosts:
+        for t, v, act in rules:
+            if t == "FINAL":
+                break
+            if (t == "DOMAIN" and h == v) or (t == "DOMAIN-SUFFIX" and (h == v or h.endswith("." + v))) \
+                    or (t == "DOMAIN-KEYWORD" and v in h):
+                if act == "DIRECT":
+                    out[h] = v
+                break
+    return out
+
+
 def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, conflicts, extra,
-           processed=(), wrote=(), finished=None):
+           processed=(), wrote=(), finished=None, stale_phone=()):
     """打印 + 返回 markdown（调用方负责落档）。"""
     L = []
 
@@ -922,8 +1036,15 @@ def report(mins, hosts, reject_cand, direct_cand, slipped_rule, slipped_new, con
     p()
     for h, o in sorted(reject_cand, key=lambda x: -x[1]["n"])[:40]:
         p(f"- `{h}` {o['n']} 次（{_rate(o['n'], mins)}）→ {o['act']}"
-          + ("  ← 自动写" if o.get("auto") else "  ← 低频，只报不写"))
+          + ("  ← 自动写" if o.get("auto") else "  ← 低频，只报不写")
+          + (f"；{o['note']}" if o.get("note") else ""))
     p()
+    if stale_phone:
+        p(f"## ⏳ 规则已存在、但手机没拦（多半是规则集没刷新）：{len(stale_phone)} 条")
+        p()
+        for h, _v, why in sorted(stale_phone, key=lambda x: -sum(x[1].values()))[:20]:
+            p(f"- `{h}` ← 已由「{why}」覆盖")
+        p()
     p(f"## ② 直连域名滑落到代理")
     p()
     p(f"### ① 已在直连表、手机却走代理（规则没生效）：{len(slipped_rule)} 条")
@@ -988,6 +1109,9 @@ def run_once(opts):
     allow_direct = repo_manual_allow_domains(owner, name, tok, br) if tok else set()
     dir_manual = repo_manual_domains_of(owner, name, tok, br, cfg("REPO_DIRECT_PATH"), "#") if tok else set()
     rej_manual = repo_manual_domains_of(owner, name, tok, br, cfg("REPO_REJECT_PATH"), "#") if tok else set()
+    rej_kw = repo_manual_keywords(owner, name, tok, br, cfg("REPO_REJECT_PATH")) if tok else set()
+    if rej_kw:
+        print(f"[..] 拦截表手工区关键字 {len(rej_kw)} 条：{', '.join(sorted(rej_kw))}")
     forced = cfg_csv("SR_FORCE_DIRECT") | dir_manual
     EXEMPT = set(allow_direct) | set(forced)
 
@@ -1022,7 +1146,8 @@ def run_once(opts):
                 stats["rej_hosts"].add(h)
                 stats["rej_total"] += e["verdicts"]["REJECT"]
 
-    reject_cand, direct_cand, slipped_rule, slipped_new = [], [], [], []
+    rej_auto = file_auto_domains(cfg("REPO_REJECT_PATH")) if tok else set()
+    reject_cand, stale_phone, direct_cand, slipped_rule, slipped_new = [], [], [], [], []
     act_by_host = {}
     total_min = sum(span_by_db.values()) or 1.0
     old_kind = {h: (v[1] if isinstance(v, list) and len(v) >= 2 else "") for h, v in state.items()}
@@ -1033,6 +1158,12 @@ def run_once(opts):
             continue
         for h, e in per.items():
             if e["hits"] < min_hits or in_domset(h, rej_manual):
+                continue
+            if any(k in h for k in rej_kw):
+                stale_phone.append((h, ver, "族关键字"))
+                continue
+            if in_domset(h, rej_auto):
+                stale_phone.append((h, ver, "拦截表自动区"))
                 continue
             ver = e["verdicts"]
             kind = "direct" if in_domset(h, forced) else classify(h)
@@ -1072,7 +1203,13 @@ def run_once(opts):
     kept = {h: v for h, v in state.items() if isinstance(v, list) and len(v) >= 2}
     conflicts, reject_ok = [], []
     direct_dom = set(dir_manual) | set(forced)
+    # 上游直连表（China_Domain 等）是**整族粗粒度白名单**（如 `.zijieapi.com`），
+    # 它判直连**不等于**不能拦 —— 项目本身就是"白名单保护业务 + 黑名单拦广告"，
+    # 拦的是具体广告主机、不动族内其它域。所以这里只作**注解**（帮 owner 判断），不做否决。
+    upstream_direct = chain_direct_matches([h for h, _ in reject_cand])
     for h, o in reject_cand:
+        if h in upstream_direct:
+            o["note"] = f"上游 `{upstream_direct[h]}` 属直连族（粗粒度），拦它只影响这条主机"
         hit = next((d for d in direct_dom if h == d or h.endswith("." + d)), None)
         if hit:
             conflicts.append((h, f"与直连/放行域 `{hit}` 冲突（拦了会打断正常上网）"))
@@ -1086,7 +1223,8 @@ def run_once(opts):
     def _confident(h, o):
         if aggressive:
             return True
-        return o["n"] >= floor or o["act"] == "REJECT-DROP"
+        # 三条任一满足就自动写：① 命中信号族（动作判成 DROP）② 库内够频繁 ③ **名字明显是广告**
+        return o["n"] >= floor or o["act"] == "REJECT-DROP" or obvious_ad(h)
     auto_rej = [(h, o) for h, o in reject_ok if _confident(h, o)]
     lowconf = [(h, o) for h, o in reject_ok if not _confident(h, o)]
     for h, o in auto_rej:
@@ -1141,7 +1279,7 @@ def run_once(opts):
 
     md = report(total_min, kept, reject_ok, direct_cand, slipped_rule, slipped_new, conflicts, stats,
                 processed=[os.path.basename(p) for p in span_by_db], wrote=wrote,
-                finished=time.time() - t0)
+                finished=time.time() - t0, stale_phone=stale_phone)
     # ── 落档 ──
     rdir = opts["report_dir"]
     os.makedirs(rdir, exist_ok=True)
