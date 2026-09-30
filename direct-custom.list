@@ -1,4 +1,4 @@
-# updated: 2026-09-30 10:35 +0000
+# updated: 2026-09-30 14:41 +0000
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -18,7 +18,6 @@ DOMAIN-SUFFIX,megarobo.com,DIRECT
 DOMAIN-SUFFIX,megarobo.tech,DIRECT
 DOMAIN-SUFFIX,megarobo.info,DIRECT
 DOMAIN-SUFFIX,yunmart.com,DIRECT
-
 # 抢占型直连（2026-09-30 方案 B：本表已提到**拦截段之前**，这几条才搬得进来）——
 # 它们跟订阅表抢，位置输了就变成"被拦截"：
 #   DOMAIN-KEYWORD,tesla        ← Privacy 的 `DOMAIN-KEYWORD,analytics.` 会抢 analytics.tesla.cn
@@ -28,13 +27,11 @@ DOMAIN-SUFFIX,yunmart.com,DIRECT
 DOMAIN-KEYWORD,tesla,DIRECT
 DOMAIN-SUFFIX,dig.bdurl.net,DIRECT
 DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
-
 # 抖音电商整域直连（2026-09-30）—— 用**父域**替掉自动区里那 20 条 `*.ecombdapi.com`。
 # 为什么必须手写：脚本把 `ecombdapi.com` 记在 FORCE_DIRECT/SR_FORCE_DIRECT 里（= owner 批准直连），
 # 而写入口会**跳掉"已被 owner 放行父域覆盖"的子域** ⇒ 自动区那 20 条会在下一轮被删、父域又没人写
 # ⇒ 手机上这族会掉回 FINAL,PROXY（抖音电商走代理）。手写父域后：1 条顶 20 条，且新子域自动覆盖。
 DOMAIN-SUFFIX,ecombdapi.com,DIRECT
-
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,180-101-165-6-ne45a670.free-lbv6.idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,180-101-165-6-ty428331.free-lbv6.idouyinvod.com,DIRECT
@@ -60,22 +57,7 @@ DOMAIN-SUFFIX,bsync3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bytelink100-ws-hl.amemv.com,DIRECT
-DOMAIN-SUFFIX,ec3-core-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ec3-core-lq.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ec5-core-hl.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ec5-core-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ec5-core-lq.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom-normal-m.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom3-normal-hl.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom3-normal-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom3-normal-lq.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom5-normal-hl.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom5-normal-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom5-normal-lq.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecom5-normal-zb.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,ecomuser.snssdk.com,DIRECT
-DOMAIN-SUFFIX,ecset3-core-xh.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,ecset5-core-zb.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme.snssdk.com,DIRECT
 DOMAIN-SUFFIX,gecko.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,gecko5-hl.zijieapi.com,DIRECT
@@ -86,12 +68,7 @@ DOMAIN-SUFFIX,ichannel.snssdk.com,DIRECT
 DOMAIN-SUFFIX,imapi-oth.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,imapi5-oth-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,is-lq.snssdk.com,DIRECT
-DOMAIN-SUFFIX,isaas3-normal-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,isaas3-normal-lq.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,isaas5-normal-lf.ecombdapi.com,DIRECT
-DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,klink5-lf.amemv.com,DIRECT
-DOMAIN-SUFFIX,lianmengapi5-core-hl.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,live-player-log.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,ma.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,ma3-normal-hl.zijieapi.com,DIRECT
