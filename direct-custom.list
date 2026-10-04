@@ -1,4 +1,4 @@
-# updated: 2026-10-05 01:00 +0800
+# updated: 2026-10-05 01:30 +0800
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -57,6 +57,7 @@ DOMAIN-SUFFIX,douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,ndcpp.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
+DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,amdc.m.taobao.com,DIRECT
 DOMAIN-SUFFIX,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT
 DOMAIN-SUFFIX,api-normal-m.amemv.com,DIRECT
@@ -69,6 +70,7 @@ DOMAIN-SUFFIX,api5-platform-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,api5-social-m-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,api5-social-m-zjg.amemv.com,DIRECT
 DOMAIN-SUFFIX,api6-social-m-hl.amemv.com,DIRECT
+DOMAIN-SUFFIX,api6-social-m-zjg.amemv.com,DIRECT
 DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
