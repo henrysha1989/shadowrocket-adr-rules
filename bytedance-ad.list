@@ -209,3 +209,21 @@ DOMAIN-SUFFIX,tnc3-aliec2.bytedance.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-alisc1.bytedance.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-bjlgy.bytedance.com,REJECT-DROP
 
+# ── ⑦ 番茄模块补充（deezertidal/shadowrocket-rules → modules/fanqie.module）：14 条（★0）──
+# 第三方维护的番茄小说去广告模块，只取域规则；它的 [URL Rewrite] 需开 MITM，未采用
+# ⚠️ 未采用该模块的 `DOMAIN-KEYWORD,zijieapi,REJECT` —— 过宽，会打断字节系正常 API
+# 其中字节系族 9 条 / 其它广告域 5 条
+DOMAIN,*default.ixigua.com,REJECT-DROP
+DOMAIN,*novelapp.ixigua.com,REJECT-DROP
+DOMAIN,activity-ag.awemeughun.com,REJECT-DROP
+DOMAIN,api.iegadp.qq.com,REJECT-DROP
+DOMAIN-SUFFIX,bytedance.com,REJECT-DROP
+DOMAIN-SUFFIX,bytegoofy.com,REJECT-DROP
+DOMAIN-SUFFIX,byteimg.com,REJECT-DROP
+DOMAIN-SUFFIX,byteorge.com,REJECT-DROP
+DOMAIN,msync-im1-vip6-std.easemob.com,REJECT-DROP
+DOMAIN,p6-ad-sign.byteimg.com,REJECT-DROP
+DOMAIN,p9-ad-sign.byteimg.com,REJECT-DROP
+DOMAIN,security-lq.snssdk.com,REJECT-DROP
+DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT-DROP
+DOMAIN,v6-novelapp.ixigua.com,REJECT-DROP
