@@ -1,4 +1,4 @@
-# updated: 2026-10-05 01:30 +0800
+# updated: 2026-10-07 01:30 +0800
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -97,6 +97,7 @@ DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com,DIRECT
 DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
 DOMAIN-SUFFIX,lf26-effect-302.byteeffecttos.com,DIRECT
 DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,DIRECT
+DOMAIN-SUFFIX,life5-normal-m-zb.amemv.com,DIRECT
 DOMAIN-SUFFIX,log-report.rtc.volcvideo.com,DIRECT
 DOMAIN-SUFFIX,m.baike.com,DIRECT
 DOMAIN-SUFFIX,ma.zijieapi.com,DIRECT
