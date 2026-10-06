@@ -1,0 +1,211 @@
+# 字节系广告域（curated）—— bytedance-ad.list
+#
+# 来源：anti-AD（privacy-protection-tools/anti-AD）+ AWAvenue Ads Rule，筛出字节系族
+# 生成：2026-10-07；候选/证据明细：workspace `ops/bytedance-app-rules-2026-10-07.md`
+# 用法：RULE-SET,<url>,REJECT-DROP，放 [Rule] 拦截段靠前（直连表之后）
+# 维护：人工/外部来源，**无 AUTO 标记**，ADH/SR 管线不写本文件
+# ★ = 本机证据池或日志里出现过
+#
+# 已核对：不含 snssdk.com/toutiao.com/douyin.com/zijieapi.com 等 App 核心基础域
+#
+# 未覆盖说明：抖音广告不走独立域、汽水音乐外部清单无条目 ⇒ 两者本文件无规则
+
+# ── ① 穿山甲广告SDK：40 条（★10）──
+# ★本机见过
+DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT-DROP
+DOMAIN-SUFFIX,log-api.pangolin-sdk-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT-DROP
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT-DROP
+# 其余
+DOMAIN-SUFFIX,analytics.pangle-ads.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao2.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao3.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao4.com,REJECT-DROP
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao5.com,REJECT-DROP
+DOMAIN-SUFFIX,gromore.pangolin-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,lf3-ad-union-sdk.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,lf6-ad-union-sdk.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,log-api.pangolin-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,novel.pangolin-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p1-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p2-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p3-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p4-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p5-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,p6-be-pack-sign.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pangle.cn,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-dsp-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-dsp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-hl.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-lf.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin-lq.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,pglstatp-sdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pglstatp-snssdk-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pglstatp-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,sf1-be-pack.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,sf16-static.i18n-pglstatp.com,REJECT-DROP
+DOMAIN-SUFFIX,sf3-be-pack.pglstatp-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,sf6-be-pack.pglstatp-toutiao.com,REJECT-DROP
+
+# ── ② 头条/头条系：67 条（★5）──
+# ★本机见过
+DOMAIN-SUFFIX,applog.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,ctobsnssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-bjlgy.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tobapplog.ctobsnssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,toblog.ctobsnssdk.com,REJECT-DROP
+# 其余
+DOMAIN-SUFFIX,2345api.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,2345apicode.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,actlog.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,ads.weilitoutiao.net,REJECT-DROP
+DOMAIN-SUFFIX,adshare.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,analytics.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,bds.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,d.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,dm-hl.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,dm.pstatp.com,REJECT-DROP
+DOMAIN-SUFFIX,dm.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,dsp.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,dspimg.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,extlog.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,gecko-hl.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,gecko-lq.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,gecko.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,ic.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,imgsreview.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,log3-normal-hl.toutiaoapi.com,REJECT-DROP
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,mercury-sdk.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,mon.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,monsetting.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,nativeapp.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,newswifiapi.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,open.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,os-mon.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,pageshow.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,panplayable-toutiao-b.com,REJECT-DROP
+DOMAIN-SUFFIX,panplayable-toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,partner.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pb3.pstatp.com,REJECT-DROP
+DOMAIN-SUFFIX,pclog.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pcminitj.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,pcsoftwords.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,position.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,reportlog.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,sdfp.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,sh996.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,shzzzz.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,sm.toutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,success.ctobsnssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tbm.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,temai.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec1.toutiaoapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec2.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec2.toutiaoapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-alisc1.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-alisc1.toutiaoapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-bjlgy.toutiaoapi.com,REJECT-DROP
+DOMAIN-SUFFIX,toblog.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,toutiao-frontier.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,toutiao.jxnews.com.cn,REJECT-DROP
+DOMAIN-SUFFIX,toutiaopage.com,REJECT-DROP
+DOMAIN-SUFFIX,tsearch.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,ug.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,unionstatis.dftoutiao.com,REJECT-DROP
+DOMAIN-SUFFIX,vas-hl-x.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,xlog.snssdk.com,REJECT-DROP
+
+# ── ③ 红果（hongguo）：4 条（★0）──
+# 其余
+DOMAIN-SUFFIX,myzhongguojie.cn,REJECT-DROP
+DOMAIN-SUFFIX,shijuezhongguo.cdn.bcebos.com,REJECT-DROP
+DOMAIN-SUFFIX,woaizhongguo.cdn111222.com,REJECT-DROP
+DOMAIN-SUFFIX,www.myzhongguojie.cn,REJECT-DROP
+
+# ── ④ 红果/番茄（reading,novel —— ⚠️ 含非字节系阅读类广告域）：33 条（★0）──
+# 其余
+DOMAIN-SUFFIX,app.mktg.novell.com,REJECT-DROP
+DOMAIN-SUFFIX,b.flyreading.cn,REJECT-DROP
+DOMAIN-SUFFIX,basic-novel.pro,REJECT-DROP
+DOMAIN-SUFFIX,bestbiddingnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,dollyspreadingbeer.com,REJECT-DROP
+DOMAIN-SUFFIX,info.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infoco.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infodc.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infola.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infontx.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infonyc.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infosea.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infosfba.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infotc.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,infotul.readingpartners.org,REJECT-DROP
+DOMAIN-SUFFIX,log.webnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,marketing.novelcoworking.com,REJECT-DROP
+DOMAIN-SUFFIX,marketing.readinghorizons.com,REJECT-DROP
+DOMAIN-SUFFIX,novelpair.com,REJECT-DROP
+DOMAIN-SUFFIX,novelsns.html5.qq.com,REJECT-DROP
+DOMAIN-SUFFIX,novelty.media,REJECT-DROP
+DOMAIN-SUFFIX,noveltyensue.com,REJECT-DROP
+DOMAIN-SUFFIX,read.lightreading.com,REJECT-DROP
+DOMAIN-SUFFIX,readingguilt.com,REJECT-DROP
+DOMAIN-SUFFIX,readingpartners.actonservice.com,REJECT-DROP
+DOMAIN-SUFFIX,scareshortnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,shockingstrategynovelty.com,REJECT-DROP
+DOMAIN-SUFFIX,sstats.newworldsreading.com,REJECT-DROP
+DOMAIN-SUFFIX,triumphantthingsreading.com,REJECT-DROP
+DOMAIN-SUFFIX,trk.darkreading.com,REJECT-DROP
+DOMAIN-SUFFIX,trk.lightreading.com,REJECT-DROP
+DOMAIN-SUFFIX,trk.novelis.com,REJECT-DROP
+DOMAIN-SUFFIX,withdrawalbellownovel.com,REJECT-DROP
+
+# ── ⑤ 西瓜视频：13 条（★0）──
+# 其余
+DOMAIN-SUFFIX,api5-normal-quic-lf.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,search.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,search3-search.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,search5-search-hl.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,search5-search.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v1-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v1-dc-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v3-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v3-dc-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-dc-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v9-ad.ixigua.com,REJECT-DROP
+DOMAIN-SUFFIX,v9-dc-ad.ixigua.com,REJECT-DROP
+
+# ── ⑥ 字节基础设施（zijieapi/bytedance/byteimg）：21 条（★5）──
+# ★本机见过
+DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,mon.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec2.zijieapi.com,REJECT-DROP
+# 其余
+DOMAIN-SUFFIX,ad.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads3-normal.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,dm.bytedance.com,REJECT-DROP
+DOMAIN-SUFFIX,log.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,mcs.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,mssdk-bu.bytedance.com,REJECT-DROP
+DOMAIN-SUFFIX,mssdk.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,p3-tt.byteimg.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc0-bjlgy.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec1.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-aliec2.bytedance.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-alisc1.bytedance.com,REJECT-DROP
+DOMAIN-SUFFIX,tnc3-bjlgy.bytedance.com,REJECT-DROP
+
