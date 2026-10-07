@@ -8,6 +8,9 @@
 #
 # 已核对：不含 snssdk.com/toutiao.com/douyin.com/zijieapi.com 等 App 核心基础域
 #
+# ⚠️ 与 reject-custom.list 的分工（2026-10-07 owner 定）：本表只服务【测试版】；reject-custom.list
+#   是三份配置共用的兜底表。两表之间**不做迁移**，允许包含关系（本表父域覆盖对方子域）。
+#
 # 未覆盖说明：抖音广告不走独立域、汽水音乐外部清单无条目 ⇒ 两者本文件无规则
 
 # ── ① 穿山甲广告SDK：40 条（★10）──
