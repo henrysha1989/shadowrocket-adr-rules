@@ -255,3 +255,10 @@ DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,lianmengapi5-core-hl.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ecom3-normal-m-hj.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,REJECT-DROP
+
+# ── ⑨ 实测广告视频 CDN（2026-10-07 17:13 播放窗抓到）：1 条 ──
+# 证据：父域名下 11 台子域全部含 vod；5 台已被 reading-ad 关键字判 ad 挡下，另 6 台 classify=None
+#       靠 GEOIP,CN,DIRECT 放行 ⇒ **有画面有声音的广告视频由此进入**；11 小时库里该族 1477 次命中
+#       仅 132 次被拒（91% 放行），且不在任何上游表。
+# ⚠️ 高流量族；若族内混有正常视频，删掉这一行即可回退。
+DOMAIN-SUFFIX,qznovelvod.com,REJECT-DROP
