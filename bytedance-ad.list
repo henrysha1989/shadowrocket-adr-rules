@@ -8,9 +8,6 @@
 #
 # 已核对：不含 snssdk.com/toutiao.com/douyin.com/zijieapi.com 等 App 核心基础域
 #
-# ⚠️ 与 reject-custom.list 的分工（2026-10-07 owner 定）：本表只服务【测试版】；reject-custom.list
-#   是三份配置共用的兜底表。两表之间**不做迁移**，允许包含关系（本表父域覆盖对方子域）。
-#
 # 未覆盖说明：抖音广告不走独立域、汽水音乐外部清单无条目 ⇒ 两者本文件无规则
 
 # ── ① 穿山甲广告SDK：40 条（★10）──
@@ -265,3 +262,40 @@ DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,REJECT-DROP
 #       仅 132 次被拒（91% 放行），且不在任何上游表。
 # ⚠️ 高流量族；若族内混有正常视频，删掉这一行即可回退。
 DOMAIN-SUFFIX,qznovelvod.com,REJECT-DROP
+
+# ── ⑩ 自 reject-custom.list 迁入（2026-10-07 owner 定：字节系规则单独处理）──
+# 本表 = **字节系规则的唯一归属**；reject-custom.list 已切割、不再收字节系规则。
+# 含族关键字 8 条 + 域规则 23 条（手工区迁入 20 + 自动区迁入 3）。
+DOMAIN-KEYWORD,reading-ad,REJECT-DROP
+DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
+DOMAIN-KEYWORD,ads-normal,REJECT-DROP
+DOMAIN-KEYWORD,-misc-lf,REJECT-DROP
+DOMAIN-KEYWORD,-misc-lq,REJECT-DROP
+DOMAIN-KEYWORD,-applog,REJECT-DROP
+DOMAIN-KEYWORD,live-player-log,REJECT-DROP
+DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
+DOMAIN,i.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,ad.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
+DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT-DROP
+DOMAIN-SUFFIX,logbk.amemv.com,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT-DROP
+DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-bd-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-ex-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-daily-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v6-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v9-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-aw-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-se-zjwztc-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v95-zjjx2tc-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-SUFFIX,v96-sz-daily-reading-ad.qznovelvod.com,REJECT-DROP
+
+# ===== 自动收集（以下内容由脚本管理，勿手改）=====
