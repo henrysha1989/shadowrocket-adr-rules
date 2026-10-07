@@ -228,7 +228,7 @@ DOMAIN,security-lq.snssdk.com,REJECT-DROP
 DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT-DROP
 DOMAIN,v6-novelapp.ixigua.com,REJECT-DROP
 
-# ── ⑧ ecombdapi.com 白名单下的广告子域：22 条（★0）──
+# ── ⑧ ecombdapi.com 白名单下的广告子域：24 条（★0）──
 # 来源：本机证据池 classify() 判 ad，但被 direct-custom.list 手工区 `ecombdapi.com` 顺带放行（实测 DIRECT 64 次）
 # ⚠️ 只有在把本表排在 direct-custom.list **之前**的配置里才生效（当前仅测试版）
 DOMAIN-SUFFIX,ec3-core-lf.ecombdapi.com,REJECT-DROP
@@ -253,3 +253,5 @@ DOMAIN-SUFFIX,isaas3-normal-lq.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,isaas5-normal-lf.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,lianmengapi5-core-hl.ecombdapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ecom3-normal-m-hj.ecombdapi.com,REJECT-DROP
+DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,REJECT-DROP
