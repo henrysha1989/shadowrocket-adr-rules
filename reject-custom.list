@@ -15,54 +15,23 @@
 #   `-applog-lf.fqnovel.com` 是**按域名限定**的 ⇒ 同一个埋点族挂在别的域名下就不拦了。
 #   实测代价：`mon11-misc-lf.amemv.com` / `mon0-misc-lf.amemv.com` / `abtest3-misc-lq.zijieapi.com`
 #   因此一直被**判成直连、写进直连表**（埋点走直连）。⇒ 去掉域名限定，改成族名匹配（族名本身就是特征）。
-DOMAIN-KEYWORD,reading-ad,REJECT-DROP
-DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
-DOMAIN-KEYWORD,ads-normal,REJECT-DROP
-DOMAIN-KEYWORD,-misc-lf,REJECT-DROP
-DOMAIN-KEYWORD,-misc-lq,REJECT-DROP
-DOMAIN-KEYWORD,-applog,REJECT-DROP
-DOMAIN-KEYWORD,live-player-log,REJECT-DROP
 # `-reading-sign` 保留（万一还有别的域名上的信号端点）；但**图片 CDN 已被 direct-custom.list 盖过** ——
 # 实测它只命中过 `p3/p9-reading-sign.fqnovelpic.com`，而那族是图片 URL 签名（内容），见直连表手工区。
-DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
 # Google 广告族（2026-10-01 体检发现：`doubleclick.net` / `googlesyndication.com` **不在任何在用订阅表里**，
 # 配置里落到 FINAL,PROXY ⇒ 广告经代理发出去了。整族都是广告，用关键字覆盖（含未来新子域）：
 DOMAIN-KEYWORD,doubleclick,REJECT-DROP
 DOMAIN-KEYWORD,googlesyndication,REJECT-DROP
 # ── 具体域名（取自 reject-custom.list 的现网条目，动作统一改为 DROP）──
-DOMAIN-SUFFIX,ad.fqnovel.com,REJECT-DROP
-DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT-DROP
-DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT-DROP
-DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT-DROP
-DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT-DROP
-DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v5-bd-daily-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v5-ex-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v6-daily-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v6-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v9-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v95-aw-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v95-se-zjwztc-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v95-zjjx2tc-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-SUFFIX,v96-sz-daily-reading-ad.qznovelvod.com,REJECT-DROP
 # ── 字节 SDK 域（红果广告预取/埋点会打它，实测是重试风暴的主要来源之一）──
 #    如果你觉得不该进红果专表，删掉这一行即可。
-DOMAIN,i.snssdk.com,REJECT-DROP
 # ── 字节埋点（2026-09-30 依新 db 实测补入）──
 #   applog.zijieapi.com：红果播放时打出的埋点。它同时被上游 Privacy.list 的
 #   `DOMAIN-KEYWORD,applog.`（**普通 REJECT**）命中 ⇒ SDK 收到失败信号反复重连：
 #   实测 108 次 / 13 分钟 = 8.2 次/分，是该窗口唯一的重试热点（同窗口 DROP 域的均值只有 1.6 次/分）。
 #   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
-DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
-# ⚠️ 2026-10-07 owner 定：本表（手工区与自动区）里「关于字节」的规则**全部保留在本表**，
-#   **不迁移**到 bytedance-ad.list —— 本表被三份配置（稳定版/通用版/测试版）共同引用，
-#   而 bytedance-ad.list 只被测试版引用；迁移会让稳定版/通用版失去这些拦截。
-#   两表之间允许「包含关系」（bytedance-ad 的父域覆盖本表子域），属设计，不算重复；
-#   `sr_analyze.py --check-lists` 对这种反向包含只给 ℹ️ 警告、不判失败。
+
+# ⚠️ 2026-10-07 owner 定：**字节系规则已全部迁出本表** → `bytedance-ad.list`（域 23 条 + 族关键字 8 条）。
+#   本表**不再收字节系规则**；管线的字节系漏网也会直接路由到 bytedance-ad.list 的自动区。
+#   切割原因：字节系规则要能单独开关、单独演进。
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
-DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT-DROP
-DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT-DROP
-DOMAIN-SUFFIX,logbk.amemv.com,REJECT-DROP
