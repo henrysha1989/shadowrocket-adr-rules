@@ -37,7 +37,7 @@ DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
 # 这条等于把口径补上 —— 族关键字盖过口径的地方，用本表把它盖回来（本表在拦截段**之前**）。
 # 注：`byteimg.com` **不**照此办理：它上面的 `p3-ad-sign.byteimg.com` 在参考黑名单里、是**真追踪域**，继续 DROP。
 DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
-# ── 内容型 CDN 族收敛（qrstuvwxyzab.com 2026-10-07 复核后移出：其父域是随机字母串、子域是纯数字，属轮换型追踪域形态；SR 参考清单无收录、classify 无意见，但不再给它整族放行）（2026-09-30 owner「准确」）：5 个族 → 5 条父域（原 6 个） ──
+# ── 内容型 CDN 族收敛（2026-09-30 owner「准确」）：6 个族 76 条子域 → 6 条父域 ──
 # 为什么收敛**更准确**：① 同一族的轮换编号/新子域自动覆盖（不用等下轮分析重新发现）；
 #   ② 少写 70 条；③ 核验过这些族的**父域与四张拦截表 0 冲突**，且族内**没有任何埋点/信号主机**
 #   （逐族扫过 `-misc`/`-applog`/`live-player-log`/`ad-sign` 等特征：0 命中）。
@@ -47,6 +47,7 @@ DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
 DOMAIN-SUFFIX,douyinvod.com,DIRECT
 DOMAIN-SUFFIX,idouyinvod.com,DIRECT
 DOMAIN-SUFFIX,bytegecko.com,DIRECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
 DOMAIN-SUFFIX,douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,ndcpp.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
