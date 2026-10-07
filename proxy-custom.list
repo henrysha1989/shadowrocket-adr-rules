@@ -1,4 +1,4 @@
-# updated: 2026-10-07 01:30 +0800
+# updated: 2026-10-07 16:30 +0800
 # 代理清单（Shadowrocket RULE-SET）—— proxy-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
@@ -7,11 +7,13 @@
 # ⚠️ 2026-09-30 起：手工区（标记之上）由你维护；自动区（标记之下）由
 #   `adh_gist_sync.py --sr-analyze` 从手机 db 生成。
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,abs.twimg.com,PROXY
 DOMAIN-SUFFIX,connectivitycheck.gstatic.com,PROXY
 DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,PROXY
 DOMAIN-SUFFIX,csi.gstatic.com,PROXY
 DOMAIN-SUFFIX,dns.google.com,PROXY
 DOMAIN-SUFFIX,encrypted-tbn1.gstatic.com,PROXY
+DOMAIN-SUFFIX,ep2.facebook.com,PROXY
 DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,PROXY
 DOMAIN-SUFFIX,fonts.gstatic.com,PROXY
 DOMAIN-SUFFIX,gateway.facebook.com,PROXY
