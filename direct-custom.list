@@ -27,11 +27,6 @@ DOMAIN-SUFFIX,yunmart.com,DIRECT
 DOMAIN-KEYWORD,tesla,DIRECT
 DOMAIN-SUFFIX,dig.bdurl.net,DIRECT
 DOMAIN-SUFFIX,dns.weixin.qq.com.cn,DIRECT
-# 抖音电商整域直连（2026-09-30）—— 父域 1 条顶自动区里原有那 20 条 `*.ecombdapi.com`。
-# 背景：脚本的写入口会跳过"已被放行父域覆盖"的子域，所以只把父域加进 `SR_FORCE_DIRECT`
-# 而**不写进本表**时，手机上那一族会掉回 FINAL,PROXY。脚本现已改成会自动写入 SR_FORCE_DIRECT 父域，
-# 这里手写一条是**owner 可见的权威记录**（唯一来源仍是脚本里的 SR_FORCE_DIRECT）。
-DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 # 番茄小说**图片 CDN** 整族直连（2026-09-30 深夜体检发现；owner 追问"耗电"时挖出来的）
 # 证据（跨最近 10 个库复核）：`DOMAIN-KEYWORD,-reading-sign` 只命中过两个主机，全是图片 CDN 上的：
 #   `p3-reading-sign.fqnovelpic.com` 2,845 次 / `p9-reading-sign.fqnovelpic.com` 11 次，**100% 被 DROP**；
