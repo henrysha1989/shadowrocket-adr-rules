@@ -57,6 +57,11 @@ DOMAIN,i.snssdk.com,REJECT-DROP
 #   实测 108 次 / 13 分钟 = 8.2 次/分，是该窗口唯一的重试热点（同窗口 DROP 域的均值只有 1.6 次/分）。
 #   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
 DOMAIN-SUFFIX,applog.zijieapi.com,REJECT-DROP
+# ⚠️ 2026-10-07 owner 定：本表（手工区与自动区）里「关于字节」的规则**全部保留在本表**，
+#   **不迁移**到 bytedance-ad.list —— 本表被三份配置（稳定版/通用版/测试版）共同引用，
+#   而 bytedance-ad.list 只被测试版引用；迁移会让稳定版/通用版失去这些拦截。
+#   两表之间允许「包含关系」（bytedance-ad 的父域覆盖本表子域），属设计，不算重复；
+#   `sr_analyze.py --check-lists` 对这种反向包含只给 ℹ️ 警告、不判失败。
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,log0-misc-hl.amemv.com,REJECT-DROP
