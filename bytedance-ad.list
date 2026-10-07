@@ -217,10 +217,6 @@ DOMAIN,*default.ixigua.com,REJECT-DROP
 DOMAIN,*novelapp.ixigua.com,REJECT-DROP
 DOMAIN,activity-ag.awemeughun.com,REJECT-DROP
 DOMAIN,api.iegadp.qq.com,REJECT-DROP
-DOMAIN-SUFFIX,bytedance.com,REJECT-DROP
-DOMAIN-SUFFIX,bytegoofy.com,REJECT-DROP
-DOMAIN-SUFFIX,byteimg.com,REJECT-DROP
-DOMAIN-SUFFIX,byteorge.com,REJECT-DROP
 DOMAIN,msync-im1-vip6-std.easemob.com,REJECT-DROP
 DOMAIN,p6-ad-sign.byteimg.com,REJECT-DROP
 DOMAIN,p9-ad-sign.byteimg.com,REJECT-DROP
@@ -261,7 +257,6 @@ DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,REJECT-DROP
 #       靠 GEOIP,CN,DIRECT 放行 ⇒ **有画面有声音的广告视频由此进入**；11 小时库里该族 1477 次命中
 #       仅 132 次被拒（91% 放行），且不在任何上游表。
 # ⚠️ 高流量族；若族内混有正常视频，删掉这一行即可回退。
-DOMAIN-SUFFIX,qznovelvod.com,REJECT-DROP
 
 # ── ⑩ 自 reject-custom.list 迁入（2026-10-07 owner 定：字节系规则单独处理）──
 # 本表 = **字节系规则的唯一归属**；reject-custom.list 已切割、不再收字节系规则。
