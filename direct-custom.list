@@ -1,4 +1,4 @@
-# updated: 2026-10-07 14:30 +0800
+# updated: 2026-10-07 16:30 +0800
 # 直连清单（Shadowrocket RULE-SET）—— direct-custom.list
 #
 # 订阅：https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/direct-custom.list
@@ -72,7 +72,26 @@ DOMAIN-SUFFIX,bsync3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bytelink100-ws-hl.amemv.com,DIRECT
+DOMAIN-SUFFIX,ec3-core-lf.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ec3-core-lq.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ec5-core-hl.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ec5-core-lf.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ec5-core-lq.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom-normal-m.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom3-normal-hl.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom3-normal-lf.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom3-normal-lq.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom3-normal-m-hj.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom5-normal-hl.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom5-normal-lf.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom5-normal-lq.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom5-normal-m-hj.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecom5-normal-zb.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,ecomuser.snssdk.com,DIRECT
+DOMAIN-SUFFIX,ecset3-core-xh.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecset5-core-m-hj.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,ecset5-core-zb.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,effect.snssdk.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme.snssdk.com,DIRECT
@@ -88,11 +107,15 @@ DOMAIN-SUFFIX,imapi-oth.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,imapi5-oth-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,is-lq.snssdk.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com,DIRECT
+DOMAIN-SUFFIX,isaas3-normal-lf.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,isaas3-normal-lq.ecombdapi.com,DIRECT
+DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,klink5-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com,DIRECT
 DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
 DOMAIN-SUFFIX,lf26-effect-302.byteeffecttos.com,DIRECT
 DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,DIRECT
+DOMAIN-SUFFIX,lianmengapi5-core-hl.ecombdapi.com,DIRECT
 DOMAIN-SUFFIX,life5-normal-m-zb.amemv.com,DIRECT
 DOMAIN-SUFFIX,log-report.rtc.volcvideo.com,DIRECT
 DOMAIN-SUFFIX,m.baike.com,DIRECT
@@ -123,17 +146,9 @@ DOMAIN-SUFFIX,p9.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,p95-zjwztc-sign.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,p96-sign.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,pitaya.bytedance.com,DIRECT
-DOMAIN-SUFFIX,polaris3-normal-gl2.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris3-normal-hl.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris3-normal-lf.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris3-normal-lq.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris3-normal-xh.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris3-normal-zb.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris5-normal-gl2.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris5-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-lq.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris5-normal-xh.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,reading.snssdk.com,DIRECT
 DOMAIN-SUFFIX,render.ecombdpage.com,DIRECT
