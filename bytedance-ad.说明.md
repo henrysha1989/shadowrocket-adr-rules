@@ -141,11 +141,15 @@ BlockHttpDNS(1) → AdvertisingLite_Domain(2) → AdvertisingLite(3) → Privacy
 - **解密面有多大**：4 个域，基线实测 **1290 次 / 10.6h ≈ 122 次/小时 ≈ 2900 次/天** —— 这就是 MITM 每天的全部解密量。
   对照：社区同类模块动辄要解 65–1268 个域（可莉的 `可莉广告过滤器` 是 65 个），我们只是它的几个百分点，
   所以"功耗无明显增加"这个预期是有依据的。
-- **拦截后的信号**：这 4 个族的**请求量应该下降**（DROP 那次的经验是直接归零）；
-  同时内容族 `qznovelvod` / `douyinpic` / `douyinvod` / `fqnovelpic` / `bytegecko` 的请求量应保持常态。
-  一旦内容族"断崖式消失"或伴随主观异常 ⇒ 按 `module/README.md` 的三档回滚。
+- **别指望在请求量上看出"拦截成功"**：14 条规则里有 **9 条用的是 200 系动作**（`reject-img` / `reject-dict` / `reject-200`）——
+  SDK 收到的是「成功」，所以**请求量基本守恒**，这是刻意设计的（不制造重试风暴）。
+  只有 5 条 `reject`(404) 规则（广告安装包、`gurd.../package`、`mosaic-legacy` 等）可能让 SDK 放弃重试、量下降。
+  ⇒ **"拦截有效"主要靠肉眼看**；db 对比的职责是**抓误伤**：内容族
+  （`qznovelvod` / `douyinpic` / `douyinvod` / `fqnovelpic` / `bytegecko`…）请求量必须保持常态，
+  一旦"断崖式消失"或伴随主观异常 ⇒ 按 `module/README.md` 的三档回滚。
 
-判定用同一脚本：`ops/shadowrocket/analyze-bytedance-families.mjs`（工作区侧）跑新库，与本文第三节的基线对比。
+判定用工作区侧脚本：`ops/shadowrocket/compare-bytedance-before-after.mjs`（按每小时速率比，与基线快照对照，
+内容族骤降会直接打 🚨）；族级明细也可用 `analyze-bytedance-families.mjs` 单独跑。
 
 ## 八、变更记录
 
