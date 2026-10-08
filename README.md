@@ -35,9 +35,9 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 
 | 模块 | 动作 | 作用 |
 |---|---|---|
-| `module/bytedance-ad.module` | 15 条 URL Rewrite | 字节系公共广告链路：穿山甲接口 / 上报、广告素材与安装包、广告图（`reject-img`）、广告视频 |
+| `module/bytedance-ad.module` | 16 条 URL Rewrite | 字节系公共广告链路：穿山甲接口 / 上报、抖音 `amemv` 广告接口、广告素材与安装包、广告图（`reject-img`）、广告视频 |
 
-不含 `[Rule]`、不含 IP、不含关键字、不跑第三方 JS —— 域名级拦截仍然只在 `bytedance-ad.list`。
+动作按响应类型分级（JSON 接口 `reject-dict` / 上报 `reject-200` / 素材 `reject` / 图片 `reject-img`）。不含 `[Rule]`、不含 IP、不含关键字、不跑第三方 JS —— 域名级拦截仍然只在 `bytedance-ad.list`。
 
 安装地址（带自建加速前缀）：
 
