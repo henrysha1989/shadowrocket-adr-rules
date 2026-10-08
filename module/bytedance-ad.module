@@ -1,32 +1,23 @@
 #!name=字节系去广告·路径级
-#!desc=字节系 App（抖音/红果/番茄/皮皮虾…）内容和广告同域时，只拦广告 URL 路径。需要 HTTPS 解密（MITM），装前请读 module/README.md。
+#!desc=字节系 App 里内容和广告同域时，只拦广告路径（pstatp/byteimg/snssdk/amemv）。需开 HTTPS 解密，见仓库 module/README.md。
 #!author=henrysha1989
 #!homepage=https://github.com/henrysha1989/shadowrocket-adr-rules
-# 本模块只放「域名级拦不到」的路径（设计总则见仓库根目录 bytedance-ad.说明.md）：
-#   整族已被 bytedance-ad.list 拦掉的（pangolin / pglstatp）不在这里重复，免得白白扩大 MITM 解密面。
-#   留在这里的 4 个族都是"既发内容又发广告"、域名级不能一刀切的：pstatp / byteimg / snssdk / amemv。
-# 动作分级：JSON 接口 → reject-dict（回 200 + {}，SDK 不重试）· 上报 → reject-200（回 200 空体）
-#          素材/安装包/视频 → reject（404 断开）· 图片 → reject-img（回 200 + 1 像素图）
-# 不含 [Rule]、不含 IP、不含关键字、不跑第三方 JS。
+# 系统更新时间：2026-10-09 01:22 +0800
 
 [URL Rewrite]
-# —— 广告接口 / 上报链路 ——
 ^https?:\/\/.+\.snssdk\.com\/api\/ad\/ - reject-dict
 ^https?:\/\/.+\.amemv\.com\/api\/ad\/ - reject-dict
 ^https?:\/\/.+?\.snssdk\.com\/motor\/operation\/activity\/display\/config\/V2\/ - reject-dict
 ^https?:\/\/.+\.pstatp\.com\/bytecom\/resource\/track-log\/src\/ - reject-200
 ^https?:\/\/gurd\.snssdk\.com\/src\/server\/v3\/package - reject
-# —— 广告素材 / 广告安装包 ——
 ^https?:\/\/.+\.pstatp\.com\/(obj|img)\/ad-app-package\/ - reject
 ^https?:\/\/.+\.pstatp\.com\/(obj|img)\/ad\/ - reject
 ^https?:\/\/.+\.pstatp\.com\/obj\/ad-pattern\/renderer - reject
 ^https?:\/\/.+\.pstatp\.com\/obj\/mosaic-legacy\/.+\?from\=ad - reject
 ^http:\/\/.+\.byteimg\.com\/ad-app-package - reject
-# —— 广告图 ——
 ^https?:\/\/.+\.pstatp\.com\/(obj|img)\/web\.business\.image\/ - reject-img
 ^https?:\/\/.+\.byteimg\.com\/tos-cn-i-1yzifmftcy\/(.+)-jpeg\.jpeg - reject-img
 ^http:\/\/.+\.byteimg\.com\/web\.business\.image - reject-img
-# —— 广告视频（"有画面有声音"那种；出问题先注释这条）——
 ^https?:\/\/.+\.snssdk\.com\/video\/play\/1\/toutiao\/.+\/mp4 - reject
 
 [MITM]
