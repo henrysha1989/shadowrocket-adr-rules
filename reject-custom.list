@@ -1,5 +1,7 @@
-# updated: 2026-09-30 16:54 +0000
+# updated: 2026-10-08 20:00 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 DOMAIN-KEYWORD,doubleclick,REJECT-DROP
 DOMAIN-KEYWORD,googlesyndication,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT-DROP
+DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT-DROP
