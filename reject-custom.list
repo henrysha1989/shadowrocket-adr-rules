@@ -1,37 +1,5 @@
 # updated: 2026-09-30 16:54 +0000
-# 拦截清单（Shadowrocket RULE-SET）—— reject-custom.list
-#
-# 订阅（自建加速，国内可用）：
-#   https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/reject-custom.list
-# 用法：放进 [Rule] 的拦截段。建议排在其它规则集之前。
-#
-# ⚠️ 2026-09-30 起本文件**不再由 CI 从 adh-custom.txt 生成**（那条链路已切断）：
-#   手工区（本标记之上）= 红果/番茄专表内容（原 hongguo-ad.list，已并入本文件）；
-#   自动区（本标记之下）= 由 `adh_gist_sync.py --sr-analyze` 读手机 db 生成
-#     （判据：classify() 判广告、但手机实际没拦住 = 漏网之鱼；动作自动判定 REJECT / REJECT-DROP）。
-#   ADH 那边走它自己的过滤清单（adh-custom.txt），与本文件互不相干。
-# ── 族级关键字（覆盖轮换编号）──
-# ⚠️ 2026-09-30 owner「规则要准确」：原来三条 `-misc-lf.fqnovel.com` / `-misc-lq.fqnovel.com` /
-#   `-applog-lf.fqnovel.com` 是**按域名限定**的 ⇒ 同一个埋点族挂在别的域名下就不拦了。
-#   实测代价：`mon11-misc-lf.amemv.com` / `mon0-misc-lf.amemv.com` / `abtest3-misc-lq.zijieapi.com`
-#   因此一直被**判成直连、写进直连表**（埋点走直连）。⇒ 去掉域名限定，改成族名匹配（族名本身就是特征）。
-# `-reading-sign` 保留（万一还有别的域名上的信号端点）；但**图片 CDN 已被 direct-custom.list 盖过** ——
-# 实测它只命中过 `p3/p9-reading-sign.fqnovelpic.com`，而那族是图片 URL 签名（内容），见直连表手工区。
-# Google 广告族（2026-10-01 体检发现：`doubleclick.net` / `googlesyndication.com` **不在任何在用订阅表里**，
-# 配置里落到 FINAL,PROXY ⇒ 广告经代理发出去了。整族都是广告，用关键字覆盖（含未来新子域）：
+# 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 DOMAIN-KEYWORD,doubleclick,REJECT-DROP
 DOMAIN-KEYWORD,googlesyndication,REJECT-DROP
-# ── 具体域名（取自 reject-custom.list 的现网条目，动作统一改为 DROP）──
-# ── 字节 SDK 域（红果广告预取/埋点会打它，实测是重试风暴的主要来源之一）──
-#    如果你觉得不该进红果专表，删掉这一行即可。
-# ── 字节埋点（2026-09-30 依新 db 实测补入）──
-#   applog.zijieapi.com：红果播放时打出的埋点。它同时被上游 Privacy.list 的
-#   `DOMAIN-KEYWORD,applog.`（**普通 REJECT**）命中 ⇒ SDK 收到失败信号反复重连：
-#   实测 108 次 / 13 分钟 = 8.2 次/分，是该窗口唯一的重试热点（同窗口 DROP 域的均值只有 1.6 次/分）。
-#   本表排在拦截段最前，这里先声明 REJECT-DROP 即可抢在 Privacy.list 之前命中、改成丢包语义。
-
-# ⚠️ 2026-10-07 owner 定：**字节系规则已全部迁出本表** → `bytedance-ad.list`（域 23 条 + 族关键字 8 条）。
-#   本表**不再收字节系规则**；管线的字节系漏网也会直接路由到 bytedance-ad.list 的自动区。
-#   切割原因：字节系规则要能单独开关、单独演进。
-
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
