@@ -4,7 +4,7 @@
 > ADH（DNS 层、`adh-custom.txt`）在 [`henrysha1989/adh-rules`](https://github.com/henrysha1989/adh-rules)；
 > 本仓库只服务手机 **Shadowrocket**（客户端分流）。两边**互不引用、不共享状态**。
 
-> 当前规则量：拦截 **28** 条 / 直连 **116** 条 / 代理 **57** 条。
+> 当前规则量：拦截 **4** 条 / 直连 **115** 条 / 代理 **76** 条。
 
 ## 三张表（订阅给 Shadowrocket）
 
