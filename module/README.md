@@ -17,16 +17,21 @@
 
 ### 它做什么
 
-16 条 `[URL Rewrite]`，打字节系 App（抖音 / 红果 / 番茄 / 皮皮虾 / 头条 …）**共用**的广告链路：
+14 条 `[URL Rewrite]`，打字节系 App（抖音 / 红果 / 番茄 / 皮皮虾 / 头条 …）**内容和广告同域**的那些 CDN / API：
 
 | 组 | 条数 | 动作 | 打什么 |
 |---|---|---|---|
-| 广告接口 / 上报 | 6 | `reject-dict` ×4 · `reject-200` ×1 · `reject` ×1 | 穿山甲 `/api/ad/union/sdk`、`snssdk` 与 `amemv` 的 `/api/ad/`、`motor/.../V2/`（JSON 接口回 `200 + {}`）、`track-log/src`（上报回 `200` 空体）、`gurd.../v3/package` |
-| 广告素材 / 安装包 | 5 | `reject` | `ad-app-package`、`/obj|img/ad/`、`ad-pattern/renderer`、`mosaic-legacy?from=ad`、`byteimg` 的 apk 路径 |
-| 广告图 | 3 | `reject-img` | `web.business.image`、`byteimg` 的 `tos-cn-i-…-jpeg.jpeg`（回 1×1 像素图：App 拿到 200，比 `reject` **温和**、不触发重试） |
-| 广告视频 | 2 | `reject` | `toutiao.mp4`、`/video/play/1/toutiao/*/mp4`（就是"有画面有声音"那种） |
+| 广告接口 / 上报 | 5 | `reject-dict` ×3 · `reject-200` ×1 · `reject` ×1 | `snssdk` 与 `amemv` 的 `/api/ad/`、`motor/.../V2/`（JSON 接口回 `200 + {}`）、`track-log/src`（上报回 `200` 空体）、`gurd.../v3/package` |
+| 广告素材 / 安装包 | 4 | `reject` | `pstatp` 的 `ad-app-package`、`/obj|img/ad/`、`ad-pattern/renderer`、`mosaic-legacy?from=ad`、`byteimg` 的 apk 路径 |
+| 广告图 | 3 | `reject-img` | `pstatp` 的 `web.business.image`、`byteimg` 的 `tos-cn-i-…-jpeg.jpeg`（回 1 像素图：App 拿到 200，比 `reject` **温和**、不触发重试） |
+| 广告视频 | 1 | `reject` | `snssdk` 的 `/video/play/1/toutiao/*/mp4`（就是"有画面有声音"那种） |
 
-**动作分级（2026-10-09 第二次完善）**：按"响应该长什么样"选动作，而不是一律 `reject`：
+**只留"域名级拦不到"的族**（设计总则见仓库根目录 [`bytedance-ad.说明.md`](../bytedance-ad.说明.md)）：
+本模块只覆盖 `pstatp` / `byteimg` / `snssdk` / `amemv` 四个**既发内容又发广告**的族；
+已经被 `bytedance-ad.list` 整族拦掉的（`pangolin-sdk-toutiao`、`pglstatp-toutiao`）**不在这里重复** ——
+请求根本到不了 MITM，写了只会白白扩大解密面（校验器的 `--against` 会把这种"死规则"报出来）。
+
+**动作分级（2026-10-09 完善）**：按"响应该长什么样"选动作，而不是一律 `reject`：
 
 | 响应类型 | 动作 | 为什么 |
 |---|---|---|
@@ -64,12 +69,10 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 
 ### 代价（照实写）
 
-- **会解密 6 个域名**：`*.pangolin-sdk-toutiao.com`、`*.pglstatp-toutiao.com`、`*.pstatp.com`、
-  `*.byteimg.com`、`*.snssdk.com`、`*.amemv.com`。后四个流量不小（图片/视频 CDN、抖音 API）⇒ 手机要多做 TLS 解密，**耗电、发热**。
-- `*.pangolin-sdk-toutiao.com` 这条目前**用不上**：该族域名已经被域名级规则拦掉（两个最新库里 407 次全 REJECT），
-  请求根本到不了 MITM；留着是给"上游清单哪天把这条删了"兜底，代价接近 0。
-- 想省点：把 `[MITM] hostname` 里的 `*.byteimg.com, *.snssdk.com, *.amemv.com` 删掉，
-  同时注释掉用到它们的 4 条 rewrite（`api/ad/` ×2、`web.business.image`、`byteimg` 图片 ×2）。
+- **会解密 4 个域名**：`*.pstatp.com`、`*.byteimg.com`、`*.snssdk.com`、`*.amemv.com`。
+  它们流量都不小（图片/视频 CDN、抖音 API）⇒ 手机要多做 TLS 解密，**耗电、发热**。
+- 想省点：把 `[MITM] hostname` 里的某个域名删掉，同时注释掉只用到它的 rewrite
+  （`*.byteimg.com` → 3 条；`*.amemv.com` → 1 条；`*.snssdk.com` → 5 条；`*.pstatp.com` → 5 条）。
 - **回滚**：关模块或关 `[MITM] enable` 即可，配置和清单都不用动。
 
 ### 怎么验证生效
@@ -78,13 +81,12 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
   路径级的拦截不会留下独立记录。只能看"广告有没有消失 + 有没有副作用"。
 - 该见效的地方：开屏后的广告图文、信息流里的广告图/广告视频（含带声音那种）、广告安装包下载。
 
-### 出问题先怀疑这三条
+### 出问题先怀疑这两条
 
 | 规则 | 风险 |
 |---|---|
 | `*.snssdk.com/video/play/1/toutiao/.+/mp4` | 视频路径，最可能误伤内容视频 |
 | `*.snssdk.com/api/ad/` · `*.amemv.com/api/ad/` | `/api/ad/` 若不是纯广告接口会误伤 |
-| `*.pglstatp-toutiao.com/.+/toutiao.mp4` | 同视频路径 |
 
 注释掉（行首加 `#`）重载即可，其余规则不受影响。
 
@@ -120,6 +122,16 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
   所以可莉那批字段级规则**技术上能搬**，只是本模块定位是"去广告"，暂不放界面清理类规则；
   真要用，`[Body Rewrite]` + 可莉原文照抄即可（`response.json.jq(...)` → `http-response-jq`）。
 
+**第三次（2026-10-09，跳出社区、按自己的设计收敛）**：不再问"社区还有什么"，改成用我们自己的库证据 + 分层模型
+（见仓库根目录 [`bytedance-ad.说明.md`](../bytedance-ad.说明.md)）回头审自己：
+
+- **删掉 pangolin 那条**（`*.pangolin-sdk-toutiao.com/api/ad/union/sdk`）**和 `pglstatp-toutiao` 的全部分支**：
+  这两个族已被 `bytedance-ad.list` 整族拦掉（`DOMAIN-SUFFIX,pangolin-sdk-toutiao.com`、`DOMAIN-SUFFIX,pglstatp-toutiao.com`），
+  请求在域名级就被 DROP，**永远到不了 MITM** ⇒ 死规则，只会扩大解密面。`[MITM] hostname` 顺势 6 → 4。
+- **删掉 `pglstatp-toutiao/.+/toutiao.mp4` 整条**（同上，宿主已被域名级拦掉）。
+- 其余规则把 `(pglstatp-toutiao|pstatp)` 收成 `pstatp`，语义不变、少一段死分支。
+- 校验器新增 `--against`，把"死规则 / 与直连表冲突"变成可自动检查的项（见下）。
+
 另外：3 条纯广告图规则用 `reject-img`，其余动作按上表分级。
 
 **本模块不跟随上游自动更新**：只有 owner 点名才改。
@@ -130,6 +142,14 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 （含 `amemv`/`snssdk` 内容接口、`byteimg` 内容图、`reading-video` 等 10 条）、
 不许出现 `[Rule]` / `IP-CIDR` / `DOMAIN-KEYWORD` / 第三方 JS、MITM 域名与正则互相覆盖。
 
+再加 `--against` 做**分层归属**检查（设计的核心不变量）：
+
 ```sh
-node module/validate-module.mjs module/bytedance-ad.module
+node module/validate-module.mjs module/bytedance-ad.module \
+     --against bytedance-ad.list,direct-custom.list
 ```
+
+- ⚠️ **死规则**：规则里的域名已被拦截清单整族拦掉 ⇒ 该删（或把该族从清单里挪出来，二选一）；
+- ❌ **冲突**：规则里的域名被直连清单放行 ⇒ 先判谁对，别两边都留。
+
+当前模块跑出来是 **0 提示**（14 条规则全部落在"域名级拦不到"的族上）。
