@@ -7,7 +7,7 @@
 | 域名级 | `bytedance-ad.list`（配置里的 `RULE-SET`，动作 `REJECT-DROP`） | 一眼就是广告/埋点的**整个主机** | 无（纯清单） |
 | 路径级 | `module/bytedance-ad.module` | 内容和广告**同域**时，只砍广告**路径** | **必须开 HTTPS 解密（MITM）** |
 
-为什么非要有路径级：字节的 `pstatp` / `byteimg` / `snssdk` 这些 CDN **既发内容也发广告**，
+为什么非要有路径级：字节的 `pstatp` / `byteimg` / `snssdk` / `amemv` 这些 CDN 与 API **既发内容也发广告**，
 域名级一刀切会连内容一起拦 —— 2026-10-08 那次红果/番茄"网络异常"就是裸父域 `qznovelvod.com` /
 `byteimg.com` 连内容视频一起断了。路径级是这类域名的唯一正解。
 
@@ -17,14 +17,25 @@
 
 ### 它做什么
 
-15 条 `[URL Rewrite]`，打字节系 App（抖音 / 红果 / 番茄 / 皮皮虾 / 头条 …）**共用**的广告链路：
+16 条 `[URL Rewrite]`，打字节系 App（抖音 / 红果 / 番茄 / 皮皮虾 / 头条 …）**共用**的广告链路：
 
 | 组 | 条数 | 动作 | 打什么 |
 |---|---|---|---|
-| 广告接口 / 上报 | 5 | `reject` | 穿山甲 SDK 的 `get_ads/stats/settings`、`/api/ad/`、`motor/.../V2/`、`track-log/src`、`gurd.../v3/package` |
+| 广告接口 / 上报 | 6 | `reject-dict` ×4 · `reject-200` ×1 · `reject` ×1 | 穿山甲 `/api/ad/union/sdk`、`snssdk` 与 `amemv` 的 `/api/ad/`、`motor/.../V2/`（JSON 接口回 `200 + {}`）、`track-log/src`（上报回 `200` 空体）、`gurd.../v3/package` |
 | 广告素材 / 安装包 | 5 | `reject` | `ad-app-package`、`/obj|img/ad/`、`ad-pattern/renderer`、`mosaic-legacy?from=ad`、`byteimg` 的 apk 路径 |
-| 广告图 | 3 | `reject-img` | `web.business.image`、`byteimg` 的 `tos-cn-i-…-jpeg.jpeg`（回 1×1 空图：App 拿到 200，比 `reject` **温和**、不触发重试） |
+| 广告图 | 3 | `reject-img` | `web.business.image`、`byteimg` 的 `tos-cn-i-…-jpeg.jpeg`（回 1×1 像素图：App 拿到 200，比 `reject` **温和**、不触发重试） |
 | 广告视频 | 2 | `reject` | `toutiao.mp4`、`/video/play/1/toutiao/*/mp4`（就是"有画面有声音"那种） |
+
+**动作分级（2026-10-09 第二次完善）**：按"响应该长什么样"选动作，而不是一律 `reject`：
+
+| 响应类型 | 动作 | 为什么 |
+|---|---|---|
+| JSON 接口（广告拉取、配置） | `reject-dict`（200 + `{}`） | SDK 拿到合法空对象 ⇒ 无广告、**不重试**；`reject`(404) 反而可能触发 SDK 重连 |
+| 上报 / 日志 | `reject-200`（200 空体） | SDK 认为上报成功，最不容易重试 |
+| 素材 / 安装包 / 视频 | `reject`（404） | 需要真的断掉，别让播放器/下载器拿到半成品 |
+| 图片 | `reject-img`（200 + 1 像素） | 拿不到图但不显示裂图 |
+
+这套分级抄自可莉插件中心（它的 `reject_dict(200)` 就是这个思路），动作语义见本仓库 `Shadowrocket-手册` 的「规则策略」一节。
 
 ### 它**不**做什么（故意的）
 
@@ -53,9 +64,12 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 
 ### 代价（照实写）
 
-- **会解密 5 个域名**：`*.pangolin-sdk-toutiao.com`、`*.pglstatp-toutiao.com`、`*.pstatp.com`、
-  `*.byteimg.com`、`*.snssdk.com`。后三个流量不小（图片/视频 CDN）⇒ 手机要多做 TLS 解密，**耗电、发热**。
-- 想省点：把 `[MITM] hostname` 里的 `*.byteimg.com, *.snssdk.com` 删掉，同时注释掉用到它们的 5 条 rewrite。
+- **会解密 6 个域名**：`*.pangolin-sdk-toutiao.com`、`*.pglstatp-toutiao.com`、`*.pstatp.com`、
+  `*.byteimg.com`、`*.snssdk.com`、`*.amemv.com`。后四个流量不小（图片/视频 CDN、抖音 API）⇒ 手机要多做 TLS 解密，**耗电、发热**。
+- `*.pangolin-sdk-toutiao.com` 这条目前**用不上**：该族域名已经被域名级规则拦掉（两个最新库里 407 次全 REJECT），
+  请求根本到不了 MITM；留着是给"上游清单哪天把这条删了"兜底，代价接近 0。
+- 想省点：把 `[MITM] hostname` 里的 `*.byteimg.com, *.snssdk.com, *.amemv.com` 删掉，
+  同时注释掉用到它们的 4 条 rewrite（`api/ad/` ×2、`web.business.image`、`byteimg` 图片 ×2）。
 - **回滚**：关模块或关 `[MITM] enable` 即可，配置和清单都不用动。
 
 ### 怎么验证生效
@@ -64,19 +78,21 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
   路径级的拦截不会留下独立记录。只能看"广告有没有消失 + 有没有副作用"。
 - 该见效的地方：开屏后的广告图文、信息流里的广告图/广告视频（含带声音那种）、广告安装包下载。
 
-### 出问题先怀疑这两条
+### 出问题先怀疑这三条
 
 | 规则 | 风险 |
 |---|---|
 | `*.snssdk.com/video/play/1/toutiao/.+/mp4` | 视频路径，最可能误伤内容视频 |
-| `*.snssdk.com/api/ad/.+` | `/api/ad/` 若不是纯广告接口会误伤 |
+| `*.snssdk.com/api/ad/` · `*.amemv.com/api/ad/` | `/api/ad/` 若不是纯广告接口会误伤 |
+| `*.pglstatp-toutiao.com/.+/toutiao.mp4` | 同视频路径 |
 
 注释掉（行首加 `#`）重载即可，其余规则不受影响。
 
-### 出处与改动（对比社区原版）
+### 出处与改动（两个社区各取了什么）
 
-正则来自 yfamilys.com（deezertidal 社区的模块站）的 `fanqie.module`（番茄小说模块），只取它的
-`[URL Rewrite]` 部分，并做了四处清理：
+**第一次（2026-10-09）：yfamilys.com / deezertidal 的 `fanqie.module`（番茄小说）**
+
+只取它的 `[URL Rewrite]`，做了四处清理：
 
 1. **丢掉整个 `[Rule]` 段**：原版有 4 条 **两段式裸父域** `DOMAIN-SUFFIX … REJECT`
    （`bytedance.com` / `bytegoofy.com` / `byteorge.com` / `pglstatp-toutiao.com`），
@@ -87,13 +103,31 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 4. **`[MITM] hostname` 从 9 条收成 5 条**：原版含 `*.pstatp.com.*`、`*.pangolin-sdk-toutiao.*`、
    `*default.ixigua.com` 这类怪写法，且缺 `*.byteimg.com`（正则用到了却没解密）—— 补齐必需项、去掉多余项。
 
-另外把 3 条纯广告图规则从 `reject` 改成 `reject-img`（返回 1×1 空图，避免 App 重试）。
+**第二次（2026-10-09）：可莉插件中心 `hub.kelee.one`（Loon 社区，见 `ops/可莉插件中心-评估-2026-10-09.md`）**
+
+- **取**：`HKDouYin_remove_ads.lpx` 的 `api5-normal-lq.amemv.com/api/ad/`（并入我们的 `*.amemv.com/api/ad/` 一条），
+  以及它/`BlockAdvertisers.lpx` 的**动作思路**（`reject_dict(200)` → `reject-dict`）—— 上面那张分级表就是照它改的。
+  取值依据：两个最新库里 `amemv.com` **16 台 / 181 次请求全是 DIRECT**（域名没被拦、又确实是字节广告接口的宿主）。
+- **不取**（各有理由）：
+  - `PiPiXia_remove_ads.lpx`（皮皮虾）：3 条规则本身干净，但**本机 0 次请求**（库内 0 台 pipix 主机）⇒ 不为一台没人用的 App 扩 MITM 面；
+  - `SodaMusic_remove_ads.lpx`（汽水音乐）：`luna/...` 系列在库里 **0 台**（`qishui` 只有 1 台 16 次，还不是 `luna` 接口）⇒ 证据不足；
+    它的 `webcast-open.douyin.com/webcast/openapi/feed/` 是**直播 feed**，拦了可能伤直播 ⇒ 不碰；
+  - `HKDouYin` 的 `[Rule]` 段：5 条硬编码 `IP-CIDR + DEST-PORT` 组合 + 1 条 `(DOMAIN-SUFFIX bytegecko/byteeffecttos) AND (DOMAIN-KEYWORD ncdn)`——IP 与父域混搭，正是我们踩过的雷；
+  - `DragonRead_remove_ads.lpx`（番茄小说）的 **34 条 `DOMAIN…REJECT`**：那是**域名级**，按我们的不变量只能进 `bytedance-ad.list`，不进模块。
+    （已核对：9 条与我们的直连表冲突，16 条是新增，其中只有 4 台在库内且现走 DIRECT ⇒ 收益很小，且 `is/vas/effect.snssdk.com` 这类我们**故意放行**，需要单独决策，见评估报告。）
+  - 它的 jq 改响应体规则（抖音首页 tab 精简、"我的"页借款入口）：**不是广告**，是界面清理。
+- **纠正一个我先前的误判**：小火箭**支持 jq** —— `[Body Rewrite]` 段有 `http-response-jq`（见 `Shadowrocket-手册`「正文重写」）。
+  所以可莉那批字段级规则**技术上能搬**，只是本模块定位是"去广告"，暂不放界面清理类规则；
+  真要用，`[Body Rewrite]` + 可莉原文照抄即可（`response.json.jq(...)` → `http-response-jq`）。
+
+另外：3 条纯广告图规则用 `reject-img`，其余动作按上表分级。
 
 **本模块不跟随上游自动更新**：只有 owner 点名才改。
 
 ### 校验
 
-`module/validate-module.mjs` 会检查：正则能否编译、每条能否命中自己的样例 URL、内容侧负样本不误伤、
+`module/validate-module.mjs` 会检查：正则能否编译、每条能否命中自己的样例 URL、内容侧负样本不误伤
+（含 `amemv`/`snssdk` 内容接口、`byteimg` 内容图、`reading-video` 等 10 条）、
 不许出现 `[Rule]` / `IP-CIDR` / `DOMAIN-KEYWORD` / 第三方 JS、MITM 域名与正则互相覆盖。
 
 ```sh
