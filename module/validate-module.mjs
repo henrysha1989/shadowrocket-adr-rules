@@ -1,11 +1,20 @@
 #!/usr/bin/env node
 // 校验 module/*.module：正则能编译 + 每条能命中自己的"实体化样本" + 负样本不命中 +
 // 结构红线（不许有 [Rule]/IP-CIDR/DOMAIN-KEYWORD/第三方 JS）+ MITM 域名与正则互相覆盖。
-//   node ops/shadowrocket/module/validate-module.mjs ops/shadowrocket/module/bytedance-ad.module
+//   node module/validate-module.mjs module/bytedance-ad.module
+//
+// 另可加 --against 做「分层归属」检查（设计总则见仓库根目录 bytedance-ad.说明.md）：
+//   node module/validate-module.mjs module/bytedance-ad.module \
+//        --against bytedance-ad.list,direct-custom.list
+//   · 规则里的域名已被拦截清单整族拦掉 ⇒ ⚠️ 死规则（请求到不了 MITM，纯属扩大解密面）
+//   · 规则里的域名被直连清单放行      ⇒ ❌ 冲突（模块拦不到，先解决谁对）
 import fs from 'node:fs';
 
-const file = process.argv[2];
-if (!file) { console.error('usage: validate-module.mjs <file.module>'); process.exit(2); }
+const argv = process.argv.slice(2);
+const againstIdx = argv.indexOf('--against');
+const against = againstIdx >= 0 ? (argv[againstIdx + 1] || '').split(',').filter(Boolean) : [];
+const file = argv.find((a, i) => !a.startsWith('--') && i !== againstIdx + 1);
+if (!file) { console.error('usage: validate-module.mjs <file.module> [--against list1,list2]'); process.exit(2); }
 const text = fs.readFileSync(file, 'utf8');
 
 // ---- 解析 ----
@@ -120,11 +129,66 @@ for (const h of mitm) {
   const used = rewrites.some((r) => r.pattern.toLowerCase().replace(/\\/g, '').includes(core));
   if (!used) problems.push(`MITM 域名 ${h} 没有任何正则用到（多余的解密面）`);
 }
+// ---- 分层归属检查（--against）----
+// 规则里的域名若已被拦截清单整族拦掉 ⇒ 死规则；若被直连清单放行 ⇒ 冲突。
+const warnings = [];
+const hostPartsOf = (pattern) => {
+  // 先整体去转义（\. → .），再砍协议头、取第一个 / 之前的主机段
+  const plain = pattern.replace(/\\(.)/g, '$1');
+  const seg = plain.replace(/^\^?https?\??:\/\//, '').split('/')[0];   // 兼容 http:// 与 https?://（源码里的 ? 是字面量）
+  const variants = [seg];
+  for (let i = 0; i < variants.length && i < 20; i++) {           // 展开 (a|b) 可选支
+    const g = variants[i].match(/\(([^()]*\|[^()]*)\)/);
+    if (!g) continue;
+    variants.splice(i, 1, ...g[1].split('|').map((alt) => variants[i].slice(0, g.index) + alt + variants[i].slice(g.index + g[0].length)));
+    i--;
+  }
+  return variants.map((v) => {
+    const toks = v.split('.').filter((t) => /^[a-z0-9-]{2,}$/i.test(t));
+    return toks.length >= 2 ? toks.slice(-2).join('.') : null;    // 取末两段近似注册域
+  }).filter(Boolean);
+};
+if (against.length) {
+  const entries = [];
+  for (const p of against) {
+    if (!fs.existsSync(p)) { problems.push(`--against 文件不存在：${p}`); continue; }
+    for (const L of fs.readFileSync(p, 'utf8').split(/\r?\n/)) {
+      const s = L.trim();
+      if (!s || s.startsWith('#') || !s.startsWith('DOMAIN')) continue;
+      const [t, v, act] = [s.split(',')[0].toUpperCase(), s.split(',')[1].trim().toLowerCase(), (s.split(',')[2] || '').trim().toUpperCase()];
+      entries.push({ t, v, act, file: p });
+    }
+  }
+  const match = (host) => entries.find((e) => (e.t === 'DOMAIN' ? host === e.v
+    : e.t === 'DOMAIN-SUFFIX' ? (host === e.v || host.endsWith('.' + e.v))
+      : e.t === 'DOMAIN-KEYWORD' ? host.includes(e.v) : false));
+  for (const [i, r] of rewrites.entries()) {
+    const parts = hostPartsOf(r.pattern);
+    if (!parts.length) { warnings.push(`第 ${i + 1} 条解析不出域名，跳过分层检查：${r.pattern.slice(0, 40)}`); continue; }
+    const status = parts.map((h) => {
+      const e = match(h);
+      if (!e) return { h, kind: 'live' };
+      if (/DIRECT/.test(e.act)) return { h, kind: 'allow', e };
+      return { h, kind: 'blocked', e };
+    });
+    const allowed = status.filter((s) => s.kind === 'allow');
+    const blocked = status.filter((s) => s.kind === 'blocked');
+    for (const s of allowed) problems.push(`第 ${i + 1} 条与直连清单冲突：${s.h} 被 ${s.e.t},${s.e.v},${s.e.act} 放行（${s.e.file}）`);
+    if (blocked.length === status.length) {
+      warnings.push(`第 ${i + 1} 条是死规则：${blocked.map((s) => s.h).join(' / ')} 已被拦截清单整族拦掉（如 ${blocked[0].e.t},${blocked[0].e.v}），请求到不了 MITM`);
+    } else {
+      for (const s of blocked) warnings.push(`第 ${i + 1} 条有死分支：${s.h} 已被 ${s.e.t},${s.e.v} 拦掉，仅剩 ${status.filter((x) => x.kind === 'live').map((x) => x.h).join(' / ')} 有效`);
+    }
+  }
+}
+
 console.log(`文件：${file}`);
 console.log(`模块名：${meta.name || '(缺 #!name)'}  作者：${meta.author || '-'}`);
 console.log(`段：${[...sections.keys()].join(' / ')}`);
 console.log(`URL Rewrite：${rewrites.length} 条，动作：${JSON.stringify(rewrites.reduce((a, r) => (a[r.action] = (a[r.action] || 0) + 1, a), {}))}`);
 console.log(`MITM 域名：${mitm.length} 个（裸域 ${bare.length} 个）`);
 console.log(`负样本 ${negatives.length} 条，全部通过（没有误伤）`);
+if (against.length) console.log(`分层检查：对照 ${against.join(' + ')} ⇒ ${warnings.length} 条提示`);
+if (warnings.length) console.log('\n⚠️ 提示（不阻塞）：\n' + warnings.map((w) => '  - ' + w).join('\n'));
 console.log(problems.length ? '\n❌ 问题：\n' + problems.map((p) => '  - ' + p).join('\n') : '\n✅ 校验通过');
 process.exit(problems.length ? 1 : 0);
