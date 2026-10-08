@@ -27,6 +27,26 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
 ```
 
+## 模块专区（路径级去广告）
+
+`module/` 放自建 `.module` —— 清单管**域名级**，模块管**路径级**：内容和广告同域时（字节的
+`pstatp` / `byteimg` / `snssdk` 就是这种），域名级一刀切会连内容一起拦，只能靠路径分。
+**前提是配置里 `[MITM] enable = true` + 手机安装并信任证书。**
+
+| 模块 | 动作 | 作用 |
+|---|---|---|
+| `module/bytedance-ad.module` | 15 条 URL Rewrite | 字节系公共广告链路：穿山甲接口 / 上报、广告素材与安装包、广告图（`reject-img`）、广告视频 |
+
+不含 `[Rule]`、不含 IP、不含关键字、不跑第三方 JS —— 域名级拦截仍然只在 `bytedance-ad.list`。
+
+安装地址（带自建加速前缀）：
+
+```
+https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/module/bytedance-ad.module
+```
+
+代价、回滚、可疑规则与校验脚本见 [`module/README.md`](module/README.md)。
+
 ## 脚本
 
 `sr_analyze.py`（纯标准库，独立运行）—— 读手机导出的 `proxy-*.db`，出体检报告 + 更新三张表的自动区：
