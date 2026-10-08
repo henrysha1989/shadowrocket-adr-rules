@@ -96,6 +96,10 @@ const negatives = [
   'https://p3.byteimg.com/tos-cn-i-1yzifmftcy/content-image.jpeg',
   'https://i.snssdk.com/api/feed/content/',
   'https://gurd.snssdk.com/src/server/v3/config',
+  'https://api5-social-m.amemv.com/aweme/v1/feed/',
+  'https://aggr5-normal-s2.amemv.com/aweme/v1/aweme/post/',
+  'https://aweme.snssdk.com/aweme/v1/feed/',
+  'https://webcast-open.douyin.com/webcast/openapi/feed/',
 ];
 for (const [i, r] of rewrites.entries()) {
   const re = new RegExp(r.pattern);
