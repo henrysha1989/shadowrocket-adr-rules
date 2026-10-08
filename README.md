@@ -29,13 +29,15 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 
 ## 模块专区（路径级去广告）
 
+> 字节系这套「域名级 + 路径级」怎么分工、依据是什么、怎么维护：见 [`bytedance-ad.说明.md`](bytedance-ad.说明.md)。
+
 `module/` 放自建 `.module` —— 清单管**域名级**，模块管**路径级**：内容和广告同域时（字节的
-`pstatp` / `byteimg` / `snssdk` 就是这种），域名级一刀切会连内容一起拦，只能靠路径分。
+`pstatp` / `byteimg` / `snssdk` / `amemv` 就是这种），域名级一刀切会连内容一起拦，只能靠路径分。
 **前提是配置里 `[MITM] enable = true` + 手机安装并信任证书。**
 
 | 模块 | 动作 | 作用 |
 |---|---|---|
-| `module/bytedance-ad.module` | 16 条 URL Rewrite | 字节系公共广告链路：穿山甲接口 / 上报、抖音 `amemv` 广告接口、广告素材与安装包、广告图（`reject-img`）、广告视频 |
+| `module/bytedance-ad.module` | 14 条 URL Rewrite | 字节系**内容/广告同域**的四个族（`pstatp`/`byteimg`/`snssdk`/`amemv`）上的广告接口、上传埋点、广告素材与安装包、广告图（`reject-img`）、广告视频 |
 
 动作按响应类型分级（JSON 接口 `reject-dict` / 上报 `reject-200` / 素材 `reject` / 图片 `reject-img`）。不含 `[Rule]`、不含 IP、不含关键字、不跑第三方 JS —— 域名级拦截仍然只在 `bytedance-ad.list`。
 
