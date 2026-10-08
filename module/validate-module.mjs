@@ -13,7 +13,7 @@ import fs from 'node:fs';
 const argv = process.argv.slice(2);
 const againstIdx = argv.indexOf('--against');
 const against = againstIdx >= 0 ? (argv[againstIdx + 1] || '').split(',').filter(Boolean) : [];
-const file = argv.find((a, i) => !a.startsWith('--') && i !== againstIdx + 1);
+const file = argv.find((a, i) => !a.startsWith('--') && (againstIdx < 0 || i !== againstIdx + 1));
 if (!file) { console.error('usage: validate-module.mjs <file.module> [--against list1,list2]'); process.exit(2); }
 const text = fs.readFileSync(file, 'utf8');
 
@@ -181,6 +181,13 @@ if (against.length) {
     }
   }
 }
+
+// ---- 元信息与注释规范（owner 2026-10-09：模块要清爽 + 带系统更新时间）----
+const commentLines = lines.filter((l) => l.trim().startsWith('#') && !l.trim().startsWith('#!'));
+const hasStamp = lines.some((l) => /^#\s*系统更新时间\s*[:：]/.test(l.trim()));
+if (!hasStamp) warnings.push('缺「# 系统更新时间：YYYY-MM-DD HH:MM +0800」注释 —— 每次改模块都要刷新它');
+const verbose = commentLines.filter((l) => !/^#\s*系统更新时间\s*[:：]/.test(l.trim()));
+if (verbose.length) warnings.push(`除更新时间外还有 ${verbose.length} 行注释（清爽原则：说明写 README，不写进模块）`);
 
 console.log(`文件：${file}`);
 console.log(`模块名：${meta.name || '(缺 #!name)'}  作者：${meta.author || '-'}`);
