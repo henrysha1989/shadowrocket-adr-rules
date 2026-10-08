@@ -1,17 +1,5 @@
-# 字节系广告域（curated）—— bytedance-ad.list
-#
-# 来源：anti-AD（privacy-protection-tools/anti-AD）+ AWAvenue Ads Rule，筛出字节系族
-# 生成：2026-10-07；候选/证据明细：workspace `ops/bytedance-app-rules-2026-10-07.md`
-# 用法：RULE-SET,<url>,REJECT-DROP，放 [Rule] 拦截段靠前（直连表之后）
-# 维护：人工/外部来源，**无 AUTO 标记**，ADH/SR 管线不写本文件
-# ★ = 本机证据池或日志里出现过
-#
-# 已核对：不含 snssdk.com/toutiao.com/douyin.com/zijieapi.com 等 App 核心基础域
-#
-# 未覆盖说明：抖音广告不走独立域、汽水音乐外部清单无条目 ⇒ 两者本文件无规则
-
-# ── ① 穿山甲广告SDK：40 条（★10）──
-# ★本机见过
+# updated: 2026-10-08
+# 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT-DROP
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao-b.com,REJECT-DROP
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao.com,REJECT-DROP
@@ -22,7 +10,6 @@ DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT-DROP
 DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT-DROP
-# 其余
 DOMAIN-SUFFIX,analytics.pangle-ads.com,REJECT-DROP
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao2.com,REJECT-DROP
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao3.com,REJECT-DROP
@@ -53,15 +40,11 @@ DOMAIN-SUFFIX,sf1-be-pack.pglstatp-toutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,sf16-static.i18n-pglstatp.com,REJECT-DROP
 DOMAIN-SUFFIX,sf3-be-pack.pglstatp-toutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,sf6-be-pack.pglstatp-toutiao.com,REJECT-DROP
-
-# ── ② 头条/头条系：67 条（★5）──
-# ★本机见过
 DOMAIN-SUFFIX,applog.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-bjlgy.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,tobapplog.ctobsnssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,toblog.ctobsnssdk.com,REJECT-DROP
-# 其余
 DOMAIN-SUFFIX,2345api.dftoutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,2345apicode.dftoutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT-DROP
@@ -124,16 +107,10 @@ DOMAIN-SUFFIX,ug.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,unionstatis.dftoutiao.com,REJECT-DROP
 DOMAIN-SUFFIX,vas-hl-x.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,xlog.snssdk.com,REJECT-DROP
-
-# ── ③ 红果（hongguo）：4 条（★0）──
-# 其余
 DOMAIN-SUFFIX,myzhongguojie.cn,REJECT-DROP
 DOMAIN-SUFFIX,shijuezhongguo.cdn.bcebos.com,REJECT-DROP
 DOMAIN-SUFFIX,woaizhongguo.cdn111222.com,REJECT-DROP
 DOMAIN-SUFFIX,www.myzhongguojie.cn,REJECT-DROP
-
-# ── ④ 红果/番茄（reading,novel —— ⚠️ 含非字节系阅读类广告域）：33 条（★0）──
-# 其余
 DOMAIN-SUFFIX,app.mktg.novell.com,REJECT-DROP
 DOMAIN-SUFFIX,b.flyreading.cn,REJECT-DROP
 DOMAIN-SUFFIX,basic-novel.pro,REJECT-DROP
@@ -167,9 +144,6 @@ DOMAIN-SUFFIX,trk.darkreading.com,REJECT-DROP
 DOMAIN-SUFFIX,trk.lightreading.com,REJECT-DROP
 DOMAIN-SUFFIX,trk.novelis.com,REJECT-DROP
 DOMAIN-SUFFIX,withdrawalbellownovel.com,REJECT-DROP
-
-# ── ⑤ 西瓜视频：13 条（★0）──
-# 其余
 DOMAIN-SUFFIX,api5-normal-quic-lf.ixigua.com,REJECT-DROP
 DOMAIN-SUFFIX,search.ixigua.com,REJECT-DROP
 DOMAIN-SUFFIX,search3-search.ixigua.com,REJECT-DROP
@@ -183,15 +157,11 @@ DOMAIN-SUFFIX,v6-ad.ixigua.com,REJECT-DROP
 DOMAIN-SUFFIX,v6-dc-ad.ixigua.com,REJECT-DROP
 DOMAIN-SUFFIX,v9-ad.ixigua.com,REJECT-DROP
 DOMAIN-SUFFIX,v9-dc-ad.ixigua.com,REJECT-DROP
-
-# ── ⑥ 字节基础设施（zijieapi/bytedance/byteimg）：21 条（★5）──
-# ★本机见过
 DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,mon.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-aliec2.zijieapi.com,REJECT-DROP
-# 其余
 DOMAIN-SUFFIX,ad.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ads3-normal.zijieapi.com,REJECT-DROP
@@ -208,11 +178,6 @@ DOMAIN-SUFFIX,tnc3-aliec1.zijieapi.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-aliec2.bytedance.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-alisc1.bytedance.com,REJECT-DROP
 DOMAIN-SUFFIX,tnc3-bjlgy.bytedance.com,REJECT-DROP
-
-# ── ⑦ 番茄模块补充（deezertidal/shadowrocket-rules → modules/fanqie.module）：14 条（★0）──
-# 第三方维护的番茄小说去广告模块，只取域规则；它的 [URL Rewrite] 需开 MITM，未采用
-# ⚠️ 未采用该模块的 `DOMAIN-KEYWORD,zijieapi,REJECT` —— 过宽，会打断字节系正常 API
-# 其中字节系族 9 条 / 其它广告域 5 条
 DOMAIN,*default.ixigua.com,REJECT-DROP
 DOMAIN,*novelapp.ixigua.com,REJECT-DROP
 DOMAIN,activity-ag.awemeughun.com,REJECT-DROP
@@ -223,10 +188,6 @@ DOMAIN,p9-ad-sign.byteimg.com,REJECT-DROP
 DOMAIN,security-lq.snssdk.com,REJECT-DROP
 DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT-DROP
 DOMAIN,v6-novelapp.ixigua.com,REJECT-DROP
-
-# ── ⑧ ecombdapi.com 白名单下的广告子域：24 条（★0）──
-# 来源：本机证据池 classify() 判 ad，但被 direct-custom.list 手工区 `ecombdapi.com` 顺带放行（实测 DIRECT 64 次）
-# ⚠️ 只有在把本表排在 direct-custom.list **之前**的配置里才生效（当前仅测试版）
 DOMAIN-SUFFIX,ec3-core-lf.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ec3-core-lq.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ec5-core-hl.ecombdapi.com,REJECT-DROP
@@ -251,16 +212,6 @@ DOMAIN-SUFFIX,isaas5-normal-lq.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,lianmengapi5-core-hl.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ecom3-normal-m-hj.ecombdapi.com,REJECT-DROP
 DOMAIN-SUFFIX,ecom3-normal-zb.ecombdapi.com,REJECT-DROP
-
-# ── ⑨ 撤回记录（2026-10-07）：曾整族拦 `qznovelvod.com`，已删 ──
-# 原因：该父域下同时有 `*-reading-ad.*`（广告）与 `*-reading-video.*`（**内容视频**）两类子域，
-#   整族拦截把内容视频也杀了 ⇒ 红果/番茄 App 报「网络异常」（实测 81 秒内 68 次 REJECT）。
-#   ⚠️ 教训：字节系清单**不要写裸父域**（两段式）—— 族内往往内容与广告混住，只写具体子域。
-#   广告侧由上面 13 条 `*-reading-ad.qznovelvod.com` 覆盖；内容侧交回 GEOIP,CN 直连。
-
-# ── ⑩ 自 reject-custom.list 迁入（2026-10-07 owner 定：字节系规则单独处理）──
-# 本表 = **字节系规则的唯一归属**；reject-custom.list 已切割、不再收字节系规则。
-# 含族关键字 8 条 + 域规则 23 条（手工区迁入 20 + 自动区迁入 3）。
 DOMAIN-KEYWORD,reading-ad,REJECT-DROP
 DOMAIN-KEYWORD,-ad-sign,REJECT-DROP
 DOMAIN-KEYWORD,ads-normal,REJECT-DROP
@@ -292,5 +243,4 @@ DOMAIN-SUFFIX,v95-aw-reading-ad.qznovelvod.com,REJECT-DROP
 DOMAIN-SUFFIX,v95-se-zjwztc-reading-ad.qznovelvod.com,REJECT-DROP
 DOMAIN-SUFFIX,v95-zjjx2tc-reading-ad.qznovelvod.com,REJECT-DROP
 DOMAIN-SUFFIX,v96-sz-daily-reading-ad.qznovelvod.com,REJECT-DROP
-
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
