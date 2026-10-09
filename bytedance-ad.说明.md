@@ -77,6 +77,25 @@
    技术上能搬，但那是**界面清理**不是去广告 ⇒ 不放进本模块（要的话另开 `ui-tidy.module`）。
 4. **皮皮虾**：本机 0 次请求 ⇒ 不为它扩 MITM 面。
 
+### 2026-10-09 静态挖 APK 之后的修订（红果 7.3.9.70）
+
+把红果 APK 拆开扫了一遍（`ops/redroid/mine-apk.mjs` / `apk-host-paths.mjs`，工作区脚本）：
+23367 个 zip 条目、扫 14390 个，得到 **224 个字节系主机名**（其中 **159 个既不在 L1 也不在 L3**）
+和 5850 个广告味路径字符串。
+
+**关键结论：红果把埋点和广告素材分得很开 —— 埋点全挂在 `mon.*` / `log.*` 这类"名字即语义"的独立主机上**
+（`/mon.snssdk.com/monitor/collect/`、`/log.snssdk.com/service/2/app_log/`、`/rtlog.zijieapi.com/…`、
+`/thanos.zijieapi.com/…`），而不是挂在 CDN 的路径里。所以：
+
+- 上面第 1 条说的"缺路径情报"要改口径：**缺的是 L1 的埋点主机覆盖，不是模块的路径规则**；
+- 落在 4 个 MITM 域上的"新"广告路径几乎没有 ⇒ **模块这轮不用动**；
+- L1 候选（既不在清单、也不在直连表、名字即埋点，**待 owner 确认后才加**）：
+  `log.snssdk.com` · `mon.toutiao.com` · `rtlog.zijieapi.com` · `thanos.zijieapi.com`；
+- 明确不动：已在清单的（`mon.snssdk.com` / `mon.zijieapi.com` / `ad.zijieapi.com` / `log.zijieapi.com` /
+  `mon.toutiaocloud.com`）、已在 L3 故意放行的（`ib`/`is`/`reading.snssdk.com`、`ichannel.snssdk.com`、`bytegecko` 系）。
+- ⚠️ APK 里的是**字符串常量**，不是运行时请求；而且**服务器动态下发的广告素材 URL**（`pstatp/obj/ad-app-package/…`
+  这类）根本不在 APK 里 —— 那部分仍然只有抓包能看见。
+
 ## 五、维护规则
 
 改任何一处之后跑一遍：
