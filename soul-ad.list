@@ -1,0 +1,28 @@
+# Soul（灵魂）广告 / 埋点 / 数据上报 专表 —— 手工维护，未接自动采集
+#
+# 用法：放进 [Rule] 拦截段，排在 direct-custom.list（直连表）之后、其他拦截表之前 ——
+#   RULE-SET,https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/soul-ad.list,REJECT-DROP
+# 动作一律 REJECT-DROP：普通 REJECT 会让广告 SDK 反复重连（重试风暴）。
+#
+# 依据：APK 静态挖掘（5.54.0 xapk，11k 文件）+ 2026-09 本机 ADH 实测 + 社区清单共识。
+# ⚠️ 禁收：api-*.soulapp.cn（App 接口域）、img/china-img.soulapp.cn（内容与广告素材同域，
+#   要拦只能走模块做路径级）、gateway2-tcp-spam.soulapp.cn（疑内容风控，屏蔽恐影响发送）。
+#
+# updated: 2026-10-10 02:20 +0800
+DOMAIN-SUFFIX,ad.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ads.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ad-r.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ad-static.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ad-reward.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ad-reward-test.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ad-audit-provider.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,soul-ad.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,ssp.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,roi.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,splash.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,tracker.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,analytics.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,log.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,data-collector.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,soul-report.soulapp.cn,REJECT-DROP
+DOMAIN-SUFFIX,increase-openapi.soulapp.cn,REJECT-DROP
