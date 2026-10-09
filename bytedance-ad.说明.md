@@ -89,8 +89,8 @@
 
 - 上面第 1 条说的"缺路径情报"要改口径：**缺的是 L1 的埋点主机覆盖，不是模块的路径规则**；
 - 落在 4 个 MITM 域上的"新"广告路径几乎没有 ⇒ **模块这轮不用动**；
-- L1 候选（既不在清单、也不在直连表、名字即埋点，**待 owner 确认后才加**）：
-  `log.snssdk.com` · `mon.toutiao.com` · `rtlog.zijieapi.com` · `thanos.zijieapi.com`；
+- L1 已加（commit `0d53830`，2026-10-09 owner 批准）：`log.snssdk.com` · `mon.toutiao.com` · `rtlog.zijieapi.com` · `thanos.zijieapi.com`
+  （三段式 `DOMAIN-SUFFIX` + `REJECT-DROP`，已逐个核对与直连表无冲突；**手机需重载一次配置才生效**）；
 - 明确不动：已在清单的（`mon.snssdk.com` / `mon.zijieapi.com` / `ad.zijieapi.com` / `log.zijieapi.com` /
   `mon.toutiaocloud.com`）、已在 L3 故意放行的（`ib`/`is`/`reading.snssdk.com`、`ichannel.snssdk.com`、`bytegecko` 系）。
 - ⚠️ APK 里的是**字符串常量**，不是运行时请求；而且**服务器动态下发的广告素材 URL**（`pstatp/obj/ad-app-package/…`
