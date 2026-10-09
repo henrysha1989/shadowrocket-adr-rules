@@ -8,8 +8,15 @@
 | 层 | 载体 | 拦什么 | 前提 | 动作 |
 |---|---|---|---|---|
 | **L1 域名级** | `bytedance-ad.list`（配置里 `RULE-SET …,REJECT-DROP`） | ① 名字即语义的广告/埋点主机 ② 已证实的广告/埋点主机 ③ **整族纯广告**的两段式父域 | 无 | `REJECT-DROP`（丢包，防重试风暴） |
-| **L2 路径级** | `module/bytedance-ad.module`（+ 手机 MITM） | 内容与广告**同域**的 CDN/API，只砍广告**路径** | `[MITM] enable = true` + 手机信任证书 | `reject-dict` / `reject-200` / `reject` / `reject-img` |
+| **L2 路径级** ⛔ **暂停** | `module/bytedance-ad.module`（+ 手机 MITM） | 内容与广告**同域**的 CDN/API，只砍广告**路径** | `[MITM] enable = true` + 手机信任证书 —— **对字节系会被 pinning 拒，见下** | `reject-dict` / `reject-200` / `reject` / `reject-img` |
 | **L3 放行** | `direct-custom.list`（及上游 DIRECT 清单） | 内容域：不许出现在 L1/L2 里 | 无 | `DIRECT` |
+
+> 🛑 **2026-10-10 实测：L2 在字节系上不成立（暂停）。**
+> 用 mitmproxy 解密字节系域后，**抖音/红果/番茄等全部报"网络连接错误"** ⇒ 这些 App 有**证书固定（SSL Pinning）**，
+> MITM 一律被拒；Shadowrocket 的 MITM 同理 ⇒ **启用模块 = 字节系 App 断网**。
+> 而本模块**从未真正启用过**（owner 2026-10-09「我没开模块啊」），所以此前看到的"效果"都不是它的。
+> 现在的分工改成：**L1 域名级是主力**；路径情报改用 **APK 静态挖掘**（`ops/redroid/mine-apk.mjs`，红果已验证）。
+> 要复活 L2，必须先做到"逐域实测解密后 App 仍正常"。
 
 三条铁律：
 
