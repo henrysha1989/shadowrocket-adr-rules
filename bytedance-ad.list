@@ -1,4 +1,4 @@
-# updated: 2026-10-10 02:07 +0800
+# updated: 2026-10-10 02:15 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 DOMAIN-SUFFIX,analytics.oceanengine.com,REJECT-DROP
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao-b.com,REJECT-DROP
@@ -256,5 +256,7 @@ DOMAIN-SUFFIX,rtlog.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,rtapplog.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,log.bytedance.net,REJECT-DROP
 DOMAIN-SUFFIX,report.snssdk.com,REJECT-DROP
+DOMAIN-SUFFIX,volceapplog.com,REJECT-DROP
+DOMAIN-SUFFIX,qiezibenpao.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,mon0-misc-lf.amemv.com,REJECT-DROP
