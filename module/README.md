@@ -1,15 +1,28 @@
 # 模块专区（Shadowrocket `.module`）
 
+> 🛑 **2026-10-10 实测结论：本模块在字节系 App 上不可用 —— 已暂停启用，别开。**
+>
+> 用 mitmproxy 解密字节系域（`fqnovel`/`qznovelvod`/`byteimg`/`snssdk`/`amemv`/`pstatp`/`zijieapi`/`douyin`/`toutiao`/`pangolin`…）后，
+> **抖音 / 红果 / 番茄等字节系 App 全部报"网络连接错误"** ⇒ 这些 App 做了**证书固定（SSL Pinning）**，MITM 一律被拒。
+> Shadowrocket 的 MITM 是同一原理 ⇒ **启用本模块会让字节系 App 打不开网**。
+>
+> 两个补充事实：
+> 1. 本模块**从未在手机上真正启用过**（owner 2026-10-09：「我没开模块啊」）⇒ 此前观察到的"效果"都不算它的；
+> 2. 字节系的路径情报改用 **APK 静态挖掘**（`ops/redroid/mine-apk.mjs` / `apk-host-paths.mjs`，红果 7.3.9.70 已验证：
+>    224 个字节系主机、5850 条广告味路径片段）。**域名级 `bytedance-ad.list` 才是这类 App 的主力手段。**
+>
+> 要重新启用，必须先在某台设备上按域实测"解密后 App 仍正常"（逐域加进 MITM 名单试），别一次全开。
+
 清单（`*.list`）管**域名级**，模块管**路径级**。两边分工，不互相重复：
 
 | | 文件 | 拦什么 | 前提 |
 |---|---|---|---|
 | 域名级 | `bytedance-ad.list`（配置里的 `RULE-SET`，动作 `REJECT-DROP`） | 一眼就是广告/埋点的**整个主机** | 无（纯清单） |
-| 路径级 | `module/bytedance-ad.module` | 内容和广告**同域**时，只砍广告**路径** | **必须开 HTTPS 解密（MITM）** |
+| 路径级 | `module/bytedance-ad.module`（**当前暂停**） | 内容和广告**同域**时，只砍广告**路径** | **必须开 HTTPS 解密（MITM）** —— 对字节系会被 pinning 拒 |
 
-为什么非要有路径级：字节的 `pstatp` / `byteimg` / `snssdk` / `amemv` 这些 CDN 与 API **既发内容也发广告**，
+为什么当初想做路径级：字节的 `pstatp` / `byteimg` / `snssdk` / `amemv` 这些 CDN 与 API **既发内容也发广告**，
 域名级一刀切会连内容一起拦 —— 2026-10-08 那次红果/番茄"网络异常"就是裸父域 `qznovelvod.com` /
-`byteimg.com` 连内容视频一起断了。路径级是这类域名的唯一正解。
+`byteimg.com` 连内容视频一起断了。理论上路径级能解，但 **2026-10-10 的实测证明：pinning 让这条路走不通**（见上）。
 
 ---
 
