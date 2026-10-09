@@ -1,4 +1,4 @@
-# updated: 2026-10-07 16:30 +0800
+# updated: 2026-10-09 21:41 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 # ── 手工区（标记之上手改；标记之下由脚本管理）──
 DOMAIN-SUFFIX,megarobo.com,DIRECT
@@ -15,6 +15,15 @@ DOMAIN-SUFFIX,bytegecko.com,DIRECT
 DOMAIN-SUFFIX,qrstuvwxyzab.com,DIRECT
 DOMAIN-SUFFIX,douyinstatic.com,DIRECT
 DOMAIN-SUFFIX,ndcpp.com,DIRECT
+DOMAIN-SUFFIX,mmstat.com,DIRECT
+DOMAIN-SUFFIX,umeng.com,DIRECT
+DOMAIN-SUFFIX,umengcloud.com,DIRECT
+DOMAIN-SUFFIX,qchannel03.cn,DIRECT
+DOMAIN-SUFFIX,qchannel01.cn,DIRECT
+DOMAIN-SUFFIX,px.effirst.com,DIRECT
+DOMAIN-SUFFIX,amdc.alipay.com,DIRECT
+DOMAIN-SUFFIX,fourier.taobao.com,DIRECT
+DOMAIN-SUFFIX,log.aliyuncs.com,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
