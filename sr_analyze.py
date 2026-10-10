@@ -97,8 +97,8 @@ DEFAULTS = {
     # ── 联动：配置仓库（shadowrocket-config）。列表里每条动作**必须**与配置里那一行的
     #    集合动作一致 —— 因为小火箭的 `RULE-SET,url,ACTION` 会用 ACTION 覆盖列表内每条动作
     #    （2026-09-30 的重试风暴就是这么来的：列表里写 DROP、配置行写成 REJECT ⇒ 全部变普通 REJECT）。
-    "CONFIG_REPO": "henrysha1989/shadowrocket-config",
-    "CONFIG_FILES": "shadowrocket-白名单.通用版.conf,shadowrocket-白名单.测试版.conf",
+    "CONFIG_REPO": "henrysha1989/shadowrocket-config",   # 2026-10-10 改名：自用版=原测试版、通用版=原稳定版
+    "CONFIG_FILES": "shadowrocket-白名单.自用版.conf,shadowrocket-白名单.通用版.conf,shadowrocket-黑名单.极简版.conf",
     "RAW_PREFIX": "https://git.521989.xyz/https://raw.githubusercontent.com/",
     "REPO_DIRECT_PATH": "direct-custom.list",
     "REPO_PROXY_PATH": "proxy-custom.list",
