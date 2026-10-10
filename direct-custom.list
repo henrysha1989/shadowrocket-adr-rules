@@ -1,4 +1,4 @@
-# updated: 2026-10-10 01:52 +0800
+# updated: 2026-10-10 11:00 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 # ── 手工区（标记之上手改；标记之下由脚本管理）──
 DOMAIN-SUFFIX,megarobo.com,DIRECT
@@ -37,6 +37,7 @@ DOMAIN-SUFFIX,api6-normal-zb.amemv.com,DIRECT
 DOMAIN-SUFFIX,api6-social-m-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,api6-social-m-zjg.amemv.com,DIRECT
 DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
+DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-lq.zijieapi.com,DIRECT
@@ -121,3 +122,4 @@ DOMAIN-SUFFIX,webcast100-ws-c-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,webcast5-core-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,webcast5-normal-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,webcast5-normal-zb.amemv.com,DIRECT
+DOMAIN-SUFFIX,www.qchannel01.cn,DIRECT
