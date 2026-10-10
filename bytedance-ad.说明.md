@@ -131,7 +131,7 @@ MITM 域名与规则互相覆盖，以及**分层归属**：
 
 ## 六、配置里的顺序要求（重要）
 
-白名单·测试版（owner 日常）—— 顺序正确：
+白名单·自用版（owner 日常，2026-10-10 前叫测试版）—— 顺序正确：
 
 ```
 direct-custom(1) → bytedance-ad(2) → Lan/STUN/Apple(3-5) → reject-custom(6)
@@ -155,7 +155,7 @@ BlockHttpDNS(1) → AdvertisingLite_Domain(2) → AdvertisingLite(3) → Privacy
 
 ## 七、本次测试的验收标准（owner 2026-10-09 定）
 
-两条**同时**满足 ⇒ 判定成功 ⇒ **MITM 长期开着**（测试版 `[MITM] enable = true` + 模块保留，不再当实验）。
+两条**同时**满足 ⇒ 判定成功 ⇒ **MITM 长期开着**（自用版 `[MITM] enable = true` + 模块保留，不再当实验）。
 
 | # | 标准 | 怎么看 |
 |---|---|---|
