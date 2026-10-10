@@ -1,4 +1,4 @@
-# updated: 2026-10-10 11:00 +0800
+# updated: 2026-10-10 21:01 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 # ── 手工区（标记之上手改；标记之下由脚本管理）──
 DOMAIN-SUFFIX,megarobo.com,DIRECT
@@ -37,12 +37,12 @@ DOMAIN-SUFFIX,api6-normal-zb.amemv.com,DIRECT
 DOMAIN-SUFFIX,api6-social-m-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,api6-social-m-zjg.amemv.com,DIRECT
 DOMAIN-SUFFIX,aweme.snssdk.com,DIRECT
-DOMAIN-SUFFIX,bird.cn-hangzhou.log.aliyuncs.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hj.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-hl.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bsync3-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,bytelink100-ws-hl.amemv.com,DIRECT
 DOMAIN-SUFFIX,ecomuser.snssdk.com,DIRECT
+DOMAIN-SUFFIX,edge-inference-28149b1ed3921d61.verge-infer-g.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,effect.snssdk.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme-zjg-ipainner.amemv.com,DIRECT
 DOMAIN-SUFFIX,frontier-aweme.snssdk.com,DIRECT
@@ -58,6 +58,7 @@ DOMAIN-SUFFIX,imapi-oth.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,imapi5-oth-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,is-lq.snssdk.com,DIRECT
 DOMAIN-SUFFIX,is.snssdk.com,DIRECT
+DOMAIN-SUFFIX,keyhub.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,klink5-lf.amemv.com,DIRECT
 DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com,DIRECT
 DOMAIN-SUFFIX,lf-leads-fe-scm.bytecdn.com,DIRECT
