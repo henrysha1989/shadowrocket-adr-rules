@@ -27,6 +27,28 @@ https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrock
 https://git.521989.xyz/https://raw.githubusercontent.com/henrysha1989/shadowrocket-adr-rules/main/proxy-custom.list
 ```
 
+## Clash / mihomo 侧（`clash-ios` 分支，分开管理）
+
+iOS 的 **Clash** 客户端（Hako-mihomo 内核）读 `clash-ios` 分支下的 `mihomo/`。它与 main
+**分开管理、不合并回 main**：
+
+| 文件 | 条数 | 来源（main） |
+|---|---|---|
+| `mihomo/bytedance-ad.list` | 261 | `bytedance-ad.list` |
+| `mihomo/soul-ad.list` | 17 | `soul-ad.list` |
+| `mihomo/reject-custom.list` | 10 | `reject-custom.list` |
+
+派生格式 = **去掉第 3 列策略、丢掉注释行**，类型与值逐字不动（mihomo 的 rule-provider 文本
+不接受第 3 列策略；动作改由 Clash 配置的 `RULE-SET,…` 行决定）。所以 **main 上这几张表仍是
+唯一事实来源，规则改动请在 main 上做**。
+
+**自动同步**：main 上 `bytedance-ad.list` / `soul-ad.list` / `reject-custom.list` 任一被 push
+→ GitHub Action [`sync-clash-ios.yml`](https://github.com/henrysha1989/shadowrocket-adr-rules/actions/workflows/sync-clash-ios.yml)
+会从 `clash-ios` 分支取 `mihomo/sync.mjs` 执行同步；也可在 Actions 页手动 Run workflow。
+护栏：任一表转换后为空、或条数比线上腰斩以上，会中止并保留线上旧版。
+
+细节（为什么用 classical text 而不是 MRS、怎么引用）见该分支的 `mihomo/README.md`。
+
 ## 模块专区（路径级去广告）
 
 > 字节系这套「域名级 + 路径级」怎么分工、依据是什么、怎么维护：见 [`bytedance-ad.说明.md`](bytedance-ad.说明.md)。
