@@ -3,6 +3,9 @@ name: sync clash-ios rule sets
 # main 上的三张自建拦截表一变，就把它们转成 mihomo classical 文本，同步到 clash-ios 分支。
 # 同步脚本本身放在 clash-ios 分支的 mihomo/sync.mjs —— 与数据同处；main 这边只留这个 workflow。
 # 两个分支分开管理，clash-ios 不合并回 main。
+#
+# 每日巡检：schedule 跑 --check，发现分支落后（或同步本身出错）就自动开/续 issue 通知；
+# 恢复后自动把那个 issue 收掉，不堆积、不刷屏。
 
 on:
   push:
@@ -11,10 +14,19 @@ on:
       - bytedance-ad.list
       - soul-ad.list
       - reject-custom.list
+  schedule:
+    - cron: '17 3 * * *'      # 每天 03:17 UTC = 北京时间 11:17
   workflow_dispatch:
+    inputs:
+      mode:
+        description: sync = 转换并推送；check = 只巡检（想看一次告警链路就选 check）
+        type: choice
+        options: [sync, check]
+        default: sync
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: sync-clash-ios
@@ -22,6 +34,7 @@ concurrency:
 
 jobs:
   sync:
+    if: github.event_name != 'schedule' && inputs.mode != 'check'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,3 +50,64 @@ jobs:
         env:
           REPO_TOKEN: ${{ github.token }}
         run: node "$RUNNER_TEMP/sync/sync.mjs"
+
+      - name: 恢复后收起旧 issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          num=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search 'in:title "clash-ios 同步失败"' --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            gh issue close "$num" --repo "$GITHUB_REPOSITORY" \
+              --comment "已恢复。本次运行：$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi
+
+      - name: 失败时开/续 issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          body=$(printf '事件：%s\n运行号：%s\n\n先看日志：%s\n' \
+            "$GITHUB_EVENT_NAME" "$GITHUB_RUN_ID" \
+            "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
+          num=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search 'in:title "clash-ios 同步失败"' --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --repo "$GITHUB_REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "clash-ios 同步失败" --body "$body"
+          fi
+
+  watch:
+    if: github.event_name == 'schedule' || inputs.mode == 'check'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 取同步脚本（在 clash-ios 分支上）
+        run: |
+          git fetch --depth=1 origin clash-ios
+          mkdir -p "$RUNNER_TEMP/sync"
+          git show origin/clash-ios:mihomo/sync.mjs > "$RUNNER_TEMP/sync/sync.mjs"
+
+      - name: 巡检（落后即失败）
+        env:
+          REPO_TOKEN: ${{ github.token }}
+        run: node "$RUNNER_TEMP/sync/sync.mjs" --check
+
+      - name: 失败时开/续 issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          body=$(printf '事件：%s（每日巡检）\n运行号：%s\n\n先看日志：%s\n' \
+            "$GITHUB_EVENT_NAME" "$GITHUB_RUN_ID" \
+            "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
+          num=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search 'in:title "clash-ios 同步失败"' --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --repo "$GITHUB_REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "clash-ios 同步失败" --body "$body"
+          fi
