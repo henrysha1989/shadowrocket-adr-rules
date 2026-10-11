@@ -109,8 +109,9 @@ for (const r of rows) {
 }
 
 if (checkOnly) {
+  // 退出码给 CI 判定用：0=已同步，2=落后（workflow 里当失败处理，好触发告警）
   console.log(drift ? `\n落后：${changed.length} 个文件需要同步` : '\n已同步，无差异');
-  process.exit(0);
+  process.exit(drift ? 2 : 0);
 }
 if (!drift) {
   console.log('\n无变化，不提交');

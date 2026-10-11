@@ -31,12 +31,15 @@ IP-CIDR,x,REJECT-DROP,no-resolve   →  IP-CIDR,x,no-resolve
 - **Action 只做两件事**：从本分支取 `mihomo/sync.mjs`，然后执行它。同步逻辑与数据放在同一个
   分支里，main 那边只有一个 workflow 文件。
 - 也可手动跑：Actions → `sync clash-ios rule sets` → Run workflow。
+- **每日巡检**：每天 11:17（北京）`schedule` 跑一次 `--check`。发现分支落后就让这次运行失败，
+  并自动开一个标题为 `clash-ios 同步失败` 的 issue 通知；同步恢复正常后自动把该 issue 收掉
+  （同一问题只续评论，不刷屏）。想手动验一遍告警链路：Run workflow 时把 `mode` 选 `check`。
 
 `sync.mjs` 用法：
 
 ```sh
 node mihomo/sync.mjs           # 转换 + 推送（有变化才提交，三个文件合成一次提交）
-node mihomo/sync.mjs --check   # 只报告是否落后
+node mihomo/sync.mjs --check   # 只报告是否落后（退出码 0=一致，2=落后，给 CI 判定用）
 node mihomo/sync.mjs --dry     # 转换比对，但不推
 ```
 
