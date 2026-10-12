@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 把 main 分支的三张 Shadowrocket 规则表转成 mihomo classical 文本，同步到 clash-ios 分支。
+// 把 main 分支的四张 Shadowrocket 规则表转成 mihomo classical 文本，同步到 clash-ios 分支。
 //
 //   node mihomo/sync.mjs           # 转换 + 推送（有变化才提交，三张表合成一次提交）
 //   node mihomo/sync.mjs --check   # 只报告是否落后，不写不改
@@ -17,7 +17,7 @@ const REPO = 'shadowrocket-adr-rules';
 const SRC_BRANCH = 'main';
 const DST_BRANCH = 'clash-ios';
 const DIR = 'mihomo';
-const FILES = ['bytedance-ad.list', 'soul-ad.list', 'reject-custom.list'];
+const FILES = ['bytedance-ad.list', 'soul-ad.list', 'reject-custom.list', 'direct-custom.list'];
 
 const checkOnly = process.argv.includes('--check');
 const dryRun = process.argv.includes('--dry');
