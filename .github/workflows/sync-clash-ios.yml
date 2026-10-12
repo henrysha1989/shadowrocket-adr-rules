@@ -1,6 +1,6 @@
 name: sync clash-ios rule sets
 
-# main 上的三张自建拦截表一变，就把它们转成 mihomo classical 文本，同步到 clash-ios 分支。
+# main 上的四张自建表（三张拦截 + 一张直连）一变，就把它们转成 mihomo classical 文本，同步到 clash-ios 分支。
 # 同步脚本本身放在 clash-ios 分支的 mihomo/sync.mjs —— 与数据同处；main 这边只留这个 workflow。
 # 两个分支分开管理，clash-ios 不合并回 main。
 #
@@ -14,6 +14,7 @@ on:
       - bytedance-ad.list
       - soul-ad.list
       - reject-custom.list
+      - direct-custom.list
   schedule:
     - cron: '17 3 * * *'      # 每天 03:17 UTC = 北京时间 11:17
   workflow_dispatch:
