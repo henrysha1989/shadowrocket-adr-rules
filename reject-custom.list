@@ -7,6 +7,8 @@ DOMAIN,janapi.jd.com,REJECT-DROP
 IP-CIDR,223.109.219.14/32,REJECT-DROP,no-resolve
 DOMAIN,mllog.jd.com,REJECT-DROP
 DOMAIN,ccc-x.jd.com,REJECT-DROP
+DOMAIN,mi.gdt.qq.com,REJECT-DROP
+DOMAIN,sdk.e.qq.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,ads-i10.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,ads-i8.xhscdn.com,REJECT-DROP
