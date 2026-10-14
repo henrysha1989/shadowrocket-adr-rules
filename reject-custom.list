@@ -9,6 +9,12 @@ DOMAIN,mllog.jd.com,REJECT-DROP
 DOMAIN,ccc-x.jd.com,REJECT-DROP
 DOMAIN,mi.gdt.qq.com,REJECT-DROP
 DOMAIN,sdk.e.qq.com,REJECT-DROP
+# 2026-10-15 探探 / 高德地图抓包：阿里妈妈 Tanx · 秒针 · 优酷广告 ATM · AppsFlyer 归因 · 高德广告素材
+DOMAIN-SUFFIX,tanx.com,REJECT-DROP
+DOMAIN-SUFFIX,miaozhen.com,REJECT-DROP
+DOMAIN-SUFFIX,atm.youku.com,REJECT-DROP
+DOMAIN-SUFFIX,appsflyersdk.com,REJECT-DROP
+DOMAIN,optimus-ads.amap.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,ads-i10.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,ads-i8.xhscdn.com,REJECT-DROP
