@@ -1,4 +1,4 @@
-# updated: 2026-10-10 21:01 +0800
+# updated: 2026-10-15 01:00 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 # ── 手工区（标记之上手改；标记之下由脚本管理）──
 DOMAIN-SUFFIX,megarobo.com,DIRECT
@@ -96,7 +96,6 @@ DOMAIN-SUFFIX,p96-sign.douyinpic.com,DIRECT
 DOMAIN-SUFFIX,pitaya.bytedance.com,DIRECT
 DOMAIN-SUFFIX,polaris3-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-lf.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,polaris5-normal-lq.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,polaris5-normal-zb.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,reading.snssdk.com,DIRECT
 DOMAIN-SUFFIX,render.ecombdpage.com,DIRECT
