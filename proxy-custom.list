@@ -1,4 +1,4 @@
-# updated: 2026-10-10 21:01 +0800
+# updated: 2026-10-14 23:30 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,abs.twimg.com,PROXY
@@ -15,6 +15,7 @@ DOMAIN-SUFFIX,graph.facebook.com,PROXY
 DOMAIN-SUFFIX,i.scdn.co,PROXY
 DOMAIN-SUFFIX,i.ytimg.com,PROXY
 DOMAIN-SUFFIX,imasdk.googleapis.com,PROXY
+DOMAIN-SUFFIX,jnn-pa.googleapis.com,PROXY
 DOMAIN-SUFFIX,notifications-pa.googleapis.com,PROXY
 DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com,PROXY
 DOMAIN-SUFFIX,pbs.twimg.com,PROXY
@@ -27,6 +28,8 @@ DOMAIN-SUFFIX,rr1---sn-ajun55-5b.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr1---sn-i3co-i3ber.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr1---sn-i3co-i3bez.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr1---sn-ipoxu-un5e7.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr1---sn-oguesndz.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr1---sn-oguesnks.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr1---sn-ojun55-5i.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr1---sn-un57enel.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-a5m7lnlr.googlevideo.com,PROXY
@@ -39,6 +42,7 @@ DOMAIN-SUFFIX,rr2---sn-n4v7snse.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-o097znzk.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-ogul7n76.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-ojn4v5-55.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr2---sn-ojn4v5-5q.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-ojun55-54.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-ojun55-5i.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr2---sn-un57enel.googlevideo.com,PROXY
@@ -50,7 +54,9 @@ DOMAIN-SUFFIX,rr3---sn-o097znzk.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr3---sn-ojun55-5i.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr3---sn-un57enel.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr3---sn-un57sn7y.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-2on4v5-59.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr4---sn-2on4v5-5a.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr4---sn-ajogu5-co.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr4---sn-i3co-i3bed.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr4---sn-i3co-i3bez.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr4---sn-oguelnl7.googlevideo.com,PROXY
@@ -60,6 +66,7 @@ DOMAIN-SUFFIX,rr5---sn-a5mekndd.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr5---sn-ajun55-5p.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr5---sn-i3co-i3bel.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr5---sn-n4v7snls.googlevideo.com,PROXY
+DOMAIN-SUFFIX,rr5---sn-oguesndz.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr5---sn-qja5m5-5v.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr5---sn-un57enel.googlevideo.com,PROXY
 DOMAIN-SUFFIX,rr6---sn-i3co-i3bee.googlevideo.com,PROXY
