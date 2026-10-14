@@ -5,6 +5,8 @@ DOMAIN,janapi.jd.com
 IP-CIDR,223.109.219.14/32,no-resolve
 DOMAIN,mllog.jd.com
 DOMAIN,ccc-x.jd.com
+DOMAIN-SUFFIX,ads-i10.xhscdn.com
+DOMAIN-SUFFIX,ads-i8.xhscdn.com
 DOMAIN-SUFFIX,ads-img-al.xhscdn.com
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com
 DOMAIN-SUFFIX,report.tantanapp.com
