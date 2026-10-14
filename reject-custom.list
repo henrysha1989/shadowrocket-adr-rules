@@ -1,4 +1,4 @@
-# updated: 2026-10-14 23:30 +0800
+# updated: 2026-10-15 00:30 +0800
 # 条目来源与维护口径 → shadowrocket-config/配置说明.md「自建清单」一节
 DOMAIN-KEYWORD,doubleclick,REJECT-DROP
 DOMAIN-KEYWORD,googlesyndication,REJECT-DROP
@@ -8,6 +8,8 @@ IP-CIDR,223.109.219.14/32,REJECT-DROP,no-resolve
 DOMAIN,mllog.jd.com,REJECT-DROP
 DOMAIN,ccc-x.jd.com,REJECT-DROP
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
+DOMAIN-SUFFIX,ads-i10.xhscdn.com,REJECT-DROP
+DOMAIN-SUFFIX,ads-i8.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,ads-img-al.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT-DROP
 DOMAIN-SUFFIX,report.tantanapp.com,REJECT-DROP
