@@ -18,6 +18,8 @@ DOMAIN,optimus-ads.amap.com,REJECT-DROP
 # 2026-10-15 qchannel01.cn（第三方渠道统计 + 位置上报 SDK，Soul/高德都集成）：拦，由本表管——
 # 原自用版 L22 内联规则删除、原 direct-custom 自动区幽灵条目删除，脚本护栏从此认得它。
 DOMAIN-SUFFIX,qchannel01.cn,REJECT-DROP
+# 同族补漏（2026-10-15 实况核查发现）：Clash 侧 lite/full 都没覆盖它（小火箭侧 AdvertisingLite_Domain 有）⇒ 本表兜底。
+DOMAIN-SUFFIX,qchannel03.cn,REJECT-DROP
 # 2026-10-15 B 组（App 自有广告面，owner 点名；都用 DOMAIN 精确匹配把误伤面收到最小）：
 #   高德开屏广告下发口（第 0 秒那条 /ws/aos/alimama/splash_screen_rt 全在这里）+ 探探广告回执接口。
 DOMAIN,amap-aos-info-nogw.amap.com,REJECT-DROP
