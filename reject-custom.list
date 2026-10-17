@@ -34,3 +34,11 @@ DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT-DROP
 DOMAIN-SUFFIX,awaken.amap.com,REJECT-DROP
 DOMAIN-SUFFIX,io-sm-log.tantanapp.com,REJECT-DROP
 DOMAIN-SUFFIX,ssp.maplehaze.cn,REJECT-DROP
+DOMAIN-SUFFIX,clickdsp.meituan.com,REJECT-DROP
+DOMAIN-SUFFIX,zztfly.com,REJECT-DROP
+DOMAIN-SUFFIX,adip-api.immomo.com,REJECT-DROP
+DOMAIN-SUFFIX,sdkconfig.ad.xiaomi.com,REJECT-DROP
+DOMAIN-SUFFIX,img-ys011.didistatic.com,REJECT-DROP
+DOMAIN-SUFFIX,ad.report.jihuoniao.com,REJECT-DROP
+DOMAIN-SUFFIX,rdt.tfogc.com,REJECT-DROP
+DOMAIN-SUFFIX,adkwai.com,REJECT-DROP
