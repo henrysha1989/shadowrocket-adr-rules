@@ -32,6 +32,10 @@ DOMAIN-SUFFIX,config2.cmpassport.com,DIRECT
 DOMAIN-SUFFIX,api.share.mob.com,DIRECT
 DOMAIN-SUFFIX,snowflake.qq.com,DIRECT
 DOMAIN-SUFFIX,guid.tpns.tencent.com,DIRECT
+# 2026-10-17 极光推送放行：大盘表拦 stats.jpush.cn 等端点会触发 SDK 重试风暴
+#   实测 76 秒内被拦 908 次（≈12 次/秒），持续耗电。属推送通道，不是广告。
+DOMAIN-SUFFIX,jpush.cn,DIRECT
+DOMAIN-SUFFIX,jpush.io,DIRECT
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
