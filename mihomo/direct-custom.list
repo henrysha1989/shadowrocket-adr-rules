@@ -16,6 +16,17 @@ DOMAIN-SUFFIX,mmstat.com
 DOMAIN-SUFFIX,umeng.com
 DOMAIN-SUFFIX,umengcloud.com
 DOMAIN-SUFFIX,fourier.taobao.com
+DOMAIN-SUFFIX,mapi.m.jd.com
+DOMAIN-SUFFIX,dns.jd.com
+DOMAIN-SUFFIX,img2.360buyimg.com
+DOMAIN-SUFFIX,cdn.ynuf.aliapp.org
+DOMAIN-SUFFIX,httpdns.meituan.com
+DOMAIN-SUFFIX,config.cmpassport.com
+DOMAIN-SUFFIX,config1.cmpassport.com
+DOMAIN-SUFFIX,config2.cmpassport.com
+DOMAIN-SUFFIX,api.share.mob.com
+DOMAIN-SUFFIX,snowflake.qq.com
+DOMAIN-SUFFIX,guid.tpns.tencent.com
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com
 DOMAIN-SUFFIX,amdc.m.taobao.com
