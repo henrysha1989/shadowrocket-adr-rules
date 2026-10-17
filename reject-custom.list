@@ -31,3 +31,6 @@ DOMAIN-SUFFIX,ads-img-al.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,paas-push-api-log.immomo.com,REJECT-DROP
 DOMAIN-SUFFIX,report.tantanapp.com,REJECT-DROP
 DOMAIN-SUFFIX,wetelemetry.weixin.qq.com,REJECT-DROP
+DOMAIN-SUFFIX,awaken.amap.com,REJECT-DROP
+DOMAIN-SUFFIX,io-sm-log.tantanapp.com,REJECT-DROP
+DOMAIN-SUFFIX,ssp.maplehaze.cn,REJECT-DROP
