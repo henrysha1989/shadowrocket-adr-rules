@@ -40,6 +40,10 @@ DOMAIN-SUFFIX,jpush.io,DIRECT
 # 不写会漏到最后的 MATCH 走代理（实测 16:03 一条 5223 推送被送到美国节点）
 DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
 DOMAIN-SUFFIX,ls-apple.com.akadns.net,DIRECT
+# 2026-10-19 实测放行：番茄正文/视频 CDN，被 lite 表拦 987 次、95% 1 秒内重试，拦它只换来重试与内存压力
+DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
