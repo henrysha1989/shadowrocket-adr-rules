@@ -44,6 +44,22 @@ DOMAIN-SUFFIX,ls-apple.com.akadns.net,DIRECT
 DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,DIRECT
 
+# 2026-10-20 规则挖掘（8 份日志/21.8 万连接）：这些是「只我们拦、bmk 不拦」的高频纯遥测/上报域。
+#   放行目的：拦它们不影响广告展示，只制造 1 秒内重试（内存/耗电）。广告域（ads3/ads5-normal 等）不在此列。
+DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,DIRECT
+DOMAIN,rtlog3-applog-hl.amemv.com,DIRECT
+DOMAIN,rtlog5-applog-hl.amemv.com,DIRECT
+DOMAIN,log5-applog-lf.fqnovel.com,DIRECT
+DOMAIN,log3-applog-lf.fqnovel.com,DIRECT
+DOMAIN,mon0-misc-lf.amemv.com,DIRECT
+DOMAIN,mars.jd.com,DIRECT
+DOMAIN,uranus.jd.com,DIRECT
+DOMAIN,abtest3-misc-lq.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,sc-report.tantanapp.com,DIRECT
+DOMAIN,stat6.y.qq.com,DIRECT
+DOMAIN-SUFFIX,data-collector.soulapp.cn,DIRECT
+DOMAIN,live-player-log-service.bytedance.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
