@@ -24,6 +24,11 @@ DOMAIN-SUFFIX,qchannel03.cn,REJECT-DROP
 #   高德开屏广告下发口（第 0 秒那条 /ws/aos/alimama/splash_screen_rt 全在这里）+ 探探广告回执接口。
 DOMAIN,amap-aos-info-nogw.amap.com,REJECT-DROP
 DOMAIN,ad-screen-api.immomo.com,REJECT-DROP
+# 2026-10-21 华为运动与健康 GRS 区域探测：.eu/.ru 解析不到还并发重试（实测 1 分钟 418 次 DNS 失败、
+# 整波 2,119 条连接把内存顶到 quota full）。域名规则在解析前命中 ⇒ 省掉失败查询、失败更快。
+DOMAIN-SUFFIX,dbankcloud.eu,REJECT-DROP
+DOMAIN-SUFFIX,dbankcloud.ru,REJECT-DROP
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,ads-i10.xhscdn.com,REJECT-DROP
 DOMAIN-SUFFIX,ads-i8.xhscdn.com,REJECT-DROP
