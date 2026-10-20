@@ -60,6 +60,10 @@ DOMAIN,stat6.y.qq.com,DIRECT
 DOMAIN-SUFFIX,data-collector.soulapp.cn,DIRECT
 DOMAIN,live-player-log-service.bytedance.com,DIRECT
 
+# 2026-10-21 风控/设备指纹 SDK 放行（拦了可能引起登录/验证异常；实测 lite 表在拦）
+DOMAIN-SUFFIX,timon.zijieapi.com,DIRECT
+DOMAIN-SUFFIX,fp-it.fengkongcloud.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
