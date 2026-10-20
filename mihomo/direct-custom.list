@@ -46,6 +46,8 @@ DOMAIN-SUFFIX,sc-report.tantanapp.com
 DOMAIN,stat6.y.qq.com
 DOMAIN-SUFFIX,data-collector.soulapp.cn
 DOMAIN,live-player-log-service.bytedance.com
+DOMAIN-SUFFIX,timon.zijieapi.com
+DOMAIN-SUFFIX,fp-it.fengkongcloud.com
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com
 DOMAIN-SUFFIX,amdc.m.taobao.com
