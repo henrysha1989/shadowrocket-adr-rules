@@ -64,6 +64,11 @@ DOMAIN,live-player-log-service.bytedance.com,DIRECT
 DOMAIN-SUFFIX,timon.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,fp-it.fengkongcloud.com,DIRECT
 
+# 2026-10-21 抖音直播商品（小黄车）打不开/提示无网络：ByteDanceAd 表把 ecombdapi 的电商 API 全拦了
+#   （实测近 12h 里 ecset5-core-m-hj / ecom5-normal-zb / ecom-normal-m / ec3-core-lf … 合计 1,000+ 次 REJECT）。
+#   电商接口属功能域，整域放行；广告/埋点仍在其它表里拦。
+DOMAIN-SUFFIX,ecombdapi.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
