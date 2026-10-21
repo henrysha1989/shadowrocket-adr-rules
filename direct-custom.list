@@ -69,6 +69,9 @@ DOMAIN-SUFFIX,fp-it.fengkongcloud.com,DIRECT
 #   电商接口属功能域，整域放行；广告/埋点仍在其它表里拦。
 DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 
+# 2026-10-21 Firebase 崩溃上报：lite 表在拦（7.6h 实测 248 次），拦了不影响广告、只制造重试还丢崩溃数据。
+DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
