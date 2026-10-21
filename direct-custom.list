@@ -72,6 +72,11 @@ DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 # 2026-10-21 Firebase 崩溃上报：lite 表在拦（7.6h 实测 248 次），拦了不影响广告、只制造重试还丢崩溃数据。
 DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,DIRECT
 
+# 2026-10-22 陌陌「网络异常」：两端的第三方大表都收了 api.immomo.com（Clash 走 217heidai lite、
+#   小火箭走 bmk Advertising），主 API 被 REJECT，靠 IPv6 字面量绕过的老办法失效。
+#   功能优先，整域放行；陌陌的广告域（ad-screen-api / adip-api / app-log / live-log）仍拦。
+DOMAIN-SUFFIX,api.immomo.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
