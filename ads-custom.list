@@ -248,3 +248,13 @@ DOMAIN-SUFFIX,d9b8544665e708943fb2f3900970872c.jddebug.com
 DOMAIN-SUFFIX,aa9a983dbfd04b884e5898135bc2e78b.jddebug.com
 DOMAIN-SUFFIX,a2c99e0b55d6ab6cb855b5b449110ef4.jddebug.com
 DOMAIN-SUFFIX,nsclick.baidu.com
+
+# 2026-11-04 漏网审计补入（源：clash-logs-2026-11-04-1846.log，见 ops/clash/漏网-20261104.md）
+# yingt.fun 86 次（穿山甲/番茄广告落地，9-21 已判定）；tianwenca.com 28 次（穿山甲数据域）
+# tdum.alibaba.com / ogads-pa.googleapis.com：表内原有 hashed 子域，收成父域（今日各 1 次）
+# jddebug.com：表内原有 12 条 hashed 子域，收成父域
+DOMAIN-SUFFIX,yingt.fun
+DOMAIN-SUFFIX,tianwenca.com
+DOMAIN-SUFFIX,tdum.alibaba.com
+DOMAIN-SUFFIX,ogads-pa.googleapis.com
+DOMAIN-SUFFIX,jddebug.com
