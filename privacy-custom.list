@@ -43,3 +43,8 @@ DOMAIN-SUFFIX,ilivelog.qcloud.com
 DOMAIN-SUFFIX,track2.innoads.cn
 DOMAIN-SUFFIX,prodsgamehub.ecology.smoba.qq.com
 DOMAIN-SUFFIX,log.zijieapi.com.queniusz.com
+
+# 2026-11-04 漏网审计补入（源：clash-logs-2026-11-04-1846.log，见 ops/clash/漏网-20261104.md）
+# adjust.com 6 次（归因 SDK，此前无规则命中 → 掉到 MATCH 走代理）；ingest.us.sentry.io 5 次（崩溃上报）
+DOMAIN-SUFFIX,adjust.com
+DOMAIN-SUFFIX,ingest.us.sentry.io
