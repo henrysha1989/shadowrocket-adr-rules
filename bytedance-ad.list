@@ -219,7 +219,8 @@ DOMAIN-KEYWORD,-misc-lf,REJECT-DROP
 DOMAIN-KEYWORD,-misc-lq,REJECT-DROP
 DOMAIN-KEYWORD,-applog,REJECT-DROP
 DOMAIN-KEYWORD,live-player-log,REJECT-DROP
-DOMAIN-KEYWORD,-reading-sign,REJECT-DROP
+# 2026-11-07 移除 -reading-sign：它是内容签名（p3/p9-reading-sign.fqnovelpic.com），
+# 会按关键字误伤番茄/红果内容 CDN；广告签名由 -ad-sign / reading-ad 覆盖。
 DOMAIN,i.snssdk.com,REJECT-DROP
 DOMAIN-SUFFIX,ad.fqnovel.com,REJECT-DROP
 DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT-DROP
