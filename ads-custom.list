@@ -258,3 +258,9 @@ DOMAIN-SUFFIX,tianwenca.com
 DOMAIN-SUFFIX,tdum.alibaba.com
 DOMAIN-SUFFIX,ogads-pa.googleapis.com
 DOMAIN-SUFFIX,jddebug.com
+# 2026-11-21 Clash 日志审计补入（源：clash-logs-2026-11-21-2103.log，见 ops/clash/广告拦截审计-20261121.md）
+# stats.litemob.net 2 次（Litemob 广告 SDK 统计域）；tencent-ssp.66mobi.com 2 次（移动广告 SSP）；
+# ad.adsrvr.org 1 次（The Trade Desk 程序化广告，此前直连表外走代理）
+DOMAIN-SUFFIX,litemob.net
+DOMAIN-SUFFIX,tencent-ssp.66mobi.com
+DOMAIN-SUFFIX,adsrvr.org
