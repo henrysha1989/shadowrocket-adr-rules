@@ -34,7 +34,7 @@ iOS 的 **Clash** 客户端（Hako-mihomo 内核）读 `clash-ios` 分支下的 
 
 | 文件 | 条数 | 来源（main） |
 |---|---|---|
-| `mihomo/bytedance-ad.list` | 261 | `bytedance-ad.list` |
+| `mihomo/bytedance-ad.list` | 265 | `bytedance-ad.list` |
 | `mihomo/soul-ad.list` | 17 | `soul-ad.list` |
 | `mihomo/reject-custom.list` | 10 | `reject-custom.list` |
 
