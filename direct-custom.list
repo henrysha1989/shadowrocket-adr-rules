@@ -77,6 +77,14 @@ DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,DIRECT
 #   功能优先，整域放行；陌陌的广告域（ad-screen-api / adip-api / app-log / live-log）仍拦。
 DOMAIN-SUFFIX,api.immomo.com,DIRECT
 
+# 2026-11-21 Clash 日志审计放行（10-17 那批「大盘表误拦功能域」的同类）
+# access1.tpns.tencent.com：腾讯 TPNS 推送接入端点（同族 mstat 才是统计上报，继续拦）
+# appcfg.v.qq.com：腾讯视频客户端配置下发
+# flightstatus.umetrip.com：航旅纵横「航班动态」业务接口（不是埋点；同时从 privacy-custom 删掉旧行）
+DOMAIN-SUFFIX,access1.tpns.tencent.com,DIRECT
+DOMAIN-SUFFIX,appcfg.v.qq.com,DIRECT
+DOMAIN-SUFFIX,flightstatus.umetrip.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
