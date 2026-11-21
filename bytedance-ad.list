@@ -264,6 +264,9 @@ DOMAIN-SUFFIX,log-klink.zijieapi.com,REJECT-DROP
 # 2026-10-19 从 clash-for-ios-config 的 4b 内联段迁入（抖音埋点，lite 表不含 hl 变体）
 DOMAIN,rtlog5-applog-hl.amemv.com,REJECT-DROP
 
+# 2026-11-21 Clash 日志审计补入：mssdk3-normal-lf.zijieapi.com 12 次（字节埋点，mssdk 族；同族 mssdk.volces 已被拦）
+DOMAIN-SUFFIX,mssdk3-normal-lf.zijieapi.com,REJECT-DROP
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,log5-applog-lf.fqnovel.com,REJECT-DROP
 DOMAIN-SUFFIX,mon0-misc-lf.amemv.com,REJECT-DROP
