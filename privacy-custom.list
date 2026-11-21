@@ -26,7 +26,6 @@ DOMAIN-SUFFIX,reportappgo.189.cn
 DOMAIN-SUFFIX,rtbasia.datahubtrack.com
 DOMAIN-SUFFIX,app-monitor-cn.doki.ren
 DOMAIN-SUFFIX,report.radio.cn
-DOMAIN-SUFFIX,flightstatus.umetrip.com
 DOMAIN-SUFFIX,trackinghub.starbucks.com.cn
 DOMAIN-SUFFIX,aegis-log.soulapp.cn
 DOMAIN-SUFFIX,log22-normal-alisg.tiktokv.com
@@ -48,3 +47,9 @@ DOMAIN-SUFFIX,log.zijieapi.com.queniusz.com
 # adjust.com 6 次（归因 SDK，此前无规则命中 → 掉到 MATCH 走代理）；ingest.us.sentry.io 5 次（崩溃上报）
 DOMAIN-SUFFIX,adjust.com
 DOMAIN-SUFFIX,ingest.us.sentry.io
+# 2026-11-21 Clash 日志审计补入（源：clash-logs-2026-11-21-2103.log，见 ops/clash/广告拦截审计-20261121.md）
+# adjust.io 13 次（Adjust 归因换域名，此前只拦 adjust.com）；oth.bls.mdt.qq.com 6 次（腾讯灯塔埋点，同族已被拦）；
+# cdn.ynuf.aliapp.org 1 次（阿里 umid 设备指纹，同族 ntp.ynuf.aliapp.org 已在 AdsCustom）
+DOMAIN-SUFFIX,adjust.io
+DOMAIN-SUFFIX,oth.bls.mdt.qq.com
+DOMAIN-SUFFIX,cdn.ynuf.aliapp.org
