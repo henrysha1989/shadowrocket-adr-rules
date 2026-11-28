@@ -85,6 +85,9 @@ DOMAIN-SUFFIX,access1.tpns.tencent.com,DIRECT
 DOMAIN-SUFFIX,appcfg.v.qq.com,DIRECT
 DOMAIN-SUFFIX,flightstatus.umetrip.com,DIRECT
 
+# 2026-11-29 放行自家飞牛 App 遥测（event.fnnas.com 被 PrivacyCustom 拦后，10 分钟重试 8,978 次 ≈14 次/秒）
+DOMAIN-SUFFIX,fnnas.com,DIRECT
+
 # ===== 自动收集（以下内容由脚本管理，勿手改）=====
 DOMAIN-SUFFIX,aggr5-normal-s2.amemv.com,DIRECT
 DOMAIN-SUFFIX,aggr6-normal-s2.amemv.com,DIRECT
